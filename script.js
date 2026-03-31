@@ -474,4 +474,26 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- WALL OF JOY TESTIMONIAL MARQUEE ---
+    const testimonialTrack = document.querySelector('#testimonial-track');
+    if (testimonialTrack) {
+        // Create the constant infinite loop for trust
+        const marqueeTween = gsap.to(testimonialTrack, {
+            xPercent: -50, // Move by half
+            duration: 35,  // Relaxed "Trust-Building" speed
+            ease: "none",
+            repeat: -1
+        });
+
+        // Smooth Pause on hover for reading
+        testimonialTrack.addEventListener('mouseenter', () => {
+            gsap.to(marqueeTween, { timeScale: 0, duration: 1.2, ease: "power2.out" });
+        });
+
+        // Smooth Resume on leave
+        testimonialTrack.addEventListener('mouseleave', () => {
+            gsap.to(marqueeTween, { timeScale: 1, duration: 1.2, ease: "power2.in" });
+        });
+    }
 });
