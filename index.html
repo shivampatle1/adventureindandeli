@@ -588,29 +588,40 @@
             </div>
             
             <div class="safety-grid">
+                <!-- Hero 1: Gear Specialist -->
                 <div class="safety-card" data-aos="fade-up">
                     <div class="card-glow"></div>
                     <div class="safety-icon">
                         <img src="assets/bitmoji_safety_gear_1774971958444_1774980323611-removebg-preview.png" alt="Safety Gear Specialist" class="bitmoji-icon">
                     </div>
-                    <h3>INTERNATIONAL STANDARD GEAR</h3>
-                    <p>CE-certified ropes, helmets, and harnesses–checked and certified after every single trip.</p>
+                    <div class="safety-label-strip">
+                        <h3>INTERNATIONAL STANDARD GEAR</h3>
+                        <p>CE-certified ropes, helmets, and harnesses–checked and certified after every single trip.</p>
+                    </div>
                 </div>
+
+                <!-- Hero 2: Rescue Expert -->
                 <div class="safety-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-glow"></div>
                     <div class="safety-icon">
                         <img src="assets/bitmoji_rescue_expert_1774971958444_1774980348526-removebg-preview.png" alt="Rescue Team Expert" class="bitmoji-icon">
                     </div>
-                    <h3>RESCUE READY TEAMS</h3>
-                    <p>Wilderness First Responders (WFR) and certified swift-water rescue guides on standby.</p>
+                    <div class="safety-label-strip">
+                        <h3>RESCUE READY TEAMS</h3>
+                        <p>Wilderness First Responders (WFR) and certified swift-water rescue guides on standby.</p>
+                    </div>
                 </div>
+
+                <!-- Hero 3: Heritage Master -->
                 <div class="safety-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="card-glow"></div>
                     <div class="safety-icon">
                         <img src="assets/bitmoji_master_guide_1774971958444_1774980373884-removebg-preview.png" alt="Heritage Expert Guide" class="bitmoji-icon">
                     </div>
-                    <h3>HERITAGE EXPERTISE</h3>
-                    <p>Over 15 years of deep-jungle experience with the region's most awarded naturalists.</p>
+                    <div class="safety-label-strip">
+                        <h3>HERITAGE EXPERTISE</h3>
+                        <p>Over 15 years of deep-jungle experience with the region's most awarded naturalists.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -619,42 +630,277 @@
     <!-- Dandeli Lodges & Resorts Section -->
     <section id="trust-accommodation" class="trust-accommodation-section">
         <div class="trust-container">
-            <!-- Part 1: Bento Stays -->
-            <div class="stays-header" data-aos="fade-up">
-                <span class="section-badge">STAY CATEGORIES</span>
-                <h2>DANDELI LODGES & RESORTS</h2>
-                <p>From luxury riverfront resorts to cozy jungle lodges—we have a variety of stay categories to fit every budget and group size.</p>
+            <!-- Part 1: Lodge Explorer -->
+            <div class="lodge-explorer-container">
+                <div class="stays-header" data-aos="fade-up" style="margin-bottom: 3rem;">
+                    <span class="section-badge">COLLECTION</span>
+                    <h2 style="font-size: 3.5rem;">PICK YOUR STAY</h2>
+                    <p>Hand-picked stays for every adventurer.</p>
+                </div>
+
+                <div class="lodge-filter-bar" data-aos="fade-up">
+                    <button class="lodge-filter-tab active" onclick="filterLodges(this, 'luxe')">LUXE RESORTS</button>
+                    <button class="lodge-filter-tab" onclick="filterLodges(this, 'jungle')">JUNGLE LODGES</button>
+                    <button class="lodge-filter-tab" onclick="filterLodges(this, 'glamping')">RIVERSIDE TENTS</button>
+                    <button class="lodge-filter-tab" onclick="filterLodges(this, 'value')">VALUE STAYS</button>
+                </div>
+
+                <div class="lodge-grid-display" id="lodge-grid">
+                    <!-- LUXE CATEGORY -->
+                    <div class="lodge-card luxe show" data-aos="fade-up">
+                        <div class="price-badge">From ₹6,500/night</div>
+                        <div class="lodge-img-wrapper">
+                            <img src="assets/luxury_lodge.png" alt="Riverstone Luxury Resort">
+                        </div>
+                        <div class="lodge-content">
+                            <h3>Riverstone Luxury Resort</h3>
+                            <p>Premium riverfront infinity pool and world-class hospitality.</p>
+                            <div class="lodge-amenities">
+                                <span class="lodge-amenity"><i class="fa-solid fa-swimming-pool"></i> Infinity Pool</span>
+                                <span class="lodge-amenity"><i class="fa-solid fa-snowflake"></i> Fully AC</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lodge-card luxe show" data-aos="fade-up" data-aos-delay="100">
+                        <div class="price-badge">From ₹8,200/night</div>
+                        <div class="lodge-img-wrapper">
+                            <img src="assets/luxury_lodge.png" alt="Heritage Rapids Manor">
+                        </div>
+                        <div class="lodge-content">
+                            <h3>Heritage Rapids Manor</h3>
+                            <p>Historic architecture meets modern luxury on the Kali riverbanks.</p>
+                            <div class="lodge-amenities">
+                                <span class="lodge-amenity"><i class="fa-solid fa-spa"></i> Wellness Spa</span>
+                                <span class="lodge-amenity"><i class="fa-solid fa-utensils"></i> Fine Dining</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lodge-card luxe show" data-aos="fade-up" data-aos-delay="200">
+                        <div class="price-badge">From ₹7,000/night</div>
+                        <div class="lodge-img-wrapper">
+                            <img src="assets/luxury_tent.png" alt="Ethereal Fog Resort">
+                        </div>
+                        <div class="lodge-content">
+                            <h3>Ethereal Fog Resort</h3>
+                            <p>Wake up above the clouds in our exclusive hilltop AC suites.</p>
+                            <div class="lodge-amenities">
+                                <span class="lodge-amenity"><i class="fa-solid fa-cloud"></i> Hilltop View</span>
+                                <span class="lodge-amenity"><i class="fa-solid fa-wine-glass"></i> Sky Bar</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- JUNGLE CATEGORY -->
+                    <div class="lodge-card jungle" data-aos="fade-up">
+                        <div class="price-badge">From ₹3,500/night</div>
+                        <div class="lodge-img-wrapper">
+                            <img src="assets/luxury_lodge.png" alt="Whistling Thrush Cabin">
+                        </div>
+                        <div class="lodge-content">
+                            <h3>Whistling Thrush Cabin</h3>
+                            <p>Authentic wooden cabins deep in the forest for nature photographers.</p>
+                            <div class="lodge-amenities">
+                                <span class="lodge-amenity"><i class="fa-solid fa-binoculars"></i> Bird Watching</span>
+                                <span class="lodge-amenity"><i class="fa-solid fa-leaf"></i> Eco-Friendly</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lodge-card jungle" data-aos="fade-up" data-aos-delay="100">
+                        <div class="price-badge">From ₹4,200/night</div>
+                        <div class="lodge-img-wrapper">
+                            <img src="assets/luxury_dining.png" alt="Black Panther Lodge">
+                        </div>
+                        <div class="lodge-content">
+                            <h3>Black Panther Lodge</h3>
+                            <p>Positioned perfectly for early morning jungle safaris and tracking.</p>
+                            <div class="lodge-amenities">
+                                <span class="lodge-amenity"><i class="fa-solid fa-car"></i> Safari Ready</span>
+                                <span class="lodge-amenity"><i class="fa-solid fa-tree"></i> Jungle Trek</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lodge-card jungle" data-aos="fade-up" data-aos-delay="200">
+                        <div class="price-badge">From ₹3,800/night</div>
+                        <div class="lodge-img-wrapper">
+                            <img src="assets/dandeli_camping_gallery_v2_1774961272712.png" alt="Hornbill Nest Stay">
+                        </div>
+                        <div class="lodge-content">
+                            <h3>Hornbill Nest Stay</h3>
+                            <p>Cozy attic-style rooms with direct views of rare forest nesting sites.</p>
+                            <div class="lodge-amenities">
+                                <span class="lodge-amenity"><i class="fa-solid fa-feather"></i> Rare Birds</span>
+                                <span class="lodge-amenity"><i class="fa-solid fa-mug-hot"></i> Organic Coffee</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GLAMPING CATEGORY -->
+                    <div class="lodge-card glamping" data-aos="fade-up">
+                        <div class="price-badge">From ₹4,500/night</div>
+                        <div class="lodge-img-wrapper">
+                            <img src="assets/luxury_tent.png" alt="Jungle Treehouse Retreat">
+                        </div>
+                        <div class="lodge-content">
+                            <h3>Sky-High Treehouse</h3>
+                            <p>Luxury units suspended in giant teak trees. A truly unique escape.</p>
+                            <div class="lodge-amenities">
+                                <span class="lodge-amenity"><i class="fa-solid fa-arrow-up"></i> Treetop Stay</span>
+                                <span class="lodge-amenity"><i class="fa-solid fa-bridge"></i> Rope Bridge</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lodge-card glamping" data-aos="fade-up" data-aos-delay="100">
+                        <div class="price-badge">From ₹3,200/night</div>
+                        <div class="lodge-img-wrapper">
+                            <img src="assets/luxury_tent.png" alt="Kali River Glamping">
+                        </div>
+                        <div class="lodge-content">
+                            <h3>Kali River Glamping</h3>
+                            <p>Premium canvas safari tents with private wooden riverside decks.</p>
+                            <div class="lodge-amenities">
+                                <span class="lodge-amenity"><i class="fa-solid fa-moon"></i> Stargazing</span>
+                                <span class="lodge-amenity"><i class="fa-solid fa-fire"></i> Riverside Fire</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lodge-card glamping" data-aos="fade-up" data-aos-delay="200">
+                        <div class="price-badge">From ₹3,800/night</div>
+                        <div class="lodge-img-wrapper">
+                            <img src="assets/luxury_tent.png" alt="Starry Safari Tents">
+                        </div>
+                        <div class="lodge-content">
+                            <h3>Starry Safari Tents</h3>
+                            <p>Unobstructed sky views with premium ventilation and king-sized beds.</p>
+                            <div class="lodge-amenities">
+                                <span class="lodge-amenity"><i class="fa-solid fa-star"></i> Sky View</span>
+                                <span class="lodge-amenity"><i class="fa-solid fa-shower"></i> Ensuite Bath</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VALUE CATEGORY -->
+                    <div class="lodge-card value" data-aos="fade-up">
+                        <div class="price-badge">From ₹1,800/night</div>
+                        <div class="lodge-img-wrapper">
+                            <img src="assets/dandeli_camping_gallery_v2_1774961272712.png" alt="Bamboo Hollow Cottages">
+                        </div>
+                        <div class="lodge-content">
+                            <h3>Bamboo Hollow Cottages</h3>
+                            <p>Group-friendly cottages with home-cooked Malnad meals included.</p>
+                            <div class="lodge-amenities">
+                                <span class="lodge-amenity"><i class="fa-solid fa-users"></i> Big Groups</span>
+                                <span class="lodge-amenity"><i class="fa-solid fa-bowl-food"></i> Local Meals</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lodge-card value" data-aos="fade-up" data-aos-delay="100">
+                        <div class="price-badge">From ₹1,200/night</div>
+                        <div class="lodge-img-wrapper">
+                            <img src="assets/dandeli_camping_gallery_v2_1774961272712.png" alt="Eco-Budget Forest Hut">
+                        </div>
+                        <div class="lodge-content">
+                            <h3>Eco-Budget Forest Huts</h3>
+                            <p>Simple stone and wood huts for genuine nature lovers and backpackers.</p>
+                            <div class="lodge-amenities">
+                                <span class="lodge-amenity"><i class="fa-solid fa-hiking"></i> Trailhead Access</span>
+                                <span class="lodge-amenity"><i class="fa-solid fa-mug-saucer"></i> Free Chai</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lodge-card value" data-aos="fade-up" data-aos-delay="200">
+                        <div class="price-badge">From ₹2,200/night</div>
+                        <div class="lodge-img-wrapper">
+                            <img src="assets/dandeli_trekking_gallery_v2_1774961250113.png" alt="Backpacker Trail Base">
+                        </div>
+                        <div class="lodge-content">
+                            <h3>Backpacker Trail Base</h3>
+                            <p>Authentic forest cabin located directly at the Kali Valley trailhead.</p>
+                            <div class="lodge-amenities">
+                                <span class="lodge-amenity"><i class="fa-solid fa-mountain"></i> Trailhead</span>
+                                <span class="lodge-amenity"><i class="fa-solid fa-bed"></i> Simple Stays</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                function filterLodges(tabElement, category) {
+                    // Update Tabs by direct reference
+                    document.querySelectorAll('.lodge-filter-tab').forEach(tab => {
+                        tab.classList.remove('active');
+                    });
+                    if(tabElement) tabElement.classList.add('active');
+
+                    // Update Cards
+                    document.querySelectorAll('.lodge-card').forEach(card => {
+                        card.classList.remove('show');
+                        if (card.classList.contains(category)) {
+                            setTimeout(() => {
+                                card.classList.add('show');
+                            }, 50);
+                        }
+                    });
+                }
+                // Initialize first category correctly
+                window.onload = () => {
+                    const firstTab = document.querySelector('.lodge-filter-tab');
+                    if(firstTab) filterLodges(firstTab, 'luxe');
+                };
+            </script>
+        </div>
+    </section>
+
+        <!-- Premium Service Squad Section -->
+        <div class="premium-services-container">
+            <div class="safety-header" data-aos="fade-up">
+                <span class="section-badge">SERVICE EXCELLENCE</span>
+                <h2>WE TAKE CARE OF EVERYTHING</h2>
+                <p>From the moment you land to your final farewell, our dedicated squad manages every single detail.</p>
             </div>
             
-            <div class="stays-bento-grid">
-                <div class="bento-card large-card" data-aos="zoom-in">
-                    <img src="assets/luxury_lodge.png" alt="Luxury Jungle Lodge">
-                    <div class="bento-overlay">
-                        <h3>Luxe Riverfront Resorts</h3>
-                        <p>Panoramic river views, infinity pool, and world-class hospitality.</p>
-                        <div class="amenities-tags">
-                            <span>RIVERSIDE</span> <span>AC SUITES</span> <span>PRIVACY</span>
-                        </div>
+            <div class="safety-grid premium-squad-grid" style="margin-top: 5rem;">
+                <!-- Service Hero 1: Concierge -->
+                <div class="safety-card" data-aos="fade-up">
+                    <div class="card-glow concierge-glow"></div>
+                    <div class="safety-icon">
+                        <img src="assets/bitmoji_concierge_dark_1774971958444_1774980635111_1774981577066-removebg-preview.png" alt="24/7 Personal Concierge" class="bitmoji-icon">
+                    </div>
+                    <div class="safety-label-strip">
+                        <h3>24/7 PERSONAL CONCIERGE</h3>
+                        <p>A dedicated on-ground expert to manage every flight, safari, and resort detail.</p>
                     </div>
                 </div>
-                <div class="bento-card tall-card" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="assets/luxury_tent.png" alt="Starlit Riverside Tent">
-                    <div class="bento-overlay">
-                        <h3>Premium Riverside Glamping</h3>
-                        <p>Sleep under a billion stars with luxury canvas and modern amenities.</p>
-                        <div class="amenities-tags">
-                            <span>SKY VIEW</span> <span>FIREPIT</span>
-                        </div>
+
+                <!-- Service Hero 2: Transfers -->
+                <div class="safety-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-glow transfer-glow"></div>
+                    <div class="safety-icon">
+                        <img src="assets/bitmoji_transfer_dark_1774971958444_1774980645222_1774981691114-removebg-preview.png" alt="Transfer Specialist" class="bitmoji-icon">
+                    </div>
+                    <div class="safety-label-strip">
+                        <h3>END-TO-END TRANSFERS</h3>
+                        <p>Highlighting your seamless logistics with your new 3D Transfer Specialist, focusing on a "Zero-Stress" arrival experience.</p>
                     </div>
                 </div>
-                <div class="bento-card wide-card" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="assets/luxury_dining.png" alt="Premium Resort Dining">
-                    <div class="bento-overlay">
-                        <h3>Forest Lodges & Cottages</h3>
-                        <p>Cozy wooden architecture and deep-jungle immersion at great value.</p>
-                        <div class="amenities-tags">
-                            <span>BUDGET FRIENDLY</span> <span>TRADITIONAL</span>
-                        </div>
+
+                <!-- Service Hero 3: Planner -->
+                <div class="safety-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-glow planner-glow"></div>
+                    <div class="safety-icon">
+                        <img src="assets/bitmoji_planner_dark_1774971958444_1774980655333_1774981725183-removebg-preview.png" alt="Bespoke Planner" class="bitmoji-icon">
+                    </div>
+                    <div class="safety-label-strip">
+                        <h3>TAILOR-MADE MEMORIES</h3>
+                        <p>Showcasing your ability to craft custom itineraries for families, couples, and groups with your new Bespoke Planner.</p>
                     </div>
                 </div>
             </div>

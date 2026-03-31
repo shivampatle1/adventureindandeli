@@ -3,12 +3,14 @@
     --clr-blue-deep: #203a43;
     --clr-blue-mid: #203A43;
     --clr-blue-light: #2C5364;
-    
+
     --clr-green-deep: #0e3b25;
     --clr-green-lush: #1a563b;
     /* Base Colors - Adjusted for Glassmorphism (No Pure Black) */
-    --clr-bg-dark: #0a1115; /* Deep Charcoal */
-    --clr-bg-layer: #0f1c24; /* Layered Navy */
+    --clr-bg-dark: #0a1115;
+    /* Deep Charcoal */
+    --clr-bg-layer: #0f1c24;
+    /* Layered Navy */
     --clr-orange-safety: #6EAF6E;
     --clr-earth-gold: #c3a473;
     --clr-text-main: #f8f9fa;
@@ -16,7 +18,7 @@
     --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.15);
     --glass-blur: blur(20px);
-    
+
     /* Typography */
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -64,13 +66,18 @@ body {
     width: 100%;
     height: 100%;
     background: radial-gradient(circle at 10% 20%, rgba(32, 58, 67, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(110, 175, 110, 0.08) 0%, transparent 40%);
+        radial-gradient(circle at 90% 80%, rgba(110, 175, 110, 0.08) 0%, transparent 40%);
     z-index: -2;
     pointer-events: none;
 }
 
 /* Utilities */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-heading);
     line-height: 1.2;
 }
@@ -260,7 +267,8 @@ ul {
     overflow: hidden;
 }
 
-.hero-bg, .hero-texture {
+.hero-bg,
+.hero-texture {
     position: absolute;
     top: 0;
     left: 0;
@@ -325,8 +333,8 @@ ul {
     letter-spacing: -6px;
     line-height: 0.8;
     display: block;
-    text-shadow: 
-        0 10px 50px rgba(0, 0, 0, 1), 
+    text-shadow:
+        0 10px 50px rgba(0, 0, 0, 1),
         0 20px 100px rgba(0, 0, 0, 0.6);
 }
 
@@ -347,7 +355,7 @@ ul {
     font-size: 1.5rem;
     font-weight: 300;
     margin-bottom: 3rem;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
     color: rgba(255, 255, 255, 0.9);
 }
 
@@ -398,8 +406,15 @@ ul {
 }
 
 @keyframes scroll {
-    0% { top: 6px; opacity: 1; }
-    100% { top: 20px; opacity: 0; }
+    0% {
+        top: 6px;
+        opacity: 1;
+    }
+
+    100% {
+        top: 20px;
+        opacity: 0;
+    }
 }
 
 /* Transition Area Canvas Effect */
@@ -410,7 +425,8 @@ ul {
     justify-content: center;
     align-items: center;
     background-color: var(--clr-bg-dark);
-    margin-top: -2px; /* Prevent gap */
+    margin-top: -2px;
+    /* Prevent gap */
 }
 
 .water-canvas-container {
@@ -444,7 +460,9 @@ ul {
 }
 
 @keyframes shine {
-    to { background-position: 200% center; }
+    to {
+        background-position: 200% center;
+    }
 }
 
 /* Scrollytelling Map Section */
@@ -497,10 +515,12 @@ ul {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 15; /* Above path, below overlay titles */
-    opacity: 0; /* Hidden until animated */
+    z-index: 15;
+    /* Above path, below overlay titles */
+    opacity: 0;
+    /* Hidden until animated */
     transform-origin: center center;
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.6));
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.6));
 }
 
 .map-overlay-title {
@@ -513,10 +533,10 @@ ul {
     background: rgba(9, 18, 22, 0.85);
     padding: 4rem;
     border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .map-overlay-title h2 {
@@ -541,9 +561,22 @@ ul {
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(15px); }
-    60% { transform: translateY(7px); }
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(15px);
+    }
+
+    60% {
+        transform: translateY(7px);
+    }
 }
 
 .scroll-milestones {
@@ -566,14 +599,33 @@ ul {
     pointer-events: auto;
 }
 
-.m-rafting { top: 20%; left: 30%; }
-.m-trekking { top: 45%; left: 45%; }
-.m-camping { top: 70%; left: 60%; }
+.m-rafting {
+    top: 20%;
+    left: 30%;
+}
+
+.m-trekking {
+    top: 45%;
+    left: 45%;
+}
+
+.m-camping {
+    top: 70%;
+    left: 60%;
+}
 
 @media (max-width: 1024px) {
-    .m-rafting { left: 10%; }
-    .m-trekking { left: 20%; }
-    .m-camping { left: 30%; }
+    .m-rafting {
+        left: 10%;
+    }
+
+    .m-trekking {
+        left: 20%;
+    }
+
+    .m-camping {
+        left: 30%;
+    }
 }
 
 .m-point {
@@ -609,9 +661,9 @@ ul {
     width: 320px;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    box-shadow: 
-        0 10px 30px rgba(0,0,0,0.4),
-        inset 0 0 10px rgba(255,255,255,0.05);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.4),
+        inset 0 0 10px rgba(255, 255, 255, 0.05);
 }
 
 .m-card h3 {
@@ -679,7 +731,7 @@ ul {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     transition: transform 0.5s ease;
 }
 
@@ -704,7 +756,7 @@ ul {
     left: 0;
     width: 100%;
     padding: 2.5rem 2rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 70%, transparent 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
     color: #fff;
     transition: all 0.5s ease;
     z-index: 2;
@@ -727,7 +779,7 @@ ul {
 
 .gallery-item:hover .item-info {
     padding-bottom: 3.5rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 80%, transparent 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 80%, transparent 100%);
 }
 
 /* Night Safari Section */
@@ -763,7 +815,7 @@ ul {
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 30px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
 .eye-glow-container {
@@ -796,9 +848,20 @@ ul {
     box-shadow: 0 0 10px #ffdb15, 0 0 20px #ffdb15;
 }
 
-.eye-1 { top: 20%; left: 15%; }
-.eye-2 { top: 60%; left: 80%; }
-.eye-3 { top: 75%; left: 10%; }
+.eye-1 {
+    top: 20%;
+    left: 15%;
+}
+
+.eye-2 {
+    top: 60%;
+    left: 80%;
+}
+
+.eye-3 {
+    top: 75%;
+    left: 10%;
+}
 
 .night-text h2 {
     font-size: 4rem;
@@ -818,7 +881,7 @@ ul {
     position: relative;
     padding: 10rem 4rem;
     background-color: #050a0c;
-    background-image: 
+    background-image:
         radial-gradient(circle at 10% 20%, rgba(230, 126, 34, 0.05) 0%, transparent 40%),
         radial-gradient(circle at 90% 80%, rgba(230, 126, 34, 0.05) 0%, transparent 40%);
     overflow: hidden;
@@ -853,9 +916,9 @@ ul {
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 30px;
     padding: 4rem;
-    box-shadow: 
-        0 40px 80px rgba(0,0,0,0.4),
-        inset 0 0 20px rgba(255,255,255,0.05);
+    box-shadow:
+        0 40px 80px rgba(0, 0, 0, 0.4),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
 .booking-form .form-row {
@@ -1015,7 +1078,7 @@ ul {
     -webkit-backdrop-filter: blur(20px);
     padding: 6rem 4rem 2rem;
     position: relative;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-container {
@@ -1075,7 +1138,7 @@ ul {
     align-items: center;
     width: 40px;
     height: 40px;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 50%;
     color: #fff;
     transition: all 0.3s ease;
@@ -1090,16 +1153,16 @@ ul {
     max-width: 1200px;
     margin: 0 auto;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.5);
     font-size: 0.85rem;
 }
 
 #back-to-top {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     border: none;
     color: #fff;
     width: 40px;
@@ -1115,13 +1178,25 @@ ul {
 
 /* Responsive Overhaul */
 @media (max-width: 1200px) {
-    .title-main { font-size: 6.5rem; letter-spacing: -4px; }
-    .gallery-item { width: 500px; height: 350px; }
+    .title-main {
+        font-size: 6.5rem;
+        letter-spacing: -4px;
+    }
+
+    .gallery-item {
+        width: 500px;
+        height: 350px;
+    }
 }
 
 @media (max-width: 1024px) {
-    .footer-container { grid-template-columns: 1fr 1fr; }
-    .m-card { width: 280px; }
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .m-card {
+        width: 280px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1132,40 +1207,112 @@ ul {
         padding: 0 1rem;
         height: 60px;
     }
-    
-    .nav-links { display: none; }
-    
-    #main-header .logo-container img { height: 30px; }
 
-    .title-main { font-size: 4.5rem; letter-spacing: -3px; line-height: 0.9; }
-    .title-accent { font-size: 1.2rem; letter-spacing: 6px; }
-    .hero-subtitle { font-size: 1.1rem; }
+    .nav-links {
+        display: none;
+    }
 
-    .gallery-container-track { padding: 0 1rem 0 10vw; gap: 2rem; }
-    .gallery-item { width: 85vw; height: 280px; }
-    .gallery-title-sticky { left: 1rem; top: 5%; }
-    .gallery-title-sticky h2 { font-size: 2rem; }
+    #main-header .logo-container img {
+        height: 30px;
+    }
 
-    .night-text h2 { font-size: 2.5rem; }
-    .night-content { padding: 2rem; width: 90%; }
-    
-    .booking-section { padding: 6rem 1.5rem; }
-    .booking-header h2 { font-size: 2.5rem; }
-    .booking-glass-card { padding: 2rem; }
-    .booking-form .form-row { grid-template-columns: 1fr; gap: 1rem; }
+    .title-main {
+        font-size: 4.5rem;
+        letter-spacing: -3px;
+        line-height: 0.9;
+    }
 
-    .safety-section { padding: 6rem 1.5rem; }
-    .badge-card { padding: 2rem 1.5rem; }
-    .safety-badges-container { grid-template-columns: 1fr; }
+    .title-accent {
+        font-size: 1.2rem;
+        letter-spacing: 6px;
+    }
 
-    .footer-container { grid-template-columns: 1fr; gap: 2rem; }
-    .footer-bottom { flex-direction: column; gap: 1.5rem; text-align: center; }
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .gallery-container-track {
+        padding: 0 1rem 0 10vw;
+        gap: 2rem;
+    }
+
+    .gallery-item {
+        width: 85vw;
+        height: 280px;
+    }
+
+    .gallery-title-sticky {
+        left: 1rem;
+        top: 5%;
+    }
+
+    .gallery-title-sticky h2 {
+        font-size: 2rem;
+    }
+
+    .night-text h2 {
+        font-size: 2.5rem;
+    }
+
+    .night-content {
+        padding: 2rem;
+        width: 90%;
+    }
+
+    .booking-section {
+        padding: 6rem 1.5rem;
+    }
+
+    .booking-header h2 {
+        font-size: 2.5rem;
+    }
+
+    .booking-glass-card {
+        padding: 2rem;
+    }
+
+    .booking-form .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .safety-section {
+        padding: 6rem 1.5rem;
+    }
+
+    .badge-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .safety-badges-container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
 }
 
 @media (max-width: 480px) {
-    .title-main { font-size: 3.5rem; }
-    .title-accent { font-size: 1rem; letter-spacing: 4px; }
-    .gallery-item { height: 220px; }
+    .title-main {
+        font-size: 3.5rem;
+    }
+
+    .title-accent {
+        font-size: 1rem;
+        letter-spacing: 4px;
+    }
+
+    .gallery-item {
+        height: 220px;
+    }
 }
 
 /* Immersive River Rafting Section */
@@ -1184,22 +1331,22 @@ ul {
 /* Atmospheric Skins */
 .rafting-section {
     background: radial-gradient(circle at 10% 20%, rgba(32, 58, 67, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(110, 175, 110, 0.08) 0%, transparent 40%);
+        radial-gradient(circle at 90% 80%, rgba(110, 175, 110, 0.08) 0%, transparent 40%);
 }
 
 .safari-section {
     background: radial-gradient(circle at 10% 20%, rgba(20, 40, 20, 0.2) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(107, 142, 35, 0.1) 0%, transparent 40%);
+        radial-gradient(circle at 90% 80%, rgba(107, 142, 35, 0.1) 0%, transparent 40%);
 }
 
 .paragliding-section {
     background: radial-gradient(circle at 10% 20%, rgba(50, 100, 150, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
+        radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
 }
 
 .kayaking-section {
     background: radial-gradient(circle at 10% 20%, rgba(0, 128, 128, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(255, 165, 0, 0.08) 0%, transparent 40%);
+        radial-gradient(circle at 90% 80%, rgba(255, 165, 0, 0.08) 0%, transparent 40%);
 }
 
 .activity-lens-canvas {
@@ -1249,7 +1396,7 @@ ul {
     grid-template-rows: repeat(2, 320px);
     gap: 2rem;
     width: 100%;
-    grid-template-areas: 
+    grid-template-areas:
         "s1 s2 f f"
         "s4 s5 f f"
         "s6 s6 s6 s6";
@@ -1270,21 +1417,45 @@ ul {
     backdrop-filter: blur(20px);
 }
 
-.journey-card.stage-1 { grid-area: s1; }
-.journey-card.stage-2 { grid-area: s2; }
-.journey-card.featured { grid-area: f; padding: 0; }
-.journey-card.stage-4 { grid-area: s4; }
-.journey-card.stage-5 { grid-area: s5; }
-.journey-card.stage-6 { 
-    grid-area: s6; 
-    flex-direction: row; 
-    justify-content: space-between; 
+.journey-card.stage-1 {
+    grid-area: s1;
+}
+
+.journey-card.stage-2 {
+    grid-area: s2;
+}
+
+.journey-card.featured {
+    grid-area: f;
+    padding: 0;
+}
+
+.journey-card.stage-4 {
+    grid-area: s4;
+}
+
+.journey-card.stage-5 {
+    grid-area: s5;
+}
+
+.journey-card.stage-6 {
+    grid-area: s6;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     min-height: 120px;
 }
 
-.journey-card.stage-6 .card-icon { margin-bottom: 0; }
-.journey-card.stage-6 .card-content { margin-bottom: 0; display: flex; align-items: center; gap: 2rem; }
+.journey-card.stage-6 .card-icon {
+    margin-bottom: 0;
+}
+
+.journey-card.stage-6 .card-content {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
 
 .journey-card .card-icon {
     font-size: 3rem;
@@ -1324,12 +1495,124 @@ ul {
     border-radius: 6px;
 }
 
+/* Unified Hero Spotlight Redesign (Safety & Services) */
+.safety-commitment-section .safety-grid,
+.premium-services-container .safety-grid {
+    gap: 6rem;
+    /* More space for auras */
+}
+
+.safety-commitment-section .safety-card,
+.premium-services-container .safety-card {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    overflow: visible;
+}
+
+.safety-section .safety-icon,
+.safety-commitment-section .safety-icon,
+.premium-services-container .safety-icon {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 2rem;
+    z-index: 2;
+}
+
+.safety-commitment-section .bitmoji-icon,
+.premium-services-container .bitmoji-icon {
+    height: 250px;
+    /* Larger focus */
+    width: auto;
+    filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.6));
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.safety-card:hover .bitmoji-icon {
+    transform: translateY(-20px) scale(1.1);
+}
+
+/* Back Spotlight Aura */
+.safety-card .card-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle at 50% 50%, rgba(110, 175, 110, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(20px);
+    z-index: 1;
+    animation: auraPulse 4s infinite alternate ease-in-out;
+}
+
+/* Specific Aura Colors for Services */
+.concierge-glow { background: radial-gradient(circle at 50% 50%, rgba(110, 175, 110, 0.25) 0%, transparent 70%) !important; }
+.transfer-glow { background: radial-gradient(circle at 50% 50%, rgba(32, 58, 67, 0.4) 0%, transparent 70%) !important; }
+.planner-glow { background: radial-gradient(circle at 50% 50%, rgba(195, 164, 115, 0.25) 0%, transparent 70%) !important; }
+
+@keyframes auraPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.6;
+    }
+}
+
+/* Floating Glass Label Strip */
+.safety-label-strip {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: -30px;
+    /* Overlap with hero */
+    z-index: 3;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease;
+}
+
+.safety-card:hover .safety-label-strip {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-10px);
+}
+
+.safety-label-strip h3 {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.8rem;
+    color: var(--clr-orange-safety);
+}
+
+.safety-label-strip p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    line-height: 1.6;
+}
+
+.guarantee-card,
+.safety-card {
+    position: relative;
+    transition: all 0.5s ease;
+}
+
 .journey-card:hover {
     transform: translateY(-10px) scale(1.02);
     background: rgba(255, 255, 255, 0.06);
     border-color: rgba(110, 175, 110, 0.4);
-    box-shadow: 
-        0 40px 80px rgba(0,0,0,0.6),
+    box-shadow:
+        0 40px 80px rgba(0, 0, 0, 0.6),
         inset 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
@@ -1346,7 +1629,7 @@ ul {
     left: 0;
     width: 100%;
     padding: 3rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
     z-index: 2;
 }
 
@@ -1361,15 +1644,27 @@ ul {
 }
 
 /* Icons for Different Activities */
-.safari-section .journey-card .card-icon { color: #8FBC8F; } /* Dark Sea Green */
-.paragliding-section .journey-card .card-icon { color: #87CEEB; } /* Sky Blue */
-.kayaking-section .journey-card .card-icon { color: #00CED1; } /* Dark Turquoise */
+.safari-section .journey-card .card-icon {
+    color: #8FBC8F;
+}
+
+/* Dark Sea Green */
+.paragliding-section .journey-card .card-icon {
+    color: #87CEEB;
+}
+
+/* Sky Blue */
+.kayaking-section .journey-card .card-icon {
+    color: #00CED1;
+}
+
+/* Dark Turquoise */
 
 @media (max-width: 1200px) {
     .activity-journey-grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
-        grid-template-areas: 
+        grid-template-areas:
             "s1 s2"
             "f f"
             "s4 s5"
@@ -1378,15 +1673,27 @@ ul {
 }
 
 @media (max-width: 768px) {
-    .activity-section { padding: 6rem 1.5rem; }
+    .activity-section {
+        padding: 6rem 1.5rem;
+    }
+
     .activity-journey-grid {
         grid-template-columns: 1fr;
-        grid-template-areas: 
+        grid-template-areas:
             "s1" "s2" "f" "s4" "s5" "s6";
         gap: 1.5rem;
     }
-    .journey-card.stage-6 { flex-direction: column; text-align: center; gap: 1rem; }
-    .journey-card.stage-6 .card-content { flex-direction: column; gap: 0.5rem; }
+
+    .journey-card.stage-6 {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .journey-card.stage-6 .card-content {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 }
 
 /* Day in the Life Timeline Section */
@@ -1449,7 +1756,8 @@ ul {
     left: 0;
     top: 0;
     width: 100%;
-    height: 0%; /* Controlled by JS */
+    height: 0%;
+    /* Controlled by JS */
     background: linear-gradient(to bottom, var(--clr-orange-safety), #ff4d00);
     box-shadow: 0 0 15px rgba(110, 175, 110, 0.5);
     transition: height 0.1s ease-out;
@@ -1461,7 +1769,8 @@ ul {
     width: 50%;
     padding: 2rem 4rem;
     margin-bottom: 6rem;
-    opacity: 0; /* JS will animate this */
+    opacity: 0;
+    /* JS will animate this */
 }
 
 .timeline-item.left {
@@ -1486,8 +1795,13 @@ ul {
     transition: all 0.4s ease;
 }
 
-.timeline-item.left .timeline-dot { right: -8px; }
-.timeline-item.right .timeline-dot { left: -8px; }
+.timeline-item.left .timeline-dot {
+    right: -8px;
+}
+
+.timeline-item.right .timeline-dot {
+    left: -8px;
+}
 
 .timeline-content {
     position: relative;
@@ -1504,7 +1818,7 @@ ul {
     background: rgba(255, 255, 255, 0.06);
     border-color: rgba(110, 175, 110, 0.4);
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .timeline-item:hover .timeline-dot {
@@ -1544,15 +1858,23 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(255,255,255,0.05) 0%, transparent 70%);
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
     pointer-events: none;
     animation: drift 10s infinite linear;
 }
 
 @keyframes drift {
-    0% { transform: translateX(-10%); }
-    50% { transform: translateX(10%); }
-    100% { transform: translateX(-10%); }
+    0% {
+        transform: translateX(-10%);
+    }
+
+    50% {
+        transform: translateX(10%);
+    }
+
+    100% {
+        transform: translateX(-10%);
+    }
 }
 
 /* 2. Falling Leaves (Wild Trek) */
@@ -1567,10 +1889,23 @@ ul {
 }
 
 @keyframes fall {
-    0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
-    20% { opacity: 0.3; }
-    80% { opacity: 0.3; }
-    100% { transform: translateY(300px) rotate(360deg); opacity: 0; }
+    0% {
+        transform: translateY(-20px) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.3;
+    }
+
+    80% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateY(300px) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 /* 3. Campfire Glow (The Glow) */
@@ -1585,8 +1920,17 @@ ul {
 }
 
 @keyframes flicker {
-    0%, 100% { transform: scale(1); opacity: 0.5; }
-    50% { transform: scale(1.2); opacity: 0.8; }
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
 }
 
 /* 4. Stars (The Glow) */
@@ -1596,11 +1940,11 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
-        radial-gradient(1px 1px at 20px 30px, #eee, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 90% 10%, #fff, rgba(0,0,0,0));
+    background-image:
+        radial-gradient(1px 1px at 20px 30px, #eee, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 90% 10%, #fff, rgba(0, 0, 0, 0));
     background-repeat: repeat;
     background-size: 200px 200px;
     opacity: 0.1;
@@ -1608,24 +1952,52 @@ ul {
 }
 
 @keyframes twinkle {
-    from { opacity: 0.1; }
-    to { opacity: 0.4; }
+    from {
+        opacity: 0.1;
+    }
+
+    to {
+        opacity: 0.4;
+    }
 }
 
 /* Background Color States (Triggered by Scroll) */
-.bg-dawn { background-color: #1a1a2e !important; }
-.bg-midday { background-color: #0d1b2a !important; }
-.bg-midnight { background-color: #000000 !important; }
+.bg-dawn {
+    background-color: #1a1a2e !important;
+}
+
+.bg-midday {
+    background-color: #0d1b2a !important;
+}
+
+.bg-midnight {
+    background-color: #000000 !important;
+}
 
 @media (max-width: 768px) {
-    .timeline-line { left: 30px; }
-    .timeline-item { width: 100%; left: 0 !important; padding: 1rem 0 1rem 60px; text-align: left !important; }
-    .timeline-dot { left: 22px !important; }
-    .timeline-header h2 { font-size: 2.5rem; }
+    .timeline-line {
+        left: 30px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding: 1rem 0 1rem 60px;
+        text-align: left !important;
+    }
+
+    .timeline-dot {
+        left: 22px !important;
+    }
+
+    .timeline-header h2 {
+        font-size: 2.5rem;
+    }
 }
 
 /* Commitment to Safety & Lodges/Resorts Section */
-.safety-commitment-section, .trust-accommodation-section {
+.safety-commitment-section,
+.trust-accommodation-section {
     padding: 10rem 0;
     background-color: var(--clr-bg-dark);
     position: relative;
@@ -1633,21 +2005,25 @@ ul {
 }
 
 .safety-commitment-section {
-    padding-bottom: 0; /* Tighten gap before lodges */
+    padding-bottom: 0;
+    /* Tighten gap before lodges */
 }
 
-.safety-container, .trust-container {
+.safety-container,
+.trust-container {
     max-width: 1300px;
     margin: 0 auto;
     padding: 0 4rem;
 }
 
-.safety-header, .stays-header {
+.safety-header,
+.stays-header {
     text-align: center;
     margin-bottom: 6rem;
 }
 
-.safety-header .section-badge, .stays-header .section-badge {
+.safety-header .section-badge,
+.stays-header .section-badge {
     display: inline-block;
     padding: 0.5rem 1rem;
     background: rgba(110, 175, 110, 0.1);
@@ -1660,7 +2036,8 @@ ul {
     margin-bottom: 1.5rem;
 }
 
-.safety-header h2, .stays-header h2 {
+.safety-header h2,
+.stays-header h2 {
     font-size: 3rem;
     font-weight: 800;
     margin-bottom: 1.5rem;
@@ -1668,7 +2045,8 @@ ul {
     letter-spacing: 2px;
 }
 
-.safety-header p, .stays-header p {
+.safety-header p,
+.stays-header p {
     font-size: 1.1rem;
     color: var(--clr-text-muted);
     max-width: 700px;
@@ -1683,6 +2061,159 @@ ul {
     grid-template-rows: repeat(2, 350px);
     gap: 2rem;
     margin-bottom: 10rem;
+}
+
+/* Lodge Explorer - Category Driven Stays */
+.lodge-explorer-container {
+    margin-top: 4rem;
+}
+
+.lodge-filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 5rem;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 60px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lodge-filter-tab {
+    padding: 1rem 2.5rem;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+}
+
+.lodge-filter-tab.active {
+    background: var(--clr-orange-safety);
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(110, 175, 110, 0.3);
+}
+
+.lodge-grid-display {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    min-height: 600px;
+}
+
+.lodge-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 30px;
+    padding: 1.5rem;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    display: none; /* Controlled by JS */
+}
+
+.lodge-card.show {
+    display: block;
+    animation: lodgeFadeIn 0.6s forwards;
+}
+
+@keyframes lodgeFadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.lodge-card:hover {
+    transform: translateY(-20px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+}
+
+.lodge-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.lodge-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.lodge-card:hover .lodge-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.price-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 2;
+}
+
+.lodge-content h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.lodge-content p {
+    font-size: 0.95rem;
+    color: var(--clr-text-muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.lodge-amenities {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.lodge-amenity {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.lodge-amenity i {
+    color: var(--clr-orange-safety);
+}
+
+@media (max-width: 1024px) {
+    .lodge-grid-display { grid-template-columns: 1fr 1fr; }
+    .lodge-filter-bar { width: 95%; flex-wrap: wrap; border-radius: 30px; }
+    .lodge-filter-tab { padding: 0.8rem 1.5rem; font-size: 0.75rem; }
+}
+
+@media (max-width: 768px) {
+    .lodge-grid-display { grid-template-columns: 1fr; }
 }
 
 .bento-card {
@@ -1719,7 +2250,7 @@ ul {
 .bento-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -1734,7 +2265,7 @@ ul {
 
 .bento-card:hover {
     border-color: var(--clr-orange-safety);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
 }
 
 .bento-overlay h3 {
@@ -1767,14 +2298,16 @@ ul {
 }
 
 /* Guarantee & Safety Cards */
-.guarantee-grid, .safety-grid {
+.guarantee-grid,
+.safety-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
     margin-bottom: 8rem;
 }
 
-.guarantee-card, .safety-card {
+.guarantee-card,
+.safety-card {
     position: relative;
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1800,21 +2333,29 @@ ul {
     transition: opacity 0.5s ease;
 }
 
-.guarantee-card:hover, .safety-card:hover {
+.guarantee-card:hover,
+.safety-card:hover {
     background: rgba(255, 255, 255, 0.05);
     transform: translateY(-15px);
 }
 
-.guarantee-card:hover .card-glow, .safety-card:hover .card-glow {
+.guarantee-card:hover .card-glow,
+.safety-card:hover .card-glow {
     opacity: 0.6;
 }
 
 @keyframes rotateGlow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-.guarantee-icon, .safety-icon {
+.guarantee-icon,
+.safety-icon {
     font-size: 3.5rem;
     color: var(--clr-orange-safety);
     margin-bottom: 2.5rem;
@@ -1828,16 +2369,24 @@ ul {
     height: 160px;
     width: auto;
     object-fit: contain;
-    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
     animation: bitmojiFloat 4s ease-in-out infinite;
 }
 
 @keyframes bitmojiFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
-.guarantee-card h3, .safety-card h3 {
+.guarantee-card h3,
+.safety-card h3 {
     font-size: 1.5rem;
     color: #fff;
     margin-bottom: 1.2rem;
@@ -1845,7 +2394,8 @@ ul {
     font-weight: 800;
 }
 
-.guarantee-card p, .safety-card p {
+.guarantee-card p,
+.safety-card p {
     font-size: 1rem;
     color: var(--clr-text-muted);
     line-height: 1.8;
@@ -1925,7 +2475,7 @@ ul {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding-top: 2rem;
 }
 
@@ -1942,16 +2492,23 @@ ul {
 }
 
 @media (max-width: 1024px) {
-    .trust-container { padding: 0 2rem; }
+    .trust-container {
+        padding: 0 2rem;
+    }
+
     .stays-bento-grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
     }
-    .large-card, .tall-card, .wide-card {
+
+    .large-card,
+    .tall-card,
+    .wide-card {
         grid-column: auto;
         grid-row: auto;
         height: 400px;
     }
+
     .guarantee-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
