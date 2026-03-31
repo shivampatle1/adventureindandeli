@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure in Dandeli</title>
+    <meta name="description" content="Experience the thrill of Dandeli with Adventure in Dandeli. River rafting on Kali River, jungle trekking, and more in the heart of nature.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/brand_logo.png">
+</head>
+<body>
+    <div class="bg-noise"></div>
+    <div class="bg-gradient-overlay"></div>
+    
+    <!-- Header -->
+    <header id="main-header">
+        <a href="#home" class="logo-container">
+            <span class="logo-text">
+                <span class="logo-main">ADVENTURE</span>
+                <span class="logo-accent">IN DANDELI</span>
+            </span>
+        </a>
+        <nav class="nav-links">
+            <a href="#home"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="#activities"><i class="fa-solid fa-map-location-dot"></i> Activities</a>
+            <a href="#safety"><i class="fa-solid fa-shield-halved"></i> Safety</a>
+            <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+        </nav>
+        <div class="header-cta">
+            <button class="btn btn-outline">LOG IN</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-bg" style="background-image: url('assets/hero_rafting_1774950824389.png');"></div>
+        
+        <!-- Cinematic Background Video -->
+        <video id="hero-video" autoplay muted loop playsinline poster="assets/hero_rafting_1774950824389.png">
+            <source src="assets/Balaghat_Adventure_FPV_Drone_Film.mp4" type="video/mp4">
+        </video>
+        
+        <div class="hero-texture" style="background-image: url('assets/glass_water_drops_1774950857158.png');"></div>
+        <div class="hero-overlay-gradient"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-main">ADVENTURE</span>
+                <span class="title-accent">IN DANDELI</span>
+            </h1>
+            <p class="hero-subtitle">Dive into the wild heart of Karnataka.</p>
+            
+            <div class="hero-cta-container">
+                <a href="#contact" class="btn btn-primary cta-button">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p>Scroll to Explore</p>
+        </div>
+    </section>
+
+    <!-- Scrollytelling Transition Area -->
+    <div class="transition-container" id="transition-area">
+        <div class="water-canvas-container">
+            <canvas id="water-splash-canvas"></canvas>
+        </div>
+        <div class="transition-text">
+            <h2>The river calls to those who seek it.</h2>
+        </div>
+    </div>
+
+    <!-- Scrollytelling Interactive Map -->
+    <section id="activities" class="scroll-map-section">
+        <div class="map-sticky-container">
+            <!-- Pinned Content wrapper -->
+            <div class="map-background">
+                <img src="assets/dandeli_topo_map_1774951278022.png" alt="Dandeli Topological Map" class="full-map-image">
+                
+                <!-- SVG Overlay for the Trail -->
+                <svg class="map-trail-svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+                    <!-- Smooth trail drawing across the map -->
+                    <path id="adventure-trail" d="M 300 150 Q 500 350 450 550 T 600 700 T 800 850" fill="none" class="trail-path"></path>
+                </svg>
+
+                <!-- Driveable Family Car Marker -->
+                <div class="car-marker" id="family-car">
+                    <svg viewBox="0 0 200 100" width="60" height="30">
+                        <!-- Tires -->
+                        <rect x="30" y="2" width="35" height="15" rx="5" fill="#111"></rect>
+                        <rect x="140" y="2" width="35" height="15" rx="5" fill="#111"></rect>
+                        <rect x="30" y="83" width="35" height="15" rx="5" fill="#111"></rect>
+                        <rect x="140" y="83" width="35" height="15" rx="5" fill="#111"></rect>
+                        
+                        <!-- Car Body -->
+                        <rect x="10" y="15" width="180" height="70" rx="15" fill="#e67e22"></rect>
+                        
+                        <!-- Windows/Cabin -->
+                        <path d="M 50 22 L 130 22 L 120 78 L 50 78 Z" fill="#34495e" opacity="0.9"></path>
+                        <rect x="60" y="27" width="50" height="46" rx="5" fill="#d35400"></rect>
+                        
+                        <!-- Headlights -->
+                        <rect x="185" y="22" width="6" height="12" rx="3" fill="#f1c40f"></rect>
+                        <rect x="185" y="66" width="6" height="12" rx="3" fill="#f1c40f"></rect>
+                    </svg>
+                </div>
+
+                <!-- Points on the map corresponding to the trail -->
+                <div class="scroll-milestones">
+                    <!-- Milestone 1 - Rafting -->
+                    <div class="milestone m-rafting">
+                        <div class="m-point"><i class="fa-solid fa-water"></i></div>
+                        <div class="m-card">
+                            <h3>River Rafting</h3>
+                            <p>Command the roaring rapids of Kali River. Expertly guided expeditions for maximum thrill.</p>
+                            <button class="btn btn-secondary">Explore Route</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 2 - Trekking -->
+                    <div class="milestone m-trekking">
+                        <div class="m-point"><i class="fa-brands fa-pagelines"></i></div>
+                        <div class="m-card">
+                            <h3>Jungle Trekking</h3>
+                            <p>Walk the paths of the panther. Discover hidden flora and fauna with seasoned naturalists.</p>
+                            <button class="btn btn-secondary">View Trails</button>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 3 - Camping -->
+                    <div class="milestone m-camping">
+                        <div class="m-point"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                        <div class="m-card">
+                            <h3>Wild Camping</h3>
+                            <p>Experience the twilight forest under a canopy of stars. Premium riverside campsites.</p>
+                            <button class="btn btn-secondary">Book Camp</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Title floating over the map initially -->
+            <div class="map-overlay-title">
+                <h2>CHOOSE YOUR ADVENTURE</h2>
+                <p>Scroll down to reveal the trail</p>
+                <div class="map-scroll-down"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horizontal Parallax Gallery -->
+    <section id="gallery" class="gallery-horizontal">
+        <div class="gallery-wrapper">
+            <div class="gallery-title-sticky">
+                <h2>MOMENTS IN THE WILD</h2>
+                <p>A glimpse into the soul of Dandeli</p>
+            </div>
+            <div class="gallery-container-track" id="gallery-track">
+                <!-- Set 1 -->
+                <div class="gallery-item">
+                    <img src="assets/dandeli_hornbill_gallery_1774959347924.png" alt="Malabar Pied Hornbill">
+                    <div class="item-info">
+                        <h3>Avian Majesty</h3>
+                        <p>The Malabar Pied Hornbill at dawn.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/dandeli_black_panther_gallery_1774959367336.png" alt="Black Panther">
+                    <div class="item-info">
+                        <h3>Shadow Crawler</h3>
+                        <p>The elusive Black Panther deep in the thicket.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/dandeli_bison_gallery_v2_1774961293549.png" alt="Indian Gaur Bison">
+                    <div class="item-info">
+                        <h3>The Forest Titan</h3>
+                        <p>A massive Indian Gaur in the morning mist.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/kali_river_sunset_gallery_1774959387776.png" alt="Kali River Sunset">
+                    <div class="item-info">
+                        <h3>Golden Kali</h3>
+                        <p>When the sun kisses the river goodbye.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/dandeli_trekking_gallery_v2_1774961250113.png" alt="Jungle Trekking">
+                    <div class="item-info">
+                        <h3>Bamboo Trails</h3>
+                        <p>Exploring the dense green heart of the forest.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/dandeli_camping_gallery_v2_1774961272712.png" alt="Riverside Camping">
+                    <div class="item-info">
+                        <h3>Starlit Basecamp</h3>
+                        <p>A premium riverside setup under the Milky Way.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/hero_rafting_1774950824389.png" alt="River Rafting">
+                    <div class="item-info">
+                        <h3>The Final Rush</h3>
+                        <p>Conquering the Grade IV rapids.</p>
+                    </div>
+                </div>
+                
+                <!-- Set 2 (Duplicated for Seamless Loop) -->
+                <div class="gallery-item">
+                    <img src="assets/dandeli_hornbill_gallery_1774959347924.png" alt="Malabar Pied Hornbill">
+                    <div class="item-info">
+                        <h3>Avian Majesty</h3>
+                        <p>The Malabar Pied Hornbill at dawn.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/dandeli_black_panther_gallery_1774959367336.png" alt="Black Panther">
+                    <div class="item-info">
+                        <h3>Shadow Crawler</h3>
+                        <p>The elusive Black Panther deep in the thicket.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/dandeli_bison_gallery_v2_1774961293549.png" alt="Indian Gaur Bison">
+                    <div class="item-info">
+                        <h3>The Forest Titan</h3>
+                        <p>A massive Indian Gaur in the morning mist.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/kali_river_sunset_gallery_1774959387776.png" alt="Kali River Sunset">
+                    <div class="item-info">
+                        <h3>Golden Kali</h3>
+                        <p>When the sun kisses the river goodbye.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/dandeli_trekking_gallery_v2_1774961250113.png" alt="Jungle Trekking">
+                    <div class="item-info">
+                        <h3>Bamboo Trails</h3>
+                        <p>Exploring the dense green heart of the forest.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/dandeli_camping_gallery_v2_1774961272712.png" alt="Riverside Camping">
+                    <div class="item-info">
+                        <h3>Starlit Basecamp</h3>
+                        <p>A premium riverside setup under the Milky Way.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/hero_rafting_1774950824389.png" alt="River Rafting">
+                    <div class="item-info">
+                        <h3>The Final Rush</h3>
+                        <p>Conquering the Grade IV rapids.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Immersive River Rafting Section -->
+    <section id="rafting" class="activity-section rafting-section">
+        <canvas class="activity-lens-canvas" id="wet-lens-canvas"></canvas>
+        
+        <div class="activity-content-container">
+            <div class="activity-header" data-aos="fade-up">
+                <span class="section-badge">HIGH ADRENALINE</span>
+                <h2>WHITE WATER RAFTING</h2>
+                <p>Conquer the Grade III and IV rapids of the mighty Kali River. An experience that will leave you breathless.</p>
+            </div>
+
+            <div class="activity-journey-grid">
+                <!-- Stage 1: Briefing -->
+                <a href="#" class="journey-card stage-1" data-aos="fade-up">
+                    <div class="card-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                    <div class="card-content">
+                        <h3>SAFETY FIRST</h3>
+                        <p>Expert briefing on paddling and safety protocols.</p>
+                        <span class="stage-tag">PRE-LAUNCH</span>
+                    </div>
+                </a>
+
+                <!-- Stage 2: Gear -->
+                <a href="#" class="journey-card stage-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+                    <div class="card-content">
+                        <h3>ELITE GEAR</h3>
+                        <p>International standard life jackets and helmets.</p>
+                        <span class="stage-tag">EQUIPMENT</span>
+                    </div>
+                </a>
+
+                <!-- Stage 3: Launch (Featured) -->
+                <a href="#" class="journey-card stage-3 featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="ripple-container">
+                        <img src="assets/kali_river_rafting.png" alt="Rafting Launch" class="ripple-img">
+                    </div>
+                    <div class="card-content">
+                        <h3>THE LAUNCH</h3>
+                        <p>The first splash into the mighty Kali River.</p>
+                        <span class="stage-tag">START POINT</span>
+                    </div>
+                </a>
+
+                <!-- Stage 4: Rapids -->
+                <a href="#" class="journey-card stage-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon"><i class="fa-solid fa-water"></i></div>
+                    <div class="card-content">
+                        <h3>THE RAPIDS</h3>
+                        <p>Conquering heart-pounding Grade III & IV stretches.</p>
+                        <span class="stage-tag">MAIN ACTION</span>
+                    </div>
+                </a>
+
+                <!-- Stage 5: Cliff Jump -->
+                <a href="#" class="journey-card stage-5" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-icon"><i class="fa-solid fa-person-rays"></i></div>
+                    <div class="card-content">
+                        <h3>CLIFF JUMPING</h3>
+                        <p>A leap of faith into the deep blue channel.</p>
+                        <span class="stage-tag">BONUS ADRENALINE</span>
+                    </div>
+                </a>
+
+                <!-- Stage 6: Victory -->
+                <a href="#" class="journey-card stage-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card-icon"><i class="fa-solid fa-trophy"></i></div>
+                    <div class="card-content">
+                        <h3>VICTORY POINT</h3>
+                        <p>Reflections and celebration at the finish line.</p>
+                        <span class="stage-tag">COMPLETION</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Immersive Jungle Safari Section -->
+    <section id="safari" class="activity-section safari-section">
+        <canvas class="activity-lens-canvas" id="dust-lens-canvas"></canvas>
+        
+        <div class="activity-content-container">
+            <div class="activity-header" data-aos="fade-up">
+                <span class="section-badge">WILDLIFE EXPEDITION</span>
+                <h2>JUNGLE SAFARI</h2>
+                <p>Track the elusive Black Panther and witness the titans of the forest in their natural habitat.</p>
+            </div>
+
+            <div class="activity-journey-grid">
+                <a href="#" class="journey-card stage-1" data-aos="fade-up">
+                    <div class="card-icon"><i class="fa-solid fa-compass"></i></div>
+                    <div class="card-content">
+                        <h3>TRACKING PROTOCOL</h3>
+                        <p>Briefing on silent observation and trail signs.</p>
+                        <span class="stage-tag">READY</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon"><i class="fa-solid fa-binoculars"></i></div>
+                    <div class="card-content">
+                        <h3>HD OPTICS</h3>
+                        <p>Premium 10x42 binoculars for every explorer.</p>
+                        <span class="stage-tag">EQUIPPED</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-3 featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="ripple-container">
+                        <img src="assets/safari_journey.png" alt="Safari Journey" class="ripple-img">
+                    </div>
+                    <div class="card-content">
+                        <h3>THE TRACKERS</h3>
+                        <p>Into the heart of the mist-covered bamboo forest.</p>
+                        <span class="stage-tag">CENTER STAGE</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon"><i class="fa-solid fa-paw"></i></div>
+                    <div class="card-content">
+                        <h3>PANTHER TRAIL</h3>
+                        <p>Patiently waiting at the Black Panther's favorite branch.</p>
+                        <span class="stage-tag">ELUSIVE SPOTTING</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-5" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-icon"><i class="fa-solid fa-camera-retro"></i></div>
+                    <div class="card-content">
+                        <h3>MOMENTS CAPTURED</h3>
+                        <p>Pro-tips for low-light wildlife photography.</p>
+                        <span class="stage-tag">MEMORIES</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card-icon"><i class="fa-solid fa-feather"></i></div>
+                    <div class="card-content">
+                        <h3>EYES OF THE NIGHT</h3>
+                        <p>Watching the forest awaken under the moonlight.</p>
+                        <span class="stage-tag">NIGHT WATCH</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Immersive Paragliding Section -->
+    <section id="paragliding" class="activity-section paragliding-section">
+        <canvas class="activity-lens-canvas" id="cloud-lens-canvas"></canvas>
+        
+        <div class="activity-content-container">
+            <div class="activity-header" data-aos="fade-up">
+                <span class="section-badge">AERIAL ADVENTURE</span>
+                <h2>PARAGLIDING</h2>
+                <p>Soar above the mist-covered Sahyadri mountains and experience the true freedom of flight.</p>
+            </div>
+
+            <div class="activity-journey-grid">
+                <a href="#" class="journey-card stage-1" data-aos="fade-up">
+                    <div class="card-icon"><i class="fa-solid fa-wind"></i></div>
+                    <div class="card-content">
+                        <h3>WIND PHYSICS</h3>
+                        <p>Understanding thermals and aerial safety.</p>
+                        <span class="stage-tag">GROUND SCHOOL</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon"><i class="fa-solid fa-parachute-box"></i></div>
+                    <div class="card-content">
+                        <h3>SKY HARNESS</h3>
+                        <p>Pro-grade wings and automated safety reserves.</p>
+                        <span class="stage-tag">FLIGHT READY</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-3 featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="ripple-container">
+                        <img src="assets/paragliding_journey.png" alt="Paragliding Journey" class="ripple-img">
+                    </div>
+                    <div class="card-content">
+                        <h3>THE TAKEOFF</h3>
+                        <p>Running into the sky from the mountain brink.</p>
+                        <span class="stage-tag">AIRBORNE</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon"><i class="fa-solid fa-cloud"></i></div>
+                    <div class="card-content">
+                        <h3>THERMAL HUNTING</h3>
+                        <p>Catching the rising air to reach new heights.</p>
+                        <span class="stage-tag">SOARING</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-5" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-icon"><i class="fa-solid fa-eye"></i></div>
+                    <div class="card-content">
+                        <h3>BIRD'S EYE VIEW</h3>
+                        <p>360° panoramic views of the Dandeli valley.</p>
+                        <span class="stage-tag">PERSPECTIVE</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="card-content">
+                        <h3>PRECISION LANDING</h3>
+                        <p>Touching down softly in the lush green valley.</p>
+                        <span class="stage-tag">TOUCH DOWN</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Immersive Kayaking Section -->
+    <section id="kayaking" class="activity-section kayaking-section">
+        <canvas class="activity-lens-canvas" id="kayak-wet-lens-canvas"></canvas>
+        
+        <div class="activity-content-container">
+            <div class="activity-header" data-aos="fade-up">
+                <span class="section-badge">SERENE PADDLING</span>
+                <h2>KAYAKING</h2>
+                <p>Navigate the tranquil backwaters and hidden inlets of the Kali River at your own pace.</p>
+            </div>
+
+            <div class="activity-journey-grid">
+                <a href="#" class="journey-card stage-1" data-aos="fade-up">
+                    <div class="card-icon"><i class="fa-solid fa-hands-holding"></i></div>
+                    <div class="card-content">
+                        <h3>PADDLE GRIP</h3>
+                        <p>Mastering basic strokes and balance control.</p>
+                        <span class="stage-tag">BASICS</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon"><i class="fa-solid fa-life-ring"></i></div>
+                    <div class="card-content">
+                        <h3>SMART FLOTATION</h3>
+                        <p>Low-profile, high-movement kayaks and vests.</p>
+                        <span class="stage-tag">PRO GEAR</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-3 featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="ripple-container">
+                        <img src="assets/kayaking_journey.png" alt="Kayaking Journey" class="ripple-img">
+                    </div>
+                    <div class="card-content">
+                        <h3>SILENT GLIDE</h3>
+                        <p>Cutting through the turquoise water like glass.</p>
+                        <span class="stage-tag">ON THE WATER</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <div class="card-content">
+                        <h3>HIDDEN INLETS</h3>
+                        <p>Exploring narrow channels where larger boats can't go.</p>
+                        <span class="stage-tag">EXPLORATION</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-5" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+                    <div class="card-content">
+                        <h3>SUNSET REFLECTION</h3>
+                        <p>The perfect golden hour on the calm backwaters.</p>
+                        <span class="stage-tag">GOLDEN HOUR</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card-icon"><i class="fa-solid fa-anchor"></i></div>
+                    <div class="card-content">
+                        <h3>DOCKING & DRIFT</h3>
+                        <p>Relaxation and grounding after a rhythmic paddle.</p>
+                        <span class="stage-tag">REFLECT</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+        <!-- SVG Filter for Liquid Ripple Effect -->
+        <svg style="display: none;">
+            <defs>
+                <filter id="liquid-ripple">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="3" result="waves" seed="1">
+                        <animate attributeName="baseFrequency" dur="10s" values="0.01; 0.02; 0.01" repeatCount="indefinite" />
+                    </feTurbulence>
+                    <feDisplacementMap in="SourceGraphic" in2="waves" scale="30" xChannelSelector="R" yChannelSelector="G" />
+                </filter>
+            </defs>
+        </svg>
+
+        <!-- Immersive Audio -->
+        <audio id="rafting-audio" loop preload="auto">
+            <source src="assets/sounds/river-rush.mp3" type="audio/mp4">
+        </audio>
+    </section>
+
+    <!-- Day in the Life Scrollytelling Timeline -->
+    <section id="life-of-adventurer" class="timeline-section">
+        <div class="timeline-bg-overlay"></div>
+        
+        <div class="timeline-container">
+            <div class="timeline-header" data-aos="fade-up">
+                <span class="section-badge">DAILY RHYTHM</span>
+                <h2>A DAY IN THE LIFE</h2>
+                <p>From the first mist of dawn to the crackle of the midnight fire, experience the rhythm of the wild.</p>
+            </div>
+
+            <div class="timeline-wrapper">
+                <!-- Central Progress Line -->
+                <div class="timeline-line">
+                    <div class="timeline-line-progress"></div>
+                </div>
+
+                <!-- Event 1: Awakening -->
+                <div class="timeline-item left misty" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="item-time">08:00 AM</div>
+                        <div class="item-title">The Awakening</div>
+                        <p>A crisp morning briefing by the river with a steaming cup of local Balaghat tea. The forest is just waking up.</p>
+                        <div class="mist-container"></div>
+                    </div>
+                </div>
+
+                <!-- Event 2: Wild Trek -->
+                <div class="timeline-item right lush" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="item-time">11:00 AM</div>
+                        <div class="item-title">The Wild Trek</div>
+                        <p>Navigating through ancient bamboo groves and teak forests. Keep your eyes peeled for the hornbills.</p>
+                        <div class="leaves-container"></div>
+                    </div>
+                </div>
+
+                <!-- Event 3: The Rush -->
+                <div class="timeline-item left rush" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="item-time">02:00 PM</div>
+                        <div class="item-title">The Rush</div>
+                        <p>Heart-pounding action as we hit the Class III rapids. The Kali River is at its most powerful peak.</p>
+                        <div class="splash-container"></div>
+                    </div>
+                </div>
+
+                <!-- Event 4: The Glow -->
+                <div class="timeline-item right starlit" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="item-time">07:00 PM</div>
+                        <div class="item-title">The Glow</div>
+                        <p>Stories around the crackling campfire, local rhythms, and a canopy of a billion stars above.</p>
+                        <div class="stars-container"></div>
+                        <div class="fire-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Booking Section -->
+    <section id="contact" class="booking-section">
+        <div class="booking-container">
+            <div class="booking-header">
+                <h2>START YOUR JOURNEY</h2>
+                <p>Reserve your spot for an unforgettable Dandeli experience.</p>
+            </div>
+            
+            <div class="booking-glass-card">
+                <form id="adventure-form" class="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="Adventurer Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="hello@example.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="adventure-type">Adventure Type</label>
+                            <select id="adventure-type">
+                                <option value="rafting">White Water Rafting</option>
+                                <option value="safari">Jungle Safari</option>
+                                <option value="camping">Riverside Camping</option>
+                                <option value="combo">The Ultimate Combo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Travel Date</label>
+                            <input type="date" id="date" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Special Requests</label>
+                        <textarea id="message" rows="3" placeholder="Any medical conditions or special needs?"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        CONFIRM BOOKING <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Section -->
+    <section id="safety" class="safety-section">
+        <div class="safety-bg" style="background-image: url('assets/woven_rope_bg_1774950895638.png');"></div>
+        <div class="safety-overlay"></div>
+        
+        <div class="safety-content">
+            <h2 class="section-title light">OUR COMMITMENT TO SAFETY</h2>
+            <div class="safety-badges-container">
+                <div class="badge-card">
+                    <div class="badge-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span class="badge-tick"><i class="fa-solid fa-check"></i></span>
+                    </div>
+                    <h4>Certified Gear</h4>
+                    <p>International standard ropes, helmets, and harnesses.</p>
+                </div>
+                
+                <div class="badge-card">
+                    <div class="badge-icon">
+                        <i class="fa-solid fa-kit-medical"></i>
+                    </div>
+                    <h4>First Responder Ready</h4>
+                    <p>Comprehensive medical kits and Wilderness First Responders on every trip.</p>
+                </div>
+                
+                <div class="badge-card">
+                    <div class="badge-icon">
+                        <i class="fa-solid fa-id-badge"></i>
+                    </div>
+                    <h4>Certified Guides</h4>
+                    <p>Expert local guides with thousands of hours of terrain experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#home" class="footer-logo-link">
+                    <span class="logo-text footer-size">
+                        <span class="logo-main">ADVENTURE</span>
+                        <span class="logo-accent">IN DANDELI</span>
+                    </span>
+                </a>
+                <p>Curating life-changing outdoor experiences in the wild heart of Dandeli, India.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#activities">Experiences</a></li>
+                    <li><a href="#safety">Safety</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i> Base Camp, Kali River, Dandeli</li>
+                    <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
+                    <li><i class="fa-solid fa-envelope"></i> booking@adventureindandeli.in</li>
+                </ul>
+            </div>
+            
+            <div class="footer-social">
+                <h4>Follow the Adventure</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Adventure in Dandeli. All Rights Reserved.</p>
+            <button id="back-to-top" aria-label="Back to top">
+                <i class="fa-solid fa-arrow-up"></i>
+            </button>
+        </div>
+    </footer>
+
+    <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
