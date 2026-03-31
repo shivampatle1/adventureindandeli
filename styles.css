@@ -451,6 +451,26 @@ ul {
     letter-spacing: 2px;
     color: rgba(255, 255, 255, 0.5);
     text-align: center;
+    .logo-container span {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #fff, var(--clr-text-muted));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: font-size 0.3s ease;
+}
+
+@media (max-width: 480px) {
+    .logo-container span {
+        font-size: 1.1rem !important; /* Prevents overlap with login button */
+    }
+    
+    .nav-actions .btn-outline {
+        padding: 0.5rem 1rem;
+        font-size: 0.7rem;
+    }
+}
     background: linear-gradient(90deg, transparent, #fff, transparent);
     background-size: 200% auto;
     background-clip: text;
@@ -2214,6 +2234,33 @@ ul {
 
 @media (max-width: 768px) {
     .lodge-grid-display { grid-template-columns: 1fr; }
+    
+    /* Mobile-First Swipe Bar */
+    .lodge-filter-bar {
+        display: flex;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        padding: 1rem;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        width: 100vw;
+        border-radius: 0;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+        mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    }
+    
+    .lodge-filter-bar::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .lodge-filter-tab {
+        flex-shrink: 0;
+        white-space: nowrap;
+        font-size: 0.7rem;
+        padding: 0.7rem 1.2rem;
+    }
 }
 
 .bento-card {
@@ -2401,6 +2448,24 @@ ul {
     line-height: 1.8;
 }
 
+/* Squad & Services Stacking */
+@media (max-width: 768px) {
+    .safety-grid, 
+    .premium-squad-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+    
+    .safety-card {
+        padding: 3rem 2rem;
+    }
+    
+    .bitmoji-icon {
+        height: 130px;
+    }
+}
+
 /* Wall of Joy */
 .wall-of-joy-container {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -2512,6 +2577,27 @@ ul {
     .guarantee-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+}
+
+/* Testimonial Mobile Fix */
+@media (max-width: 768px) {
+    .testimonial-marquee {
+        flex-direction: column !important;
+        align-items: center;
+        padding: 2rem 1rem;
+        animation: none !important;
+    }
+    
+    .review-card {
+        width: 90% !important;
+        margin-bottom: 2rem;
+        padding: 2rem;
+        flex-shrink: initial;
+    }
+    
+    .marquee-header h3 {
+        font-size: 2.2rem;
     }
 }
 
