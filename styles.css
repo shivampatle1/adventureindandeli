@@ -293,7 +293,7 @@ ul {
     min-height: 100%;
     width: auto;
     height: auto;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1.15);
     object-fit: cover;
     z-index: 0;
 }
@@ -451,32 +451,35 @@ ul {
     letter-spacing: 2px;
     color: rgba(255, 255, 255, 0.5);
     text-align: center;
-    .logo-container span {
-    font-size: 1.5rem;
-    font-weight: 900;
-    letter-spacing: 2px;
-    background: linear-gradient(to right, #fff, var(--clr-text-muted));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: font-size 0.3s ease;
-}
-
-@media (max-width: 480px) {
-    .logo-container span {
-        font-size: 1.1rem !important; /* Prevents overlap with login button */
-    }
-    
-    .nav-actions .btn-outline {
-        padding: 0.5rem 1rem;
-        font-size: 0.7rem;
-    }
-}
     background: linear-gradient(90deg, transparent, #fff, transparent);
     background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shine 4s linear infinite;
+}
+
+.logo-container span {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #fff, var(--clr-text-muted));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: font-size 0.3s ease;
+}
+
+@media (max-width: 480px) {
+    .logo-container span {
+        font-size: 1.1rem !important;
+        /* Prevents overlap with login button */
+    }
+
+    .nav-actions .btn-outline {
+        padding: 0.5rem 1rem;
+        font-size: 0.7rem;
+    }
 }
 
 @keyframes shine {
@@ -1570,9 +1573,17 @@ ul {
 }
 
 /* Specific Aura Colors for Services */
-.concierge-glow { background: radial-gradient(circle at 50% 50%, rgba(110, 175, 110, 0.25) 0%, transparent 70%) !important; }
-.transfer-glow { background: radial-gradient(circle at 50% 50%, rgba(32, 58, 67, 0.4) 0%, transparent 70%) !important; }
-.planner-glow { background: radial-gradient(circle at 50% 50%, rgba(195, 164, 115, 0.25) 0%, transparent 70%) !important; }
+.concierge-glow {
+    background: radial-gradient(circle at 50% 50%, rgba(110, 175, 110, 0.25) 0%, transparent 70%) !important;
+}
+
+.transfer-glow {
+    background: radial-gradient(circle at 50% 50%, rgba(32, 58, 67, 0.4) 0%, transparent 70%) !important;
+}
+
+.planner-glow {
+    background: radial-gradient(circle at 50% 50%, rgba(195, 164, 115, 0.25) 0%, transparent 70%) !important;
+}
 
 @keyframes auraPulse {
     0% {
@@ -2137,7 +2148,8 @@ ul {
     border-radius: 30px;
     padding: 1.5rem;
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    display: none; /* Controlled by JS */
+    display: none;
+    /* Controlled by JS */
 }
 
 .lodge-card.show {
@@ -2146,8 +2158,15 @@ ul {
 }
 
 @keyframes lodgeFadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .lodge-card:hover {
@@ -2227,14 +2246,27 @@ ul {
 }
 
 @media (max-width: 1024px) {
-    .lodge-grid-display { grid-template-columns: 1fr 1fr; }
-    .lodge-filter-bar { width: 95%; flex-wrap: wrap; border-radius: 30px; }
-    .lodge-filter-tab { padding: 0.8rem 1.5rem; font-size: 0.75rem; }
+    .lodge-grid-display {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .lodge-filter-bar {
+        width: 95%;
+        flex-wrap: wrap;
+        border-radius: 30px;
+    }
+
+    .lodge-filter-tab {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.75rem;
+    }
 }
 
 @media (max-width: 768px) {
-    .lodge-grid-display { grid-template-columns: 1fr; }
-    
+    .lodge-grid-display {
+        grid-template-columns: 1fr;
+    }
+
     /* Mobile-First Swipe Bar */
     .lodge-filter-bar {
         display: flex;
@@ -2250,11 +2282,11 @@ ul {
         margin-right: calc(50% - 50vw);
         mask-image: linear-gradient(to right, black 85%, transparent 100%);
     }
-    
+
     .lodge-filter-bar::-webkit-scrollbar {
         display: none;
     }
-    
+
     .lodge-filter-tab {
         flex-shrink: 0;
         white-space: nowrap;
@@ -2450,17 +2482,18 @@ ul {
 
 /* Squad & Services Stacking */
 @media (max-width: 768px) {
-    .safety-grid, 
+
+    .safety-grid,
     .premium-squad-grid {
         grid-template-columns: 1fr !important;
         gap: 2rem;
         margin-top: 3rem;
     }
-    
+
     .safety-card {
         padding: 3rem 2rem;
     }
-    
+
     .bitmoji-icon {
         height: 130px;
     }
@@ -2588,17 +2621,140 @@ ul {
         padding: 2rem 1rem;
         animation: none !important;
     }
-    
+
     .review-card {
         width: 90% !important;
         margin-bottom: 2rem;
         padding: 2rem;
         flex-shrink: initial;
     }
-    
+
     .marquee-header h3 {
         font-size: 2.2rem;
     }
 }
 
 /* Brand Logo Footer Sync - Replaced by Typography Logo */
+/* ============================================================
+   PARTNERED WITH — TRUST MARQUEE SECTION
+   ============================================================ */
+.partners-trust-section {
+    padding: 6rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, transparent 0%, rgba(110, 175, 110, 0.04) 50%, transparent 100%);
+}
+
+.partners-trust-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(110, 175, 110, 0.4), transparent);
+}
+
+.partners-trust-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(110, 175, 110, 0.4), transparent);
+}
+
+.partners-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.partners-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.partners-header h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    color: var(--clr-text-main);
+    margin: 0.5rem 0;
+}
+
+.partners-header p {
+    color: var(--clr-text-muted);
+    font-size: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.partners-marquee-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.partners-marquee-track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+@keyframes partnersScroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.partner-logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem 2.8rem;
+    margin: 0 0.8rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    transition: all 0.35s ease;
+    cursor: default;
+    flex-shrink: 0;
+}
+
+.partner-img {
+    height: 64px;
+    width: auto;
+    max-width: 220px;
+    display: block;
+    object-fit: contain;
+    transition: transform 0.35s ease;
+}
+
+@media (max-width: 768px) {
+    .partner-logo-item {
+        padding: 1.2rem 2rem;
+        margin: 0 0.6rem;
+    }
+
+    .partner-img {
+        height: 42px;
+        max-width: 140px;
+    }
+
+    .partners-header h2 {
+        font-size: 1.8rem;
+    }
+}

@@ -31,6 +31,7 @@
         <nav class="nav-links">
             <a href="#home"><i class="fa-solid fa-house"></i> Home</a>
             <a href="#activities"><i class="fa-solid fa-map-location-dot"></i> Activities</a>
+            <a href="resort.html"><i class="fa-solid fa-hotel"></i> Resorts</a>
             <a href="#safety"><i class="fa-solid fa-shield-halved"></i> Safety</a>
             <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact Us</a>
         </nav>
@@ -418,76 +419,6 @@
         </div>
     </section>
 
-    <!-- Immersive Paragliding Section -->
-    <section id="paragliding" class="activity-section paragliding-section">
-        <canvas class="activity-lens-canvas" id="cloud-lens-canvas"></canvas>
-        
-        <div class="activity-content-container">
-            <div class="activity-header" data-aos="fade-up">
-                <span class="section-badge">AERIAL ADVENTURE</span>
-                <h2>PARAGLIDING</h2>
-                <p>Soar above the mist-covered Sahyadri mountains and experience the true freedom of flight.</p>
-            </div>
-
-            <div class="activity-journey-grid">
-                <a href="#" class="journey-card stage-1" data-aos="fade-up">
-                    <div class="card-icon"><i class="fa-solid fa-wind"></i></div>
-                    <div class="card-content">
-                        <h3>WIND PHYSICS</h3>
-                        <p>Understanding thermals and aerial safety.</p>
-                        <span class="stage-tag">GROUND SCHOOL</span>
-                    </div>
-                </a>
-
-                <a href="#" class="journey-card stage-2" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-icon"><i class="fa-solid fa-parachute-box"></i></div>
-                    <div class="card-content">
-                        <h3>SKY HARNESS</h3>
-                        <p>Pro-grade wings and automated safety reserves.</p>
-                        <span class="stage-tag">FLIGHT READY</span>
-                    </div>
-                </a>
-
-                <a href="#" class="journey-card stage-3 featured" data-aos="fade-up" data-aos-delay="200">
-                    <div class="ripple-container">
-                        <img src="assets/paragliding_journey.png" alt="Paragliding Journey" class="ripple-img">
-                    </div>
-                    <div class="card-content">
-                        <h3>THE TAKEOFF</h3>
-                        <p>Running into the sky from the mountain brink.</p>
-                        <span class="stage-tag">AIRBORNE</span>
-                    </div>
-                </a>
-
-                <a href="#" class="journey-card stage-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card-icon"><i class="fa-solid fa-cloud"></i></div>
-                    <div class="card-content">
-                        <h3>THERMAL HUNTING</h3>
-                        <p>Catching the rising air to reach new heights.</p>
-                        <span class="stage-tag">SOARING</span>
-                    </div>
-                </a>
-
-                <a href="#" class="journey-card stage-5" data-aos="fade-up" data-aos-delay="400">
-                    <div class="card-icon"><i class="fa-solid fa-eye"></i></div>
-                    <div class="card-content">
-                        <h3>BIRD'S EYE VIEW</h3>
-                        <p>360° panoramic views of the Dandeli valley.</p>
-                        <span class="stage-tag">PERSPECTIVE</span>
-                    </div>
-                </a>
-
-                <a href="#" class="journey-card stage-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="card-icon"><i class="fa-solid fa-location-dot"></i></div>
-                    <div class="card-content">
-                        <h3>PRECISION LANDING</h3>
-                        <p>Touching down softly in the lush green valley.</p>
-                        <span class="stage-tag">TOUCH DOWN</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
 
     <!-- Immersive Kayaking Section -->
     <section id="kayaking" class="activity-section kayaking-section">
@@ -634,23 +565,26 @@
             <div class="lodge-explorer-container">
                 <div class="stays-header" data-aos="fade-up" style="margin-bottom: 3rem;">
                     <span class="section-badge">COLLECTION</span>
-                    <h2 style="font-size: 3.5rem;">PICK YOUR STAY</h2>
-                    <p>Hand-picked stays for every adventurer.</p>
+                    <h2 style="font-size: 3.5rem;">PICK YOUR PACKAGE</h2>
+                    <p>Exclusive all-inclusive deals for every group.</p>
+                    <a href="resort.html" style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:1.5rem;padding:0.7rem 1.8rem;background:rgba(110,175,110,0.12);border:1px solid rgba(110,175,110,0.35);border-radius:50px;color:#6EAF6E;font-weight:700;font-size:0.85rem;letter-spacing:0.05em;text-decoration:none;transition:all 0.25s;" onmouseover="this.style.background='rgba(110,175,110,0.22)'" onmouseout="this.style.background='rgba(110,175,110,0.12)'">
+                        <i class="fa-solid fa-hotel"></i> EXPLORE ALL RESORTS <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
 
                 <div class="lodge-filter-bar" data-aos="fade-up">
-                    <button class="lodge-filter-tab active" onclick="filterLodges(this, 'luxe')">LUXE RESORTS</button>
-                    <button class="lodge-filter-tab" onclick="filterLodges(this, 'jungle')">JUNGLE LODGES</button>
-                    <button class="lodge-filter-tab" onclick="filterLodges(this, 'glamping')">RIVERSIDE TENTS</button>
-                    <button class="lodge-filter-tab" onclick="filterLodges(this, 'value')">VALUE STAYS</button>
+                    <button class="lodge-filter-tab active" onclick="filterLodges(this, 'luxe')">GROUP PACKAGES</button>
+                    <button class="lodge-filter-tab" onclick="filterLodges(this, 'jungle')">FAMILY PACKAGES</button>
+                    <button class="lodge-filter-tab" onclick="filterLodges(this, 'glamping')">COLLEGE PACKAGES</button>
+                    <button class="lodge-filter-tab" onclick="filterLodges(this, 'value')">IT/CORPORATE PACKAGES</button>
                 </div>
 
                 <div class="lodge-grid-display" id="lodge-grid">
                     <!-- LUXE CATEGORY -->
                     <div class="lodge-card luxe show" data-aos="fade-up">
-                        <div class="price-badge">From ₹6,500/night</div>
+
                         <div class="lodge-img-wrapper">
-                            <img src="assets/luxury_lodge.png" alt="Riverstone Luxury Resort">
+                            <img src="assets/resort/resort.jpeg" alt="Riverstone Luxury Resort">
                         </div>
                         <div class="lodge-content">
                             <h3>Riverstone Luxury Resort</h3>
@@ -663,9 +597,9 @@
                     </div>
 
                     <div class="lodge-card luxe show" data-aos="fade-up" data-aos-delay="100">
-                        <div class="price-badge">From ₹8,200/night</div>
+
                         <div class="lodge-img-wrapper">
-                            <img src="assets/luxury_lodge.png" alt="Heritage Rapids Manor">
+                            <img src="assets/resort/resort2.jpeg" alt="Heritage Rapids Manor">
                         </div>
                         <div class="lodge-content">
                             <h3>Heritage Rapids Manor</h3>
@@ -678,9 +612,9 @@
                     </div>
 
                     <div class="lodge-card luxe show" data-aos="fade-up" data-aos-delay="200">
-                        <div class="price-badge">From ₹7,000/night</div>
+
                         <div class="lodge-img-wrapper">
-                            <img src="assets/luxury_tent.png" alt="Ethereal Fog Resort">
+                            <img src="assets/resort/lodge.jpeg" alt="Ethereal Fog Resort">
                         </div>
                         <div class="lodge-content">
                             <h3>Ethereal Fog Resort</h3>
@@ -694,9 +628,9 @@
 
                     <!-- JUNGLE CATEGORY -->
                     <div class="lodge-card jungle" data-aos="fade-up">
-                        <div class="price-badge">From ₹3,500/night</div>
+
                         <div class="lodge-img-wrapper">
-                            <img src="assets/luxury_lodge.png" alt="Whistling Thrush Cabin">
+                            <img src="assets/resort/lodge3.jpeg" alt="Whistling Thrush Cabin">
                         </div>
                         <div class="lodge-content">
                             <h3>Whistling Thrush Cabin</h3>
@@ -709,9 +643,9 @@
                     </div>
 
                     <div class="lodge-card jungle" data-aos="fade-up" data-aos-delay="100">
-                        <div class="price-badge">From ₹4,200/night</div>
+
                         <div class="lodge-img-wrapper">
-                            <img src="assets/luxury_dining.png" alt="Black Panther Lodge">
+                            <img src="assets/resort/lodge4.jpeg" alt="Black Panther Lodge">
                         </div>
                         <div class="lodge-content">
                             <h3>Black Panther Lodge</h3>
@@ -724,9 +658,9 @@
                     </div>
 
                     <div class="lodge-card jungle" data-aos="fade-up" data-aos-delay="200">
-                        <div class="price-badge">From ₹3,800/night</div>
+
                         <div class="lodge-img-wrapper">
-                            <img src="assets/dandeli_camping_gallery_v2_1774961272712.png" alt="Hornbill Nest Stay">
+                            <img src="assets/resort/lodge5.jpeg" alt="Hornbill Nest Stay">
                         </div>
                         <div class="lodge-content">
                             <h3>Hornbill Nest Stay</h3>
@@ -740,9 +674,9 @@
 
                     <!-- GLAMPING CATEGORY -->
                     <div class="lodge-card glamping" data-aos="fade-up">
-                        <div class="price-badge">From ₹4,500/night</div>
+
                         <div class="lodge-img-wrapper">
-                            <img src="assets/luxury_tent.png" alt="Jungle Treehouse Retreat">
+                            <img src="assets/resort/lodge6.jpeg" alt="Sky-High Treehouse">
                         </div>
                         <div class="lodge-content">
                             <h3>Sky-High Treehouse</h3>
@@ -755,9 +689,9 @@
                     </div>
 
                     <div class="lodge-card glamping" data-aos="fade-up" data-aos-delay="100">
-                        <div class="price-badge">From ₹3,200/night</div>
+
                         <div class="lodge-img-wrapper">
-                            <img src="assets/luxury_tent.png" alt="Kali River Glamping">
+                            <img src="assets/resort/lodge8.jpeg" alt="Kali River Glamping">
                         </div>
                         <div class="lodge-content">
                             <h3>Kali River Glamping</h3>
@@ -770,9 +704,9 @@
                     </div>
 
                     <div class="lodge-card glamping" data-aos="fade-up" data-aos-delay="200">
-                        <div class="price-badge">From ₹3,800/night</div>
+
                         <div class="lodge-img-wrapper">
-                            <img src="assets/luxury_tent.png" alt="Starry Safari Tents">
+                            <img src="assets/resort/WhatsApp Image 2026-04-01 at 10.37.28.jpeg" alt="Starry Safari Tents">
                         </div>
                         <div class="lodge-content">
                             <h3>Starry Safari Tents</h3>
@@ -786,9 +720,9 @@
 
                     <!-- VALUE CATEGORY -->
                     <div class="lodge-card value" data-aos="fade-up">
-                        <div class="price-badge">From ₹1,800/night</div>
+
                         <div class="lodge-img-wrapper">
-                            <img src="assets/dandeli_camping_gallery_v2_1774961272712.png" alt="Bamboo Hollow Cottages">
+                            <img src="assets/resort/resort.jpeg" alt="Bamboo Hollow Cottages">
                         </div>
                         <div class="lodge-content">
                             <h3>Bamboo Hollow Cottages</h3>
@@ -801,9 +735,9 @@
                     </div>
 
                     <div class="lodge-card value" data-aos="fade-up" data-aos-delay="100">
-                        <div class="price-badge">From ₹1,200/night</div>
+
                         <div class="lodge-img-wrapper">
-                            <img src="assets/dandeli_camping_gallery_v2_1774961272712.png" alt="Eco-Budget Forest Hut">
+                            <img src="assets/resort/lodge3.jpeg" alt="Eco-Budget Forest Hut">
                         </div>
                         <div class="lodge-content">
                             <h3>Eco-Budget Forest Huts</h3>
@@ -816,9 +750,9 @@
                     </div>
 
                     <div class="lodge-card value" data-aos="fade-up" data-aos-delay="200">
-                        <div class="price-badge">From ₹2,200/night</div>
+
                         <div class="lodge-img-wrapper">
-                            <img src="assets/dandeli_trekking_gallery_v2_1774961250113.png" alt="Backpacker Trail Base">
+                            <img src="assets/resort/lodge6.jpeg" alt="Backpacker Trail Base">
                         </div>
                         <div class="lodge-content">
                             <h3>Backpacker Trail Base</h3>
@@ -977,6 +911,35 @@
                     <div class="reviewer">
                         <img src="https://i.pravatar.cc/100?u=4" alt="Reviewer">
                         <span>Rahul M.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnered With Trust Banner -->
+    <section class="partners-trust-section">
+        <div class="partners-container">
+            <div class="partners-header" data-aos="fade-up">
+                <span class="section-badge">TRUSTED PLATFORM</span>
+                <h2>PARTNERED WITH</h2>
+                <p>Verified and listed across every major platform, so you can book with complete confidence.</p>
+            </div>
+
+            <div class="partners-marquee-wrapper" data-aos="fade-up">
+                <div class="partners-marquee-track" id="partners-track">
+                    <!-- Unique Partner Set -->
+                    <div class="partner-logo-item">
+                        <img src="assets/PARTNERED/booking-com-logo-free-download-booking-com-logo-free-png.webp" alt="Booking.com" class="partner-img">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/PARTNERED/Makemytrip_logo.svg" alt="MakeMyTrip" class="partner-img">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/PARTNERED/tripadvisor-logo-free-download-tripadvisor-logo-free-png.png" alt="TripAdvisor" class="partner-img">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/PARTNERED/Airbnb-Logo.wine.svg" alt="Airbnb" class="partner-img">
                     </div>
                 </div>
             </div>

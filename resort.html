@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resorts & Stays — Adventure in Dandeli</title>
+    <meta name="description" content="Discover Dandeli's most exclusive resorts and jungle lodges. From luxury riverfront properties to eco-glamping tents — find your perfect wilderness stay.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/brand_logo.png">
+    <style>
+        :root {
+            --clr-bg-dark: #0a1115;
+            --clr-bg-layer: #0f1c24;
+            --clr-green-accent: #6EAF6E;
+            --clr-green-glow: rgba(110,175,110,0.15);
+            --clr-earth-gold: #c3a473;
+            --clr-text-main: #f8f9fa;
+            --clr-text-muted: rgba(255,255,255,0.65);
+            --glass-bg: rgba(255,255,255,0.05);
+            --glass-border: rgba(255,255,255,0.12);
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --nav-height: 72px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--clr-bg-dark);
+            color: var(--clr-text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ── NOISE LAYER ── */
+        .bg-noise {
+            position: fixed; inset: 0; z-index: 0;
+            opacity: 0.03; pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* ── HEADER / NAV ── */
+        header {
+            position: fixed; top: 0; left: 0; right: 0;
+            height: var(--nav-height);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 3rem;
+            background: rgba(10,17,21,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+        }
+        .logo-link { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
+        .logo-main { font-family: var(--font-heading); font-weight: 900; font-size: 1.1rem; color: var(--clr-text-main); letter-spacing: 0.08em; }
+        .logo-accent { font-family: var(--font-heading); font-weight: 500; font-size: 0.75rem; color: var(--clr-green-accent); letter-spacing: 0.2em; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            text-decoration: none; color: var(--clr-text-muted);
+            font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em;
+            transition: color 0.25s;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--clr-green-accent); }
+        .nav-cta {
+            background: var(--clr-green-accent);
+            color: #0a1115; border: none; border-radius: 50px;
+            padding: 0.55rem 1.5rem; font-weight: 700; font-size: 0.85rem;
+            cursor: pointer; transition: background 0.25s, transform 0.2s;
+            text-decoration: none;
+        }
+        .nav-cta:hover { background: #8fcc8f; transform: scale(1.04); }
+
+        /* ── HERO ── */
+        .resort-hero {
+            min-height: 100vh;
+            display: flex; align-items: flex-end; justify-content: flex-start;
+            padding: 0 5vw 8vh;
+            position: relative;
+            overflow: hidden;
+        }
+        .resort-hero-bg {
+            position: absolute; inset: 0;
+            background-image: url('assets/luxury_lodge.png');
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.05);
+            transition: transform 8s ease;
+            filter: brightness(0.45);
+        }
+        .resort-hero-bg.loaded { transform: scale(1); }
+        .resort-hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(10,17,21,0.7) 0%,
+                rgba(10,17,21,0.2) 50%,
+                rgba(10,17,21,0.8) 100%
+            );
+        }
+        .hero-content-resort {
+            position: relative; z-index: 2;
+            max-width: 700px;
+        }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: rgba(110,175,110,0.15);
+            border: 1px solid rgba(110,175,110,0.35);
+            border-radius: 50px;
+            padding: 0.35rem 1.1rem;
+            font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.15em; color: var(--clr-green-accent);
+            margin-bottom: 1.5rem;
+        }
+        .hero-eyebrow i { font-size: 0.7rem; }
+        .hero-title-resort {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: clamp(2.8rem, 6vw, 5.5rem);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.2rem;
+        }
+        .hero-title-resort span { color: var(--clr-green-accent); }
+        .hero-subtitle-resort {
+            color: var(--clr-text-muted);
+            font-size: 1.1rem; max-width: 520px;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+        .hero-stats-row {
+            display: flex; gap: 2.5rem; flex-wrap: wrap;
+        }
+        .hero-stat { display: flex; flex-direction: column; }
+        .hero-stat-num {
+            font-family: var(--font-heading);
+            font-weight: 900; font-size: 2rem;
+            color: var(--clr-green-accent);
+        }
+        .hero-stat-label {
+            font-size: 0.75rem; letter-spacing: 0.1em;
+            color: var(--clr-text-muted); text-transform: uppercase;
+        }
+        /* scroll hint */
+        .scroll-hint {
+            position: absolute; bottom: 3rem; left: 50%;
+            transform: translateX(-50%); z-index: 2;
+            display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+            color: var(--clr-text-muted); font-size: 0.72rem; letter-spacing: 0.1em;
+        }
+        .scroll-hint-line {
+            width: 1px; height: 50px;
+            background: linear-gradient(180deg, var(--clr-green-accent), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+        @keyframes scrollPulse { 0%,100%{opacity:0.3;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(1.1)} }
+
+        /* ── FILTER BAR ── */
+        .filter-section {
+            position: sticky; top: var(--nav-height); z-index: 100;
+            background: rgba(10,17,21,0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 0 5vw;
+        }
+        .filter-inner {
+            display: flex; align-items: center; gap: 0.5rem;
+            overflow-x: auto; padding: 1rem 0;
+            scrollbar-width: none;
+        }
+        .filter-inner::-webkit-scrollbar { display: none; }
+        .filter-btn {
+            flex-shrink: 0;
+            background: transparent;
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 0.5rem 1.4rem;
+            color: var(--clr-text-muted);
+            font-size: 0.82rem; font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s;
+            white-space: nowrap;
+        }
+        .filter-btn:hover { border-color: var(--clr-green-accent); color: var(--clr-text-main); }
+        .filter-btn.active {
+            background: var(--clr-green-accent);
+            border-color: var(--clr-green-accent);
+            color: #0a1115;
+        }
+
+        /* ── SECTION COMMON ── */
+        section { padding: 6rem 5vw; position: relative; }
+        .section-badge {
+            display: inline-block;
+            background: rgba(110,175,110,0.12);
+            border: 1px solid rgba(110,175,110,0.3);
+            border-radius: 50px;
+            padding: 0.3rem 1rem;
+            font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.2em; color: var(--clr-green-accent);
+            margin-bottom: 0.8rem;
+        }
+        .section-heading {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            letter-spacing: 0.04em;
+        }
+
+        /* ── RESORT GRID ── */
+        .resorts-section { padding-top: 5rem; }
+        .resorts-grid-header { margin-bottom: 3.5rem; max-width: 700px; }
+        .resorts-grid-header p { color: var(--clr-text-muted); margin-top: 0.8rem; font-size: 1rem; }
+
+        .resorts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 2rem;
+        }
+
+        /* individual resort card */
+        .resort-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s;
+            display: flex; flex-direction: column;
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.35s, border-color 0.35s;
+        }
+        .resort-card.visible { opacity: 1; transform: translateY(0); }
+        .resort-card:hover {
+            border-color: rgba(110,175,110,0.35);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(110,175,110,0.1);
+            transform: translateY(-6px);
+        }
+        .resort-card.featured {
+            grid-column: span 2;
+            flex-direction: row;
+        }
+        @media (max-width: 900px) { .resort-card.featured { grid-column: span 1; flex-direction: column; } }
+
+        .resort-img-wrapper { position: relative; overflow: hidden; flex-shrink: 0; }
+        .resort-card:not(.featured) .resort-img-wrapper { height: 240px; }
+        .resort-card.featured .resort-img-wrapper { width: 50%; min-height: 360px; }
+        @media (max-width: 900px) {
+            .resort-card.featured .resort-img-wrapper { width: 100%; min-height: 260px; }
+        }
+        .resort-img-wrapper img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .resort-card:hover .resort-img-wrapper img { transform: scale(1.06); }
+
+        /* category tag on image */
+        .resort-category-tag {
+            position: absolute; top: 1rem; left: 1rem;
+            background: rgba(10,17,21,0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 0.3rem 0.9rem;
+            font-size: 0.68rem; font-weight: 700;
+            letter-spacing: 0.12em; color: var(--clr-green-accent);
+        }
+        .resort-rating {
+            position: absolute; top: 1rem; right: 1rem;
+            background: rgba(10,17,21,0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 0.35rem 0.75rem;
+            display: flex; align-items: center; gap: 0.35rem;
+            font-size: 0.8rem; font-weight: 700; color: #ffd166;
+        }
+
+        .resort-body { padding: 1.8rem; display: flex; flex-direction: column; flex: 1; }
+        .resort-card.featured .resort-body { padding: 2.5rem; }
+        .resort-name {
+            font-family: var(--font-heading);
+            font-weight: 800; font-size: 1.25rem;
+            margin-bottom: 0.5rem; line-height: 1.25;
+        }
+        .resort-card.featured .resort-name { font-size: 1.7rem; }
+        .resort-desc { color: var(--clr-text-muted); font-size: 0.9rem; line-height: 1.65; margin-bottom: 1.5rem; }
+
+        /* amenities chips */
+        .resort-amenities {
+            display: flex; flex-wrap: wrap; gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .amenity-chip {
+            display: inline-flex; align-items: center; gap: 0.35rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.75rem; color: var(--clr-text-muted);
+        }
+        .amenity-chip i { color: var(--clr-green-accent); font-size: 0.7rem; }
+
+        .resort-footer {
+            margin-top: auto;
+            display: flex; align-items: center; justify-content: space-between;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+        .resort-enquiry-label { font-size: 0.75rem; color: var(--clr-text-muted); }
+        .resort-enquiry-label strong { display: block; font-size: 0.85rem; color: var(--clr-text-main); }
+
+        .btn-enquire {
+            background: linear-gradient(135deg, var(--clr-green-accent), #8fcc8f);
+            color: #0a1115;
+            border: none; border-radius: 50px;
+            padding: 0.6rem 1.4rem;
+            font-weight: 700; font-size: 0.82rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none; display: inline-block;
+        }
+        .btn-enquire:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 24px rgba(110,175,110,0.4);
+        }
+
+        /* ── WHY US STRIP ── */
+        .why-strip {
+            background: linear-gradient(135deg, rgba(110,175,110,0.08), rgba(110,175,110,0.02));
+            border-top: 1px solid rgba(110,175,110,0.15);
+            border-bottom: 1px solid rgba(110,175,110,0.15);
+            padding: 3.5rem 5vw;
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem; align-items: center;
+        }
+        .why-item { display: flex; align-items: flex-start; gap: 1rem; }
+        .why-icon {
+            width: 48px; height: 48px; flex-shrink: 0;
+            background: rgba(110,175,110,0.12);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--clr-green-accent); font-size: 1.1rem;
+        }
+        .why-text h4 {
+            font-family: var(--font-heading);
+            font-size: 0.95rem; font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+        .why-text p { font-size: 0.8rem; color: var(--clr-text-muted); }
+
+        /* ── PACKAGES CTA ── */
+        .packages-cta-section {
+            text-align: center;
+            padding: 7rem 5vw;
+            background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(110,175,110,0.07) 0%, transparent 70%);
+        }
+        .packages-cta-section h2 {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            letter-spacing: 0.04em;
+            margin-bottom: 1rem;
+        }
+        .packages-cta-section h2 span { color: var(--clr-green-accent); }
+        .packages-cta-section p { color: var(--clr-text-muted); font-size: 1.05rem; max-width: 550px; margin: 0 auto 2.5rem; }
+        .cta-button-group { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .btn-primary-resort {
+            background: linear-gradient(135deg, var(--clr-green-accent), #8fcc8f);
+            color: #0a1115; border: none; border-radius: 50px;
+            padding: 0.9rem 2.2rem;
+            font-family: var(--font-heading);
+            font-weight: 800; font-size: 0.95rem; letter-spacing: 0.05em;
+            cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none; display: inline-block;
+        }
+        .btn-primary-resort:hover { transform: scale(1.05); box-shadow: 0 8px 32px rgba(110,175,110,0.4); }
+        .btn-outline-resort {
+            background: transparent;
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 0.9rem 2.2rem;
+            color: var(--clr-text-main);
+            font-family: var(--font-heading);
+            font-weight: 700; font-size: 0.95rem;
+            cursor: pointer; transition: border-color 0.25s, background 0.25s;
+            text-decoration: none; display: inline-block;
+        }
+        .btn-outline-resort:hover { border-color: var(--clr-green-accent); background: rgba(110,175,110,0.07); }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 2rem 5vw;
+            border-top: 1px solid var(--glass-border);
+            color: var(--clr-text-muted); font-size: 0.8rem;
+        }
+        footer a { color: var(--clr-green-accent); text-decoration: none; }
+
+        /* ── MOBILE NAV TOGGLE ── */
+        .nav-toggle { display: none; background: none; border: none; color: var(--clr-text-main); font-size: 1.3rem; cursor: pointer; }
+        @media (max-width: 768px) {
+            .nav-toggle { display: block; }
+            .nav-links { display: none; position: absolute; top: var(--nav-height); left: 0; right: 0; background: rgba(10,17,21,0.97); flex-direction: column; padding: 1.5rem 2rem; gap: 1.2rem; border-bottom: 1px solid var(--glass-border); }
+            .nav-links.open { display: flex; }
+            header { padding: 0 1.5rem; }
+            .resort-hero { padding: 0 5% 12vh; }
+            .resorts-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="bg-noise"></div>
+
+<!-- ── HEADER ── -->
+<header id="main-header">
+    <a href="index.html" class="logo-link">
+        <span class="logo-main">ADVENTURE</span>
+        <span class="logo-accent">IN DANDELI</span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="index.html#activities"><i class="fa-solid fa-map-location-dot"></i> Activities</a></li>
+        <li><a href="resort.html" class="active"><i class="fa-solid fa-hotel"></i> Resorts</a></li>
+        <li><a href="index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav-cta">BOOK NOW</a>
+</header>
+
+<!-- ── HERO ── -->
+<section class="resort-hero" id="resort-hero">
+    <div class="resort-hero-bg" id="hero-bg"></div>
+    <div class="resort-hero-overlay"></div>
+    <div class="hero-content-resort">
+        <div class="hero-eyebrow">
+            <i class="fa-solid fa-tree"></i>
+            WILDERNESS STAYS — DANDELI FOREST
+        </div>
+        <h1 class="hero-title-resort">
+            Your Perfect<br><span>Jungle Escape</span><br>Awaits.
+        </h1>
+        <p class="hero-subtitle-resort">
+            From luxury riverfront resorts to eco-glamping tents suspended in teak trees — every property is handpicked, immersive, and unforgettable.
+        </p>
+        <div class="hero-stats-row">
+            <div class="hero-stat">
+                <span class="hero-stat-num">12+</span>
+                <span class="hero-stat-label">Curated Properties</span>
+            </div>
+            <div class="hero-stat">
+                <span class="hero-stat-num">100%</span>
+                <span class="hero-stat-label">Verified & Inspected</span>
+            </div>
+            <div class="hero-stat">
+                <span class="hero-stat-num">4.9★</span>
+                <span class="hero-stat-label">Avg. Guest Rating</span>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-hint">
+        <span>EXPLORE STAYS</span>
+        <div class="scroll-hint-line"></div>
+    </div>
+</section>
+
+<!-- ── WHY STRIP ── -->
+<div class="why-strip">
+    <div class="why-grid">
+        <div class="why-item">
+            <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="why-text">
+                <h4>Verified Properties</h4>
+                <p>Every resort is personally inspected by our team before listing.</p>
+            </div>
+        </div>
+        <div class="why-item">
+            <div class="why-icon"><i class="fa-solid fa-headset"></i></div>
+            <div class="why-text">
+                <h4>24/7 Concierge</h4>
+                <p>Our on-ground team is always reachable for any request.</p>
+            </div>
+        </div>
+        <div class="why-item">
+            <div class="why-icon"><i class="fa-solid fa-tags"></i></div>
+            <div class="why-text">
+                <h4>Custom Quote</h4>
+                <p>No hidden pricing — get tailor-made packages for your group size.</p>
+            </div>
+        </div>
+        <div class="why-item">
+            <div class="why-icon"><i class="fa-solid fa-leaf"></i></div>
+            <div class="why-text">
+                <h4>Eco Responsible</h4>
+                <p>Committed to low-impact, sustainable forest tourism practices.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── FILTER BAR ── -->
+<div class="filter-section" id="filter-section">
+    <div class="filter-inner">
+        <button class="filter-btn active" data-filter="all" onclick="filterResorts(this, 'all')">All Stays</button>
+        <button class="filter-btn" data-filter="luxury" onclick="filterResorts(this, 'luxury')">Luxury Resort</button>
+        <button class="filter-btn" data-filter="jungle" onclick="filterResorts(this, 'jungle')">Jungle Lodge</button>
+        <button class="filter-btn" data-filter="glamping" onclick="filterResorts(this, 'glamping')">Eco Glamping</button>
+        <button class="filter-btn" data-filter="treehouse" onclick="filterResorts(this, 'treehouse')">Treehouse</button>
+        <button class="filter-btn" data-filter="riverside" onclick="filterResorts(this, 'riverside')">Riverside</button>
+    </div>
+</div>
+
+<!-- ── RESORTS GRID ── -->
+<section class="resorts-section" id="resorts">
+    <div class="resorts-grid-header">
+        <span class="section-badge">CURATED COLLECTION</span>
+        <h2 class="section-heading">CHOOSE YOUR WILDERNESS HOME</h2>
+        <p>Every property below is part of our exclusive network — book through us for the best rates and full concierge support.</p>
+    </div>
+
+    <div class="resorts-grid" id="resorts-grid">
+
+        <!-- FEATURED: Riverstone Luxury Resort -->
+        <div class="resort-card featured" data-category="luxury riverside">
+            <div class="resort-img-wrapper">
+                <img src="assets/resort/resort.jpeg" alt="Riverstone Luxury Resort" loading="lazy">
+                <span class="resort-category-tag">FEATURED · LUXURY</span>
+                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.9</span>
+            </div>
+            <div class="resort-body">
+                <h3 class="resort-name">Riverstone Luxury Resort</h3>
+                <p class="resort-desc">
+                    Perched right on the banks of the Kali River with an infinity pool that dissolves into the forest horizon. Riverstone is Dandeli's most celebrated luxury address — combining world-class hospitality with authentic wilderness immersion.
+                </p>
+                <div class="resort-amenities">
+                    <span class="amenity-chip"><i class="fa-solid fa-swimming-pool"></i> Infinity Pool</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-snowflake"></i> Fully AC</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-utensils"></i> Fine Dining</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-spa"></i> Wellness Spa</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-wifi"></i> High-Speed WiFi</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-car"></i> Safari Transfers</span>
+                </div>
+                <div class="resort-footer">
+                    <div class="resort-enquiry-label">
+                        Custom Packages Available
+                        <strong>Group · Family · Corporate</strong>
+                    </div>
+                    <a href="index.html#contact" class="btn-enquire">ENQUIRE NOW <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Heritage Rapids Manor -->
+        <div class="resort-card" data-category="luxury">
+            <div class="resort-img-wrapper">
+                <img src="assets/resort/resort2.jpeg" alt="Heritage Rapids Manor" loading="lazy">
+                <span class="resort-category-tag">HERITAGE · LUXURY</span>
+                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.8</span>
+            </div>
+            <div class="resort-body">
+                <h3 class="resort-name">Heritage Rapids Manor</h3>
+                <p class="resort-desc">Historic colonial architecture meets modern luxury at the edge of the roaring Kali River rapids. Perfect for exclusive corporate retreats and milestone celebrations.</p>
+                <div class="resort-amenities">
+                    <span class="amenity-chip"><i class="fa-solid fa-spa"></i> Wellness Spa</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-utensils"></i> Fine Dining</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-chalkboard-teacher"></i> Conference Hall</span>
+                </div>
+                <div class="resort-footer">
+                    <div class="resort-enquiry-label">Best for Corporate & Groups<strong>Custom Quote Available</strong></div>
+                    <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ethereal Fog Resort -->
+        <div class="resort-card" data-category="luxury">
+            <div class="resort-img-wrapper">
+                <img src="assets/resort/lodge.jpeg" alt="Ethereal Fog Resort" loading="lazy">
+                <span class="resort-category-tag">HILLTOP · LUXURY</span>
+                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.9</span>
+            </div>
+            <div class="resort-body">
+                <h3 class="resort-name">Ethereal Fog Resort</h3>
+                <p class="resort-desc">Wake up above the morning clouds in our exclusive hilltop AC suites. The sunrise reveals an unbroken canvas of Dandeli's emerald canopy stretching to the horizon.</p>
+                <div class="resort-amenities">
+                    <span class="amenity-chip"><i class="fa-solid fa-cloud"></i> Hilltop View</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-wine-glass"></i> Sky Bar</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-snowflake"></i> Fully AC</span>
+                </div>
+                <div class="resort-footer">
+                    <div class="resort-enquiry-label">Family & Couple Retreats<strong>Custom Quote Available</strong></div>
+                    <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Whistling Thrush Cabin -->
+        <div class="resort-card" data-category="jungle">
+            <div class="resort-img-wrapper">
+                <img src="assets/resort/lodge3.jpeg" alt="Whistling Thrush Cabin" loading="lazy">
+                <span class="resort-category-tag">JUNGLE · CABIN</span>
+                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.7</span>
+            </div>
+            <div class="resort-body">
+                <h3 class="resort-name">Whistling Thrush Cabin</h3>
+                <p class="resort-desc">Authentic teak-wood cabins nestled deep inside the forest for nature photographers and wildlife enthusiasts. Fall asleep to the calls of the Malabar pied hornbill.</p>
+                <div class="resort-amenities">
+                    <span class="amenity-chip"><i class="fa-solid fa-binoculars"></i> Bird Watching</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-leaf"></i> Eco-Friendly</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-tree"></i> Forest Walk</span>
+                </div>
+                <div class="resort-footer">
+                    <div class="resort-enquiry-label">College & Nature Groups<strong>Custom Quote Available</strong></div>
+                    <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Black Panther Lodge -->
+        <div class="resort-card" data-category="jungle">
+            <div class="resort-img-wrapper">
+                <img src="assets/resort/lodge4.jpeg" alt="Black Panther Lodge" loading="lazy">
+                <span class="resort-category-tag">JUNGLE · LODGE</span>
+                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.8</span>
+            </div>
+            <div class="resort-body">
+                <h3 class="resort-name">Black Panther Lodge</h3>
+                <p class="resort-desc">Positioned precisely at the start of the region's most active panther tracking zone. Early morning safari departures and night walks directly from property.</p>
+                <div class="resort-amenities">
+                    <span class="amenity-chip"><i class="fa-solid fa-car"></i> Safari Ready</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-paw"></i> Night Walks</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-tree"></i> Trek Access</span>
+                </div>
+                <div class="resort-footer">
+                    <div class="resort-enquiry-label">Safari & Wildlife Groups<strong>Custom Quote Available</strong></div>
+                    <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hornbill Nest Stay -->
+        <div class="resort-card" data-category="jungle">
+            <div class="resort-img-wrapper">
+                <img src="assets/resort/lodge5.jpeg" alt="Hornbill Nest Stay" loading="lazy">
+                <span class="resort-category-tag">JUNGLE · NEST</span>
+                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.7</span>
+            </div>
+            <div class="resort-body">
+                <h3 class="resort-name">Hornbill Nest Stay</h3>
+                <p class="resort-desc">Cozy attic-style rooms with direct views of the forest's rarest nesting sites. Organic coffee, nature walks, and a genuine off-grid experience without sacrificing comfort.</p>
+                <div class="resort-amenities">
+                    <span class="amenity-chip"><i class="fa-solid fa-feather"></i> Rare Birds</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-mug-hot"></i> Organic Coffee</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-leaf"></i> Nature Walks</span>
+                </div>
+                <div class="resort-footer">
+                    <div class="resort-enquiry-label">Birding & College Groups<strong>Custom Quote Available</strong></div>
+                    <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- FEATURED: Sky-High Treehouse -->
+        <div class="resort-card featured" data-category="treehouse glamping">
+            <div class="resort-img-wrapper">
+                <img src="assets/resort/lodge6.jpeg" alt="Sky-High Treehouse" loading="lazy">
+                <span class="resort-category-tag">FEATURED · TREEHOUSE</span>
+                <span class="resort-rating"><i class="fa-solid fa-star"></i> 5.0</span>
+            </div>
+            <div class="resort-body">
+                <h3 class="resort-name">Sky-High Treehouse</h3>
+                <p class="resort-desc">
+                    A genuinely once-in-a-lifetime experience — luxury units suspended 40 feet above the forest floor in ancient teak trees. A rope bridge connects your private retreat to the main lodge. Drift off to the symphony of the jungle canopy far below.
+                </p>
+                <div class="resort-amenities">
+                    <span class="amenity-chip"><i class="fa-solid fa-arrow-up"></i> 40ft Treetop</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-bridge"></i> Rope Bridge</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-moon"></i> Stargazing Deck</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-binoculars"></i> Canopy Views</span>
+                </div>
+                <div class="resort-footer">
+                    <div class="resort-enquiry-label">Couples · Honeymooners<strong>Custom Quote Available</strong></div>
+                    <a href="index.html#contact" class="btn-enquire">ENQUIRE NOW <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kali River Glamping -->
+        <div class="resort-card" data-category="glamping riverside">
+            <div class="resort-img-wrapper">
+                <img src="assets/resort/lodge8.jpeg" alt="Kali River Glamping" loading="lazy">
+                <span class="resort-category-tag">RIVERSIDE · GLAMPING</span>
+                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.8</span>
+            </div>
+            <div class="resort-body">
+                <h3 class="resort-name">Kali River Glamping</h3>
+                <p class="resort-desc">Premium canvas safari tents with private wooden decks overhanging the river. Drift off to the sound of rapids, wake at sunrise with the mist rising off the Kali.</p>
+                <div class="resort-amenities">
+                    <span class="amenity-chip"><i class="fa-solid fa-moon"></i> Stargazing</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-fire"></i> Riverside Bonfire</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-water"></i> River Deck</span>
+                </div>
+                <div class="resort-footer">
+                    <div class="resort-enquiry-label">Family & Friend Groups<strong>Custom Quote Available</strong></div>
+                    <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Starry Safari Tents -->
+        <div class="resort-card" data-category="glamping">
+            <div class="resort-img-wrapper">
+                <img src="assets/resort/WhatsApp Image 2026-04-01 at 10.37.28.jpeg" alt="Starry Safari Tents" loading="lazy">
+                <span class="resort-category-tag">GLAMPING · PREMIUM</span>
+                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.7</span>
+            </div>
+            <div class="resort-body">
+                <h3 class="resort-name">Starry Safari Tents</h3>
+                <p class="resort-desc">Unobstructed sky views through transparent roof panels, king-sized beds, and premium ventilation. The ultimate middle ground between camping and luxury.</p>
+                <div class="resort-amenities">
+                    <span class="amenity-chip"><i class="fa-solid fa-star"></i> Sky View Roof</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-shower"></i> Ensuite Bath</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-snowflake"></i> Climate Controlled</span>
+                </div>
+                <div class="resort-footer">
+                    <div class="resort-enquiry-label">College & Group Packages<strong>Custom Quote Available</strong></div>
+                    <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /resorts-grid -->
+</section>
+
+<!-- ── PACKAGES CTA ── -->
+<section class="packages-cta-section">
+    <span class="section-badge">READY TO BOOK?</span>
+    <h2>Don't Just Stay.<br><span>Experience Dandeli.</span></h2>
+    <p>Tell us your group size, dates, and preferences — we'll craft a custom all-inclusive package that exceeds expectations.</p>
+    <div class="cta-button-group">
+        <a href="index.html#contact" class="btn-primary-resort">GET A CUSTOM QUOTE <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="index.html" class="btn-outline-resort"><i class="fa-solid fa-map-location-dot"></i> VIEW ALL ACTIVITIES</a>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <p>© 2025 <a href="index.html">Adventure in Dandeli</a>. All rights reserved. · Dandeli, Karnataka, India.</p>
+</footer>
+
+<script>
+    /* ── NAV TOGGLE ── */
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks  = document.getElementById('nav-links');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    /* ── HERO BG LAZY PARALLAX ── */
+    const heroBg = document.getElementById('hero-bg');
+    window.addEventListener('load', () => heroBg.classList.add('loaded'));
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        heroBg.style.transform = `scale(1) translateY(${scrolled * 0.3}px)`;
+    });
+
+    /* ── FILTER RESORTS ── */
+    function filterResorts(btn, category) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        document.querySelectorAll('.resort-card').forEach(card => {
+            const cats = card.dataset.category || '';
+            const show = category === 'all' || cats.includes(category);
+            card.style.display = show ? '' : 'none';
+            // re-trigger the featured span
+            if (show && cats.includes('featured')) {
+                card.style.gridColumn = window.innerWidth > 900 ? 'span 2' : 'span 1';
+            }
+        });
+    }
+
+    /* ── INTERSECTION OBSERVER — card fade-in ── */
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add('visible'), i * 80);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.resort-card').forEach(card => observer.observe(card));
+
+    /* ── STICKY HEADER SHRINK ── */
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('main-header');
+        header.style.padding = window.scrollY > 60 ? '0 3rem' : '0 3rem';
+    });
+</script>
+</body>
+</html>
