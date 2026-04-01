@@ -192,9 +192,16 @@ ul {
 .logo-accent {
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--clr-orange-safety);
+    color: rgba(255, 255, 255, 0.7);
     letter-spacing: 4px;
     margin-top: 2px;
+}
+
+.logo-container span.logo-highlight {
+    color: var(--clr-orange-safety);
+    font-weight: 700;
+    -webkit-text-fill-color: var(--clr-orange-safety);
+    background: none;
 }
 
 .logo-container:hover .logo-text {
@@ -2085,6 +2092,76 @@ ul {
     line-height: 1.8;
 }
 
+/* Resort CTA Button & Snapshot Icon */
+.resort-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 2.2rem;
+    padding: 0.9rem 2.4rem;
+    background: rgba(110, 175, 110, 0.08);
+    border: 1px solid rgba(110, 175, 110, 0.25);
+    border-radius: 50px;
+    color: #6EAF6E;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    box-shadow: 0 0 20px rgba(110, 175, 110, 0.05);
+    animation: btnPulse 4s ease-in-out infinite;
+}
+
+.resort-cta-btn:hover {
+    background: rgba(110, 175, 110, 0.25);
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(110, 175, 110, 0.2);
+    color: #fff;
+    border-color: rgba(110, 175, 110, 0.6);
+}
+
+.snapshot-stack {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 6px;
+}
+
+.photo-stack-svg {
+    width: 28px;
+    height: 28px;
+    overflow: visible;
+}
+
+.photo-bg, .photo-mid, .photo-front {
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-origin: center;
+}
+
+/* Fan-out Animation on Hover */
+.resort-cta-btn:hover .photo-bg {
+    transform: translate(-10px, -4px) rotate(-15deg);
+    opacity: 0.7;
+}
+
+.resort-cta-btn:hover .photo-mid {
+    transform: translate(-2px, -6px) rotate(-5deg);
+    opacity: 0.85;
+}
+
+.resort-cta-btn:hover .photo-front {
+    transform: translate(6px, -2px) rotate(12deg);
+}
+
+@keyframes btnPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(110, 175, 110, 0.05), 0 0 0 0 rgba(110, 175, 110, 0.1); }
+    50% { box-shadow: 0 0 30px rgba(110, 175, 110, 0.15), 0 0 0 15px rgba(110, 175, 110, 0); }
+}
+
 /* Bento Grid */
 .stays-bento-grid {
     display: grid;
@@ -2141,15 +2218,23 @@ ul {
     min-height: 600px;
 }
 
-.lodge-card {
+.lodge-card,
+.lodge-showcase-card {
     position: relative;
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 30px;
     padding: 1.5rem;
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.lodge-card {
     display: none;
-    /* Controlled by JS */
+    /* Controlled by JS filtering */
+}
+
+.lodge-showcase-card {
+    display: block; /* Always visible */
 }
 
 .lodge-card.show {
@@ -2169,7 +2254,8 @@ ul {
     }
 }
 
-.lodge-card:hover {
+.lodge-card:hover,
+.lodge-showcase-card:hover {
     transform: translateY(-20px);
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.2);
@@ -2192,7 +2278,8 @@ ul {
     transition: transform 0.8s ease;
 }
 
-.lodge-card:hover .lodge-img-wrapper img {
+.lodge-card:hover .lodge-img-wrapper img,
+.lodge-showcase-card:hover .lodge-img-wrapper img {
     transform: scale(1.1);
 }
 

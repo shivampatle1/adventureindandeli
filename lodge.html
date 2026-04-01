@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resorts & Stays — Adventure in Dandeli</title>
-    <meta name="description" content="Discover Dandeli's most exclusive resorts and jungle lodges. From luxury riverfront properties to eco-glamping tents — find your perfect wilderness stay.">
+    <title>Jungle Lodges & Eco Camps — Adventure in Dandeli</title>
+    <meta name="description" content="Discover Dandeli's most authentic jungle lodges, eco-camps, and treehouses. Get closer to nature with our curated wilderness stays.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,7 +87,7 @@
         }
         .resort-hero-bg {
             position: absolute; inset: 0;
-            background-image: url('assets/luxury_lodge.png');
+            background-image: url('assets/resort/lodge.jpeg');
             background-size: cover;
             background-position: center;
             transform: scale(1.05);
@@ -430,8 +430,8 @@
     <ul class="nav-links" id="nav-links">
         <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
         <li><a href="index.html#activities"><i class="fa-solid fa-map-location-dot"></i> Activities</a></li>
-        <li><a href="lodge.html"><i class="fa-solid fa-campground"></i> Lodges</a></li>
-        <li><a href="resort.html" class="active"><i class="fa-solid fa-hotel"></i> Resorts</a></li>
+        <li><a href="lodge.html" class="active"><i class="fa-solid fa-campground"></i> Lodges</a></li>
+        <li><a href="resort.html"><i class="fa-solid fa-hotel"></i> Resorts</a></li>
         <li><a href="index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
     </ul>
     <a href="index.html#contact" class="nav-cta">BOOK NOW</a>
@@ -443,14 +443,14 @@
     <div class="resort-hero-overlay"></div>
     <div class="hero-content-resort">
         <div class="hero-eyebrow">
-            <i class="fa-solid fa-tree"></i>
-            WILDERNESS STAYS — DANDELI FOREST
+            <i class="fa-solid fa-leaf"></i>
+            WILDERNESS LODGES — DANDELI
         </div>
         <h1 class="hero-title-resort">
-            Your Perfect<br><span>Jungle Escape</span><br>Awaits.
+            Into the<br><span>Wild Heart</span><br>of Dandeli.
         </h1>
         <p class="hero-subtitle-resort">
-            From luxury riverfront resorts to eco-glamping tents suspended in teak trees — every property is handpicked, immersive, and unforgettable.
+            Experience the raw beauty of the jungle. From authentic eco-lodges to thrilling treehouses and riverfront campsites.
         </p>
         <div class="hero-stats-row">
             <div class="hero-stat">
@@ -510,9 +510,8 @@
 <!-- ── FILTER BAR ── -->
 <div class="filter-section" id="filter-section">
     <div class="filter-inner">
-        <button class="filter-btn active" data-filter="all" onclick="filterResorts(this, 'all')">All Stays</button>
-        <button class="filter-btn" data-filter="luxury" onclick="filterResorts(this, 'luxury')">Luxury Resort</button>
-        <button class="filter-btn" data-filter="jungle" onclick="filterResorts(this, 'jungle')">Jungle Lodge</button>
+        <button class="filter-btn active" data-filter="all" onclick="filterResorts(this, 'all')">All Lodges</button>
+        <button class="filter-btn" data-filter="jungle" onclick="filterResorts(this, 'jungle')">Jungle Camps</button>
         <button class="filter-btn" data-filter="glamping" onclick="filterResorts(this, 'glamping')">Eco Glamping</button>
         <button class="filter-btn" data-filter="treehouse" onclick="filterResorts(this, 'treehouse')">Treehouse</button>
         <button class="filter-btn" data-filter="riverside" onclick="filterResorts(this, 'riverside')">Riverside</button>
@@ -528,80 +527,6 @@
     </div>
 
     <div class="resorts-grid" id="resorts-grid">
-
-        <!-- FEATURED: Riverstone Luxury Resort -->
-        <div class="resort-card featured" data-category="luxury riverside">
-            <div class="resort-img-wrapper">
-                <img src="assets/resort/resort.jpeg" alt="Riverstone Luxury Resort" loading="lazy">
-                <span class="resort-category-tag">FEATURED · LUXURY</span>
-                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.9</span>
-            </div>
-            <div class="resort-body">
-                <h3 class="resort-name">Riverstone Luxury Resort</h3>
-                <p class="resort-desc">
-                    Perched right on the banks of the Kali River with an infinity pool that dissolves into the forest horizon. Riverstone is Dandeli's most celebrated luxury address — combining world-class hospitality with authentic wilderness immersion.
-                </p>
-                <div class="resort-amenities">
-                    <span class="amenity-chip"><i class="fa-solid fa-swimming-pool"></i> Infinity Pool</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-snowflake"></i> Fully AC</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-utensils"></i> Fine Dining</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-spa"></i> Wellness Spa</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-wifi"></i> High-Speed WiFi</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-car"></i> Safari Transfers</span>
-                </div>
-                <div class="resort-footer">
-                    <div class="resort-enquiry-label">
-                        Custom Packages Available
-                        <strong>Group · Family · Corporate</strong>
-                    </div>
-                    <a href="index.html#contact" class="btn-enquire">ENQUIRE NOW <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Heritage Rapids Manor -->
-        <div class="resort-card" data-category="luxury">
-            <div class="resort-img-wrapper">
-                <img src="assets/resort/resort2.jpeg" alt="Heritage Rapids Manor" loading="lazy">
-                <span class="resort-category-tag">HERITAGE · LUXURY</span>
-                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.8</span>
-            </div>
-            <div class="resort-body">
-                <h3 class="resort-name">Heritage Rapids Manor</h3>
-                <p class="resort-desc">Historic colonial architecture meets modern luxury at the edge of the roaring Kali River rapids. Perfect for exclusive corporate retreats and milestone celebrations.</p>
-                <div class="resort-amenities">
-                    <span class="amenity-chip"><i class="fa-solid fa-spa"></i> Wellness Spa</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-utensils"></i> Fine Dining</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-chalkboard-teacher"></i> Conference Hall</span>
-                </div>
-                <div class="resort-footer">
-                    <div class="resort-enquiry-label">Best for Corporate & Groups<strong>Custom Quote Available</strong></div>
-                    <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Ethereal Fog Resort -->
-        <div class="resort-card" data-category="luxury">
-            <div class="resort-img-wrapper">
-                <img src="assets/resort/lodge.jpeg" alt="Ethereal Fog Resort" loading="lazy">
-                <span class="resort-category-tag">HILLTOP · LUXURY</span>
-                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.9</span>
-            </div>
-            <div class="resort-body">
-                <h3 class="resort-name">Ethereal Fog Resort</h3>
-                <p class="resort-desc">Wake up above the morning clouds in our exclusive hilltop AC suites. The sunrise reveals an unbroken canvas of Dandeli's emerald canopy stretching to the horizon.</p>
-                <div class="resort-amenities">
-                    <span class="amenity-chip"><i class="fa-solid fa-cloud"></i> Hilltop View</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-wine-glass"></i> Sky Bar</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-snowflake"></i> Fully AC</span>
-                </div>
-                <div class="resort-footer">
-                    <div class="resort-enquiry-label">Family & Couple Retreats<strong>Custom Quote Available</strong></div>
-                    <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
-                </div>
-            </div>
-        </div>
 
         <!-- Whistling Thrush Cabin -->
         <div class="resort-card" data-category="jungle">
