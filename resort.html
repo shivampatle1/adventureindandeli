@@ -194,141 +194,8 @@
             color: #0a1115;
         }
 
-        /* ── SECTION COMMON ── */
-        section { padding: 6rem 5vw; position: relative; }
-        .section-badge {
-            display: inline-block;
-            background: rgba(110,175,110,0.12);
-            border: 1px solid rgba(110,175,110,0.3);
-            border-radius: 50px;
-            padding: 0.3rem 1rem;
-            font-size: 0.7rem; font-weight: 700;
-            letter-spacing: 0.2em; color: var(--clr-green-accent);
-            margin-bottom: 0.8rem;
-        }
-        .section-heading {
-            font-family: var(--font-heading);
-            font-weight: 900;
-            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-            letter-spacing: 0.04em;
-        }
+        /* Common Styles Moved to styles.css */
 
-        /* ── RESORT GRID ── */
-        .resorts-section { padding-top: 5rem; }
-        .resorts-grid-header { margin-bottom: 3.5rem; max-width: 700px; }
-        .resorts-grid-header p { color: var(--clr-text-muted); margin-top: 0.8rem; font-size: 1rem; }
-
-        .resorts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-            gap: 2rem;
-        }
-
-        /* individual resort card */
-        .resort-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s;
-            display: flex; flex-direction: column;
-            opacity: 0; transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.35s, border-color 0.35s;
-        }
-        .resort-card.visible { opacity: 1; transform: translateY(0); }
-        .resort-card:hover {
-            border-color: rgba(110,175,110,0.35);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(110,175,110,0.1);
-            transform: translateY(-6px);
-        }
-        .resort-card.featured {
-            grid-column: span 2;
-            flex-direction: row;
-        }
-        @media (max-width: 900px) { .resort-card.featured { grid-column: span 1; flex-direction: column; } }
-
-        .resort-img-wrapper { position: relative; overflow: hidden; flex-shrink: 0; }
-        .resort-card:not(.featured) .resort-img-wrapper { height: 240px; }
-        .resort-card.featured .resort-img-wrapper { width: 50%; min-height: 360px; }
-        @media (max-width: 900px) {
-            .resort-card.featured .resort-img-wrapper { width: 100%; min-height: 260px; }
-        }
-        .resort-img-wrapper img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .resort-card:hover .resort-img-wrapper img { transform: scale(1.06); }
-
-        /* category tag on image */
-        .resort-category-tag {
-            position: absolute; top: 1rem; left: 1rem;
-            background: rgba(10,17,21,0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 50px;
-            padding: 0.3rem 0.9rem;
-            font-size: 0.68rem; font-weight: 700;
-            letter-spacing: 0.12em; color: var(--clr-green-accent);
-        }
-        .resort-rating {
-            position: absolute; top: 1rem; right: 1rem;
-            background: rgba(10,17,21,0.85);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 0.35rem 0.75rem;
-            display: flex; align-items: center; gap: 0.35rem;
-            font-size: 0.8rem; font-weight: 700; color: #ffd166;
-        }
-
-        .resort-body { padding: 1.8rem; display: flex; flex-direction: column; flex: 1; }
-        .resort-card.featured .resort-body { padding: 2.5rem; }
-        .resort-name {
-            font-family: var(--font-heading);
-            font-weight: 800; font-size: 1.25rem;
-            margin-bottom: 0.5rem; line-height: 1.25;
-        }
-        .resort-card.featured .resort-name { font-size: 1.7rem; }
-        .resort-desc { color: var(--clr-text-muted); font-size: 0.9rem; line-height: 1.65; margin-bottom: 1.5rem; }
-
-        /* amenities chips */
-        .resort-amenities {
-            display: flex; flex-wrap: wrap; gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .amenity-chip {
-            display: inline-flex; align-items: center; gap: 0.35rem;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px;
-            padding: 0.3rem 0.75rem;
-            font-size: 0.75rem; color: var(--clr-text-muted);
-        }
-        .amenity-chip i { color: var(--clr-green-accent); font-size: 0.7rem; }
-
-        .resort-footer {
-            margin-top: auto;
-            display: flex; align-items: center; justify-content: space-between;
-            padding-top: 1.2rem;
-            border-top: 1px solid rgba(255,255,255,0.07);
-        }
-        .resort-enquiry-label { font-size: 0.75rem; color: var(--clr-text-muted); }
-        .resort-enquiry-label strong { display: block; font-size: 0.85rem; color: var(--clr-text-main); }
-
-        .btn-enquire {
-            background: linear-gradient(135deg, var(--clr-green-accent), #8fcc8f);
-            color: #0a1115;
-            border: none; border-radius: 50px;
-            padding: 0.6rem 1.4rem;
-            font-weight: 700; font-size: 0.82rem;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-decoration: none; display: inline-block;
-        }
-        .btn-enquire:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 24px rgba(110,175,110,0.4);
-        }
 
         /* ── WHY US STRIP ── */
         .why-strip {
@@ -415,6 +282,9 @@
             .resort-hero { padding: 0 5% 12vh; }
             .resorts-grid { grid-template-columns: 1fr; }
         }
+
+        /* Gallery and Overhaul Styles Moved to styles.css */
+
     </style>
 </head>
 <body>
@@ -529,216 +399,151 @@
 
     <div class="resorts-grid" id="resorts-grid">
 
-        <!-- FEATURED: Riverstone Luxury Resort -->
+        <!-- CARD 1: Riverside Experience -->
         <div class="resort-card featured" data-category="luxury riverside">
             <div class="resort-img-wrapper">
-                <img src="assets/resort/resort.jpeg" alt="Riverstone Luxury Resort" loading="lazy">
-                <span class="resort-category-tag">FEATURED · LUXURY</span>
+                <img src="assets/resortpic/seven.jpeg" alt="Riverside Experience" loading="lazy">
+                <div class="photo-toggle-overlay">
+                    <div class="toggle-dot active" data-src="assets/resortpic/seven.jpeg" style="background-image: url('assets/resortpic/seven.jpeg');"></div>
+                    <div class="toggle-dot" data-src="assets/resortpic/one.jpeg" style="background-image: url('assets/resortpic/one.jpeg');"></div>
+                </div>
+                <span class="resort-category-tag">FEATURED · RIVERSIDE</span>
                 <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.9</span>
             </div>
             <div class="resort-body">
-                <h3 class="resort-name">Riverstone Luxury Resort</h3>
+                <div class="resort-category-label">Luxury Riverside Stay</div>
                 <p class="resort-desc">
-                    Perched right on the banks of the Kali River with an infinity pool that dissolves into the forest horizon. Riverstone is Dandeli's most celebrated luxury address — combining world-class hospitality with authentic wilderness immersion.
+                    Experience the ultimate infinity pool that dissolves into the forest horizon. Each unit offers premium riverfront views and authentic wilderness immersion without compromising on comfort.
                 </p>
                 <div class="resort-amenities">
                     <span class="amenity-chip"><i class="fa-solid fa-swimming-pool"></i> Infinity Pool</span>
                     <span class="amenity-chip"><i class="fa-solid fa-snowflake"></i> Fully AC</span>
                     <span class="amenity-chip"><i class="fa-solid fa-utensils"></i> Fine Dining</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-spa"></i> Wellness Spa</span>
                     <span class="amenity-chip"><i class="fa-solid fa-wifi"></i> High-Speed WiFi</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-car"></i> Safari Transfers</span>
                 </div>
                 <div class="resort-footer">
                     <div class="resort-enquiry-label">
-                        Custom Packages Available
-                        <strong>Group · Family · Corporate</strong>
+                        Premium Riverfront Property
+                        <strong>Ready for Booking</strong>
                     </div>
                     <a href="index.html#contact" class="btn-enquire">ENQUIRE NOW <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
 
-        <!-- Heritage Rapids Manor -->
+        <!-- CARD 2: Heritage Canopy -->
         <div class="resort-card" data-category="luxury">
             <div class="resort-img-wrapper">
-                <img src="assets/resort/resort2.jpeg" alt="Heritage Rapids Manor" loading="lazy">
-                <span class="resort-category-tag">HERITAGE · LUXURY</span>
+                <img src="assets/resortpic/six.jpeg" alt="Heritage Canopy" loading="lazy">
+                <div class="photo-toggle-overlay">
+                    <div class="toggle-dot active" data-src="assets/resortpic/six.jpeg" style="background-image: url('assets/resortpic/six.jpeg');"></div>
+                    <div class="toggle-dot" data-src="assets/resortpic/two.jpeg" style="background-image: url('assets/resortpic/two.jpeg');"></div>
+                </div>
+                <span class="resort-category-tag">HERITAGE · FOREST</span>
                 <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.8</span>
             </div>
             <div class="resort-body">
-                <h3 class="resort-name">Heritage Rapids Manor</h3>
-                <p class="resort-desc">Historic colonial architecture meets modern luxury at the edge of the roaring Kali River rapids. Perfect for exclusive corporate retreats and milestone celebrations.</p>
+                <div class="resort-category-label">Heritage Forest Manor</div>
+                <p class="resort-desc">Deep forest architecture meets modern luxury. Perfect for exclusive corporate retreats and family milestone celebrations under the green canopy.</p>
                 <div class="resort-amenities">
                     <span class="amenity-chip"><i class="fa-solid fa-spa"></i> Wellness Spa</span>
                     <span class="amenity-chip"><i class="fa-solid fa-utensils"></i> Fine Dining</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-chalkboard-teacher"></i> Conference Hall</span>
                 </div>
                 <div class="resort-footer">
-                    <div class="resort-enquiry-label">Best for Corporate & Groups<strong>Custom Quote Available</strong></div>
+                    <div class="resort-enquiry-label">Exclusive Group Retreats<strong>Custom Quote Available</strong></div>
                     <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
                 </div>
             </div>
         </div>
 
-        <!-- Ethereal Fog Resort -->
+        <!-- CARD 3: Hilltop Sunrise -->
         <div class="resort-card" data-category="luxury">
             <div class="resort-img-wrapper">
-                <img src="assets/resort/lodge.jpeg" alt="Ethereal Fog Resort" loading="lazy">
-                <span class="resort-category-tag">HILLTOP · LUXURY</span>
+                <img src="assets/resortpic/eleven.jpeg" alt="Hilltop Sunrise" loading="lazy">
+                <div class="photo-toggle-overlay">
+                    <div class="toggle-dot active" data-src="assets/resortpic/eleven.jpeg" style="background-image: url('assets/resortpic/eleven.jpeg');"></div>
+                    <div class="toggle-dot" data-src="assets/resortpic/twelve.jpeg" style="background-image: url('assets/resortpic/twelve.jpeg');"></div>
+                </div>
+                <span class="resort-category-tag">HILLTOP · PANORAMIC</span>
                 <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.9</span>
             </div>
             <div class="resort-body">
-                <h3 class="resort-name">Ethereal Fog Resort</h3>
-                <p class="resort-desc">Wake up above the morning clouds in our exclusive hilltop AC suites. The sunrise reveals an unbroken canvas of Dandeli's emerald canopy stretching to the horizon.</p>
+                <div class="resort-category-label">Hilltop Panoramic Suite</div>
+                <p class="resort-desc">Wake up above the morning clouds in our exclusive hilltop AC suites. The sunrise reveals an unbroken canvas of Dandeli's emerald canopy.</p>
                 <div class="resort-amenities">
                     <span class="amenity-chip"><i class="fa-solid fa-cloud"></i> Hilltop View</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-wine-glass"></i> Sky Bar</span>
                     <span class="amenity-chip"><i class="fa-solid fa-snowflake"></i> Fully AC</span>
                 </div>
                 <div class="resort-footer">
-                    <div class="resort-enquiry-label">Family & Couple Retreats<strong>Custom Quote Available</strong></div>
+                    <div class="resort-enquiry-label">Couple & Couple Retreats<strong>Enquire Best Rates</strong></div>
                     <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
                 </div>
             </div>
         </div>
 
-        <!-- Whistling Thrush Cabin -->
-        <div class="resort-card" data-category="jungle">
+        <!-- CARD 4: Night-Sky Experience -->
+        <div class="resort-card" data-category="luxury">
             <div class="resort-img-wrapper">
-                <img src="assets/resort/lodge3.jpeg" alt="Whistling Thrush Cabin" loading="lazy">
-                <span class="resort-category-tag">JUNGLE · CABIN</span>
+                <img src="assets/resortpic/five.jpeg" alt="Night-Sky Experience" loading="lazy">
+                <div class="photo-toggle-overlay">
+                    <div class="toggle-dot active" data-src="assets/resortpic/five.jpeg" style="background-image: url('assets/resortpic/five.jpeg');"></div>
+                    <div class="toggle-dot" data-src="assets/resortpic/fifteen.jpeg" style="background-image: url('assets/resortpic/fifteen.jpeg');"></div>
+                </div>
+                <span class="resort-category-tag">MIDNIGHT · COSY</span>
                 <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.7</span>
             </div>
             <div class="resort-body">
-                <h3 class="resort-name">Whistling Thrush Cabin</h3>
-                <p class="resort-desc">Authentic teak-wood cabins nestled deep inside the forest for nature photographers and wildlife enthusiasts. Fall asleep to the calls of the Malabar pied hornbill.</p>
+                <div class="resort-category-label">Midnight Forest Lodge</div>
+                <p class="resort-desc">Experience the forest at its most enchanting. These stone-walled cabins feature private warm-lit balconies and cozy wooden interiors for perfect night rest.</p>
                 <div class="resort-amenities">
-                    <span class="amenity-chip"><i class="fa-solid fa-binoculars"></i> Bird Watching</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-leaf"></i> Eco-Friendly</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-tree"></i> Forest Walk</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-moon"></i> Warm Lights</span>
+                    <span class="amenity-chip"><i class="fa-solid fa-bed"></i> Cozy Interior</span>
                 </div>
                 <div class="resort-footer">
-                    <div class="resort-enquiry-label">College & Nature Groups<strong>Custom Quote Available</strong></div>
-                    <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Black Panther Lodge -->
-        <div class="resort-card" data-category="jungle">
-            <div class="resort-img-wrapper">
-                <img src="assets/resort/lodge4.jpeg" alt="Black Panther Lodge" loading="lazy">
-                <span class="resort-category-tag">JUNGLE · LODGE</span>
-                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.8</span>
-            </div>
-            <div class="resort-body">
-                <h3 class="resort-name">Black Panther Lodge</h3>
-                <p class="resort-desc">Positioned precisely at the start of the region's most active panther tracking zone. Early morning safari departures and night walks directly from property.</p>
-                <div class="resort-amenities">
-                    <span class="amenity-chip"><i class="fa-solid fa-car"></i> Safari Ready</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-paw"></i> Night Walks</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-tree"></i> Trek Access</span>
-                </div>
-                <div class="resort-footer">
-                    <div class="resort-enquiry-label">Safari & Wildlife Groups<strong>Custom Quote Available</strong></div>
-                    <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Hornbill Nest Stay -->
-        <div class="resort-card" data-category="jungle">
-            <div class="resort-img-wrapper">
-                <img src="assets/resort/lodge5.jpeg" alt="Hornbill Nest Stay" loading="lazy">
-                <span class="resort-category-tag">JUNGLE · NEST</span>
-                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.7</span>
-            </div>
-            <div class="resort-body">
-                <h3 class="resort-name">Hornbill Nest Stay</h3>
-                <p class="resort-desc">Cozy attic-style rooms with direct views of the forest's rarest nesting sites. Organic coffee, nature walks, and a genuine off-grid experience without sacrificing comfort.</p>
-                <div class="resort-amenities">
-                    <span class="amenity-chip"><i class="fa-solid fa-feather"></i> Rare Birds</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-mug-hot"></i> Organic Coffee</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-leaf"></i> Nature Walks</span>
-                </div>
-                <div class="resort-footer">
-                    <div class="resort-enquiry-label">Birding & College Groups<strong>Custom Quote Available</strong></div>
-                    <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- FEATURED: Sky-High Treehouse -->
-        <div class="resort-card featured" data-category="treehouse glamping">
-            <div class="resort-img-wrapper">
-                <img src="assets/resort/lodge6.jpeg" alt="Sky-High Treehouse" loading="lazy">
-                <span class="resort-category-tag">FEATURED · TREEHOUSE</span>
-                <span class="resort-rating"><i class="fa-solid fa-star"></i> 5.0</span>
-            </div>
-            <div class="resort-body">
-                <h3 class="resort-name">Sky-High Treehouse</h3>
-                <p class="resort-desc">
-                    A genuinely once-in-a-lifetime experience — luxury units suspended 40 feet above the forest floor in ancient teak trees. A rope bridge connects your private retreat to the main lodge. Drift off to the symphony of the jungle canopy far below.
-                </p>
-                <div class="resort-amenities">
-                    <span class="amenity-chip"><i class="fa-solid fa-arrow-up"></i> 40ft Treetop</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-bridge"></i> Rope Bridge</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-moon"></i> Stargazing Deck</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-binoculars"></i> Canopy Views</span>
-                </div>
-                <div class="resort-footer">
-                    <div class="resort-enquiry-label">Couples · Honeymooners<strong>Custom Quote Available</strong></div>
-                    <a href="index.html#contact" class="btn-enquire">ENQUIRE NOW <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Kali River Glamping -->
-        <div class="resort-card" data-category="glamping riverside">
-            <div class="resort-img-wrapper">
-                <img src="assets/resort/lodge8.jpeg" alt="Kali River Glamping" loading="lazy">
-                <span class="resort-category-tag">RIVERSIDE · GLAMPING</span>
-                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.8</span>
-            </div>
-            <div class="resort-body">
-                <h3 class="resort-name">Kali River Glamping</h3>
-                <p class="resort-desc">Premium canvas safari tents with private wooden decks overhanging the river. Drift off to the sound of rapids, wake at sunrise with the mist rising off the Kali.</p>
-                <div class="resort-amenities">
-                    <span class="amenity-chip"><i class="fa-solid fa-moon"></i> Stargazing</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-fire"></i> Riverside Bonfire</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-water"></i> River Deck</span>
-                </div>
-                <div class="resort-footer">
-                    <div class="resort-enquiry-label">Family & Friend Groups<strong>Custom Quote Available</strong></div>
-                    <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Starry Safari Tents -->
-        <div class="resort-card" data-category="glamping">
-            <div class="resort-img-wrapper">
-                <img src="assets/resort/WhatsApp Image 2026-04-01 at 10.37.28.jpeg" alt="Starry Safari Tents" loading="lazy">
-                <span class="resort-category-tag">GLAMPING · PREMIUM</span>
-                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.7</span>
-            </div>
-            <div class="resort-body">
-                <h3 class="resort-name">Starry Safari Tents</h3>
-                <p class="resort-desc">Unobstructed sky views through transparent roof panels, king-sized beds, and premium ventilation. The ultimate middle ground between camping and luxury.</p>
-                <div class="resort-amenities">
-                    <span class="amenity-chip"><i class="fa-solid fa-star"></i> Sky View Roof</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-shower"></i> Ensuite Bath</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-snowflake"></i> Climate Controlled</span>
-                </div>
-                <div class="resort-footer">
-                    <div class="resort-enquiry-label">College & Group Packages<strong>Custom Quote Available</strong></div>
+                    <div class="resort-enquiry-label">Nature Lovers Comfort<strong>Limited Bookings</strong></div>
                     <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
                 </div>
             </div>
         </div>
 
     </div><!-- /resorts-grid -->
+</section>
+
+<!-- ── IMMERSIVE DISCOVERY GALLERY ── -->
+<section class="immersive-gallery-section" id="discovery-gallery">
+    <div class="gallery-container">
+        <div class="gallery-track">
+            <!-- Set 1 -->
+            <div class="gallery-item"><img src="assets/resortpic/seven.jpeg" alt="Luxury View" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/six.jpeg" alt="Heritage Manor" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/eleven.jpeg" alt="Hilltop Sunrise" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/five.jpeg" alt="Cozy Night" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/fourw.jpeg" alt="Forest Cabin" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/sixteen.jpeg" alt="Treehouse Stay" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/eight.jpeg" alt="Night Deck" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/WhatsApp Image 2026-04-02 at 10.12.27.jpeg" alt="Safari Lodge" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/one.jpeg" alt="Luxury Interior" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/two.jpeg" alt="Premium Stay" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/fifteen.jpeg" alt="Rustic Comfort" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/seventeen.jpeg" alt="Canopy View" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/twelve.jpeg" alt="Panoramic Suite" loading="lazy"></div>
+            
+            <!-- Set 2 (Duplicate for seamless scroll) -->
+            <div class="gallery-item"><img src="assets/resortpic/seven.jpeg" alt="Luxury View" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/six.jpeg" alt="Heritage Manor" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/eleven.jpeg" alt="Hilltop Sunrise" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/five.jpeg" alt="Cozy Night" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/fourw.jpeg" alt="Forest Cabin" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/sixteen.jpeg" alt="Treehouse Stay" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/eight.jpeg" alt="Night Deck" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/WhatsApp Image 2026-04-02 at 10.12.27.jpeg" alt="Safari Lodge" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/one.jpeg" alt="Luxury Interior" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/two.jpeg" alt="Premium Stay" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/fifteen.jpeg" alt="Rustic Comfort" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/seventeen.jpeg" alt="Canopy View" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/resortpic/twelve.jpeg" alt="Panoramic Suite" loading="lazy"></div>
+        </div>
+    </div>
 </section>
 
 <!-- ── PACKAGES CTA ── -->
@@ -803,6 +608,33 @@
     window.addEventListener('scroll', () => {
         const header = document.getElementById('main-header');
         header.style.padding = window.scrollY > 60 ? '0 3rem' : '0 3rem';
+    });
+
+    /* ── PHOTO TOGGLE LOGIC ── */
+    function setupImageSwitchers() {
+        document.querySelectorAll('.toggle-dot').forEach(dot => {
+            dot.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const card = this.closest('.resort-card');
+                const mainImg = card.querySelector('.resort-img-wrapper img');
+                const newSrc = this.dataset.src;
+
+                // Update Image
+                mainImg.style.opacity = '0';
+                setTimeout(() => {
+                    mainImg.src = newSrc;
+                    mainImg.style.opacity = '1';
+                }, 200);
+
+                // Update Dots
+                card.querySelectorAll('.toggle-dot').forEach(d => d.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        setupImageSwitchers();
     });
 </script>
 </body>

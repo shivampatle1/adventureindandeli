@@ -497,3 +497,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// 6. Visual-First Image Switcher
+document.addEventListener('DOMContentLoaded', () => {
+    const setupImageSwitchers = () => {
+        const dots = document.querySelectorAll('.toggle-dot');
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const targetSrc = dot.getAttribute('data-src');
+                const parentWrapper = dot.closest('.resort-img-wrapper');
+                const mainImg = parentWrapper.querySelector('img');
+                
+                if (mainImg && targetSrc) {
+                    mainImg.style.opacity = '0';
+                    setTimeout(() => {
+                        mainImg.src = targetSrc;
+                        mainImg.style.opacity = '1';
+                    }, 200);
+                }
+                
+                // Update active states in the same card
+                parentWrapper.querySelectorAll('.toggle-dot').forEach(d => d.classList.remove('active'));
+                dot.classList.add('active');
+            });
+        });
+    };
+    setupImageSwitchers();
+});
