@@ -391,7 +391,7 @@
         }
         renderChips();
 
-        // ── CUSTOM POPUP LOGIC ──
+        // ── CUSTOM POPUP LOGIC (UPGRADED) ──
         window.showPopup = (title, msg, type = 'success', onConfirm = null) => {
             const popup = document.getElementById('status-popup');
             const iconBox = document.getElementById('pop-icon-box');
@@ -400,27 +400,51 @@
             const confirmBtn = document.getElementById('pop-confirm');
             const cancelBtn = document.getElementById('pop-cancel');
 
+            // Reset UI
             iconBox.className = `popup-icon ${type}`;
-            iconBox.innerHTML = type === 'success' ? '<i class="fa-solid fa-circle-check"></i>' : 
-                               type === 'error' ? '<i class="fa-solid fa-circle-xmark"></i>' : 
-                               '<i class="fa-solid fa-circle-question"></i>';
+            if(type === 'success') iconBox.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+            else if(type === 'error') iconBox.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
+            else if(type === 'info') iconBox.innerHTML = '<i class="fa-solid fa-circle-question"></i>';
+            else if(type === 'loading') iconBox.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
             
             titleEl.innerText = title;
             msgEl.innerText = msg;
             
             // Handle Actions
-            confirmBtn.innerText = onConfirm ? "CONFIRM" : "DISMISS";
-            cancelBtn.style.display = onConfirm ? "flex" : "none";
-            
-            confirmBtn.onclick = () => {
-                closePopup();
-                if(onConfirm) onConfirm();
-            };
+            if(type === 'loading') {
+                confirmBtn.style.display = 'none';
+                cancelBtn.style.display = 'none';
+            } else {
+                confirmBtn.style.display = 'block';
+                confirmBtn.innerText = onConfirm ? "CONFIRM" : "DISMISS";
+                cancelBtn.style.display = onConfirm ? "flex" : "none";
+                
+                confirmBtn.onclick = async () => {
+                    if(onConfirm) {
+                        try {
+                            confirmBtn.disabled = true;
+                            confirmBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+                            await onConfirm();
+                            confirmBtn.disabled = false;
+                            confirmBtn.innerHTML = "CONFIRM";
+                            closePopup();
+                        } catch (err) {
+                            showPopup("Sync Error", err.message, "error");
+                        }
+                    } else {
+                        closePopup();
+                    }
+                };
+            }
 
             popup.style.display = 'flex';
         };
         window.closePopup = () => {
-            document.getElementById('status-popup').style.display = 'none';
+            const popup = document.getElementById('status-popup');
+            popup.style.display = 'none';
+            // Also reset potential confirm button state if it was loading
+            const confirmBtn = document.getElementById('pop-confirm');
+            confirmBtn.disabled = false;
         };
 
         window.addNewChip = () => {
@@ -605,9 +629,9 @@
                     switchStage('add-stage', document.getElementById('nav-add'));
                 };
                 div.querySelector('.col-delete').onclick = () => {
-                    showPopup('Delete Property?', 'This will permanently remove the listing from Cloud.', 'info', async () => {
+                    showPopup('Delete Property?', 'Permanently remove listing from Cloud.', 'info', async () => {
                         await deleteDoc(doc(db, "resort_rooms", d.id));
-                        showPopup('Deleted', 'Property removed from Cloud database.', 'success');
+                        showPopup('Deleted Successfully', 'Property removed from database.', 'success');
                     });
                 };
                 stream.appendChild(div);
@@ -643,9 +667,9 @@
                     </div>
                 `;
                 div.querySelector('.col-delete-lead').onclick = () => {
-                    showPopup('Archive Lead?', 'Remove this guest inquiry from the active list.', 'info', async () => {
-                        await deleteDoc(doc(db, "room_enquiries", d.id));
-                        showPopup('Archived', 'Lead removed and record cleared.', 'success');
+                    showPopup('Archive Guest Lead?', 'Do you want to permanently remove this inquiry from active leads?', 'info', async () => {
+                         await deleteDoc(doc(db, "room_enquiries", d.id));
+                         showPopup('Lead Archived', 'Inquiry removed and records updated.', 'success');
                     });
                 };
                 stream.appendChild(div);

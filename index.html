@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adventure in Dandeli</title>
-    <meta name="description" content="Experience the thrill of Dandeli with Adventure in Dandeli. River rafting on Kali River, jungle trekking, and more in the heart of nature.">
+    <meta name="description"
+        content="Experience the thrill of Dandeli with Adventure in Dandeli. River rafting on Kali River, jungle trekking, and more in the heart of nature.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
@@ -16,10 +20,11 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/brand_logo.png">
 </head>
+
 <body>
     <div class="bg-noise"></div>
     <div class="bg-gradient-overlay"></div>
-    
+
     <!-- Header -->
     <header id="main-header">
         <a href="#home" class="logo-container">
@@ -44,12 +49,12 @@
     <!-- Hero Section -->
     <section id="home" class="hero-section">
         <div class="hero-bg" style="background-image: url('assets/hero_rafting_1774950824389.png');"></div>
-        
+
         <!-- Cinematic Background Video -->
         <video id="hero-video" autoplay muted loop playsinline poster="assets/hero_rafting_1774950824389.png">
             <source src="assets/Balaghat_Adventure_FPV_Drone_Film.mp4" type="video/mp4">
         </video>
-        
+
         <div class="hero-texture" style="background-image: url('assets/glass_water_drops_1774950857158.png');"></div>
         <div class="hero-overlay-gradient"></div>
         <div class="hero-content">
@@ -58,9 +63,10 @@
                 <span class="title-accent">IN DANDELI</span>
             </h1>
             <p class="hero-subtitle">Dive into the wild heart of Karnataka.</p>
-            
+
             <div class="hero-cta-container">
-                <a href="#contact" class="btn btn-primary cta-button">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#contact" class="btn btn-primary cta-button">BOOK NOW <i
+                        class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -86,12 +92,14 @@
         <div class="map-sticky-container">
             <!-- Pinned Content wrapper -->
             <div class="map-background">
-                <img src="assets/dandeli_topo_map_1774951278022.png" alt="Dandeli Topological Map" class="full-map-image">
-                
+                <img src="assets/dandeli_topo_map_1774951278022.png" alt="Dandeli Topological Map"
+                    class="full-map-image">
+
                 <!-- SVG Overlay for the Trail -->
                 <svg class="map-trail-svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
                     <!-- Smooth trail drawing across the map -->
-                    <path id="adventure-trail" d="M 300 150 Q 500 350 450 550 T 600 700 T 800 850" fill="none" class="trail-path"></path>
+                    <path id="adventure-trail" d="M 300 150 Q 500 350 450 550 T 600 700 T 800 850" fill="none"
+                        class="trail-path"></path>
                 </svg>
 
                 <!-- Driveable Family Car Marker -->
@@ -102,14 +110,14 @@
                         <rect x="140" y="2" width="35" height="15" rx="5" fill="#111"></rect>
                         <rect x="30" y="83" width="35" height="15" rx="5" fill="#111"></rect>
                         <rect x="140" y="83" width="35" height="15" rx="5" fill="#111"></rect>
-                        
+
                         <!-- Car Body -->
                         <rect x="10" y="15" width="180" height="70" rx="15" fill="#e67e22"></rect>
-                        
+
                         <!-- Windows/Cabin -->
                         <path d="M 50 22 L 130 22 L 120 78 L 50 78 Z" fill="#34495e" opacity="0.9"></path>
                         <rect x="60" y="27" width="50" height="46" rx="5" fill="#d35400"></rect>
-                        
+
                         <!-- Headlights -->
                         <rect x="185" y="22" width="6" height="12" rx="3" fill="#f1c40f"></rect>
                         <rect x="185" y="66" width="6" height="12" rx="3" fill="#f1c40f"></rect>
@@ -123,17 +131,19 @@
                         <div class="m-point"><i class="fa-solid fa-water"></i></div>
                         <div class="m-card">
                             <h3>River Rafting</h3>
-                            <p>Command the roaring rapids of Kali River. Expertly guided expeditions for maximum thrill.</p>
+                            <p>Command the roaring rapids of Kali River. Expertly guided expeditions for maximum thrill.
+                            </p>
                             <button class="btn btn-secondary">Explore Route</button>
                         </div>
                     </div>
-                    
+
                     <!-- Milestone 2 - Trekking -->
                     <div class="milestone m-trekking">
                         <div class="m-point"><i class="fa-brands fa-pagelines"></i></div>
                         <div class="m-card">
                             <h3>Jungle Trekking</h3>
-                            <p>Walk the paths of the panther. Discover hidden flora and fauna with seasoned naturalists.</p>
+                            <p>Walk the paths of the panther. Discover hidden flora and fauna with seasoned naturalists.
+                            </p>
                             <button class="btn btn-secondary">View Trails</button>
                         </div>
                     </div>
@@ -149,7 +159,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Title floating over the map initially -->
             <div class="map-overlay-title">
                 <h2>CHOOSE YOUR ADVENTURE</h2>
@@ -217,7 +227,7 @@
                         <p>Conquering the Grade IV rapids.</p>
                     </div>
                 </div>
-                
+
                 <!-- Set 2 (Duplicated for Seamless Loop) -->
                 <div class="gallery-item">
                     <img src="assets/dandeli_hornbill_gallery_1774959347924.png" alt="Malabar Pied Hornbill">
@@ -275,12 +285,13 @@
     <!-- Immersive River Rafting Section -->
     <section id="rafting" class="activity-section rafting-section">
         <canvas class="activity-lens-canvas" id="wet-lens-canvas"></canvas>
-        
+
         <div class="activity-content-container">
             <div class="activity-header" data-aos="fade-up">
                 <span class="section-badge">HIGH ADRENALINE</span>
                 <h2>WHITE WATER RAFTING</h2>
-                <p>Conquer the Grade III and IV rapids of the mighty Kali River. An experience that will leave you breathless.</p>
+                <p>Conquer the Grade III and IV rapids of the mighty Kali River. An experience that will leave you
+                    breathless.</p>
             </div>
 
             <div class="activity-journey-grid">
@@ -352,7 +363,7 @@
     <!-- Immersive Jungle Safari Section -->
     <section id="safari" class="activity-section safari-section">
         <canvas class="activity-lens-canvas" id="dust-lens-canvas"></canvas>
-        
+
         <div class="activity-content-container">
             <div class="activity-header" data-aos="fade-up">
                 <span class="section-badge">WILDLIFE EXPEDITION</span>
@@ -424,7 +435,7 @@
     <!-- Immersive Kayaking Section -->
     <section id="kayaking" class="activity-section kayaking-section">
         <canvas class="activity-lens-canvas" id="kayak-wet-lens-canvas"></canvas>
-        
+
         <div class="activity-content-container">
             <div class="activity-header" data-aos="fade-up">
                 <span class="section-badge">SERENE PADDLING</span>
@@ -492,22 +503,24 @@
         </div>
     </section>
 
-        <!-- SVG Filter for Liquid Ripple Effect -->
-        <svg style="display: none;">
-            <defs>
-                <filter id="liquid-ripple">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="3" result="waves" seed="1">
-                        <animate attributeName="baseFrequency" dur="10s" values="0.01; 0.02; 0.01" repeatCount="indefinite" />
-                    </feTurbulence>
-                    <feDisplacementMap in="SourceGraphic" in2="waves" scale="30" xChannelSelector="R" yChannelSelector="G" />
-                </filter>
-            </defs>
-        </svg>
+    <!-- SVG Filter for Liquid Ripple Effect -->
+    <svg style="display: none;">
+        <defs>
+            <filter id="liquid-ripple">
+                <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="3" result="waves" seed="1">
+                    <animate attributeName="baseFrequency" dur="10s" values="0.01; 0.02; 0.01"
+                        repeatCount="indefinite" />
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="waves" scale="30" xChannelSelector="R"
+                    yChannelSelector="G" />
+            </filter>
+        </defs>
+    </svg>
 
-        <!-- Immersive Audio -->
-        <audio id="rafting-audio" loop preload="auto">
-            <source src="assets/sounds/river-rush.mp3" type="audio/mp4">
-        </audio>
+    <!-- Immersive Audio -->
+    <audio id="rafting-audio" loop preload="auto">
+        <source src="assets/sounds/river-rush.mp3" type="audio/mp4">
+    </audio>
     </section>
 
     <!-- Commitment to Safety Section -->
@@ -516,15 +529,17 @@
             <div class="safety-header" data-aos="fade-up">
                 <span class="section-badge">SAFETY FIRST</span>
                 <h2>COMMITMENT TO SAFETY</h2>
-                <p>Certified river guides, international standard gear, and a 100% safety record—your adventure is in expert hands.</p>
+                <p>Certified river guides, international standard gear, and a 100% safety record—your adventure is in
+                    expert hands.</p>
             </div>
-            
+
             <div class="safety-grid">
                 <!-- Hero 1: Gear Specialist -->
                 <div class="safety-card" data-aos="fade-up">
                     <div class="card-glow"></div>
                     <div class="safety-icon">
-                        <img src="assets/bitmoji_safety_gear_1774971958444_1774980323611-removebg-preview.png" alt="Safety Gear Specialist" class="bitmoji-icon">
+                        <img src="assets/bitmoji_safety_gear_1774971958444_1774980323611-removebg-preview.png"
+                            alt="Safety Gear Specialist" class="bitmoji-icon">
                     </div>
                     <div class="safety-label-strip">
                         <h3>INTERNATIONAL STANDARD GEAR</h3>
@@ -536,7 +551,8 @@
                 <div class="safety-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-glow"></div>
                     <div class="safety-icon">
-                        <img src="assets/bitmoji_rescue_expert_1774971958444_1774980348526-removebg-preview.png" alt="Rescue Team Expert" class="bitmoji-icon">
+                        <img src="assets/bitmoji_rescue_expert_1774971958444_1774980348526-removebg-preview.png"
+                            alt="Rescue Team Expert" class="bitmoji-icon">
                     </div>
                     <div class="safety-label-strip">
                         <h3>RESCUE READY TEAMS</h3>
@@ -548,7 +564,8 @@
                 <div class="safety-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="card-glow"></div>
                     <div class="safety-icon">
-                        <img src="assets/bitmoji_master_guide_1774971958444_1774980373884-removebg-preview.png" alt="Heritage Expert Guide" class="bitmoji-icon">
+                        <img src="assets/bitmoji_master_guide_1774971958444_1774980373884-removebg-preview.png"
+                            alt="Heritage Expert Guide" class="bitmoji-icon">
                     </div>
                     <div class="safety-label-strip">
                         <h3>HERITAGE EXPERTISE</h3>
@@ -570,10 +587,14 @@
                     <p>Your gateway to immersive property tours and detailed room views.</p>
                     <a href="resort.html" class="resort-cta-btn">
                         <span class="snapshot-stack">
-                            <svg class="photo-stack-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect class="photo-bg" x="2" y="6" width="14" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5" />
-                                <rect class="photo-mid" x="5" y="4" width="14" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5" />
-                                <rect class="photo-front" x="8" y="7" width="14" height="11" rx="1.5" fill="currentColor" stroke="currentColor" stroke-width="1.5" />
+                            <svg class="photo-stack-svg" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect class="photo-bg" x="2" y="6" width="14" height="11" rx="1.5" stroke="currentColor"
+                                    stroke-width="1.5" />
+                                <rect class="photo-mid" x="5" y="4" width="14" height="11" rx="1.5"
+                                    stroke="currentColor" stroke-width="1.5" />
+                                <rect class="photo-front" x="8" y="7" width="14" height="11" rx="1.5"
+                                    fill="currentColor" stroke="currentColor" stroke-width="1.5" />
                             </svg>
                         </span>
                         EXPLORE ALL RESORTS <i class="fa-solid fa-arrow-right"></i>
@@ -584,7 +605,8 @@
                     <button class="lodge-filter-tab active" onclick="filterLodges(this, 'luxe')">GROUP PACKAGES</button>
                     <button class="lodge-filter-tab" onclick="filterLodges(this, 'jungle')">FAMILY PACKAGES</button>
                     <button class="lodge-filter-tab" onclick="filterLodges(this, 'glamping')">COLLEGE PACKAGES</button>
-                    <button class="lodge-filter-tab" onclick="filterLodges(this, 'value')">IT/CORPORATE PACKAGES</button>
+                    <button class="lodge-filter-tab" onclick="filterLodges(this, 'value')">IT/CORPORATE
+                        PACKAGES</button>
                 </div>
 
                 <div class="lodge-grid-display" id="lodge-grid">
@@ -598,7 +620,8 @@
                             <h3>Riverstone Luxury Resort</h3>
                             <p>Premium riverfront infinity pool and world-class hospitality.</p>
                             <div class="lodge-amenities">
-                                <span class="lodge-amenity"><i class="fa-solid fa-swimming-pool"></i> Infinity Pool</span>
+                                <span class="lodge-amenity"><i class="fa-solid fa-swimming-pool"></i> Infinity
+                                    Pool</span>
                                 <span class="lodge-amenity"><i class="fa-solid fa-snowflake"></i> Fully AC</span>
                             </div>
                         </div>
@@ -714,7 +737,8 @@
                     <div class="lodge-card glamping" data-aos="fade-up" data-aos-delay="200">
 
                         <div class="lodge-img-wrapper">
-                            <img src="assets/resort/WhatsApp Image 2026-04-01 at 10.37.28.jpeg" alt="Starry Safari Tents">
+                            <img src="assets/resort/WhatsApp Image 2026-04-01 at 10.37.28.jpeg"
+                                alt="Starry Safari Tents">
                         </div>
                         <div class="lodge-content">
                             <h3>Starry Safari Tents</h3>
@@ -780,7 +804,7 @@
                     document.querySelectorAll('.lodge-filter-tab').forEach(tab => {
                         tab.classList.remove('active');
                     });
-                    if(tabElement) tabElement.classList.add('active');
+                    if (tabElement) tabElement.classList.add('active');
 
                     // Update Cards
                     document.querySelectorAll('.lodge-card').forEach(card => {
@@ -795,38 +819,46 @@
                 // Initialize first category correctly
                 window.onload = () => {
                     const firstTab = document.querySelector('.lodge-filter-tab');
-                    if(firstTab) filterLodges(firstTab, 'luxe');
+                    if (firstTab) filterLodges(firstTab, 'luxe');
                 };
             </script>
         </div>
     </section>
 
     <!-- Dedicated Lodge Section -->
-    <section id="dedicated-lodges" class="trust-accommodation-section" style="background: linear-gradient(135deg, rgba(10,17,21,1) 0%, rgba(15,28,36,1) 100%); scroll-margin-top: 100px;">
-        <div class="trust-container" style="border-top: 1px solid var(--glass-border); padding-top: 6rem; padding-bottom: 2rem;">
+    <section id="dedicated-lodges" class="trust-accommodation-section"
+        style="background: linear-gradient(135deg, rgba(10,17,21,1) 0%, rgba(15,28,36,1) 100%); scroll-margin-top: 100px;">
+        <div class="trust-container"
+            style="border-top: 1px solid var(--glass-border); padding-top: 6rem; padding-bottom: 2rem;">
             <div class="lodge-explorer-container" style="margin-top: 0;">
                 <div class="stays-header" data-aos="fade-up">
                     <span class="section-badge">WILDERNESS CAMPING</span>
                     <h2>LODGES</h2>
                     <p>Authentic eco-camps, treehouses, and riverside tents.</p>
-                    <a href="lodge.html" class="resort-cta-btn" style="background: transparent; color: var(--clr-text-main); border-color: var(--clr-green-accent);">
-                        <i class="fa-solid fa-campground"></i> EXPLORE ALL LODGES <i class="fa-solid fa-arrow-right"></i>
+                    <a href="lodge.html" class="resort-cta-btn"
+                        style="background: transparent; color: var(--clr-text-main); border-color: var(--clr-green-accent);">
+                        <i class="fa-solid fa-campground"></i> EXPLORE ALL LODGES <i
+                            class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
 
                 <div class="lodge-grid-display">
                     <!-- Lodge Card 1: Wilderness Cabin -->
                     <div class="lodge-showcase-card resort-card" data-aos="fade-up">
-                        <div class="resort-img-wrapper" style="height: 280px; border-radius: 20px; overflow: hidden; margin-bottom: 2rem;">
+                        <div class="resort-img-wrapper"
+                            style="height: 280px; border-radius: 20px; overflow: hidden; margin-bottom: 2rem;">
                             <img src="assets/resortpic/fourw.jpeg" alt="Private Forest Cabin" id="homepage-lodge-1-img">
                             <div class="photo-toggle-overlay">
-                                <div class="toggle-dot active" data-src="assets/resortpic/fourw.jpeg" style="background-image: url('assets/resortpic/fourw.jpeg');"></div>
-                                <div class="toggle-dot" data-src="assets/resortpic/one.jpeg" style="background-image: url('assets/resortpic/one.jpeg');"></div>
+                                <div class="toggle-dot active" data-src="assets/resortpic/fourw.jpeg"
+                                    style="background-image: url('assets/resortpic/fourw.jpeg');"></div>
+                                <div class="toggle-dot" data-src="assets/resortpic/one.jpeg"
+                                    style="background-image: url('assets/resortpic/one.jpeg');"></div>
                             </div>
                         </div>
                         <div class="resort-body" style="padding: 0;">
                             <div class="resort-category-label">PRIVATE FOREST CABIN</div>
-                            <p class="resort-desc">Authentic teak-wood cabins deep inside the forest, offering total solitude.</p>
+                            <p class="resort-desc">Authentic teak-wood cabins deep inside the forest, offering total
+                                solitude.</p>
                             <div class="lodge-amenities">
                                 <span class="lodge-amenity"><i class="fa-solid fa-binoculars"></i> Birding</span>
                                 <span class="lodge-amenity"><i class="fa-solid fa-leaf"></i> Eco-Friendly</span>
@@ -836,16 +868,20 @@
 
                     <!-- Lodge Card 2: Luxury Treehouse -->
                     <div class="lodge-showcase-card resort-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="resort-img-wrapper" style="height: 280px; border-radius: 20px; overflow: hidden; margin-bottom: 2rem;">
+                        <div class="resort-img-wrapper"
+                            style="height: 280px; border-radius: 20px; overflow: hidden; margin-bottom: 2rem;">
                             <img src="assets/resortpic/sixteen.jpeg" alt="Sky-High Treehouse" id="homepage-lodge-2-img">
                             <div class="photo-toggle-overlay">
-                                <div class="toggle-dot active" data-src="assets/resortpic/sixteen.jpeg" style="background-image: url('assets/resortpic/sixteen.jpeg');"></div>
-                                <div class="toggle-dot" data-src="assets/resortpic/two.jpeg" style="background-image: url('assets/resortpic/two.jpeg');"></div>
+                                <div class="toggle-dot active" data-src="assets/resortpic/sixteen.jpeg"
+                                    style="background-image: url('assets/resortpic/sixteen.jpeg');"></div>
+                                <div class="toggle-dot" data-src="assets/resortpic/two.jpeg"
+                                    style="background-image: url('assets/resortpic/two.jpeg');"></div>
                             </div>
                         </div>
                         <div class="resort-body" style="padding: 0;">
                             <div class="resort-category-label">SKY-HIGH TREEHOUSE</div>
-                            <p class="resort-desc">Luxury units suspended 40 feet above the forest floor with panoramic canopy views.</p>
+                            <p class="resort-desc">Luxury units suspended 40 feet above the forest floor with panoramic
+                                canopy views.</p>
                             <div class="lodge-amenities">
                                 <span class="lodge-amenity"><i class="fa-solid fa-arrow-up"></i> 40ft Treetop</span>
                                 <span class="lodge-amenity"><i class="fa-solid fa-moon"></i> Stargazing</span>
@@ -855,16 +891,20 @@
 
                     <!-- Lodge Card 3: Canvas Glamping -->
                     <div class="lodge-showcase-card resort-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="resort-img-wrapper" style="height: 280px; border-radius: 20px; overflow: hidden; margin-bottom: 2rem;">
+                        <div class="resort-img-wrapper"
+                            style="height: 280px; border-radius: 20px; overflow: hidden; margin-bottom: 2rem;">
                             <img src="assets/resortpic/eight.jpeg" alt="Starry Safari Tents" id="homepage-lodge-3-img">
                             <div class="photo-toggle-overlay">
-                                <div class="toggle-dot active" data-src="assets/resortpic/eight.jpeg" style="background-image: url('assets/resortpic/eight.jpeg');"></div>
-                                <div class="toggle-dot" data-src="assets/resortpic/fifteen.jpeg" style="background-image: url('assets/resortpic/fifteen.jpeg');"></div>
+                                <div class="toggle-dot active" data-src="assets/resortpic/eight.jpeg"
+                                    style="background-image: url('assets/resortpic/eight.jpeg');"></div>
+                                <div class="toggle-dot" data-src="assets/resortpic/fifteen.jpeg"
+                                    style="background-image: url('assets/resortpic/fifteen.jpeg');"></div>
                             </div>
                         </div>
                         <div class="resort-body" style="padding: 0;">
                             <div class="resort-category-label">CANVAS RIVERSIDE GLAMPING</div>
-                            <p class="resort-desc">Premium safari-style tents with transparent roof panels for midnight sky viewing.</p>
+                            <p class="resort-desc">Premium safari-style tents with transparent roof panels for midnight
+                                sky viewing.</p>
                             <div class="lodge-amenities">
                                 <span class="lodge-amenity"><i class="fa-solid fa-star"></i> Sky View</span>
                                 <span class="lodge-amenity"><i class="fa-solid fa-shower"></i> Ensuite</span>
@@ -882,161 +922,204 @@
             <div class="gallery-track">
                 <!-- Set 1 -->
                 <div class="gallery-item"><img src="assets/resortpic/seven.jpeg" alt="Luxury View" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/six.jpeg" alt="Heritage Manor" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/eleven.jpeg" alt="Hilltop Sunrise" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/resortpic/six.jpeg" alt="Heritage Manor" loading="lazy">
+                </div>
+                <div class="gallery-item"><img src="assets/resortpic/eleven.jpeg" alt="Hilltop Sunrise" loading="lazy">
+                </div>
                 <div class="gallery-item"><img src="assets/resortpic/five.jpeg" alt="Cozy Night" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/fourw.jpeg" alt="Forest Cabin" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/sixteen.jpeg" alt="Treehouse Stay" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/resortpic/fourw.jpeg" alt="Forest Cabin" loading="lazy">
+                </div>
+                <div class="gallery-item"><img src="assets/resortpic/sixteen.jpeg" alt="Treehouse Stay" loading="lazy">
+                </div>
                 <div class="gallery-item"><img src="assets/resortpic/eight.jpeg" alt="Night Deck" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/WhatsApp Image 2026-04-02 at 10.12.27.jpeg" alt="Safari Lodge" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/one.jpeg" alt="Luxury Interior" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/resortpic/WhatsApp Image 2026-04-02 at 10.12.27.jpeg"
+                        alt="Safari Lodge" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/resortpic/one.jpeg" alt="Luxury Interior" loading="lazy">
+                </div>
                 <div class="gallery-item"><img src="assets/resortpic/two.jpeg" alt="Premium Stay" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/fifteen.jpeg" alt="Rustic Comfort" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/seventeen.jpeg" alt="Canopy View" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/twelve.jpeg" alt="Panoramic Suite" loading="lazy"></div>
-                
+                <div class="gallery-item"><img src="assets/resortpic/fifteen.jpeg" alt="Rustic Comfort" loading="lazy">
+                </div>
+                <div class="gallery-item"><img src="assets/resortpic/seventeen.jpeg" alt="Canopy View" loading="lazy">
+                </div>
+                <div class="gallery-item"><img src="assets/resortpic/twelve.jpeg" alt="Panoramic Suite" loading="lazy">
+                </div>
+
                 <!-- Set 2 (Duplicate for seamless scroll) -->
                 <div class="gallery-item"><img src="assets/resortpic/seven.jpeg" alt="Luxury View" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/six.jpeg" alt="Heritage Manor" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/eleven.jpeg" alt="Hilltop Sunrise" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/resortpic/six.jpeg" alt="Heritage Manor" loading="lazy">
+                </div>
+                <div class="gallery-item"><img src="assets/resortpic/eleven.jpeg" alt="Hilltop Sunrise" loading="lazy">
+                </div>
                 <div class="gallery-item"><img src="assets/resortpic/five.jpeg" alt="Cozy Night" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/fourw.jpeg" alt="Forest Cabin" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/sixteen.jpeg" alt="Treehouse Stay" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/resortpic/fourw.jpeg" alt="Forest Cabin" loading="lazy">
+                </div>
+                <div class="gallery-item"><img src="assets/resortpic/sixteen.jpeg" alt="Treehouse Stay" loading="lazy">
+                </div>
                 <div class="gallery-item"><img src="assets/resortpic/eight.jpeg" alt="Night Deck" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/WhatsApp Image 2026-04-02 at 10.12.27.jpeg" alt="Safari Lodge" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/one.jpeg" alt="Luxury Interior" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/resortpic/WhatsApp Image 2026-04-02 at 10.12.27.jpeg"
+                        alt="Safari Lodge" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/resortpic/one.jpeg" alt="Luxury Interior" loading="lazy">
+                </div>
                 <div class="gallery-item"><img src="assets/resortpic/two.jpeg" alt="Premium Stay" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/fifteen.jpeg" alt="Rustic Comfort" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/seventeen.jpeg" alt="Canopy View" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/twelve.jpeg" alt="Panoramic Suite" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/resortpic/fifteen.jpeg" alt="Rustic Comfort" loading="lazy">
+                </div>
+                <div class="gallery-item"><img src="assets/resortpic/seventeen.jpeg" alt="Canopy View" loading="lazy">
+                </div>
+                <div class="gallery-item"><img src="assets/resortpic/twelve.jpeg" alt="Panoramic Suite" loading="lazy">
+                </div>
             </div>
         </div>
     </section>
 
-        <!-- Premium Service Squad Section -->
-        <div class="premium-services-container">
-            <div class="safety-header" data-aos="fade-up">
-                <span class="section-badge">SERVICE EXCELLENCE</span>
-                <h2>WE TAKE CARE OF EVERYTHING</h2>
-                <p>From the moment you land to your final farewell, our dedicated squad manages every single detail.</p>
+    <!-- Premium Service Squad Section -->
+    <div class="premium-services-container">
+        <div class="safety-header" data-aos="fade-up">
+            <span class="section-badge">SERVICE EXCELLENCE</span>
+            <h2>WE TAKE CARE OF EVERYTHING</h2>
+            <p>From the moment you land to your final farewell, our dedicated squad manages every single detail.</p>
+        </div>
+
+        <div class="safety-grid premium-squad-grid" style="margin-top: 5rem;">
+            <!-- Service Hero 1: Concierge -->
+            <div class="safety-card" data-aos="fade-up">
+                <div class="card-glow concierge-glow"></div>
+                <div class="safety-icon">
+                    <img src="assets/bitmoji_concierge_dark_1774971958444_1774980635111_1774981577066-removebg-preview.png"
+                        alt="24/7 Personal Concierge" class="bitmoji-icon">
+                </div>
+                <div class="safety-label-strip">
+                    <h3>24/7 PERSONAL CONCIERGE</h3>
+                    <p>A dedicated on-ground expert to manage every flight, safari, and resort detail.</p>
+                </div>
             </div>
-            
-            <div class="safety-grid premium-squad-grid" style="margin-top: 5rem;">
-                <!-- Service Hero 1: Concierge -->
-                <div class="safety-card" data-aos="fade-up">
-                    <div class="card-glow concierge-glow"></div>
-                    <div class="safety-icon">
-                        <img src="assets/bitmoji_concierge_dark_1774971958444_1774980635111_1774981577066-removebg-preview.png" alt="24/7 Personal Concierge" class="bitmoji-icon">
-                    </div>
-                    <div class="safety-label-strip">
-                        <h3>24/7 PERSONAL CONCIERGE</h3>
-                        <p>A dedicated on-ground expert to manage every flight, safari, and resort detail.</p>
-                    </div>
-                </div>
 
-                <!-- Service Hero 2: Transfers -->
-                <div class="safety-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-glow transfer-glow"></div>
-                    <div class="safety-icon">
-                        <img src="assets/bitmoji_transfer_dark_1774971958444_1774980645222_1774981691114-removebg-preview.png" alt="Transfer Specialist" class="bitmoji-icon">
-                    </div>
-                    <div class="safety-label-strip">
-                        <h3>END-TO-END TRANSFERS</h3>
-                        <p>Highlighting your seamless logistics with your new 3D Transfer Specialist, focusing on a "Zero-Stress" arrival experience.</p>
-                    </div>
+            <!-- Service Hero 2: Transfers -->
+            <div class="safety-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-glow transfer-glow"></div>
+                <div class="safety-icon">
+                    <img src="assets/bitmoji_transfer_dark_1774971958444_1774980645222_1774981691114-removebg-preview.png"
+                        alt="Transfer Specialist" class="bitmoji-icon">
                 </div>
+                <div class="safety-label-strip">
+                    <h3>END-TO-END TRANSFERS</h3>
+                    <p>Highlighting your seamless logistics with your new 3D Transfer Specialist, focusing on a
+                        "Zero-Stress" arrival experience.</p>
+                </div>
+            </div>
 
-                <!-- Service Hero 3: Planner -->
-                <div class="safety-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card-glow planner-glow"></div>
-                    <div class="safety-icon">
-                        <img src="assets/bitmoji_planner_dark_1774971958444_1774980655333_1774981725183-removebg-preview.png" alt="Bespoke Planner" class="bitmoji-icon">
-                    </div>
-                    <div class="safety-label-strip">
-                        <h3>TAILOR-MADE MEMORIES</h3>
-                        <p>Showcasing your ability to craft custom itineraries for families, couples, and groups with your new Bespoke Planner.</p>
-                    </div>
+            <!-- Service Hero 3: Planner -->
+            <div class="safety-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-glow planner-glow"></div>
+                <div class="safety-icon">
+                    <img src="assets/bitmoji_planner_dark_1774971958444_1774980655333_1774981725183-removebg-preview.png"
+                        alt="Bespoke Planner" class="bitmoji-icon">
+                </div>
+                <div class="safety-label-strip">
+                    <h3>TAILOR-MADE MEMORIES</h3>
+                    <p>Showcasing your ability to craft custom itineraries for families, couples, and groups with your
+                        new Bespoke Planner.</p>
                 </div>
             </div>
         </div>
+    </div>
 
+    </div>
+
+    <!-- Part 3: Wall of Joy (Marquee) -->
+    <div class="wall-of-joy-container">
+        <div class="marquee-header" data-aos="fade-up">
+            <h3>THE WALL OF JOY</h3>
+            <p>Real stories from our wild family.</p>
         </div>
-
-        <!-- Part 3: Wall of Joy (Marquee) -->
-        <div class="wall-of-joy-container">
-            <div class="marquee-header" data-aos="fade-up">
-                <h3>THE WALL OF JOY</h3>
-                <p>Real stories from our wild family.</p>
-            </div>
-            <div class="testimonial-marquee" id="testimonial-track">
-                <!-- Set 1 -->
-                <div class="review-card">
-                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p>"The best rafting experience ever! The safety gear was top-notch and the guides were incredibly professional."</p>
-                    <div class="reviewer">
-                        <img src="https://i.pravatar.cc/100?u=1" alt="Reviewer">
-                        <span>Ananya R.</span>
-                    </div>
+        <div class="testimonial-marquee" id="testimonial-track">
+            <!-- Set 1 -->
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
-                <div class="review-card">
-                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p>"Luxury in the middle of a jungle is real! The lodge was breathtaking and the service was 5-star."</p>
-                    <div class="reviewer">
-                        <img src="https://i.pravatar.cc/100?u=2" alt="Reviewer">
-                        <span>Vikram S.</span>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p>"Night safari was mystical. We saw a black panther! End-to-end management was flawless."</p>
-                    <div class="reviewer">
-                        <img src="https://i.pravatar.cc/100?u=3" alt="Reviewer">
-                        <span>Sanjana K.</span>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p>"Dandeli has a wild heart, and this team knows exactly how to show it safely. Incredible trip!"</p>
-                    <div class="reviewer">
-                        <img src="https://i.pravatar.cc/100?u=4" alt="Reviewer">
-                        <span>Rahul M.</span>
-                    </div>
-                </div>
-                <!-- Duplicate for Loop -->
-                <div class="review-card">
-                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p>"The best rafting experience ever! The safety gear was top-notch and the guides were incredibly professional."</p>
-                    <div class="reviewer">
-                        <img src="https://i.pravatar.cc/100?u=1" alt="Reviewer">
-                        <span>Ananya R.</span>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p>"Luxury in the middle of a jungle is real! The lodge was breathtaking and the service was 5-star."</p>
-                    <div class="reviewer">
-                        <img src="https://i.pravatar.cc/100?u=2" alt="Reviewer">
-                        <span>Vikram S.</span>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p>"Night safari was mystical. We saw a black panther! End-to-end management was flawless."</p>
-                    <div class="reviewer">
-                        <img src="https://i.pravatar.cc/100?u=3" alt="Reviewer">
-                        <span>Sanjana K.</span>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p>"Dandeli has a wild heart, and this team knows exactly how to show it safely. Incredible trip!"</p>
-                    <div class="reviewer">
-                        <img src="https://i.pravatar.cc/100?u=4" alt="Reviewer">
-                        <span>Rahul M.</span>
-                    </div>
+                <p>"The best rafting experience ever! The safety gear was top-notch and the guides were incredibly
+                    professional."</p>
+                <div class="reviewer">
+                    <img src="https://i.pravatar.cc/100?u=1" alt="Reviewer">
+                    <span>Ananya R.</span>
                 </div>
             </div>
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Luxury in the middle of a jungle is real! The lodge was breathtaking and the service was 5-star."
+                </p>
+                <div class="reviewer">
+                    <img src="https://i.pravatar.cc/100?u=2" alt="Reviewer">
+                    <span>Vikram S.</span>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Night safari was mystical. We saw a black panther! End-to-end management was flawless."</p>
+                <div class="reviewer">
+                    <img src="https://i.pravatar.cc/100?u=3" alt="Reviewer">
+                    <span>Sanjana K.</span>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Dandeli has a wild heart, and this team knows exactly how to show it safely. Incredible trip!"</p>
+                <div class="reviewer">
+                    <img src="https://i.pravatar.cc/100?u=4" alt="Reviewer">
+                    <span>Rahul M.</span>
+                </div>
+            </div>
+            <!-- Duplicate for Loop -->
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p>"The best rafting experience ever! The safety gear was top-notch and the guides were incredibly
+                    professional."</p>
+                <div class="reviewer">
+                    <img src="https://i.pravatar.cc/100?u=1" alt="Reviewer">
+                    <span>Ananya R.</span>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Luxury in the middle of a jungle is real! The lodge was breathtaking and the service was 5-star."
+                </p>
+                <div class="reviewer">
+                    <img src="https://i.pravatar.cc/100?u=2" alt="Reviewer">
+                    <span>Vikram S.</span>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Night safari was mystical. We saw a black panther! End-to-end management was flawless."</p>
+                <div class="reviewer">
+                    <img src="https://i.pravatar.cc/100?u=3" alt="Reviewer">
+                    <span>Sanjana K.</span>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Dandeli has a wild heart, and this team knows exactly how to show it safely. Incredible trip!"</p>
+                <div class="reviewer">
+                    <img src="https://i.pravatar.cc/100?u=4" alt="Reviewer">
+                    <span>Rahul M.</span>
+                </div>
+            </div>
         </div>
+    </div>
     </section>
 
     </section>
@@ -1054,13 +1137,15 @@
                 <div class="partners-marquee-track" id="partners-track">
                     <!-- Unique Partner Set -->
                     <div class="partner-logo-item">
-                        <img src="assets/PARTNERED/booking-com-logo-free-download-booking-com-logo-free-png.webp" alt="Booking.com" class="partner-img">
+                        <img src="assets/PARTNERED/booking-com-logo-free-download-booking-com-logo-free-png.webp"
+                            alt="Booking.com" class="partner-img">
                     </div>
                     <div class="partner-logo-item">
                         <img src="assets/PARTNERED/Makemytrip_logo.svg" alt="MakeMyTrip" class="partner-img">
                     </div>
                     <div class="partner-logo-item">
-                        <img src="assets/PARTNERED/tripadvisor-logo-free-download-tripadvisor-logo-free-png.png" alt="TripAdvisor" class="partner-img">
+                        <img src="assets/PARTNERED/tripadvisor-logo-free-download-tripadvisor-logo-free-png.png"
+                            alt="TripAdvisor" class="partner-img">
                     </div>
                     <div class="partner-logo-item">
                         <img src="assets/PARTNERED/Airbnb-Logo.wine.svg" alt="Airbnb" class="partner-img">
@@ -1073,12 +1158,13 @@
     <!-- Day in the Life Scrollytelling Timeline -->
     <section id="life-of-adventurer" class="timeline-section">
         <div class="timeline-bg-overlay"></div>
-        
+
         <div class="timeline-container">
             <div class="timeline-header" data-aos="fade-up">
                 <span class="section-badge">DAILY RHYTHM</span>
                 <h2>A DAY IN THE LIFE</h2>
-                <p>From the first mist of dawn to the crackle of the midnight fire, experience the rhythm of the wild.</p>
+                <p>From the first mist of dawn to the crackle of the midnight fire, experience the rhythm of the wild.
+                </p>
             </div>
 
             <div class="timeline-wrapper">
@@ -1093,7 +1179,8 @@
                     <div class="timeline-content">
                         <div class="item-time">08:00 AM</div>
                         <div class="item-title">The Awakening</div>
-                        <p>A crisp morning briefing by the river with a steaming cup of local Balaghat tea. The forest is just waking up.</p>
+                        <p>A crisp morning briefing by the river with a steaming cup of local Balaghat tea. The forest
+                            is just waking up.</p>
                         <div class="mist-container"></div>
                     </div>
                 </div>
@@ -1104,7 +1191,8 @@
                     <div class="timeline-content">
                         <div class="item-time">11:00 AM</div>
                         <div class="item-title">The Wild Trek</div>
-                        <p>Navigating through ancient bamboo groves and teak forests. Keep your eyes peeled for the hornbills.</p>
+                        <p>Navigating through ancient bamboo groves and teak forests. Keep your eyes peeled for the
+                            hornbills.</p>
                         <div class="leaves-container"></div>
                     </div>
                 </div>
@@ -1115,7 +1203,8 @@
                     <div class="timeline-content">
                         <div class="item-time">02:00 PM</div>
                         <div class="item-title">The Rush</div>
-                        <p>Heart-pounding action as we hit the Class III rapids. The Kali River is at its most powerful peak.</p>
+                        <p>Heart-pounding action as we hit the Class III rapids. The Kali River is at its most powerful
+                            peak.</p>
                         <div class="splash-container"></div>
                     </div>
                 </div>
@@ -1126,7 +1215,8 @@
                     <div class="timeline-content">
                         <div class="item-time">07:00 PM</div>
                         <div class="item-title">The Glow</div>
-                        <p>Stories around the crackling campfire, local rhythms, and a canopy of a billion stars above.</p>
+                        <p>Stories around the crackling campfire, local rhythms, and a canopy of a billion stars above.
+                        </p>
                         <div class="stars-container"></div>
                         <div class="fire-glow"></div>
                     </div>
@@ -1143,7 +1233,7 @@
                 <h2>START YOUR JOURNEY</h2>
                 <p>Reserve your spot for an unforgettable Dandeli experience.</p>
             </div>
-            
+
             <div class="booking-glass-card">
                 <form id="adventure-form" class="booking-form">
                     <div class="form-row">
@@ -1156,7 +1246,7 @@
                             <input type="email" id="email" placeholder="hello@example.com" required>
                         </div>
                     </div>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="adventure-type">Adventure Type</label>
@@ -1172,12 +1262,13 @@
                             <input type="date" id="date" required>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="message">Special Requests</label>
-                        <textarea id="message" rows="3" placeholder="Any medical conditions or special needs?"></textarea>
+                        <textarea id="message" rows="3"
+                            placeholder="Any medical conditions or special needs?"></textarea>
                     </div>
-                    
+
                     <button type="submit" class="btn btn-primary btn-submit">
                         CONFIRM BOOKING <i class="fa-solid fa-paper-plane"></i>
                     </button>
@@ -1199,7 +1290,7 @@
                 </a>
                 <p>Curating life-changing outdoor experiences in the wild heart of Dandeli, India.</p>
             </div>
-            
+
             <div class="footer-links">
                 <h4>Quick Links</h4>
                 <ul>
@@ -1211,16 +1302,17 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-contact">
                 <h4>Contact Us</h4>
                 <ul>
-                    <li><i class="fa-solid fa-location-dot"></i> J.N Rd, near Bus Stand, opposite VRL Office, Dandeli, Karnataka</li>
+                    <li><i class="fa-solid fa-location-dot"></i> J.N Rd, near Bus Stand, opposite VRL Office, Dandeli,
+                        Karnataka</li>
                     <li><i class="fa-solid fa-phone"></i> +91 90357 10186</li>
                     <li><i class="fa-solid fa-envelope"></i> booking@adventureindandeli.in</li>
                 </ul>
             </div>
-            
+
             <div class="footer-social">
                 <h4>Follow the Adventure</h4>
                 <div class="social-icons">
@@ -1245,4 +1337,5 @@
     <!-- Custom Script -->
     <script src="script.js"></script>
 </body>
+
 </html>
