@@ -285,6 +285,372 @@
 
         /* Gallery and Overhaul Styles Moved to styles.css */
 
+        /* ── PHOTO GALLERY ── */
+        .photo-gallery-section {
+            padding: 6rem 5vw;
+            position: relative;
+        }
+        .photo-gallery-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .photo-gallery-header p {
+            color: var(--clr-text-muted);
+            font-size: 1rem;
+            margin-top: 0.8rem;
+        }
+        .photo-masonry-grid {
+            columns: 4;
+            column-gap: 14px;
+            width: 100%;
+        }
+        .photo-brick {
+            break-inside: avoid;
+            margin-bottom: 14px;
+            border-radius: 14px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.03);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .photo-brick:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(110,175,110,0.3);
+        }
+        .photo-brick img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .photo-brick:hover img {
+            transform: scale(1.04);
+        }
+        .photo-brick-overlay {
+            padding: 0.85rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            background: rgba(10,17,21,0.6);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+        .brick-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(110,175,110,0.18);
+            border: 1px solid rgba(110,175,110,0.45);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 0.25rem 0.75rem;
+            font-family: var(--font-heading);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            color: var(--clr-green-accent);
+            text-transform: uppercase;
+        }
+        .brick-category i { font-size: 0.6rem; }
+        .brick-location {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .brick-enquire {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: linear-gradient(135deg, var(--clr-green-accent), #8fcc8f);
+            color: #0a1115;
+            border-radius: 50px;
+            padding: 0.4rem 1.1rem;
+            font-weight: 700;
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            text-decoration: none;
+            transition: transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .brick-enquire:hover { transform: scale(1.05); }
+        .gallery-cta {
+            text-align: center;
+            margin-top: 4rem;
+        }
+        .btn-gallery-book {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: linear-gradient(135deg, var(--clr-green-accent), #8fcc8f);
+            color: #0a1115;
+            border: none;
+            border-radius: 50px;
+            padding: 1rem 2.8rem;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 0.06em;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .btn-gallery-book:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 35px rgba(110,175,110,0.45);
+        }
+
+        /* ── LIGHTBOX ── */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(5,10,14,0.97);
+            z-index: 9999;
+            backdrop-filter: blur(12px);
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        .lightbox-overlay.active {
+            display: flex;
+        }
+        .lightbox-img-wrap {
+            position: relative;
+            max-width: 88vw;
+            max-height: 88vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        .lightbox-img-wrap img {
+            max-width: 88vw;
+            max-height: 80vh;
+            border-radius: 16px;
+            object-fit: contain;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .lightbox-counter {
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            color: rgba(255,255,255,0.5);
+        }
+        .lightbox-enquire-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: linear-gradient(135deg, var(--clr-green-accent), #8fcc8f);
+            color: #0a1115;
+            border-radius: 50px;
+            padding: 0.65rem 1.8rem;
+            font-weight: 700;
+            font-size: 0.88rem;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .lightbox-enquire-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 28px rgba(110,175,110,0.4);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 1.5rem; right: 1.5rem;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 50%;
+            width: 48px; height: 48px;
+            color: white; font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            z-index: 10;
+        }
+        .lightbox-close:hover { background: rgba(255,255,255,0.18); }
+        .lightbox-nav {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 50%;
+            width: 52px; height: 52px;
+            color: white; font-size: 1.1rem;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .lightbox-nav:hover { background: rgba(110,175,110,0.3); transform: scale(1.1); }
+
+        @media (max-width: 1024px) { .photo-masonry-grid { columns: 3; } }
+        @media (max-width: 768px) { .photo-masonry-grid { columns: 2; } }
+        @media (max-width: 480px) { .photo-masonry-grid { columns: 1; } .lightbox-nav { display: none; } }
+
+        /* ── RESORT ROOMS SECTION ── */
+        .rooms-listing-section {
+            padding: 8rem 5vw;
+            background: linear-gradient(to bottom, transparent, rgba(110,175,110,0.03));
+        }
+        .rooms-grid-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+        }
+        .room-card {
+            display: flex;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            overflow: hidden;
+            min-height: 480px;
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+        .room-card:hover { border-color: rgba(110,175,110,0.3); }
+
+        .room-details-panel {
+            width: 40%;
+            padding: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 1px solid var(--glass-border);
+        }
+        .room-name-title {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 2.8rem;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.01em;
+            color: var(--clr-text-main);
+        }
+        .room-rating-row {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+        .stars-visual { color: #FFD700; font-size: 0.9rem; letter-spacing: 2px; }
+        .rating-score { font-weight: 700; color: var(--clr-green-accent); }
+        .review-count { color: var(--clr-text-muted); font-size: 0.85rem; }
+
+        .room-amenities-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .amenity-tool {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--clr-text-muted);
+        }
+        .amenity-tool i { font-size: 1.2rem; color: var(--clr-green-accent); opacity: 0.8; }
+        .amenity-tool span { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+
+        .room-cta-btn {
+            align-self: flex-start;
+            background: linear-gradient(135deg, var(--clr-green-accent), #8fcc8f);
+            color: #0a1115;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .room-cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(110,175,110,0.3);
+        }
+
+        /* GALLERY SLIDER */
+        .room-gallery-slider {
+            width: 60%;
+            position: relative;
+            background: #000;
+            overflow: hidden;
+        }
+        .slider-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .slider-item {
+            flex: 0 0 100%;
+            height: 100%;
+        }
+        .slider-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(10,17,21,0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        .slider-arrow:hover { background: var(--clr-green-accent); color: #0a1115; }
+        .slider-arrow.prev { left: 1.5rem; }
+        .slider-arrow.next { right: 1.5rem; }
+
+        .slider-pagination {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.6rem;
+            z-index: 10;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .dot.active {
+            background: var(--clr-green-accent);
+            width: 24px;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 992px) {
+            .room-card { flex-direction: column; }
+            .room-details-panel, .room-gallery-slider { width: 100%; }
+            .room-details-panel { border-right: none; border-bottom: 1px solid var(--glass-border); order: 2; }
+            .room-gallery-slider { height: 350px; order: 1; }
+            .room-name-title { font-size: 2.2rem; }
+        }
+
     </style>
 </head>
 <body>
@@ -377,174 +743,314 @@
     </div>
 </div>
 
-<!-- ── FILTER BAR ── -->
-<div class="filter-section" id="filter-section">
-    <div class="filter-inner">
-        <button class="filter-btn active" data-filter="all" onclick="filterResorts(this, 'all')">All Stays</button>
-        <button class="filter-btn" data-filter="luxury" onclick="filterResorts(this, 'luxury')">Luxury Resort</button>
-        <button class="filter-btn" data-filter="jungle" onclick="filterResorts(this, 'jungle')">Jungle Lodge</button>
-        <button class="filter-btn" data-filter="glamping" onclick="filterResorts(this, 'glamping')">Eco Glamping</button>
-        <button class="filter-btn" data-filter="treehouse" onclick="filterResorts(this, 'treehouse')">Treehouse</button>
-        <button class="filter-btn" data-filter="riverside" onclick="filterResorts(this, 'riverside')">Riverside</button>
+<!-- ── RESORT ROOMS SECTION ── -->
+<section class="rooms-listing-section" id="resort-rooms">
+    <div class="photo-gallery-header">
+        <span class="section-badge">SIGNATURE ACCOMMODATIONS</span>
+        <h2 class="section-heading">CHOOSE YOUR JUNGLE HAVEN</h2>
+        <p>Explore our curated selection of luxury rooms, safari stays, and forest dens.</p>
     </div>
+    
+    <div class="rooms-grid-container" id="rooms-grid">
+        <!-- Room cards will be injected here by JavaScript -->
+    </div>
+</section>
+
+<!-- ── FULL PHOTO GALLERY ── -->
+<section class="photo-gallery-section" id="photo-gallery">
+    <div class="photo-gallery-header">
+        <span class="section-badge">OUR PROPERTIES</span>
+        <h2 class="section-heading">A Glimpse Into Paradise</h2>
+        <p>Scroll through our complete photo collection — every image is from an actual property in our network.</p>
+    </div>
+
+    <div class="photo-masonry-grid" id="photo-masonry-grid">
+        <div class="photo-brick" onclick="openLightbox(0)">
+            <img src="assets/resortpic/1.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-hotel"></i> Luxury Resort</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(1)">
+            <img src="assets/resortpic/2.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-water"></i> Riverside Stay</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Kali Riverfront</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(2)">
+            <img src="assets/resortpic/3.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-tree"></i> Jungle Lodge</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(3)">
+            <img src="assets/resortpic/4.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-hotel"></i> Luxury Resort</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(4)">
+            <img src="assets/resortpic/5.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-moon"></i> Forest Cabin</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(5)">
+            <img src="assets/resortpic/6.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-hotel"></i> Luxury Resort</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(6)">
+            <img src="assets/resortpic/7.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-water"></i> Riverside Stay</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Kali Riverfront</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(7)">
+            <img src="assets/resortpic/8.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-campground"></i> Eco Glamping</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(8)">
+            <img src="assets/resortpic/9.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-hotel"></i> Luxury Resort</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(9)">
+            <img src="assets/resortpic/10.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-water"></i> Riverside Stay</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Kali Riverfront</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(10)">
+            <img src="assets/resortpic/11.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-cloud"></i> Hilltop Suite</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Hills</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(11)">
+            <img src="assets/resortpic/12.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-cloud"></i> Hilltop Suite</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Hills</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(12)">
+            <img src="assets/resortpic/13.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-tree"></i> Jungle Lodge</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(13)">
+            <img src="assets/resortpic/14.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-campground"></i> Eco Glamping</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(14)">
+            <img src="assets/resortpic/15.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-campground"></i> Eco Glamping</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(15)">
+            <img src="assets/resortpic/16.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-hotel"></i> Luxury Resort</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(16)">
+            <img src="assets/resortpic/17.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-water"></i> Riverside Stay</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Kali Riverfront</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(17)">
+            <img src="assets/resortpic/18.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-tree"></i> Jungle Lodge</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(18)">
+            <img src="assets/resortpic/19.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-hotel"></i> Luxury Resort</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(19)">
+            <img src="assets/resortpic/20.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-campground"></i> Eco Glamping</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(20)">
+            <img src="assets/resortpic/21.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-water"></i> Riverside Stay</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Kali Riverfront</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(21)">
+            <img src="assets/resortpic/22.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-tree"></i> Jungle Lodge</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(22)">
+            <img src="assets/resortpic/23.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-hotel"></i> Luxury Resort</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(23)">
+            <img src="assets/resortpic/24.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-campground"></i> Eco Glamping</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(24)">
+            <img src="assets/resortpic/25.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-tree"></i> Jungle Lodge</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(25)">
+            <img src="assets/resortpic/26.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-water"></i> Riverside Stay</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Kali Riverfront</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(26)">
+            <img src="assets/resortpic/27.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-hotel"></i> Luxury Resort</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(27)">
+            <img src="assets/resortpic/28.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-campground"></i> Eco Glamping</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(28)">
+            <img src="assets/resortpic/29.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-tree"></i> Jungle Lodge</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(29)">
+            <img src="assets/resortpic/30.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-water"></i> Riverside Stay</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Kali Riverfront</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(30)">
+            <img src="assets/resortpic/31.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-hotel"></i> Luxury Resort</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(31)">
+            <img src="assets/resortpic/seventeen.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-cloud"></i> Panoramic View</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Hills</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+        <div class="photo-brick" onclick="openLightbox(32)">
+            <img src="assets/resortpic/WhatsApp Image 2026-04-02 at 10.12.27.jpeg" alt="Resort Photo" loading="lazy">
+            <div class="photo-brick-overlay">
+                <span class="brick-category"><i class="fa-solid fa-tree"></i> Safari Lodge</span>
+                <span class="brick-location"><i class="fa-solid fa-location-dot"></i> Dandeli Forest</span>
+                <a href="index.html#contact" class="brick-enquire" onclick="event.stopPropagation()"><i class="fa-solid fa-calendar-check"></i> Enquire</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery-cta">
+        <a href="index.html#contact" class="btn-gallery-book">
+            <i class="fa-solid fa-calendar-check"></i> BOOK YOUR STAY NOW
+        </a>
+    </div>
+</section>
+
+<!-- ── LIGHTBOX ── -->
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightboxOnBg(event)">
+    <button class="lightbox-close" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
+    <button class="lightbox-nav lightbox-prev" onclick="changeLightbox(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="lightbox-img-wrap">
+        <img id="lightbox-img" src="" alt="Resort Photo">
+        <div class="lightbox-counter" id="lightbox-counter"></div>
+        <a href="index.html#contact" class="lightbox-enquire-btn">
+            <i class="fa-solid fa-calendar-check"></i> Enquire About This Stay
+        </a>
+    </div>
+    <button class="lightbox-nav lightbox-next" onclick="changeLightbox(1)"><i class="fa-solid fa-chevron-right"></i></button>
 </div>
-
-<!-- ── RESORTS GRID ── -->
-<section class="resorts-section" id="resorts">
-    <div class="resorts-grid-header">
-        <span class="section-badge">CURATED COLLECTION</span>
-        <h2 class="section-heading">CHOOSE YOUR WILDERNESS HOME</h2>
-        <p>Every property below is part of our exclusive network — book through us for the best rates and full concierge support.</p>
-    </div>
-
-    <div class="resorts-grid" id="resorts-grid">
-
-        <!-- CARD 1: Riverside Experience -->
-        <div class="resort-card featured" data-category="luxury riverside">
-            <div class="resort-img-wrapper">
-                <img src="assets/resortpic/seven.jpeg" alt="Riverside Experience" loading="lazy">
-                <div class="photo-toggle-overlay">
-                    <div class="toggle-dot active" data-src="assets/resortpic/seven.jpeg" style="background-image: url('assets/resortpic/seven.jpeg');"></div>
-                    <div class="toggle-dot" data-src="assets/resortpic/one.jpeg" style="background-image: url('assets/resortpic/one.jpeg');"></div>
-                </div>
-                <span class="resort-category-tag">FEATURED · RIVERSIDE</span>
-                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.9</span>
-            </div>
-            <div class="resort-body">
-                <div class="resort-category-label">Luxury Riverside Stay</div>
-                <p class="resort-desc">
-                    Experience the ultimate infinity pool that dissolves into the forest horizon. Each unit offers premium riverfront views and authentic wilderness immersion without compromising on comfort.
-                </p>
-                <div class="resort-amenities">
-                    <span class="amenity-chip"><i class="fa-solid fa-swimming-pool"></i> Infinity Pool</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-snowflake"></i> Fully AC</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-utensils"></i> Fine Dining</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-wifi"></i> High-Speed WiFi</span>
-                </div>
-                <div class="resort-footer">
-                    <div class="resort-enquiry-label">
-                        Premium Riverfront Property
-                        <strong>Ready for Booking</strong>
-                    </div>
-                    <a href="index.html#contact" class="btn-enquire">ENQUIRE NOW <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <!-- CARD 2: Heritage Canopy -->
-        <div class="resort-card" data-category="luxury">
-            <div class="resort-img-wrapper">
-                <img src="assets/resortpic/six.jpeg" alt="Heritage Canopy" loading="lazy">
-                <div class="photo-toggle-overlay">
-                    <div class="toggle-dot active" data-src="assets/resortpic/six.jpeg" style="background-image: url('assets/resortpic/six.jpeg');"></div>
-                    <div class="toggle-dot" data-src="assets/resortpic/two.jpeg" style="background-image: url('assets/resortpic/two.jpeg');"></div>
-                </div>
-                <span class="resort-category-tag">HERITAGE · FOREST</span>
-                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.8</span>
-            </div>
-            <div class="resort-body">
-                <div class="resort-category-label">Heritage Forest Manor</div>
-                <p class="resort-desc">Deep forest architecture meets modern luxury. Perfect for exclusive corporate retreats and family milestone celebrations under the green canopy.</p>
-                <div class="resort-amenities">
-                    <span class="amenity-chip"><i class="fa-solid fa-spa"></i> Wellness Spa</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-utensils"></i> Fine Dining</span>
-                </div>
-                <div class="resort-footer">
-                    <div class="resort-enquiry-label">Exclusive Group Retreats<strong>Custom Quote Available</strong></div>
-                    <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- CARD 3: Hilltop Sunrise -->
-        <div class="resort-card" data-category="luxury">
-            <div class="resort-img-wrapper">
-                <img src="assets/resortpic/eleven.jpeg" alt="Hilltop Sunrise" loading="lazy">
-                <div class="photo-toggle-overlay">
-                    <div class="toggle-dot active" data-src="assets/resortpic/eleven.jpeg" style="background-image: url('assets/resortpic/eleven.jpeg');"></div>
-                    <div class="toggle-dot" data-src="assets/resortpic/twelve.jpeg" style="background-image: url('assets/resortpic/twelve.jpeg');"></div>
-                </div>
-                <span class="resort-category-tag">HILLTOP · PANORAMIC</span>
-                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.9</span>
-            </div>
-            <div class="resort-body">
-                <div class="resort-category-label">Hilltop Panoramic Suite</div>
-                <p class="resort-desc">Wake up above the morning clouds in our exclusive hilltop AC suites. The sunrise reveals an unbroken canvas of Dandeli's emerald canopy.</p>
-                <div class="resort-amenities">
-                    <span class="amenity-chip"><i class="fa-solid fa-cloud"></i> Hilltop View</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-snowflake"></i> Fully AC</span>
-                </div>
-                <div class="resort-footer">
-                    <div class="resort-enquiry-label">Couple & Couple Retreats<strong>Enquire Best Rates</strong></div>
-                    <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- CARD 4: Night-Sky Experience -->
-        <div class="resort-card" data-category="luxury">
-            <div class="resort-img-wrapper">
-                <img src="assets/resortpic/five.jpeg" alt="Night-Sky Experience" loading="lazy">
-                <div class="photo-toggle-overlay">
-                    <div class="toggle-dot active" data-src="assets/resortpic/five.jpeg" style="background-image: url('assets/resortpic/five.jpeg');"></div>
-                    <div class="toggle-dot" data-src="assets/resortpic/fifteen.jpeg" style="background-image: url('assets/resortpic/fifteen.jpeg');"></div>
-                </div>
-                <span class="resort-category-tag">MIDNIGHT · COSY</span>
-                <span class="resort-rating"><i class="fa-solid fa-star"></i> 4.7</span>
-            </div>
-            <div class="resort-body">
-                <div class="resort-category-label">Midnight Forest Lodge</div>
-                <p class="resort-desc">Experience the forest at its most enchanting. These stone-walled cabins feature private warm-lit balconies and cozy wooden interiors for perfect night rest.</p>
-                <div class="resort-amenities">
-                    <span class="amenity-chip"><i class="fa-solid fa-moon"></i> Warm Lights</span>
-                    <span class="amenity-chip"><i class="fa-solid fa-bed"></i> Cozy Interior</span>
-                </div>
-                <div class="resort-footer">
-                    <div class="resort-enquiry-label">Nature Lovers Comfort<strong>Limited Bookings</strong></div>
-                    <a href="index.html#contact" class="btn-enquire">ENQUIRE</a>
-                </div>
-            </div>
-        </div>
-
-    </div><!-- /resorts-grid -->
-</section>
-
-<!-- ── IMMERSIVE DISCOVERY GALLERY ── -->
-<section class="immersive-gallery-section" id="discovery-gallery">
-    <div class="gallery-container">
-        <div class="gallery-track">
-            <!-- Set 1 -->
-            <div class="gallery-item"><img src="assets/resortpic/seven.jpeg" alt="Luxury View" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/six.jpeg" alt="Heritage Manor" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/eleven.jpeg" alt="Hilltop Sunrise" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/five.jpeg" alt="Cozy Night" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/fourw.jpeg" alt="Forest Cabin" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/sixteen.jpeg" alt="Treehouse Stay" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/eight.jpeg" alt="Night Deck" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/WhatsApp Image 2026-04-02 at 10.12.27.jpeg" alt="Safari Lodge" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/one.jpeg" alt="Luxury Interior" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/two.jpeg" alt="Premium Stay" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/fifteen.jpeg" alt="Rustic Comfort" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/seventeen.jpeg" alt="Canopy View" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/twelve.jpeg" alt="Panoramic Suite" loading="lazy"></div>
-            
-            <!-- Set 2 (Duplicate for seamless scroll) -->
-            <div class="gallery-item"><img src="assets/resortpic/seven.jpeg" alt="Luxury View" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/six.jpeg" alt="Heritage Manor" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/eleven.jpeg" alt="Hilltop Sunrise" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/five.jpeg" alt="Cozy Night" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/fourw.jpeg" alt="Forest Cabin" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/sixteen.jpeg" alt="Treehouse Stay" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/eight.jpeg" alt="Night Deck" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/WhatsApp Image 2026-04-02 at 10.12.27.jpeg" alt="Safari Lodge" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/one.jpeg" alt="Luxury Interior" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/two.jpeg" alt="Premium Stay" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/fifteen.jpeg" alt="Rustic Comfort" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/seventeen.jpeg" alt="Canopy View" loading="lazy"></div>
-            <div class="gallery-item"><img src="assets/resortpic/twelve.jpeg" alt="Panoramic Suite" loading="lazy"></div>
-        </div>
-    </div>
-</section>
 
 <!-- ── PACKAGES CTA ── -->
 <section class="packages-cta-section">
@@ -576,65 +1082,223 @@
         heroBg.style.transform = `scale(1) translateY(${scrolled * 0.3}px)`;
     });
 
-    /* ── FILTER RESORTS ── */
-    function filterResorts(btn, category) {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        document.querySelectorAll('.resort-card').forEach(card => {
-            const cats = card.dataset.category || '';
-            const show = category === 'all' || cats.includes(category);
-            card.style.display = show ? '' : 'none';
-            // re-trigger the featured span
-            if (show && cats.includes('featured')) {
-                card.style.gridColumn = window.innerWidth > 900 ? 'span 2' : 'span 1';
-            }
-        });
-    }
-
-    /* ── INTERSECTION OBSERVER — card fade-in ── */
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => entry.target.classList.add('visible'), i * 80);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.resort-card').forEach(card => observer.observe(card));
-
     /* ── STICKY HEADER SHRINK ── */
     window.addEventListener('scroll', () => {
         const header = document.getElementById('main-header');
         header.style.padding = window.scrollY > 60 ? '0 3rem' : '0 3rem';
     });
 
-    /* ── PHOTO TOGGLE LOGIC ── */
-    function setupImageSwitchers() {
-        document.querySelectorAll('.toggle-dot').forEach(dot => {
-            dot.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const card = this.closest('.resort-card');
-                const mainImg = card.querySelector('.resort-img-wrapper img');
-                const newSrc = this.dataset.src;
+    /* ── LIGHTBOX ── */
+    const galleryImages = [
+        'assets/resortpic/1.jpeg',
+        'assets/resortpic/2.jpeg',
+        'assets/resortpic/3.jpeg',
+        'assets/resortpic/4.jpeg',
+        'assets/resortpic/5.jpeg',
+        'assets/resortpic/6.jpeg',
+        'assets/resortpic/7.jpeg',
+        'assets/resortpic/8.jpeg',
+        'assets/resortpic/9.jpeg',
+        'assets/resortpic/10.jpeg',
+        'assets/resortpic/11.jpeg',
+        'assets/resortpic/12.jpeg',
+        'assets/resortpic/13.jpeg',
+        'assets/resortpic/14.jpeg',
+        'assets/resortpic/15.jpeg',
+        'assets/resortpic/16.jpeg',
+        'assets/resortpic/17.jpeg',
+        'assets/resortpic/18.jpeg',
+        'assets/resortpic/19.jpeg',
+        'assets/resortpic/20.jpeg',
+        'assets/resortpic/21.jpeg',
+        'assets/resortpic/22.jpeg',
+        'assets/resortpic/23.jpeg',
+        'assets/resortpic/24.jpeg',
+        'assets/resortpic/25.jpeg',
+        'assets/resortpic/26.jpeg',
+        'assets/resortpic/27.jpeg',
+        'assets/resortpic/28.jpeg',
+        'assets/resortpic/29.jpeg',
+        'assets/resortpic/30.jpeg',
+        'assets/resortpic/31.jpeg',
+        'assets/resortpic/seventeen.jpeg',
+        'assets/resortpic/WhatsApp Image 2026-04-02 at 10.12.27.jpeg'
+    ];
 
-                // Update Image
-                mainImg.style.opacity = '0';
+    let currentIdx = 0;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCounter = document.getElementById('lightbox-counter');
+
+    function openLightbox(idx) {
+        currentIdx = idx;
+        lightboxImg.src = galleryImages[idx];
+        lightboxCounter.textContent = `${idx + 1} / ${galleryImages.length}`;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function closeLightboxOnBg(e) {
+        if (e.target === lightbox) closeLightbox();
+    }
+
+    function changeLightbox(dir) {
+        currentIdx = (currentIdx + dir + galleryImages.length) % galleryImages.length;
+        lightboxImg.style.opacity = '0';
+        setTimeout(() => {
+            lightboxImg.src = galleryImages[currentIdx];
+            lightboxCounter.textContent = `${currentIdx + 1} / ${galleryImages.length}`;
+            lightboxImg.style.opacity = '1';
+        }, 180);
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') changeLightbox(1);
+        if (e.key === 'ArrowLeft') changeLightbox(-1);
+    });
+
+    /* Animate bricks on scroll */
+    const brickObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
                 setTimeout(() => {
-                    mainImg.src = newSrc;
-                    mainImg.style.opacity = '1';
-                }, 200);
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, i * 40);
+                brickObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.05 });
 
-                // Update Dots
-                card.querySelectorAll('.toggle-dot').forEach(d => d.classList.remove('active'));
-                this.classList.add('active');
-            });
+    document.querySelectorAll('.photo-brick').forEach(brick => {
+        brick.style.opacity = '0';
+        brick.style.transform = 'translateY(20px)';
+        brick.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        brickObserver.observe(brick);
+    });
+    /* ── RESORT ROOMS DATA & RENDERING ── */
+</script>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+    import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyC_3g3EqqnvOqZyG0ienk7hwbUcqqpYzhQ",
+        authDomain: "adventureindandeli-a5585.firebaseapp.com",
+        projectId: "adventureindandeli-a5585",
+        storageBucket: "adventureindandeli-a5585.firebasestorage.app",
+        messagingSenderId: "139892128859",
+        appId: "1:139892128859:web:882fccdcc8e5e0f46bd37e",
+        measurementId: "G-KX694VYT0W"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const amenityIcons = {
+        'WiFi': 'fa-wifi', 'AC': 'fa-snowflake', 'River View': 'fa-water', 'Nature View': 'fa-tree',
+        'Bonfire': 'fa-fire', 'Breakfast': 'fa-utensils', 'Private Deck': 'fa-umbrella-beach',
+        'Sunrise View': 'fa-sun', 'Luxury Bath': 'fa-bath', 'Kitchenette': 'fa-sink',
+        'Garden View': 'fa-leaf', 'Private Entry': 'fa-door-open', 'King Bed': 'fa-bed',
+        'Premium Decor': 'fa-gem', 'Jacuzzi': 'fa-hot-tub-person', 'Elite Lounge': 'fa-couch',
+        'Private Pool': 'fa-swimming-pool', 'Butler': 'fa-bell-concierge', 'Heritage Decor': 'fa-landmark',
+        'Balcony': 'fa-house-user', 'Sliding Glass': 'fa-window-maximize', 'Star View': 'fa-star',
+        'Infinity View': 'fa-infinity', 'Spa Access': 'fa-spa', 'Meditation Spot': 'fa-om',
+        'Organic Bar': 'fa-wine-glass', 'Quiet Zone': 'fa-volume-mute', 'Library': 'fa-book',
+        'Top Floor': 'fa-arrow-up', 'Sky Terrace': 'fa-cloud-sun', 'Private Gym': 'fa-dumbbell',
+        'Health Bar': 'fa-leaf', 'Mini Bar': 'fa-glass-water', 'Safe': 'fa-vault'
+    };
+
+    const sliderStates = {};
+
+    window.moveSlider = function(roomId, dir) {
+        if (sliderStates[roomId] === undefined) sliderStates[roomId] = 0;
+        const total = 5;
+        sliderStates[roomId] = (sliderStates[roomId] + dir + total) % total;
+        updateSliderUI(roomId);
+    };
+
+    window.gotoSlide = function(roomId, idx) {
+        sliderStates[roomId] = idx;
+        updateSliderUI(roomId);
+    };
+
+    function updateSliderUI(roomId) {
+        const track = document.getElementById(`track-${roomId}`);
+        const dotsContainer = document.getElementById(`dots-${roomId}`);
+        if (!track || !dotsContainer) return;
+        
+        const dots = dotsContainer.children;
+        const currentIdx = sliderStates[roomId];
+        track.style.transform = `translateX(-${currentIdx * 100}%)`;
+        Array.from(dots).forEach((dot, i) => dot.classList.toggle('active', i === currentIdx));
+    }
+
+    function renderRooms(rooms) {
+        const grid = document.getElementById('rooms-grid');
+        if (!grid) return;
+        grid.innerHTML = '';
+
+        rooms.forEach((room) => {
+            const card = document.createElement('div');
+            card.className = 'room-card';
+            card.id = `card-${room.id}`;
+
+            card.innerHTML = `
+                <div class="room-details-panel">
+                    <h3 class="room-name-title">${room.name}</h3>
+                    <div class="room-rating-row">
+                        <div class="stars-visual">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <span class="rating-score">${room.rating}</span>
+                        <span class="review-count">(${room.reviews} reviews)</span>
+                    </div>
+                    <div class="room-amenities-icons">
+                        ${(room.amenities || []).map(a => `
+                            <div class="amenity-tool" title="${a}">
+                                <i class="fa-solid ${amenityIcons[a] || 'fa-check'}"></i>
+                                <span>${a}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <a href="index.html#contact" class="room-cta-btn">BOOK NOW &mdash; BEST RATE</a>
+                </div>
+                <div class="room-gallery-slider">
+                    <div class="slider-track" id="track-${room.id}">
+                        ${(room.images || []).map(img => `
+                            <div class="slider-item">
+                                <img src="${img}" alt="${room.name}" loading="lazy" onerror="this.src='assets/resort/resort.jpeg'">
+                            </div>
+                        `).join('')}
+                    </div>
+                    <button class="slider-arrow prev" onclick="moveSlider('${room.id}', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="slider-arrow next" onclick="moveSlider('${room.id}', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="slider-pagination" id="dots-${room.id}">
+                        ${(room.images || []).map((_, i) => `
+                            <div class="dot ${i === 0 ? 'active' : ''}" onclick="gotoSlide('${room.id}', ${i})"></div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            grid.appendChild(card);
         });
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        setupImageSwitchers();
+    onSnapshot(collection(db, "resort_rooms"), (snapshot) => {
+        const rooms = [];
+        snapshot.forEach((doc) => rooms.push({ id: doc.id, ...doc.data() }));
+        if (rooms.length > 0) renderRooms(rooms);
     });
 </script>
 </body>

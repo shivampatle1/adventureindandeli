@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secured Admin Dashboard — Adventure in Dandeli</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --clr-bg-dark: #05080a;
+            --clr-bg-layer: #0a1115;
+            --clr-green-accent: #6EAF6E;
+            --clr-text-main: #f8f9fa;
+            --glass-border: rgba(255,255,255,0.08);
+            --glass-bg: rgba(255,255,255,0.03);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--clr-bg-dark);
+            color: var(--clr-text-main);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* ── LOGIN SCREEN ── */
+        #login-screen {
+            position: fixed; inset: 0;
+            background: var(--clr-bg-dark);
+            z-index: 1000;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 1; transition: opacity 0.5s ease;
+        }
+        .login-card {
+            background: var(--clr-bg-layer);
+            border: 1px solid var(--glass-border);
+            padding: 3rem; border-radius: 24px;
+            width: 100%; max-width: 400px;
+            text-align: center;
+        }
+        .login-card h2 { font-family: 'Outfit'; font-weight: 900; margin-bottom: 2rem; }
+
+        /* ── DASHBOARD ── */
+        #admin-dashboard { display: none; padding: 3rem 5vw; }
+        .dashboard-container { max-width: 1100px; margin: 0 auto; }
+        .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; }
+        .header-row h1 { font-family: 'Outfit'; font-weight: 900; font-size: 2rem; color: var(--clr-green-accent); }
+        .logout-btn { background: rgba(255,0,0,0.1); color: #ff6b6b; border: 1px solid rgba(255,0,0,0.2); padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer; font-size: 0.8rem; }
+
+        .card {
+            background: var(--clr-bg-layer);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px; padding: 2.5rem; margin-bottom: 3rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        .card h3 { font-family: 'Outfit'; margin-bottom: 1.5rem; font-size: 1.4rem; border-left: 4px solid var(--clr-green-accent); padding-left: 1rem; }
+
+        form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .full-width { grid-column: span 2; }
+        label { display: block; margin-bottom: 0.6rem; font-size: 0.8rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em; }
+        input, select, textarea {
+            width: 100%; background: var(--glass-bg); border: 1px solid var(--glass-border);
+            border-radius: 10px; padding: 1rem; color: white; font-family: inherit; font-size: 0.95rem;
+        }
+        button[type="submit"] {
+            background: linear-gradient(135deg, var(--clr-green-accent), #8fcc8f);
+            color: black; border: none; padding: 1.2rem 3rem; border-radius: 50px;
+            font-weight: 900; cursor: pointer; transition: 0.3s; font-family: 'Outfit'; letter-spacing: 0.05em;
+        }
+        button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(110,175,110,0.2); }
+
+        /* IMAGE SLOTS */
+        .image-slots-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .image-slot { background: rgba(0,0,0,0.2); padding: 1.2rem; border-radius: 12px; border: 1px dashed var(--glass-border); }
+        .image-slot span { display: block; margin-bottom: 0.8rem; font-size: 0.75rem; font-weight: 700; color: var(--clr-green-accent); }
+        .slot-inputs { display: flex; flex-direction: column; gap: 0.5rem; }
+        .file-input-wrapper { position: relative; overflow: hidden; display: inline-block; }
+        .file-input-wrapper input[type=file] { position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+        .custom-file-btn { background: rgba(255,255,255,0.05); text-align: center; padding: 0.6rem; border-radius: 6px; font-size: 0.7rem; border: 1px solid var(--glass-border); cursor: pointer; display: block; }
+
+        /* AMENITIES */
+        .amenities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; }
+        .amenity-chk { display: flex; align-items: center; gap: 0.8rem; font-size: 0.8rem; background: rgba(255,255,255,0.02); padding: 0.6rem; border-radius: 8px; }
+        .amenity-chk input { width: auto; }
+
+        /* LIST */
+        .room-item {
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(255,255,255,0.02); padding: 1.2rem 2rem;
+            border-radius: 12px; margin-bottom: 1rem; border: 1px solid var(--glass-border);
+        }
+        .room-item-info strong { color: var(--clr-green-accent); font-size: 1.1rem; }
+        .room-item-info p { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+        .action-btns { display: flex; gap: 1.2rem; align-items: center; }
+        .action-btns i { cursor: pointer; font-size: 1.1rem; transition: 0.2s; }
+        .edit-i { color: #818cf8; }
+        .trash-i { color: #f87171; }
+        .edit-i:hover, .trash-i:hover { transform: scale(1.2); }
+
+        #upload-status { font-size: 0.8rem; color: var(--clr-green-accent); font-weight: 700; display: none; }
+    </style>
+</head>
+<body>
+
+    <!-- ── LOGIN SCREEN ── -->
+    <div id="login-screen">
+        <div class="login-card">
+            <h2>Admin Login</h2>
+            <form id="login-form">
+                <div class="full-width">
+                    <label>Email Address</label>
+                    <input type="email" id="login-email" placeholder="admin@dandeli.com" required>
+                </div>
+                <div class="full-width" style="margin-top: 1rem;">
+                    <label>Password</label>
+                    <input type="password" id="login-password" value="dandeli@2026admin" required>
+                </div>
+                <div class="full-width" style="margin-top: 2rem;">
+                    <button type="submit" style="width: 100%;">ACCESS DASHBOARD</button>
+                </div>
+            </form>
+            <p id="login-error" style="color: #ff6b6b; font-size: 0.8rem; margin-top: 1rem; display: none;">Invalid credentials. Please try again.</p>
+        </div>
+    </div>
+
+    <!-- ── DASHBOARD ── -->
+    <div id="admin-dashboard">
+        <div class="dashboard-container">
+            <div class="header-row">
+                <h1>Dandeli Property Manager</h1>
+                <button class="logout-btn" onclick="logout()">LOGOUT</button>
+            </div>
+
+            <div class="card">
+                <h3>Post New Property / Room</h3>
+                <form id="room-form">
+                    <input type="hidden" id="edit-id">
+                    <div class="full-width">
+                        <label>Room / Stay Name</label>
+                        <input type="text" id="room-name" placeholder="Enter luxurious name..." required>
+                    </div>
+                    <div>
+                        <label>Rating (Auto-scaled 4.5-5.0)</label>
+                        <input type="number" id="room-rating" step="0.1" min="4.5" max="5.0" value="4.8">
+                    </div>
+                    <div>
+                        <label>Reviews Count</label>
+                        <input type="number" id="room-reviews" value="125">
+                    </div>
+
+                    <div class="full-width">
+                        <label>Property Images (Upload files OR paste URLs)</label>
+                        <div id="upload-status">Uploading files... 0%</div>
+                        <div class="image-slots-grid">
+                            ${[1, 2, 3, 4, 5].map(i => `
+                                <div class="image-slot">
+                                    <span>IMAGE ${i}</span>
+                                    <div class="slot-inputs">
+                                        <input type="text" id="img-url-${i}" placeholder="Enter Link">
+                                        <div class="file-input-wrapper">
+                                            <span class="custom-file-btn">OR ATTACH FILE</span>
+                                            <input type="file" id="img-file-${i}" accept="image/*">
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="full-width">
+                        <label>Room Amenities</label>
+                        <div class="amenities-grid" id="amenities-container">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+
+                    <div class="full-width">
+                        <button type="submit" id="submit-btn">PUBLISH PROPERTY</button>
+                        <button type="button" class="secondary-btn" style="margin-left: 1.5rem; background: var(--clr-bg-layer); color: white; border: 1px solid var(--glass-border); padding: 1.1rem 2.5rem; border-radius: 50px; cursor: pointer;" onclick="syncDefaults()">SYNC 17 DEFAULTS</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card">
+                <h3>Active Listings</h3>
+                <div id="rooms-list">
+                    <!-- Dynamic rendering -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+        import { getFirestore, collection, addDoc, onSnapshot, doc, deleteDoc, updateDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+        import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-storage.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyC_3g3EqqnvOqZyG0ienk7hwbUcqqpYzhQ",
+            authDomain: "adventureindandeli-a5585.firebaseapp.com",
+            projectId: "adventureindandeli-a5585",
+            storageBucket: "adventureindandeli-a5585.firebasestorage.app",
+            messagingSenderId: "139892128859",
+            appId: "1:139892128859:web:882fccdcc8e5e0f46bd37e",
+            measurementId: "G-KX694VYT0W"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const storage = getStorage(app);
+
+        // AMENITIES LIST
+        const amenities = ['WiFi', 'AC', 'River View', 'Nature View', 'Bonfire', 'Breakfast', 'Private Deck', 'Sunrise View', 'Luxury Bath', 'Kitchenette', 'Garden View', 'King Bed', 'Private Pool', 'Butler', 'Spa Access', 'Mini Bar', 'Safe'];
+        const amenityContainer = document.getElementById('amenities-container');
+        amenities.forEach(a => {
+            amenityContainer.innerHTML += `
+                <div class="amenity-chk">
+                    <input type="checkbox" value="${a}" class="amenity-item">
+                    <span>${a}</span>
+                </div>
+            `;
+        });
+
+        // ── AUTH LOGIC ──
+        const loginForm = document.getElementById('login-form');
+        loginForm.onsubmit = async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const pass = document.getElementById('login-password').value;
+            try {
+                await signInWithEmailAndPassword(auth, email, pass);
+            } catch (err) {
+                document.getElementById('login-error').style.display = 'block';
+            }
+        };
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                document.getElementById('login-screen').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('login-screen').style.display = 'none';
+                    document.getElementById('admin-dashboard').style.display = 'block';
+                }, 500);
+            } else {
+                document.getElementById('login-screen').style.display = 'flex';
+                document.getElementById('login-screen').style.opacity = '1';
+                document.getElementById('admin-dashboard').style.display = 'none';
+            }
+        });
+
+        window.logout = () => signOut(auth);
+
+        // ── ROOM LOGIC ──
+        const form = document.getElementById('room-form');
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            const id = document.getElementById('edit-id').value;
+            const selectedAmenities = Array.from(document.querySelectorAll('.amenity-item:checked')).map(el => el.value);
+            const submitBtn = document.getElementById('submit-btn');
+            const statusLabel = document.getElementById('upload-status');
+
+            submitBtn.innerText = "PROCESSING...";
+            submitBtn.disabled = true;
+
+            // Handle Image Uploads / Links
+            const finalImages = [];
+            for (let i = 1; i <= 5; i++) {
+                const url = document.getElementById(`img-url-${i}`).value.trim();
+                const file = document.getElementById(`img-file-${i}`).files[0];
+
+                if (file) {
+                    statusLabel.style.display = 'block';
+                    statusLabel.innerText = `Uploading Image ${i}...`;
+                    const sRef = ref(storage, `rooms/${Date.now()}-${file.name}`);
+                    const uploadTask = await uploadBytesResumable(sRef, file);
+                    const downloadUrl = await getDownloadURL(uploadTask.ref);
+                    finalImages.push(downloadUrl);
+                } else if (url) {
+                    finalImages.push(url);
+                } else {
+                    finalImages.push('assets/resort/resort.jpeg'); // Fallback
+                }
+            }
+
+            const roomData = {
+                name: document.getElementById('room-name').value,
+                rating: document.getElementById('room-rating').value,
+                reviews: document.getElementById('room-reviews').value,
+                images: finalImages,
+                amenities: selectedAmenities
+            };
+
+            if (id) {
+                await updateDoc(doc(db, "resort_rooms", id), roomData);
+                document.getElementById('edit-id').value = '';
+                submitBtn.innerText = 'PUBLISH PROPERTY';
+            } else {
+                await addDoc(collection(db, "resort_rooms"), roomData);
+            }
+            
+            statusLabel.style.display = 'none';
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'PUBLISH PROPERTY';
+            form.reset();
+        };
+
+        // RENDER LIST
+        onSnapshot(collection(db, "resort_rooms"), (snapshot) => {
+            const list = document.getElementById('rooms-list');
+            list.innerHTML = '';
+            snapshot.forEach((doc) => {
+                const room = doc.data();
+                const roomDiv = document.createElement('div');
+                roomDiv.className = 'room-item';
+                roomDiv.innerHTML = `
+                    <div class="room-item-info">
+                        <strong>${room.name}</strong>
+                        <p>${room.rating} Rating • ${room.reviews} Reviews • ${room.amenities.length} Amenities</p>
+                    </div>
+                    <div class="action-btns">
+                        <i class="fa-solid fa-pen-to-square edit-i" title="Edit"></i>
+                        <i class="fa-solid fa-trash-can trash-i" title="Delete"></i>
+                    </div>
+                `;
+                roomDiv.querySelector('.edit-i').onclick = () => window.editRoom(doc.id, room);
+                roomDiv.querySelector('.trash-i').onclick = () => window.deleteRoom(doc.id);
+                list.appendChild(roomDiv);
+            });
+        });
+
+        window.deleteRoom = async (id) => {
+            if (confirm('Delete this property forever?')) await deleteDoc(doc(db, "resort_rooms", id));
+        };
+
+        window.editRoom = (id, data) => {
+            document.getElementById('edit-id').value = id;
+            document.getElementById('room-name').value = data.name;
+            document.getElementById('room-rating').value = data.rating;
+            document.getElementById('room-reviews').value = data.reviews;
+            
+            // Set URLs back to inputs
+            data.images.forEach((url, i) => {
+                document.getElementById(`img-url-${i+1}`).value = url;
+            });
+
+            // Set checkboxes
+            document.querySelectorAll('.amenity-item').forEach(chk => {
+                chk.checked = data.amenities.includes(chk.value);
+            });
+
+            document.getElementById('submit-btn').innerText = 'UPDATE PROPERTY';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        window.syncDefaults = async () => {
+            const defaultRooms = [
+                { name: 'Explorer Den', amenities: ['WiFi', 'AC', 'River View', 'Mini Bar'] },
+                { name: 'Safari Stay', amenities: ['Nature View', 'WiFi', 'AC', 'Safe'] },
+                { name: 'The Campfire Room', amenities: ['Bonfire', 'WiFi', 'Nature View', 'AC'] },
+                { name: 'Jungle Quest', amenities: ['WiFi', 'AC', 'Nature View', 'Breakfast'] },
+                { name: 'Love Nest', amenities: ['AC', 'Private Deck', 'Sunrise View', 'WiFi'] },
+                { name: 'Honey Comb Haven', amenities: ['Luxury Bath', 'WiFi', 'AC', 'Kitchenette'] },
+                { name: 'Secret Garden Room', amenities: ['Garden View', 'WiFi', 'AC', 'Private Entry'] },
+                { name: 'Royal Sapphire', amenities: ['King Bed', 'AC', 'WiFi', 'Premium Decor'] },
+                { name: 'Platinum Heaven', amenities: ['Jacuzzi', 'River View', 'AC', 'Elite Lounge'] },
+                { name: 'Majestic Cove', amenities: ['Private Pool', 'AC', 'WiFi', 'Butler'] },
+                { name: 'The Regal Retreat', amenities: ['Heritage Decor', 'AC', 'WiFi', 'Balcony'] },
+                { name: 'The Dream Scape', amenities: ['Sliding Glass', 'AC', 'WiFi', 'Star View'] },
+                { name: 'Infinity Room', amenities: ['Infinity View', 'AC', 'WiFi', 'Spa Access'] },
+                { name: 'Aura Sphere', amenities: ['Meditation Spot', 'AC', 'WiFi', 'Organic Bar'] },
+                { name: 'The Zen Den', amenities: ['Quiet Zone', 'Library', 'AC', 'WiFi'] },
+                { name: 'Cloud Nine Room', amenities: ['Top Floor', 'Sky Terrace', 'AC', 'WiFi'] },
+                { name: 'The Hidden Gym', amenities: ['Private Gym', 'AC', 'WiFi', 'Health Bar'] }
+            ];
+
+            if (confirm('Sync 17 default rooms using internal assets? (This will use static paths)')) {
+                for (let i = 0; i < defaultRooms.length; i++) {
+                    const room = defaultRooms[i];
+                    const imgs = [];
+                    for (let j = 0; j < 5; j++) {
+                        const imgIdx = ((i * 5 + j) % 31) + 1;
+                        imgs.push(`assets/resortpic/${imgIdx}.jpeg`);
+                    }
+                    await addDoc(collection(db, "resort_rooms"), {
+                        ...room,
+                        rating: (Math.random() * 0.5 + 4.5).toFixed(1),
+                        reviews: Math.floor(Math.random() * 450 + 50),
+                        images: imgs
+                    });
+                }
+                alert('Synced successfully!');
+            }
+        };
+    </script>
+</body>
+</html>
