@@ -401,6 +401,8 @@
             const cancelBtn = document.getElementById('pop-cancel');
 
             // Reset UI
+            confirmBtn.disabled = false;
+            confirmBtn.innerHTML = "OK";
             iconBox.className = `popup-icon ${type}`;
             if(type === 'success') iconBox.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
             else if(type === 'error') iconBox.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
@@ -425,9 +427,10 @@
                             confirmBtn.disabled = true;
                             confirmBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
                             await onConfirm();
-                            confirmBtn.disabled = false;
-                            confirmBtn.innerHTML = "CONFIRM";
-                            closePopup();
+                            // If onConfirm didn't trigger another popup, close this one
+                            if (titleEl.innerText === title) {
+                                closePopup();
+                            }
                         } catch (err) {
                             showPopup("Sync Error", err.message, "error");
                         }
@@ -442,7 +445,6 @@
         window.closePopup = () => {
             const popup = document.getElementById('status-popup');
             popup.style.display = 'none';
-            // Also reset potential confirm button state if it was loading
             const confirmBtn = document.getElementById('pop-confirm');
             confirmBtn.disabled = false;
         };
@@ -495,12 +497,13 @@
             e.preventDefault();
             const em = document.getElementById('login-email').value;
             const ps = document.getElementById('login-password').value;
-            try { await signInWithEmailAndPassword(auth, em, ps); } 
+            try { 
+                showPopup("Authorizing", "Authenticating with Cloud security...", "loading");
+                await signInWithEmailAndPassword(auth, em, ps); 
+                closePopup();
+            } 
             catch (err) { 
-                document.getElementById('login-err').style.display = 'block'; 
-                if(err.code === 'auth/invalid-credential') {
-                    document.getElementById('login-err').innerHTML = `Access Denied. <button onclick="autoReg('${em}','${ps}')" style="background:#6EAF6E; color:black; border:none; padding:2px 5px; border-radius:3px; font-size:10px; cursor:pointer;">Auto-Register</button>`;
-                }
+                showPopup("Access Denied", "Check your credentials and try again.", "error");
             }
         };
         window.autoReg = async (e,p) => { try { await createUserWithEmailAndPassword(auth,e,p); showPopup('Master Registered!', 'Account created in Cloud database.', 'success'); } catch(err) { showPopup('Identity Error', err.message, 'error'); } };
@@ -539,10 +542,9 @@
             e.preventDefault();
             const docId = document.getElementById('edit-doc-id').value;
             const btn = document.getElementById('save-btn');
-            const status = document.getElementById('upload-status');
             
             btn.disabled = true;
-            status.style.display = 'block';
+            showPopup("Syncing", "Uploading property data to the cloud matrix...", "loading");
 
             try {
                 const images = [];
@@ -565,7 +567,7 @@
                 if(docId) await updateDoc(doc(db, "resort_rooms", docId), data);
                 else await addDoc(collection(db, "resort_rooms"), data);
 
-                showPopup("Success", "System Sync Successful!", "success");
+                showPopup("System Updated", "Property details have been synchronized with the live portal.", "success");
                 form.reset();
                 [1,2,3,4,5].forEach(i => {
                     document.getElementById(`prev-${i}`).style.display = 'none';
@@ -579,7 +581,6 @@
                 showPopup("Cloud Error", err.message, "error");
             } finally {
                 btn.disabled = false;
-                status.style.display = 'none';
             }
         };
 
