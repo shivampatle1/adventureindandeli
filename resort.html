@@ -292,12 +292,38 @@
         }
         .photo-gallery-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .section-badge {
+            display: inline-block;
+            padding: 0.5rem 1.4rem;
+            background: rgba(110,175,110,0.08);
+            border: 1px solid rgba(110,175,110,0.3);
+            border-radius: 50px;
+            color: var(--clr-green-accent);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+        .section-heading {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.05;
+            color: var(--clr-text-main);
+            letter-spacing: -0.02em;
         }
         .photo-gallery-header p {
             color: var(--clr-text-muted);
-            font-size: 1rem;
-            margin-top: 0.8rem;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
         .photo-masonry-grid {
             columns: 4;
@@ -582,19 +608,68 @@
             align-self: flex-start;
             background: linear-gradient(135deg, var(--clr-green-accent), #8fcc8f);
             color: #0a1115;
-            padding: 1rem 2.5rem;
+            padding: 1rem 2.8rem;
             border-radius: 50px;
             font-weight: 800;
             text-decoration: none;
             font-family: var(--font-heading);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             letter-spacing: 0.05em;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: none;
         }
-        .room-cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(110,175,110,0.3);
+
+        /* ── ENQUIRY MODAL ── */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(5,10,14,0.95);
+            backdrop-filter: blur(12px);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
         }
+        .modal-overlay.active { display: flex; }
+        .modal-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 32px;
+            padding: 4rem;
+            width: 100%;
+            max-width: 550px;
+            position: relative;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+        }
+        .modal-close {
+            position: absolute; top: 2rem; right: 2rem;
+            width: 44px; height: 44px; border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: 0.3s;
+        }
+        .modal-close:hover { background: rgba(255,255,255,0.1); transform: rotate(90deg); }
+        .modal-box h2 { font-family: var(--font-heading); font-weight: 900; font-size: 2.2rem; margin-bottom: 1rem; color: var(--clr-green-accent); }
+        .modal-box p { color: var(--clr-text-muted); margin-bottom: 2.5rem; font-size: 0.95rem; }
+        
+        .enquiry-form { display: flex; flex-direction: column; gap: 1.5rem; }
+        .enquiry-form input, .enquiry-form textarea {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px; padding: 1.2rem; color: white; font-family: inherit; font-size: 1rem;
+        }
+        .enquiry-form input:focus { border-color: var(--clr-green-accent); outline: none; }
+        .submit-enquiry-btn {
+            background: var(--clr-green-accent); color: #0a1115; border: none;
+            padding: 1.2rem; border-radius: 50px; font-weight: 900; font-family: var(--font-heading);
+            cursor: pointer; transition: 0.3s; margin-top: 1rem;
+        }
+        .submit-enquiry-btn:hover { box-shadow: 0 10px 30px rgba(110,175,110,0.3); transform: translateY(-3px); }
+
+        #success-msg { text-align: center; display: none; }
+        #success-msg i { font-size: 4rem; color: var(--clr-green-accent); margin-bottom: 1.5rem; }
 
         /* GALLERY SLIDER */
         .room-gallery-slider {
@@ -768,7 +843,7 @@
     <div class="photo-gallery-header">
         <span class="section-badge">SIGNATURE ACCOMMODATIONS</span>
         <h2 class="section-heading">CHOOSE YOUR JUNGLE HAVEN</h2>
-        <p>Explore our curated selection of luxury rooms, safari stays, and forest dens.</p>
+        <p>Explore our curated selection of luxury rooms, safari stays, and forest dens, all designed to immerse you in nature without compromising on elegance.</p>
     </div>
     
     <div class="rooms-grid-container" id="rooms-grid">
@@ -1292,7 +1367,7 @@
                             </div>
                         `).join('')}
                     </div>
-                    <a href="index.html#contact" class="room-cta-btn">BOOK NOW &mdash; BEST RATE</a>
+                    <button class="room-cta-btn" onclick="openEnquiryModal('${room.name}')">KNOW MORE</button>
                 </div>
                 <div class="room-gallery-slider">
                     <div class="slider-track" id="track-${room.id}">
@@ -1320,6 +1395,76 @@
         snapshot.forEach((doc) => rooms.push({ id: doc.id, ...doc.data() }));
         if (rooms.length > 0) renderRooms(rooms);
     });
+
+    /* ── ENQUIRY LOGIC ── */
+    window.openEnquiryModal = function(roomName) {
+        document.getElementById('target-room-name').innerText = roomName;
+        document.getElementById('field-room').value = roomName;
+        document.getElementById('enquiry-modal').classList.add('active');
+        document.getElementById('enquiry-form-content').style.display = 'block';
+        document.getElementById('success-msg').style.display = 'none';
+        document.body.style.overflow = 'hidden';
+    };
+
+    window.closeEnquiryModal = function() {
+        document.getElementById('enquiry-modal').classList.remove('active');
+        document.body.style.overflow = 'auto';
+    };
+
+    import { addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+    
+    document.getElementById('enquiry-form').onsubmit = async (e) => {
+        e.preventDefault();
+        const btn = e.target.querySelector('button');
+        btn.disabled = true;
+        btn.innerText = "SENDING...";
+
+        try {
+            await addDoc(collection(db, "room_enquiries"), {
+                roomName: document.getElementById('field-room').value,
+                customerName: document.getElementById('field-name').value,
+                customerPhone: document.getElementById('field-phone').value,
+                customerEmail: document.getElementById('field-email').value,
+                message: document.getElementById('field-msg').value,
+                status: 'pending',
+                timestamp: serverTimestamp()
+            });
+
+            document.getElementById('enquiry-form-content').style.display = 'none';
+            document.getElementById('success-msg').style.display = 'block';
+            e.target.reset();
+        } catch (err) {
+            alert("Submission error. Please try again.");
+            console.error(err);
+        } finally {
+            btn.disabled = false;
+            btn.innerText = "SEND ENQUIRY";
+        }
+    };
 </script>
+    <!-- ── ENQUIRY MODAL (HIDDEN BY DEFAULT) ── -->
+    <div class="modal-overlay" id="enquiry-modal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeEnquiryModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div id="enquiry-form-content">
+                <h2>Plan Your Stay</h2>
+                <p>Enquire about <span id="target-room-name" style="color:white; font-weight:700;"></span> and our team will get back to you within 24 hours.</p>
+                <form class="enquiry-form" id="enquiry-form">
+                    <input type="hidden" id="field-room">
+                    <input type="text" id="field-name" placeholder="Full Name" required>
+                    <input type="text" id="field-phone" placeholder="Phone Number" required>
+                    <input type="email" id="field-email" placeholder="Email Address" required>
+                    <textarea id="field-msg" rows="4" placeholder="Special requests or preferred dates..."></textarea>
+                    <button type="submit" class="submit-enquiry-btn">SEND ENQUIRY</button>
+                </form>
+            </div>
+            <div id="success-msg">
+                <i class="fa-solid fa-circle-check"></i>
+                <h2 style="color:white;">Enquiry Sent!</h2>
+                <p>Our team will reach out to you very soon on your provided details.</p>
+                <button class="submit-enquiry-btn" onclick="closeEnquiryModal()" style="width:100%;">BACK TO ROOMS</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

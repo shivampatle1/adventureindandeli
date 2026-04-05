@@ -142,10 +142,57 @@
         .col-edit { color: #818cf8; }
         .col-delete { color: #f87171; }
 
+        /* ── LEAD CARD ── */
+        .lead-card {
+            background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: var(--radius-md);
+            padding: 2rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 1.5rem; transition: 0.3s;
+        }
+        .lead-card:hover { border-color: rgba(110,175,110,0.3); background: rgba(255,255,255,0.03); transform: scale(1.01); }
+        .lead-header { display: flex; justify-content: space-between; align-items: flex-start; }
+        .lead-user-info h3 { font-family: 'Outfit'; font-size: 1.6rem; color: var(--clr-green-accent); margin-bottom: 0.3rem; }
+        .lead-user-info span { font-size: 0.8rem; color: var(--clr-text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; }
+        .lead-badge { background: rgba(110,175,110,0.1); border: 1px solid rgba(110,175,110,0.2); padding: 0.5rem 1.2rem; border-radius: 50px; color: var(--clr-green-accent); font-weight: 800; font-size: 0.75rem; letter-spacing: 0.05em; }
+        .lead-details-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 1.2rem; background: rgba(0,0,0,0.3); border-radius: var(--radius-md); }
+        .lead-item { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; color: white; transition: 0.2s; }
+        .lead-item:hover { color: var(--clr-green-accent); }
+        .lead-item i { width: 1.2rem; color: var(--clr-green-accent); font-size: 1.1rem; }
+        .lead-message { padding: 1.2rem; background: rgba(255,255,255,0.03); border-radius: 12px; border-left: 3px solid var(--clr-green-accent); font-style: italic; line-height: 1.6; color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+
+        #enquiry-stream {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        @media (max-width: 1400px) {
+            #enquiry-stream { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 900px) {
+            #enquiry-stream { grid-template-columns: 1fr; }
+        }
+
         #upload-status {
             background: rgba(110,175,110,0.1); color: var(--clr-green-accent); padding: 1.5rem;
             border-radius: var(--radius-md); margin-bottom: 2rem; font-weight: 700; display: none; text-align: center;
         }
+
+        /* ── CUSTOM POPUP ── */
+        .popup-overlay {
+            display: none; position: fixed; inset: 0; background: rgba(5,10,14,0.9);
+            z-index: 10000; align-items: center; justify-content: center; backdrop-filter: blur(8px);
+        }
+        .popup-card {
+            background: var(--clr-bg-layer); border: 1px solid var(--glass-border); padding: 3rem;
+            border-radius: var(--radius-lg); width: 100%; max-width: 440px; text-align: center;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.6); animation: popScale 0.3s ease both;
+        }
+        @keyframes popScale { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        .popup-icon { font-size: 3.5rem; margin-bottom: 1.5rem; }
+        .popup-icon.success { color: var(--clr-green-accent); }
+        .popup-icon.error { color: #f87171; }
+        .popup-icon.info { color: #818cf8; }
+        .popup-card h2 { font-family: 'Outfit'; margin-bottom: 0.8rem; font-size: 1.6rem; }
+        .popup-card p { color: var(--clr-text-muted); font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.6; }
     </style>
 </head>
 <body>
@@ -175,6 +222,9 @@
             </button>
             <button class="nav-btn" id="nav-list" onclick="switchStage('list-stage', this)">
                 <i class="fa-solid fa-layer-group"></i> Active Listings
+            </button>
+            <button class="nav-btn" id="nav-leads" onclick="switchStage('leads-stage', this)">
+                <i class="fa-solid fa-envelope-open-text"></i> Guest Enquiries
             </button>
             
             <div style="margin-top: auto; border-top: 1px solid var(--glass-border); padding-top: 2rem;">
@@ -282,6 +332,27 @@
                     <!-- Dynamic Stream -->
                 </div>
             </div>
+
+            <!-- STAGE: ENQUIRIES -->
+            <div id="leads-stage" class="tab-content">
+                <h2 style="font-family:'Outfit'; margin-bottom: 3rem; font-size: 2.2rem;">Recent Guest Leads</h2>
+                <div id="enquiry-stream">
+                    <!-- Leads will be injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── CUSTOM POPUP STRUCTURE ── -->
+    <div class="popup-overlay" id="status-popup">
+        <div class="popup-card">
+            <div id="pop-icon-box" class="popup-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <h2 id="pop-title">Success</h2>
+            <p id="pop-msg">Operation completed successfully.</p>
+            <div id="pop-actions" style="display:flex; gap:1rem;">
+                <button id="pop-cancel" class="nav-btn" style="flex:1; justify-content:center; display:none;" onclick="closePopup()">CANCEL</button>
+                <button id="pop-confirm" class="primary-btn" style="flex:1; padding: 1.2rem;" onclick="closePopup()">OK</button>
+            </div>
         </div>
     </div>
 
@@ -319,6 +390,38 @@
             });
         }
         renderChips();
+
+        // ── CUSTOM POPUP LOGIC ──
+        window.showPopup = (title, msg, type = 'success', onConfirm = null) => {
+            const popup = document.getElementById('status-popup');
+            const iconBox = document.getElementById('pop-icon-box');
+            const titleEl = document.getElementById('pop-title');
+            const msgEl = document.getElementById('pop-msg');
+            const confirmBtn = document.getElementById('pop-confirm');
+            const cancelBtn = document.getElementById('pop-cancel');
+
+            iconBox.className = `popup-icon ${type}`;
+            iconBox.innerHTML = type === 'success' ? '<i class="fa-solid fa-circle-check"></i>' : 
+                               type === 'error' ? '<i class="fa-solid fa-circle-xmark"></i>' : 
+                               '<i class="fa-solid fa-circle-question"></i>';
+            
+            titleEl.innerText = title;
+            msgEl.innerText = msg;
+            
+            // Handle Actions
+            confirmBtn.innerText = onConfirm ? "CONFIRM" : "DISMISS";
+            cancelBtn.style.display = onConfirm ? "flex" : "none";
+            
+            confirmBtn.onclick = () => {
+                closePopup();
+                if(onConfirm) onConfirm();
+            };
+
+            popup.style.display = 'flex';
+        };
+        window.closePopup = () => {
+            document.getElementById('status-popup').style.display = 'none';
+        };
 
         window.addNewChip = () => {
             const input = document.getElementById('new-amenity-input');
@@ -376,7 +479,7 @@
                 }
             }
         };
-        window.autoReg = async (e,p) => { try { await createUserWithEmailAndPassword(auth,e,p); alert('Master Registered!'); } catch(err) { alert(err.message); } };
+        window.autoReg = async (e,p) => { try { await createUserWithEmailAndPassword(auth,e,p); showPopup('Master Registered!', 'Account created in Cloud database.', 'success'); } catch(err) { showPopup('Identity Error', err.message, 'error'); } };
         onAuthStateChanged(auth, u => {
             document.getElementById('login-screen').style.display = u ? 'none' : 'flex';
             document.getElementById('admin-dashboard').style.display = u ? 'block' : 'none';
@@ -438,7 +541,7 @@
                 if(docId) await updateDoc(doc(db, "resort_rooms", docId), data);
                 else await addDoc(collection(db, "resort_rooms"), data);
 
-                alert("System Sync Successful!");
+                showPopup("Success", "System Sync Successful!", "success");
                 form.reset();
                 [1,2,3,4,5].forEach(i => {
                     document.getElementById(`prev-${i}`).style.display = 'none';
@@ -449,7 +552,7 @@
                 document.getElementById('edit-doc-id').value = '';
                 switchStage('list-stage', document.getElementById('nav-list'));
             } catch (err) {
-                alert("Cloud Sync Failure: " + err.message);
+                showPopup("Cloud Error", err.message, "error");
             } finally {
                 btn.disabled = false;
                 status.style.display = 'none';
@@ -459,6 +562,7 @@
         // STREAM SUBSCRIPTION
         onSnapshot(collection(db, "resort_rooms"), snap => {
             const stream = document.getElementById('listing-stream');
+            if(!stream) return;
             stream.innerHTML = '';
             snap.forEach(d => {
                 const r = d.data();
@@ -501,7 +605,48 @@
                     switchStage('add-stage', document.getElementById('nav-add'));
                 };
                 div.querySelector('.col-delete').onclick = () => {
-                    if(confirm('Purge from Cloud?')) deleteDoc(doc(db, "resort_rooms", d.id));
+                    showPopup('Delete Property?', 'This will permanently remove the listing from Cloud.', 'info', async () => {
+                        await deleteDoc(doc(db, "resort_rooms", d.id));
+                        showPopup('Deleted', 'Property removed from Cloud database.', 'success');
+                    });
+                };
+                stream.appendChild(div);
+            });
+        });
+
+        // ── ENQUIRY STREAM (REAL-TIME) ──
+        onSnapshot(collection(db, "room_enquiries"), snap => {
+            const stream = document.getElementById('enquiry-stream');
+            if(!stream) return;
+            stream.innerHTML = '';
+            snap.forEach(d => {
+                const e = d.data();
+                const div = document.createElement('div');
+                div.className = 'lead-card';
+                div.innerHTML = `
+                    <div class="lead-header">
+                        <div class="lead-user-info">
+                            <h3>${e.customerName}</h3>
+                            <span>Lead Received on ${new Date(e.timestamp?.seconds * 1000).toLocaleDateString()} at ${new Date(e.timestamp?.seconds * 1000).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                        </div>
+                        <div class="lead-badge">PROJECT: ${e.roomName}</div>
+                    </div>
+                    <div class="lead-details-grid">
+                        <a href="tel:${e.customerPhone}" class="lead-item"><i class="fa-solid fa-phone"></i> ${e.customerPhone}</a>
+                        <a href="mailto:${e.customerEmail}" class="lead-item"><i class="fa-solid fa-envelope"></i> ${e.customerEmail}</a>
+                    </div>
+                    <div class="lead-message">
+                        "${e.message || 'No specific requests mentioned.'}"
+                    </div>
+                    <div style="display:flex; justify-content: flex-end; gap: 1.5rem;">
+                         <button class="col-delete-lead" style="background:transparent; color:#f87171; border:none; cursor:pointer; font-size:1.1rem;"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                `;
+                div.querySelector('.col-delete-lead').onclick = () => {
+                    showPopup('Archive Lead?', 'Remove this guest inquiry from the active list.', 'info', async () => {
+                        await deleteDoc(doc(db, "room_enquiries", d.id));
+                        showPopup('Archived', 'Lead removed and record cleared.', 'success');
+                    });
                 };
                 stream.appendChild(div);
             });
@@ -509,12 +654,12 @@
 
         window.syncDefaults = async () => {
             const defaults = [{name:'Heritage Villa'},{name:'River Suite'},{name:'Jungle Cabin'}];
-            if(confirm('Sync 3 Master Slots?')) {
+            showPopup('Sync Defaults?', 'Deploy 3 master slots to the database?', 'info', async () => {
                 for(let item of defaults) {
                     await addDoc(collection(db, "resort_rooms"), { ...item, rating:4.9, reviews:80, images:['assets/resort/resort.jpeg'], amenities:['WiFi','AC'] });
                 }
-                alert('Success!');
-            }
+                showPopup('Sync Complete', '3 Master Slots have been deployed.', 'success');
+            });
         };
     </script>
 </body>
