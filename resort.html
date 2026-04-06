@@ -738,9 +738,40 @@
 
         .enquiry-form input:focus {
             border-color: var(--clr-green-accent);
-            outline: none;
         }
 
+        @media (max-width: 768px) {
+            .modal-box {
+                padding: 2.5rem 1.5rem !important;
+                width: 95% !important;
+                max-width: 100% !important;
+                margin: 0 auto;
+                max-height: 85vh;
+                overflow-y: auto;
+            }
+            .modal-close {
+                top: 15px !important;
+                right: 15px !important;
+                width: 38px !important;
+                height: 38px !important;
+            }
+            .modal-box h2 {
+                font-size: 1.8rem !important;
+                padding-right: 2rem; /* Keep text away from close button */
+            }
+            .modal-overlay {
+                padding: 1rem !important;
+            }
+            .enquiry-form input,
+            .enquiry-form textarea {
+                width: 100%;
+                box-sizing: border-box;
+            }
+        } /* End of media query */
+
+        .enquiry-form input:focus {
+            outline: none;
+        }
         .submit-enquiry-btn {
             background: var(--clr-green-accent);
             color: #0a1115;

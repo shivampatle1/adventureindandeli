@@ -3481,8 +3481,9 @@ ul {
     .testimonials-section, .wall-of-joy-container { display: none !important; }
     
     /* ── SAFETY CARD ALIGNMENT ── */
-    .safety-icon { width: 100%; display: flex; justify-content: center; }
-    .safety-icon img.bitmoji-icon { margin: 0 auto; display: block; }
+    .safety-card { display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important; }
+    .safety-icon { width: 100% !important; display: flex !important; justify-content: center !important; align-items: center !important; margin: 0 auto !important; }
+    .safety-icon img.bitmoji-icon { margin: 0 auto !important; display: block !important; }
 
     /* ── LODGE.HTML CARD MOBILE RESIZE ── */
     .resorts-grid .resort-card.featured, .resort-card.featured.alt-layout { 
