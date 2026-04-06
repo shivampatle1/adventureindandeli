@@ -33,7 +33,7 @@
                 <span class="logo-accent">IN <span class="logo-highlight">DANDELI</span></span>
             </span>
         </a>
-        <nav class="nav-links">
+        <nav class="nav-links" id="nav-links">
             <a href="#home"><i class="fa-solid fa-house"></i> Home</a>
             <a href="#activities"><i class="fa-solid fa-map-location-dot"></i> Activities</a>
             <a href="lodge.html"><i class="fa-solid fa-campground"></i> Lodges</a>
@@ -42,7 +42,10 @@
             <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact Us</a>
         </nav>
         <div class="header-cta">
-            <button class="btn btn-outline">LOG IN</button>
+            <button class="btn btn-outline login-btn">LOG IN</button>
+            <div id="nav-toggle" class="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </div>
     </header>
 
@@ -916,60 +919,7 @@
         </div>
     </section>
 
-    <!-- ── IMMERSIVE DISCOVERY GALLERY ── -->
-    <section class="immersive-gallery-section" id="discovery-gallery">
-        <div class="gallery-container">
-            <div class="gallery-track">
-                <!-- Set 1 -->
-                <div class="gallery-item"><img src="assets/resortpic/seven.jpeg" alt="Luxury View" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/six.jpeg" alt="Heritage Manor" loading="lazy">
-                </div>
-                <div class="gallery-item"><img src="assets/resortpic/eleven.jpeg" alt="Hilltop Sunrise" loading="lazy">
-                </div>
-                <div class="gallery-item"><img src="assets/resortpic/five.jpeg" alt="Cozy Night" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/fourw.jpeg" alt="Forest Cabin" loading="lazy">
-                </div>
-                <div class="gallery-item"><img src="assets/resortpic/sixteen.jpeg" alt="Treehouse Stay" loading="lazy">
-                </div>
-                <div class="gallery-item"><img src="assets/resortpic/eight.jpeg" alt="Night Deck" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/WhatsApp Image 2026-04-02 at 10.12.27.jpeg"
-                        alt="Safari Lodge" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/one.jpeg" alt="Luxury Interior" loading="lazy">
-                </div>
-                <div class="gallery-item"><img src="assets/resortpic/two.jpeg" alt="Premium Stay" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/fifteen.jpeg" alt="Rustic Comfort" loading="lazy">
-                </div>
-                <div class="gallery-item"><img src="assets/resortpic/seventeen.jpeg" alt="Canopy View" loading="lazy">
-                </div>
-                <div class="gallery-item"><img src="assets/resortpic/twelve.jpeg" alt="Panoramic Suite" loading="lazy">
-                </div>
 
-                <!-- Set 2 (Duplicate for seamless scroll) -->
-                <div class="gallery-item"><img src="assets/resortpic/seven.jpeg" alt="Luxury View" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/six.jpeg" alt="Heritage Manor" loading="lazy">
-                </div>
-                <div class="gallery-item"><img src="assets/resortpic/eleven.jpeg" alt="Hilltop Sunrise" loading="lazy">
-                </div>
-                <div class="gallery-item"><img src="assets/resortpic/five.jpeg" alt="Cozy Night" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/fourw.jpeg" alt="Forest Cabin" loading="lazy">
-                </div>
-                <div class="gallery-item"><img src="assets/resortpic/sixteen.jpeg" alt="Treehouse Stay" loading="lazy">
-                </div>
-                <div class="gallery-item"><img src="assets/resortpic/eight.jpeg" alt="Night Deck" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/WhatsApp Image 2026-04-02 at 10.12.27.jpeg"
-                        alt="Safari Lodge" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/one.jpeg" alt="Luxury Interior" loading="lazy">
-                </div>
-                <div class="gallery-item"><img src="assets/resortpic/two.jpeg" alt="Premium Stay" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/resortpic/fifteen.jpeg" alt="Rustic Comfort" loading="lazy">
-                </div>
-                <div class="gallery-item"><img src="assets/resortpic/seventeen.jpeg" alt="Canopy View" loading="lazy">
-                </div>
-                <div class="gallery-item"><img src="assets/resortpic/twelve.jpeg" alt="Panoramic Suite" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Premium Service Squad Section -->
     <div class="premium-services-container">
@@ -1031,92 +981,104 @@
             <h3>THE WALL OF JOY</h3>
             <p>Real stories from our wild family.</p>
         </div>
-        <div class="testimonial-marquee" id="testimonial-track">
-            <!-- Set 1 -->
-            <div class="review-card">
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+
+        <div class="testimonial-slider-wrapper">
+            <div class="testimonial-marquee" id="testimonial-track">
+                <!-- Set 1 -->
+                <div class="review-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"The best rafting experience ever! The safety gear was top-notch and the guides were incredibly
+                        professional."</p>
+                    <div class="reviewer">
+                        <img src="https://i.pravatar.cc/100?u=1" alt="Reviewer">
+                        <span>Ananya R.</span>
+                    </div>
                 </div>
-                <p>"The best rafting experience ever! The safety gear was top-notch and the guides were incredibly
-                    professional."</p>
-                <div class="reviewer">
-                    <img src="https://i.pravatar.cc/100?u=1" alt="Reviewer">
-                    <span>Ananya R.</span>
+                <div class="review-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"Luxury in the middle of a jungle is real! The lodge was breathtaking and the service was 5-star."
+                    </p>
+                    <div class="reviewer">
+                        <img src="https://i.pravatar.cc/100?u=2" alt="Reviewer">
+                        <span>Vikram S.</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"Night safari was mystical. We saw a black panther! End-to-end management was flawless."</p>
+                    <div class="reviewer">
+                        <img src="https://i.pravatar.cc/100?u=3" alt="Reviewer">
+                        <span>Sanjana K.</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"Dandeli has a wild heart, and this team knows exactly how to show it safely. Incredible trip!"</p>
+                    <div class="reviewer">
+                        <img src="https://i.pravatar.cc/100?u=9" alt="Reviewer">
+                        <span>Rahul M.</span>
+                    </div>
+                </div>
+                <!-- Duplicate for Loop -->
+                <div class="review-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"The best rafting experience ever! The safety gear was top-notch and the guides were incredibly
+                        professional."</p>
+                    <div class="reviewer">
+                        <img src="https://i.pravatar.cc/100?u=1" alt="Reviewer">
+                        <span>Ananya R.</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"Luxury in the middle of a jungle is real! The lodge was breathtaking and the service was 5-star."
+                    </p>
+                    <div class="reviewer">
+                        <img src="https://i.pravatar.cc/100?u=2" alt="Reviewer">
+                        <span>Vikram S.</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"Night safari was mystical. We saw a black panther! End-to-end management was flawless."</p>
+                    <div class="reviewer">
+                        <img src="https://i.pravatar.cc/100?u=3" alt="Reviewer">
+                        <span>Sanjana K.</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"Dandeli has a wild heart, and this team knows exactly how to show it safely. Incredible trip!"</p>
+                    <div class="reviewer">
+                        <img src="https://i.pravatar.cc/100?u=9" alt="Reviewer">
+                        <span>Rahul M.</span>
+                    </div>
                 </div>
             </div>
-            <div class="review-card">
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p>"Luxury in the middle of a jungle is real! The lodge was breathtaking and the service was 5-star."
-                </p>
-                <div class="reviewer">
-                    <img src="https://i.pravatar.cc/100?u=2" alt="Reviewer">
-                    <span>Vikram S.</span>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p>"Night safari was mystical. We saw a black panther! End-to-end management was flawless."</p>
-                <div class="reviewer">
-                    <img src="https://i.pravatar.cc/100?u=3" alt="Reviewer">
-                    <span>Sanjana K.</span>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p>"Dandeli has a wild heart, and this team knows exactly how to show it safely. Incredible trip!"</p>
-                <div class="reviewer">
-                    <img src="https://i.pravatar.cc/100?u=4" alt="Reviewer">
-                    <span>Rahul M.</span>
-                </div>
-            </div>
-            <!-- Duplicate for Loop -->
-            <div class="review-card">
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p>"The best rafting experience ever! The safety gear was top-notch and the guides were incredibly
-                    professional."</p>
-                <div class="reviewer">
-                    <img src="https://i.pravatar.cc/100?u=1" alt="Reviewer">
-                    <span>Ananya R.</span>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p>"Luxury in the middle of a jungle is real! The lodge was breathtaking and the service was 5-star."
-                </p>
-                <div class="reviewer">
-                    <img src="https://i.pravatar.cc/100?u=2" alt="Reviewer">
-                    <span>Vikram S.</span>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p>"Night safari was mystical. We saw a black panther! End-to-end management was flawless."</p>
-                <div class="reviewer">
-                    <img src="https://i.pravatar.cc/100?u=3" alt="Reviewer">
-                    <span>Sanjana K.</span>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p>"Dandeli has a wild heart, and this team knows exactly how to show it safely. Incredible trip!"</p>
-                <div class="reviewer">
-                    <img src="https://i.pravatar.cc/100?u=4" alt="Reviewer">
-                    <span>Rahul M.</span>
-                </div>
+            <!-- Slider Controls (New) -->
+            <div class="slider-controls">
+                <button class="slider-btn prev-btn" aria-label="Previous Review">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="slider-btn next-btn" aria-label="Next Review">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -1242,9 +1204,14 @@
                             <input type="text" id="name" placeholder="Adventurer Name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="hello@example.com" required>
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="+91 00000 00000" required>
                         </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="hello@example.com" required>
                     </div>
 
                     <div class="form-row">
@@ -1336,6 +1303,72 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
     <!-- Custom Script -->
     <script src="script.js"></script>
+
+    <!-- Firebase SDK Scripts -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+
+        // Firebase Configuration (Synced with resort.html)
+        const firebaseConfig = {
+            apiKey: "AIzaSyC_3g3EqqnvOqZyG0ienk7hwbUcqqpYzhQ",
+            authDomain: "adventureindandeli-a5585.firebaseapp.com",
+            projectId: "adventureindandeli-a5585",
+            storageBucket: "adventureindandeli-a5585.firebasestorage.app",
+            messagingSenderId: "139892128859",
+            appId: "1:139892128859:web:882fccdcc8e5e0f46bd37e",
+            measurementId: "G-KX694VYT0W"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // --- ADVENTURE FORM SUBMISSION (START YOUR JOURNEY) ---
+        const adventureForm = document.getElementById('adventure-form');
+        if (adventureForm) {
+            adventureForm.onsubmit = async (e) => {
+                e.preventDefault();
+                const submitBtn = e.target.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.innerHTML;
+                
+                // Visual Loading State
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> SYNCING...';
+
+                try {
+                    // Extract Values
+                    const adventureType = document.getElementById('adventure-type').value;
+                    const travelDate = document.getElementById('date').value;
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('message').value;
+
+                    // Send to 'room_enquiries' for Admin Panel display
+                    await addDoc(collection(db, "room_enquiries"), {
+                        roomName: `ADV: ${adventureType.toUpperCase()} (${travelDate})`,
+                        customerName: name,
+                        customerPhone: phone,
+                        customerEmail: email,
+                        message: `[JOURNEY FORM] ${message}`,
+                        status: 'pending',
+                        timestamp: serverTimestamp()
+                    });
+
+                    // Success Feedback
+                    alert("Enquiry Sent Successfully! We will contact you on " + phone + " very soon.");
+                    e.target.reset();
+
+                } catch (err) {
+                    console.error("Firestore Sync Error:", err);
+                    alert("Submission failed. Please check your connection and try again.");
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                }
+            };
+        }
+    </script>
 </body>
 
 </html>

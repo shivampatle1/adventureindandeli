@@ -524,4 +524,74 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
     setupImageSwitchers();
+
+    // 7. Mobile Navbar Toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            const icon = navToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                const icon = navToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-xmark');
+            });
+        });
+    }
+
+    // 8. Testimonial Slider (Auto + Manual)
+    const testimonialTrack = document.getElementById('testimonial-track');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    if (testimonialTrack && prevBtn && nextBtn) {
+        const scrollStep = 320; // Approximately card width + gap
+        
+        const scrollNext = () => {
+            const maxScroll = testimonialTrack.scrollWidth - testimonialTrack.clientWidth;
+            if (testimonialTrack.scrollLeft >= maxScroll - 10) {
+                testimonialTrack.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                testimonialTrack.scrollBy({ left: scrollStep, behavior: 'smooth' });
+            }
+        };
+
+        const scrollPrev = () => {
+            if (testimonialTrack.scrollLeft <= 10) {
+                testimonialTrack.scrollTo({ left: testimonialTrack.scrollWidth, behavior: 'smooth' });
+            } else {
+                testimonialTrack.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+            }
+        };
+
+        nextBtn.addEventListener('click', () => {
+            scrollNext();
+            resetAutoScroll();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            scrollPrev();
+            resetAutoScroll();
+        });
+
+        // Auto Scroll Logic
+        let autoScrollInterval = setInterval(scrollNext, 4000);
+
+        function resetAutoScroll() {
+            clearInterval(autoScrollInterval);
+            autoScrollInterval = setInterval(scrollNext, 6000); // Resume with delay
+        }
+
+        // Pause on touch/interaction
+        testimonialTrack.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+        testimonialTrack.addEventListener('mouseleave', () => resetAutoScroll());
+    }
 });

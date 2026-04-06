@@ -2712,26 +2712,7 @@ ul {
     }
 }
 
-/* Testimonial Mobile Fix */
-@media (max-width: 768px) {
-    .testimonial-marquee {
-        flex-direction: column !important;
-        align-items: center;
-        padding: 2rem 1rem;
-        animation: none !important;
-    }
-
-    .review-card {
-        width: 90% !important;
-        margin-bottom: 2rem;
-        padding: 2rem;
-        flex-shrink: initial;
-    }
-
-    .marquee-header h3 {
-        font-size: 2.2rem;
-    }
-}
+/* Testimonial slider handled in newer media query at the end of file */
 
 /* Brand Logo Footer Sync - Replaced by Typography Logo */
 /* ============================================================
@@ -2977,94 +2958,12 @@ ul {
 }
 
 /* ── IMMERSIVE INFINITE GALLERY ── */
-.immersive-gallery-section {
-    padding: 60px 0;
-    background-color: var(--clr-bg-dark);
-    position: relative;
-    overflow: hidden;
-}
 
-.immersive-gallery-section .section-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
 
-.gallery-container {
-    width: 100%;
-    overflow: hidden;
-    /* Soft fade effect on edges */
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-}
 
-.gallery-track {
-    display: flex;
-    width: max-content;
-    gap: 25px;
-    animation: infiniteScroll 25s linear infinite;
-    padding: 20px 0;
-}
 
-.gallery-track:hover {
-    animation-play-state: paused;
-}
 
-.gallery-item {
-    width: 320px;
-    height: 220px;
-    border-radius: 20px;
-    overflow: hidden;
-    flex-shrink: 0;
-    position: relative;
-    border: 1px solid var(--glass-border);
-    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s ease;
-    cursor: pointer;
-}
 
-.gallery-item:hover {
-    transform: scale(1.05) translateY(-5px);
-    border-color: var(--clr-orange-safety);
-    z-index: 10;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.8s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.1);
-}
-
-.gallery-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
-    pointer-events: none;
-}
-
-@keyframes infiniteScroll {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
-}
-
-@media (max-width: 768px) {
-    .gallery-item {
-        width: 260px;
-        height: 180px;
-    }
-
-    .gallery-track {
-        animation-duration: 20s;
-    }
-}
 
 /* ── ENQUIRY MODAL (GLOBAL) ── */
 .modal-overlay {
@@ -3446,4 +3345,122 @@ ul {
 
 @media (max-width: 768px) {
     .specials-grid { grid-template-columns: 1fr; }
+    
+    /* ── MOBILE NAVBAR ── */
+    #main-header {
+        top: 0; left: 0; right: 0;
+        border-radius: 0;
+        margin: 0;
+        height: 70px;
+        padding: 0 1.5rem;
+    }
+    .login-btn { display: none; }
+    .nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: #fff;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    .nav-links {
+        position: fixed;
+        top: 0; right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: rgba(10, 17, 21, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        border-left: 1px solid var(--glass-border);
+    }
+    .nav-links.open { right: 0; }
+
+    /* ── ACTIVITY SECTIONS PHOTO FIT ── */
+    #rafting, #safari, #kayaking { padding: 4rem 1.5rem; }
+    .activity-section h2 { font-size: 2.2rem; }
+    .journey-card.featured {
+        grid-column: span 1;
+        height: 350px; 
+    }
+    .ripple-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* ── SAFETY & CONCIERGE ── */
+    .safety-header { text-align: center; }
+    .safety-header h2 { font-size: 2rem; }
+    
+    .premium-services-container { padding: 4rem 1.5rem; }
+    .premium-services-container h2 { font-size: 1.8rem; }
+    .safety-card { margin: 0 0.5rem; }
+
+    /* ── WALL OF JOY SLIDER (MOBILE REFINED) ── */
+    .wall-of-joy-container { 
+        padding: 4rem 0; 
+        overflow: hidden; 
+        background: linear-gradient(to bottom, transparent, rgba(110, 175, 110, 0.04));
+    }
+    .marquee-header h3 { 
+        font-size: 2.2rem !important; /* Scaled down for mobile */
+        letter-spacing: 2px !important; 
+    }
+    .testimonial-slider-wrapper { 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        position: relative; 
+        padding: 0; 
+    }
+    .testimonial-marquee {
+        width: 100%;
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+        padding: 1.5rem 1rem;
+        animation: none !important;
+        scrollbar-width: none;
+    }
+    .testimonial-marquee::-webkit-scrollbar { display: none; }
+    .review-card {
+        min-width: 82%; /* Showing a peek of the next card */
+        scroll-snap-align: center;
+        margin: 0;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    .slider-controls {
+        display: flex;
+        gap: 2rem;
+        margin-top: 1rem;
+        z-index: 10;
+    }
+    .slider-btn {
+        position: static !important;
+        transform: none !important;
+        width: 55px; height: 55px; border-radius: 50%;
+        background: rgba(110, 175, 110, 0.15); 
+        border: 1px solid rgba(110, 175, 110, 0.3);
+        color: #fff; display: flex; align-items: center; justify-content: center;
+        cursor: pointer; backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+    .slider-btn:active {
+        transform: scale(0.9);
+        background: rgba(110, 175, 110, 0.4);
+    }
 }

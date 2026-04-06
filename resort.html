@@ -513,133 +513,8 @@
             }
         }
 
-        /* Gallery and Overhaul Styles Moved to styles.css */
 
-
-        .photo-gallery-section { display: none; }
-
-        /* ── LIGHTBOX ── */
-        .lightbox-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(5, 10, 14, 0.97);
-            z-index: 9999;
-            backdrop-filter: blur(12px);
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        .lightbox-overlay.active {
-            display: flex;
-        }
-
-        .lightbox-img-wrap {
-            position: relative;
-            max-width: 88vw;
-            max-height: 88vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .lightbox-img-wrap img {
-            max-width: 88vw;
-            max-height: 80vh;
-            border-radius: 16px;
-            object-fit: contain;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .lightbox-counter {
-            font-family: var(--font-heading);
-            font-size: 0.8rem;
-            letter-spacing: 0.15em;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .lightbox-enquire-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: linear-gradient(135deg, var(--clr-green-accent), #8fcc8f);
-            color: #0a1115;
-            border-radius: 50px;
-            padding: 0.65rem 1.8rem;
-            font-weight: 700;
-            font-size: 0.88rem;
-            text-decoration: none;
-            letter-spacing: 0.05em;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .lightbox-enquire-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 28px rgba(110, 175, 110, 0.4);
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            color: white;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: background 0.2s;
-            z-index: 10;
-        }
-
-        .lightbox-close:hover {
-            background: rgba(255, 255, 255, 0.18);
-        }
-
-        .lightbox-nav {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 50%;
-            width: 52px;
-            height: 52px;
-            color: white;
-            font-size: 1.1rem;
-            cursor: pointer;
-            flex-shrink: 0;
-            transition: background 0.2s, transform 0.2s;
-        }
-
-        .lightbox-nav:hover {
-            background: rgba(110, 175, 110, 0.3);
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 1024px) {
-            .photo-masonry-grid {
-                columns: 3;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .photo-masonry-grid {
-                columns: 2;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .photo-masonry-grid {
-                columns: 1;
-            }
-
-            .lightbox-nav {
-                display: none;
-            }
-        }
+        /* ── RESORT ROOMS SECTION ── */
 
         /* ── RESORT ROOMS SECTION ── */
         .rooms-listing-section {
@@ -1357,7 +1232,12 @@
             white-space: nowrap;
             text-transform: uppercase;
             letter-spacing: -2px;
-            animation: infiniteScroll 40s linear infinite;
+            animation: infiniteScroll 60s linear infinite;
+        }
+
+        @keyframes infiniteScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         @media (max-width: 1024px) {
@@ -1753,16 +1633,19 @@
 
         <!-- 5. TAGLINE MARQUEE -->
         <div class="marketing-taglines">
-            <div class="tagline-row">YOUR WEEKEND ESCAPE STARTS AT JUST ₹999! • SWIM, CHILL & BONFIRE NIGHTS – ALL IN
-                ONE PLACE! • FROM BUDGET FUN TO LUXURY STAY – WE HAVE IT ALL! • </div>
-            <div class="tagline-row" style="direction: rtl;">EXPERIENCE THE WILD SIDE OF DANDELI • UNFORGETTABLE MOMENTS
-                • LUXURY IN NATURE • ADVENTURE AWAITS • </div>
+            <div class="tagline-row">
+                <span>YOUR WEEKEND ESCAPE STARTS AT JUST ₹999! • SWIM, CHILL & BONFIRE NIGHTS – ALL IN ONE PLACE! • FROM BUDGET FUN TO LUXURY STAY – WE HAVE IT ALL! • </span>
+                <span>YOUR WEEKEND ESCAPE STARTS AT JUST ₹999! • SWIM, CHILL & BONFIRE NIGHTS – ALL IN ONE PLACE! • FROM BUDGET FUN TO LUXURY STAY – WE HAVE IT ALL! • </span>
+            </div>
+            <div class="tagline-row" style="animation-direction: reverse;">
+                <span>EXPERIENCE THE WILD SIDE OF DANDELI • UNFORGETTABLE MOMENTS • LUXURY IN NATURE • ADVENTURE AWAITS • </span>
+                <span>EXPERIENCE THE WILD SIDE OF DANDELI • UNFORGETTABLE MOMENTS • LUXURY IN NATURE • ADVENTURE AWAITS • </span>
+            </div>
         </div>
     </section>
 
-    <!-- ── FOOTER ── -->
     <footer>
-        <p>© 2025 <a href="index.html">Adventure in Dandeli</a>. All rights reserved. · Dandeli, Karnataka, India.</p>
+        <p>© 2026 <a href="index.html">Adventure in Dandeli</a>. All rights reserved. · Dandeli, Karnataka, India.</p>
     </footer>
 
     <script>
