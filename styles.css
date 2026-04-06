@@ -166,6 +166,12 @@ ul {
     padding: 0 3rem;
 }
 
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+}
+
 .logo-container {
     display: flex;
     align-items: center;
@@ -3353,6 +3359,9 @@ ul {
         margin: 0;
         height: 70px;
         padding: 0 1.5rem;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(9, 18, 22, 1);
     }
     .login-btn { display: none; }
     .nav-toggle {
@@ -3465,5 +3474,41 @@ ul {
     .slider-btn:active {
         transform: scale(0.9);
         background: rgba(110, 175, 110, 0.4);
+    }
+
+    /* ── HIDE SECTIONS REQUESTED BY USER ── */
+    #activities { display: none !important; }
+    .testimonials-section, .wall-of-joy-container { display: none !important; }
+    
+    /* ── SAFETY CARD ALIGNMENT ── */
+    .safety-icon { width: 100%; display: flex; justify-content: center; }
+    .safety-icon img.bitmoji-icon { margin: 0 auto; display: block; }
+
+    /* ── LODGE.HTML CARD MOBILE RESIZE ── */
+    .resorts-grid .resort-card.featured, .resort-card.featured.alt-layout { 
+        flex-direction: column !important; 
+        height: auto !important; 
+    }
+    .resorts-grid .resort-card.featured .resort-img-wrapper { 
+        height: 250px !important; 
+        width: 100% !important; 
+        border-radius: 20px 20px 0 0 !important; 
+    }
+    
+    /* ── ENQUIRY MODAL FIXES ── */
+    .modal-box { 
+        width: 95% !important; 
+        padding: 2.5rem 1.5rem !important; 
+        max-height: 90vh !important; 
+        overflow-y: auto !important; 
+    }
+    .modal-close { 
+        top: 10px !important; 
+        right: 15px !important; 
+        z-index: 100;
+    }
+    .input-grp input, .input-grp select { 
+        width: 100% !important; 
+        box-sizing: border-box !important; 
     }
 }
