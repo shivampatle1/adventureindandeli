@@ -1245,7 +1245,7 @@ ul {
     }
 
     .nav-links {
-        display: none;
+        display: none; /* Desktop default hiding rule is handled elsewhere */
     }
 
     #main-header .logo-container img {
@@ -3374,21 +3374,23 @@ ul {
         z-index: 1001;
     }
     .nav-links {
-        position: fixed;
-        top: 0; right: -100%;
-        width: 80%;
-        height: 100vh;
+        display: none;
+        position: absolute;
+        top: 70px; /* Below the 70px header */
+        left: 0;
+        right: 0;
         background: rgba(10, 17, 21, 0.98);
         backdrop-filter: blur(20px);
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 2rem;
+        gap: 1.5rem;
         z-index: 1000;
-        border-left: 1px solid var(--glass-border);
+        border-bottom: 1px solid var(--glass-border);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
-    .nav-links.open { right: 0; }
+    .nav-links.open {
+        display: flex !important;
+    }
 
     /* ── ACTIVITY SECTIONS PHOTO FIT ── */
     #rafting, #safari, #kayaking { padding: 4rem 1.5rem; }
@@ -3483,7 +3485,7 @@ ul {
     /* ── SAFETY CARD ALIGNMENT (FORCED) ── */
     #safety-commitment .safety-card, .premium-services-container .safety-card { display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important; }
     #safety-commitment .safety-icon, .premium-services-container .safety-icon { width: 100% !important; margin: 0 auto !important; position: static !important; display: flex !important; justify-content: center !important; align-items: center !important; }
-    #safety-commitment .bitmoji-icon, .premium-services-container .bitmoji-icon { margin: 0 auto !important; display: block !important; position: relative !important; left: 0 !important; right: 0 !important; }
+    #safety-commitment .bitmoji-icon, .premium-services-container .bitmoji-icon { height: 130px !important; width: auto !important; max-width: 100% !important; margin: 0 auto !important; display: block !important; position: relative !important; left: 0 !important; right: 0 !important; }
 
     /* ── LODGE.HTML CARD MOBILE RESIZE ── */
     .resorts-grid .resort-card.featured, .resort-card.featured.alt-layout { 
