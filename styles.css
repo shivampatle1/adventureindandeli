@@ -3480,10 +3480,10 @@ ul {
     #activities { display: none !important; }
     .testimonials-section, .wall-of-joy-container { display: none !important; }
     
-    /* ── SAFETY CARD ALIGNMENT ── */
-    .safety-card { display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important; }
-    .safety-icon { width: 100% !important; display: flex !important; justify-content: center !important; align-items: center !important; margin: 0 auto !important; }
-    .safety-icon img.bitmoji-icon { margin: 0 auto !important; display: block !important; }
+    /* ── SAFETY CARD ALIGNMENT (FORCED) ── */
+    #safety-commitment .safety-card, .premium-services-container .safety-card { display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important; }
+    #safety-commitment .safety-icon, .premium-services-container .safety-icon { width: 100% !important; margin: 0 auto !important; position: static !important; display: flex !important; justify-content: center !important; align-items: center !important; }
+    #safety-commitment .bitmoji-icon, .premium-services-container .bitmoji-icon { margin: 0 auto !important; display: block !important; position: relative !important; left: 0 !important; right: 0 !important; }
 
     /* ── LODGE.HTML CARD MOBILE RESIZE ── */
     .resorts-grid .resort-card.featured, .resort-card.featured.alt-layout { 
