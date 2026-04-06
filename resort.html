@@ -1357,9 +1357,9 @@
 
     <!-- ── RESORT ROOMS SECTION ── -->
     <section class="rooms-listing-section" id="resort-rooms">
-        <div class="photo-gallery-header">
+        <div class="section-intro" data-aos="fade-up" style="margin-bottom: 6rem;">
             <span class="section-badge">SIGNATURE ACCOMMODATIONS</span>
-            <h2 class="section-heading">CHOOSE YOUR JUNGLE HAVEN</h2>
+            <h2>CHOOSE YOUR JUNGLE HAVEN</h2>
             <p>Explore our curated selection of luxury rooms, safari stays, and forest dens, all designed to immerse you
                 in nature without compromising on elegance.</p>
         </div>
@@ -1737,8 +1737,9 @@
             const grid = document.getElementById('rooms-grid');
             if (!grid) return;
             grid.innerHTML = '';
+            rooms.forEach((room, index) => {
+                const roomImages = room.images || [];
 
-            rooms.forEach((room) => {
                 const card = document.createElement('div');
                 card.className = 'room-card';
                 card.id = `card-${room.id}`;
@@ -1767,16 +1768,16 @@
                 </div>
                 <div class="room-gallery-slider">
                     <div class="slider-track" id="track-${room.id}">
-                        ${(room.images || []).map(img => `
+                        ${roomImages.map(img => `
                             <div class="slider-item">
-                                <img src="${img}" alt="${room.name}" loading="lazy" onerror="this.src='assets/resort/resort.jpeg'">
+                                <img src="${img || 'assets/resort/resort.jpeg'}" alt="${room.name}" loading="lazy" onerror="this.onerror=null; this.src='assets/resort/resort.jpeg';">
                             </div>
                         `).join('')}
                     </div>
                     <button class="slider-arrow prev" onclick="moveSlider('${room.id}', -1)"><i class="fa-solid fa-chevron-left"></i></button>
                     <button class="slider-arrow next" onclick="moveSlider('${room.id}', 1)"><i class="fa-solid fa-chevron-right"></i></button>
                     <div class="slider-pagination" id="dots-${room.id}">
-                        ${(room.images || []).map((_, i) => `
+                        ${roomImages.map((_, i) => `
                             <div class="dot ${i === 0 ? 'active' : ''}" onclick="gotoSlide('${room.id}', ${i})"></div>
                         `).join('')}
                     </div>

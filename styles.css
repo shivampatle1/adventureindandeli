@@ -3424,23 +3424,26 @@ ul {
         width: 100%;
         display: flex !important;
         flex-direction: row !important;
-        overflow-x: auto !important;
+        overflow-x: scroll !important;
         scroll-snap-type: x mandatory;
-        gap: 1rem;
-        padding: 1.5rem 1rem;
+        gap: 1.5rem;
+        padding: 4rem 1.5rem; /* More vertical space for shadows */
         animation: none !important;
         scrollbar-width: none;
+        scroll-padding: 0 1.5rem; /* Forces snap point to respect padding */
+        mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
     }
     .testimonial-marquee::-webkit-scrollbar { display: none; }
     .review-card {
-        min-width: 82%; /* Showing a peek of the next card */
-        scroll-snap-align: center;
+        min-width: 85%; /* Slightly narrower for better "peek" and snap */
+        scroll-snap-align: start;
         margin: 0;
-        padding: 2rem;
+        padding: 2.2rem;
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid var(--glass-border);
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        border-radius: 24px;
+        box-shadow: 0 15px 45px rgba(0,0,0,0.4);
     }
     .slider-controls {
         display: flex;
