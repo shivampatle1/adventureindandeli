@@ -1291,6 +1291,102 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* ── ADVANCED WHATSAPP WIDGET ── */
+        .wa-widget-container {
+            position: fixed; bottom: 30px; right: 30px; z-index: 9999;
+            display: flex; flex-direction: column; align-items: flex-end; gap: 12px;
+            pointer-events: none;
+        }
+        .wa-chat-bubble {
+            pointer-events: auto; background: #fff; border-radius: 16px 16px 0 16px;
+            width: 300px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); overflow: hidden;
+            opacity: 0; transform: translateY(20px) scale(0.95); transform-origin: bottom right;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); pointer-events: none;
+        }
+        .wa-chat-bubble.open { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+        .wa-chat-header {
+            background: #1b4332;
+            padding: 14px 16px; display: flex; align-items: center; gap: 12px;
+        }
+        .wa-agent-avatar { position: relative; width: 44px; height: 44px; flex-shrink: 0; }
+        .wa-agent-avatar svg { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+        .wa-status-dot {
+            position: absolute; bottom: 1px; right: 1px; width: 12px; height: 12px;
+            border-radius: 50%; border: 2px solid #fff; background: #aaa; transition: background 0.3s;
+        }
+        .wa-status-dot.online { background: #44ff6a; }
+        .wa-status-dot.offline { background: #aaa; }
+        .wa-agent-info { flex: 1; }
+        .wa-agent-info strong { color: #fff; font-size: 0.95rem; display: block; padding-top: 6px; }
+        .wa-agent-status-text { color: rgba(255,255,255,0.8); font-size: 0.75rem; }
+        .wa-reply-time { color: rgba(255,255,255,0.7); font-size: 0.72rem; display: block; margin-top: 2px; }
+        .wa-close-bubble {
+            background: rgba(255,255,255,0.2); border: none; color: white; width: 28px; height: 28px;
+            border-radius: 50%; cursor: pointer; font-size: 0.85rem; display: flex;
+            align-items: center; justify-content: center; transition: background 0.2s; flex-shrink: 0;
+        }
+        .wa-close-bubble:hover { background: rgba(255,255,255,0.35); }
+        .wa-chat-body {
+            background: #e5ddd5; padding: 16px; display: flex; flex-direction: column;
+            gap: 8px; min-height: 100px;
+        }
+        .wa-message-in {
+            background: #fff; padding: 10px 14px; border-radius: 10px 10px 10px 2px;
+            max-width: 85%; box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            opacity: 0; transform: translateY(8px); transition: all 0.4s ease;
+        }
+        .wa-message-in.visible { opacity: 1; transform: translateY(0); }
+        .wa-message-in p { color: #111; font-size: 0.88rem; line-height: 1.5; margin: 0 0 4px; }
+        .wa-message-in span { color: #999; font-size: 0.7rem; display: block; text-align: right; }
+        .wa-chat-footer { padding: 12px 16px; background: #f0f0f0; }
+        .wa-start-chat-btn {
+            display: block; width: 100%; padding: 12px;
+            background: #6EAF6E;
+            color: white; text-align: center; border-radius: 50px; font-weight: 700;
+            font-size: 0.9rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 20px rgba(110,175,110,0.3);
+        }
+        .wa-start-chat-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(110,175,110,0.5); color: white; }
+        .wa-bottom-row { display: flex; align-items: center; gap: 12px; pointer-events: none; }
+        .wa-widget-tooltip {
+            background: #fff; color: #111; padding: 10px 15px; border-radius: 10px 10px 0 10px;
+            font-weight: 600; font-size: 0.9rem; box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            pointer-events: auto; opacity: 0; transform: translateX(20px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); white-space: nowrap;
+        }
+        .wa-bottom-row:hover .wa-widget-tooltip { opacity: 1; transform: translateX(0); }
+        .wa-button {
+            pointer-events: auto; background: var(--clr-green-accent);
+            width: 62px; height: 62px; border-radius: 50%; display: flex; justify-content: center;
+            align-items: center; color: white; font-size: 2rem;
+            box-shadow: 0 10px 30px rgba(110,175,110,0.4); text-decoration: none; position: relative;
+            animation: pulse-wa 2.5s infinite; transition: transform 0.3s; cursor: pointer; border: none;
+        }
+        .wa-button:hover { transform: scale(1.1); animation: none; color: white; }
+        .wa-button.first-visit-wave { animation: wa-wave 0.6s ease 3; }
+        .wa-notification {
+            position: absolute; top: -5px; right: -5px; width: 20px; height: 20px;
+            background: #FF0000; color: white; font-size: 0.65rem; font-weight: bold;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            border: 2px solid white; animation: wa-badge-pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+        }
+        @keyframes pulse-wa {
+            0% { box-shadow: 0 0 0 0 rgba(110,175,110,0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(110,175,110,0); }
+            100% { box-shadow: 0 0 0 0 rgba(110,175,110,0); }
+        }
+        @keyframes wa-wave {
+            0% { transform: rotate(0deg) scale(1); } 25% { transform: rotate(-15deg) scale(1.15); }
+            75% { transform: rotate(15deg) scale(1.15); } 100% { transform: rotate(0deg) scale(1); }
+        }
+        @keyframes wa-badge-pop { from { opacity:0; transform:scale(0); } to { opacity:1; transform:scale(1); } }
+        @media (max-width: 768px) {
+            .wa-widget-container { bottom: 20px; right: 16px; }
+            .wa-button { width: 56px; height: 56px; font-size: 1.8rem; }
+            .wa-widget-tooltip { display: none; }
+            .wa-chat-bubble { width: calc(100vw - 40px); max-width: 300px; }
+        }
     </style>
 </head>
 
@@ -1895,6 +1991,84 @@
             </div>
         </div>
     </div>
+    <!-- ── ADVANCED WHATSAPP WIDGET ── -->
+    <div class="wa-widget-container" id="wa-widget">
+        <div class="wa-chat-bubble" id="wa-chat-bubble">
+            <div class="wa-chat-header">
+                <div class="wa-agent-avatar">
+                    <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="22" cy="22" r="22" fill="rgba(255,255,255,0.2)"/>
+                        <circle cx="22" cy="17" r="8" fill="rgba(255,255,255,0.7)"/>
+                        <ellipse cx="22" cy="36" rx="13" ry="10" fill="rgba(255,255,255,0.7)"/>
+                    </svg>
+                    <span class="wa-status-dot" id="wa-status-dot"></span>
+                </div>
+                <div class="wa-agent-info">
+                    <strong>Adventure Support 🌿</strong>
+                    <span class="wa-agent-status-text" id="wa-status-label">Checking availability...</span>
+                    <span class="wa-reply-time">⚡ Typically replies in &lt; 5 min</span>
+                </div>
+                <button class="wa-close-bubble" onclick="waCloseBubble()">✕</button>
+            </div>
+            <div class="wa-chat-body">
+                <div class="wa-message-in" id="wa-msg-1">
+                    <p>Hi there! 👋 Interested in our luxury resorts?</p>
+                    <span>Just now</span>
+                </div>
+                <div class="wa-message-in" id="wa-msg-2">
+                    <p>Let us curate the perfect jungle getaway for you! 🏨🌿</p>
+                    <span>Just now</span>
+                </div>
+            </div>
+            <div class="wa-chat-footer">
+                <a href="https://wa.me/919035710186?text=Hi!%20I%27m%20interested%20in%20booking%20a%20resort%20at%20Adventure%20in%20Dandeli.%20Can%20you%20help%20me%3F%20%F0%9F%8C%BF" target="_blank" class="wa-start-chat-btn">
+                    💬 Start Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="wa-bottom-row">
+            <div class="wa-widget-tooltip">Chat with us on WhatsApp 👋</div>
+            <a href="#" class="wa-button" id="wa-main-btn" onclick="waToggleBubble(event)">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span class="wa-notification" id="wa-badge">1</span>
+            </a>
+        </div>
+    </div>
+    <script>
+        function waToggleBubble(e) {
+            e.preventDefault();
+            const bubble = document.getElementById('wa-chat-bubble');
+            const badge = document.getElementById('wa-badge');
+            if (bubble.classList.contains('open')) { bubble.classList.remove('open'); }
+            else {
+                bubble.classList.add('open');
+                badge.style.display = 'none';
+                setTimeout(() => document.getElementById('wa-msg-1').classList.add('visible'), 200);
+                setTimeout(() => document.getElementById('wa-msg-2').classList.add('visible'), 700);
+            }
+        }
+        function waCloseBubble() { document.getElementById('wa-chat-bubble').classList.remove('open'); }
+        (function() {
+            const now = new Date(), utc = now.getTime() + now.getTimezoneOffset() * 60000;
+            const ist = new Date(utc + 5.5 * 60 * 60000), hour = ist.getHours();
+            const isOnline = hour >= 9 && hour < 21;
+            document.getElementById('wa-status-dot').classList.add(isOnline ? 'online' : 'offline');
+            document.getElementById('wa-status-label').textContent = isOnline ? '🟢 Online now' : '';
+        })();
+        (function() {
+            if (!sessionStorage.getItem('wa_opened')) {
+                sessionStorage.setItem('wa_opened', '1');
+                const btn = document.getElementById('wa-main-btn');
+                btn.classList.add('first-visit-wave');
+                btn.addEventListener('animationend', () => btn.classList.remove('first-visit-wave'));
+                setTimeout(() => {
+                    document.getElementById('wa-chat-bubble').classList.add('open');
+                    setTimeout(() => document.getElementById('wa-msg-1').classList.add('visible'), 300);
+                    setTimeout(() => document.getElementById('wa-msg-2').classList.add('visible'), 900);
+                }, 3000);
+            }
+        })();
+    </script>
 </body>
 
 </html>

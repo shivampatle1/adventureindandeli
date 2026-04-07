@@ -624,5 +624,83 @@
         setupImageSwitchers();
     });
 </script>
+    <!-- ── ADVANCED WHATSAPP WIDGET ── -->
+    <div class="wa-widget-container" id="wa-widget">
+        <div class="wa-chat-bubble" id="wa-chat-bubble">
+            <div class="wa-chat-header">
+                <div class="wa-agent-avatar">
+                    <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="22" cy="22" r="22" fill="rgba(255,255,255,0.2)"/>
+                        <circle cx="22" cy="17" r="8" fill="rgba(255,255,255,0.7)"/>
+                        <ellipse cx="22" cy="36" rx="13" ry="10" fill="rgba(255,255,255,0.7)"/>
+                    </svg>
+                    <span class="wa-status-dot" id="wa-status-dot"></span>
+                </div>
+                <div class="wa-agent-info">
+                    <strong>Adventure Support 🌿</strong>
+                    <span class="wa-agent-status-text" id="wa-status-label">Checking availability...</span>
+                    <span class="wa-reply-time">⚡ Typically replies in &lt; 5 min</span>
+                </div>
+                <button class="wa-close-bubble" onclick="waCloseBubble()">✕</button>
+            </div>
+            <div class="wa-chat-body">
+                <div class="wa-message-in" id="wa-msg-1">
+                    <p>Hi there! 👋 Looking for a cozy jungle lodge?</p>
+                    <span>Just now</span>
+                </div>
+                <div class="wa-message-in" id="wa-msg-2">
+                    <p>We have some incredible options waiting for you! 🏕️🌿</p>
+                    <span>Just now</span>
+                </div>
+            </div>
+            <div class="wa-chat-footer">
+                <a href="https://wa.me/919035710186?text=Hi!%20I%27m%20interested%20in%20booking%20a%20lodge%20at%20Adventure%20in%20Dandeli.%20Can%20you%20help%20me%3F%20%F0%9F%8C%BF" target="_blank" class="wa-start-chat-btn">
+                    💬 Start Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="wa-bottom-row">
+            <div class="wa-widget-tooltip">Chat with us on WhatsApp 👋</div>
+            <a href="#" class="wa-button" id="wa-main-btn" onclick="waToggleBubble(event)">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span class="wa-notification" id="wa-badge">1</span>
+            </a>
+        </div>
+    </div>
+    <script>
+        function waToggleBubble(e) {
+            e.preventDefault();
+            const bubble = document.getElementById('wa-chat-bubble');
+            const badge = document.getElementById('wa-badge');
+            if (bubble.classList.contains('open')) { bubble.classList.remove('open'); }
+            else {
+                bubble.classList.add('open');
+                badge.style.display = 'none';
+                setTimeout(() => document.getElementById('wa-msg-1').classList.add('visible'), 200);
+                setTimeout(() => document.getElementById('wa-msg-2').classList.add('visible'), 700);
+            }
+        }
+        function waCloseBubble() { document.getElementById('wa-chat-bubble').classList.remove('open'); }
+        (function() {
+            const now = new Date(), utc = now.getTime() + now.getTimezoneOffset() * 60000;
+            const ist = new Date(utc + 5.5 * 60 * 60000), hour = ist.getHours();
+            const isOnline = hour >= 9 && hour < 21;
+            document.getElementById('wa-status-dot').classList.add(isOnline ? 'online' : 'offline');
+            document.getElementById('wa-status-label').textContent = isOnline ? '🟢 Online now' : '';
+        })();
+        (function() {
+            if (!sessionStorage.getItem('wa_opened')) {
+                sessionStorage.setItem('wa_opened', '1');
+                const btn = document.getElementById('wa-main-btn');
+                btn.classList.add('first-visit-wave');
+                btn.addEventListener('animationend', () => btn.classList.remove('first-visit-wave'));
+                setTimeout(() => {
+                    document.getElementById('wa-chat-bubble').classList.add('open');
+                    setTimeout(() => document.getElementById('wa-msg-1').classList.add('visible'), 300);
+                    setTimeout(() => document.getElementById('wa-msg-2').classList.add('visible'), 900);
+                }, 3000);
+            }
+        })();
+    </script>
 </body>
 </html>
