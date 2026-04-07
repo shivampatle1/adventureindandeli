@@ -148,20 +148,23 @@
                     </div>
 
                     <!-- Milestone 3 - Shree Lodge -->
+                    <!-- Milestone 3 - Shree Lodge -->
                     <style>
                         /* Custom Lodge Card Architecture */
                         .m-card-lodge {
                             position: relative;
-                            background: linear-gradient(to bottom, #4a3b32 0%, #2e241d 100%) !important;
-                            border: 3px solid #8e6545 !important;
+                            background: linear-gradient(to bottom, #2d452b 0%, #152614 100%) !important;
+                            border: 3px solid #27ae60 !important;
                             border-radius: 0 0 15px 15px !important;
                             border-top: none !important;
-                            margin-top: 70px; /* Space for the roof */
-                            padding-top: 2rem !important;
-                            padding-bottom: 5rem !important; /* Space for the door */
+                            margin-top: 50px; /* Space for the roof */
+                            padding-top: 1.5rem !important;
+                            padding-bottom: 3.5rem !important; /* Space for the door */
                             overflow: visible !important;
-                            box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 0 40px rgba(0,0,0,0.6) !important;
+                            box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 0 40px rgba(0,40,0,0.6) !important;
                             text-align: center;
+                            transform-origin: top center;
+                            transform: scale(0.8) translateY(-40px); /* Proportional scaling and upward pull */
                         }
                         
                         /* Triangular Roof */
@@ -171,8 +174,8 @@
                             bottom: 100%;
                             left: -20px;
                             right: -20px;
-                            height: 110px;
-                            background: linear-gradient(135deg, #d35400 0%, #a83222 100%);
+                            height: 80px;
+                            background: linear-gradient(135deg, #2ecc71 0%, #145a32 100%);
                             clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
                             z-index: 2;
                         }
@@ -181,10 +184,10 @@
                         .m-card-lodge::after {
                             content: '';
                             position: absolute;
-                            bottom: calc(100% + 20px);
+                            bottom: calc(100% + 15px);
                             right: 40px;
-                            width: 35px;
-                            height: 80px;
+                            width: 30px;
+                            height: 60px;
                             background: linear-gradient(to right, #7f8c8d 0%, #95a5a6 100%);
                             border: 2px solid #2c3e50;
                             border-bottom: none;
@@ -197,11 +200,11 @@
                             bottom: 0;
                             left: 50%;
                             transform: translateX(-50%);
-                            width: 60px;
-                            height: 90px;
+                            width: 50px;
+                            height: 70px;
                             background: #c37b38;
-                            border-radius: 30px 30px 0 0;
-                            border: 3px solid #5a3c22;
+                            border-radius: 25px 25px 0 0;
+                            border: 3px solid #145a32;
                             border-bottom: none;
                             z-index: 10;
                             box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
@@ -211,10 +214,10 @@
                         .m-card-lodge .lodge-door::after {
                             content: '';
                             position: absolute;
-                            right: 10px;
+                            right: 8px;
                             top: 50%;
-                            width: 10px;
-                            height: 10px;
+                            width: 8px;
+                            height: 8px;
                             background: #f1c40f;
                             border-radius: 50%;
                             box-shadow: 0 0 5px rgba(0,0,0,0.5);
@@ -239,20 +242,20 @@
                         /* Window Accents */
                         .lodge-window {
                             position: absolute;
-                            bottom: 20px;
-                            width: 40px;
-                            height: 50px;
+                            bottom: 25px;
+                            width: 35px;
+                            height: 45px;
                             background: #f1c40f;
-                            border: 3px solid #5a3c22;
+                            border: 3px solid #145a32;
                             border-radius: 5px;
                             box-shadow: 0 0 20px rgba(241, 196, 15, 0.4);
                             z-index: 5;
                         }
-                        .lodge-window.w-left { left: 30px; }
-                        .lodge-window.w-right { right: 30px; }
+                        .lodge-window.w-left { left: 25px; }
+                        .lodge-window.w-right { right: 25px; }
                         /* Window Crossbars */
-                        .lodge-window::before { content:''; position:absolute; top:50%; left:0; right:0; height:3px; background:#5a3c22; }
-                        .lodge-window::after { content:''; position:absolute; left:50%; top:0; bottom:0; width:3px; background:#5a3c22; }
+                        .lodge-window::before { content:''; position:absolute; top:50%; left:0; right:0; height:3px; background:#145a32; }
+                        .lodge-window::after { content:''; position:absolute; left:50%; top:0; bottom:0; width:3px; background:#145a32; }
                     </style>
 
                     <div class="milestone m-camping">
