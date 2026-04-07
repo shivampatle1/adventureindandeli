@@ -147,13 +147,124 @@
                         </div>
                     </div>
 
-                    <!-- Milestone 3 - Camping -->
+                    <!-- Milestone 3 - Shree Lodge -->
+                    <style>
+                        /* Custom Lodge Card Architecture */
+                        .m-card-lodge {
+                            position: relative;
+                            background: linear-gradient(to bottom, #4a3b32 0%, #2e241d 100%) !important;
+                            border: 3px solid #8e6545 !important;
+                            border-radius: 0 0 15px 15px !important;
+                            border-top: none !important;
+                            margin-top: 70px; /* Space for the roof */
+                            padding-top: 2rem !important;
+                            padding-bottom: 5rem !important; /* Space for the door */
+                            overflow: visible !important;
+                            box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 0 40px rgba(0,0,0,0.6) !important;
+                            text-align: center;
+                        }
+                        
+                        /* Triangular Roof */
+                        .m-card-lodge::before {
+                            content: '';
+                            position: absolute;
+                            bottom: 100%;
+                            left: -20px;
+                            right: -20px;
+                            height: 110px;
+                            background: linear-gradient(135deg, #d35400 0%, #a83222 100%);
+                            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                            z-index: 2;
+                        }
+                        
+                        /* Chimney */
+                        .m-card-lodge::after {
+                            content: '';
+                            position: absolute;
+                            bottom: calc(100% + 20px);
+                            right: 40px;
+                            width: 35px;
+                            height: 80px;
+                            background: linear-gradient(to right, #7f8c8d 0%, #95a5a6 100%);
+                            border: 2px solid #2c3e50;
+                            border-bottom: none;
+                            z-index: 1;
+                        }
+                        
+                        /* Wooden Door */
+                        .m-card-lodge .lodge-door {
+                            position: absolute;
+                            bottom: 0;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 60px;
+                            height: 90px;
+                            background: #c37b38;
+                            border-radius: 30px 30px 0 0;
+                            border: 3px solid #5a3c22;
+                            border-bottom: none;
+                            z-index: 10;
+                            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+                        }
+                        
+                        /* Door Knob */
+                        .m-card-lodge .lodge-door::after {
+                            content: '';
+                            position: absolute;
+                            right: 10px;
+                            top: 50%;
+                            width: 10px;
+                            height: 10px;
+                            background: #f1c40f;
+                            border-radius: 50%;
+                            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+                        }
+                        
+                        /* Wood Paneling Lines */
+                        .m-card-lodge-walls {
+                            position: absolute;
+                            inset: 0;
+                            background: repeating-linear-gradient(
+                                to bottom,
+                                rgba(0,0,0,0.15) 0,
+                                rgba(0,0,0,0.15) 2px,
+                                transparent 2px,
+                                transparent 25px
+                            );
+                            z-index: 0;
+                            pointer-events: none;
+                            border-radius: 0 0 15px 15px;
+                        }
+
+                        /* Window Accents */
+                        .lodge-window {
+                            position: absolute;
+                            bottom: 20px;
+                            width: 40px;
+                            height: 50px;
+                            background: #f1c40f;
+                            border: 3px solid #5a3c22;
+                            border-radius: 5px;
+                            box-shadow: 0 0 20px rgba(241, 196, 15, 0.4);
+                            z-index: 5;
+                        }
+                        .lodge-window.w-left { left: 30px; }
+                        .lodge-window.w-right { right: 30px; }
+                        /* Window Crossbars */
+                        .lodge-window::before { content:''; position:absolute; top:50%; left:0; right:0; height:3px; background:#5a3c22; }
+                        .lodge-window::after { content:''; position:absolute; left:50%; top:0; bottom:0; width:3px; background:#5a3c22; }
+                    </style>
+
                     <div class="milestone m-camping">
-                        <div class="m-point"><i class="fa-solid fa-fire-flame-curved"></i></div>
-                        <div class="m-card">
-                            <h3>Wild Camping</h3>
-                            <p>Experience the twilight forest under a canopy of stars. Premium riverside campsites.</p>
-                            <button class="btn btn-secondary">Book Camp</button>
+                        <div class="m-point"><i class="fa-solid fa-flag-checkered"></i></div>
+                        <div class="m-card m-card-lodge">
+                            <div class="m-card-lodge-walls"></div>
+                            <div class="lodge-window w-left"></div>
+                            <div class="lodge-window w-right"></div>
+                            <div class="lodge-door"></div>
+                            <h3 style="color: #f1c40f; text-shadow: 3px 3px 6px rgba(0,0,0,0.9); position: relative; z-index: 5; font-family: 'Outfit'; font-weight: 900; font-size: 2.2rem;">Shree Lodge</h3>
+                            <p style="color: #ecf0f1; position: relative; z-index: 5; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); font-weight: 500; font-size: 1.1rem; line-height: 1.5;">Your epic adventure concludes here. Unwind in unmatched luxury and absolute wilderness comfort.</p>
+                            <button class="btn btn-secondary" style="position: relative; z-index: 5; background: #e67e22; border-color: #e67e22; color: #fff; box-shadow: 0 10px 20px rgba(230,126,34,0.3);" onclick="window.location.href='lodge.html'">Drop Here</button>
                         </div>
                     </div>
                 </div>
