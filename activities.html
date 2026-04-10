@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities — Adventure in Dandeli</title>
+    <meta name="description"
+        content="Explore thrilling activities at Adventure in Dandeli — White Water Rafting, Jungle Safari, Kayaking and more in the heart of Karnataka's wilderness.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/brand_logo.png">
+
+    <style>
+        /* ── ACTIVITIES PAGE SPECIFIC ── */
+
+        /* ── HERO (Resort-style depth) ── */
+        .act-hero {
+            position: relative;
+            height: 100vh;
+            min-height: 640px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+        }
+        .act-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('assets/kali_river_rafting.png');
+            background-size: cover;
+            background-position: center top;
+            will-change: transform;
+            transition: opacity 0.6s ease;
+        }
+        .act-hero-bg.loaded { opacity: 1; }
+        .act-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(5,10,14,0.78) 0%,
+                rgba(5,10,14,0.35) 55%,
+                rgba(5,10,14,0.6) 100%
+            );
+        }
+        /* centered content layout */
+        .act-hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 2rem;
+            text-align: center;
+            max-width: 900px;
+        }
+        .act-hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            color: #6EAF6E;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        .act-hero-eyebrow i { font-size: 0.9rem; }
+        .act-hero-title {
+            font-size: clamp(3rem, 9vw, 7rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            color: #fff;
+            margin: 0 0 1.2rem;
+        }
+        .act-hero-title span { color: #6EAF6E; display: block; }
+        .act-hero-sub {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+        .act-hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .act-hero-stat { display: flex; flex-direction: column; gap: 4px; }
+        .act-hero-stat-num {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1;
+        }
+        .act-hero-stat-label {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.45);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+        /* scroll hint — right side vertical */
+        .act-scroll-hint {
+            position: absolute;
+            bottom: 3rem;
+            right: 4vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            z-index: 2;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            writing-mode: vertical-rl;
+        }
+        .act-scroll-hint-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, #6EAF6E, transparent);
+            animation: hint-pulse 2s ease-in-out infinite;
+        }
+        @keyframes hint-pulse {
+            0%, 100% { opacity: 1; transform: scaleY(1) translateY(0); }
+            50% { opacity: 0.4; transform: scaleY(0.6) translateY(8px); }
+        }
+        /* WHY STRIP */
+        .act-why-strip {
+            background: rgba(255,255,255,0.03);
+            border-top: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            padding: 2rem 4vw;
+        }
+        .act-why-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .act-why-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .act-why-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(110,175,110,0.12);
+            border: 1px solid rgba(110,175,110,0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6EAF6E;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .act-why-text h4 { font-size: 0.85rem; font-weight: 700; color: #fff; margin: 0 0 2px; }
+        .act-why-text p  { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin: 0; line-height: 1.4; }
+        @media (max-width: 768px) {
+            .act-why-grid { grid-template-columns: 1fr 1fr; }
+            .act-hero-stats { gap: 1.5rem; }
+            .act-scroll-hint { display: none; }
+        }
+        @media (max-width: 500px) {
+            .act-why-grid { grid-template-columns: 1fr; }
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="bg-noise"></div>
+    <div class="bg-gradient-overlay"></div>
+
+    <!-- Header -->
+    <header id="main-header">
+        <a href="index.html" class="logo-container">
+            <span class="logo-text">
+                <span class="logo-main">ADVENTURE</span>
+                <span class="logo-accent">IN <span class="logo-highlight">DANDELI</span></span>
+            </span>
+        </a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+        <nav class="nav-links" id="nav-links">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="activities.html" class="active"><i class="fa-solid fa-map-location-dot"></i> Activities</a>
+            <a href="lodge.html"><i class="fa-solid fa-campground"></i> Lodges</a>
+            <a href="resort.html"><i class="fa-solid fa-hotel"></i> Resorts</a>
+            <a href="index.html#contact"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+            <button class="btn btn-outline login-btn" style="margin-top: 1rem; border: 1px solid #fff; padding: 10px 20px;">LOG IN</button>
+        </nav>
+    </header>
+
+    <!-- ── HERO ── -->
+    <section class="act-hero" id="act-hero">
+        <div class="act-hero-bg" id="act-hero-bg"></div>
+        <div class="act-hero-overlay"></div>
+        <div class="act-hero-content">
+            <div class="act-hero-eyebrow">
+                <i class="fa-solid fa-water"></i>
+                DANDELI'S FINEST ADVENTURES
+            </div>
+            <h1 class="act-hero-title">UNLEASH YOUR<br><span>WILD SIDE.</span></h1>
+            <p class="act-hero-sub">From roaring Grade IV rapids to the silent depths of the Dandeli forest — every experience is crafted to push your limits and fill your soul.</p>
+            <a href="index.html#contact" class="btn btn-primary cta-button">BOOK AN EXPERIENCE <i class="fa-solid fa-arrow-right"></i></a>
+            <div class="act-hero-stats">
+                <div class="act-hero-stat">
+                    <span class="act-hero-stat-num">3+</span>
+                    <span class="act-hero-stat-label">Signature Activities</span>
+                </div>
+                <div class="act-hero-stat">
+                    <span class="act-hero-stat-num">5000+</span>
+                    <span class="act-hero-stat-label">Happy Adventurers</span>
+                </div>
+                <div class="act-hero-stat">
+                    <span class="act-hero-stat-num">4.9★</span>
+                    <span class="act-hero-stat-label">Avg. Rating</span>
+                </div>
+            </div>
+        </div>
+        <div class="act-scroll-hint">
+            EXPLORE
+            <div class="act-scroll-hint-line"></div>
+        </div>
+    </section>
+
+    <!-- WHY STRIP -->
+    <div class="act-why-strip">
+        <div class="act-why-grid">
+            <div class="act-why-item">
+                <div class="act-why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="act-why-text"><h4>Certified Safety</h4><p>ISA-trained guides on every activity.</p></div>
+            </div>
+            <div class="act-why-item">
+                <div class="act-why-icon"><i class="fa-solid fa-leaf"></i></div>
+                <div class="act-why-text"><h4>Eco Responsible</h4><p>Low-impact, forest-friendly tourism.</p></div>
+            </div>
+            <div class="act-why-item">
+                <div class="act-why-icon"><i class="fa-solid fa-users"></i></div>
+                <div class="act-why-text"><h4>All Group Sizes</h4><p>Solo, couple, family, or corporate.</p></div>
+            </div>
+            <div class="act-why-item">
+                <div class="act-why-icon"><i class="fa-solid fa-tags"></i></div>
+                <div class="act-why-text"><h4>Best Price Guarantee</h4><p>No hidden costs. Custom packages.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Immersive River Rafting Section -->
+    <section id="rafting" class="activity-section rafting-section">
+        <canvas class="activity-lens-canvas" id="wet-lens-canvas"></canvas>
+
+        <div class="activity-content-container">
+            <div class="activity-header" data-aos="fade-up">
+                <span class="section-badge">HIGH ADRENALINE</span>
+                <h2>WHITE WATER RAFTING</h2>
+                <p>Conquer the Grade III and IV rapids of the mighty Kali River. An experience that will leave you
+                    breathless.</p>
+            </div>
+
+            <div class="activity-journey-grid">
+                <!-- Stage 1: Briefing -->
+                <a href="#" class="journey-card stage-1" data-aos="fade-up">
+                    <div class="card-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                    <div class="card-content">
+                        <h3>SAFETY FIRST</h3>
+                        <p>Expert briefing on paddling and safety protocols.</p>
+                        <span class="stage-tag">PRE-LAUNCH</span>
+                    </div>
+                </a>
+
+                <!-- Stage 2: Gear -->
+                <a href="#" class="journey-card stage-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+                    <div class="card-content">
+                        <h3>ELITE GEAR</h3>
+                        <p>International standard life jackets and helmets.</p>
+                        <span class="stage-tag">EQUIPMENT</span>
+                    </div>
+                </a>
+
+                <!-- Stage 3: Launch (Featured) -->
+                <a href="#" class="journey-card stage-3 featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="ripple-container">
+                        <img src="assets/kali_river_rafting.png" alt="Rafting Launch" class="ripple-img">
+                    </div>
+                    <div class="card-content">
+                        <h3>THE LAUNCH</h3>
+                        <p>The first splash into the mighty Kali River.</p>
+                        <span class="stage-tag">START POINT</span>
+                    </div>
+                </a>
+
+                <!-- Stage 4: Rapids -->
+                <a href="#" class="journey-card stage-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon"><i class="fa-solid fa-water"></i></div>
+                    <div class="card-content">
+                        <h3>THE RAPIDS</h3>
+                        <p>Conquering heart-pounding Grade III & IV stretches.</p>
+                        <span class="stage-tag">MAIN ACTION</span>
+                    </div>
+                </a>
+
+                <!-- Stage 5: Cliff Jump -->
+                <a href="#" class="journey-card stage-5" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-icon"><i class="fa-solid fa-person-rays"></i></div>
+                    <div class="card-content">
+                        <h3>CLIFF JUMPING</h3>
+                        <p>A leap of faith into the deep blue channel.</p>
+                        <span class="stage-tag">BONUS ADRENALINE</span>
+                    </div>
+                </a>
+
+                <!-- Stage 6: Victory -->
+                <a href="#" class="journey-card stage-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card-icon"><i class="fa-solid fa-trophy"></i></div>
+                    <div class="card-content">
+                        <h3>VICTORY POINT</h3>
+                        <p>Reflections and celebration at the finish line.</p>
+                        <span class="stage-tag">COMPLETION</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Immersive Jungle Safari Section -->
+    <section id="safari" class="activity-section safari-section">
+        <canvas class="activity-lens-canvas" id="dust-lens-canvas"></canvas>
+
+        <div class="activity-content-container">
+            <div class="activity-header" data-aos="fade-up">
+                <span class="section-badge">WILDLIFE EXPEDITION</span>
+                <h2>JUNGLE SAFARI</h2>
+                <p>Track the elusive Black Panther and witness the titans of the forest in their natural habitat.</p>
+            </div>
+
+            <div class="activity-journey-grid">
+                <a href="#" class="journey-card stage-1" data-aos="fade-up">
+                    <div class="card-icon"><i class="fa-solid fa-compass"></i></div>
+                    <div class="card-content">
+                        <h3>TRACKING PROTOCOL</h3>
+                        <p>Briefing on silent observation and trail signs.</p>
+                        <span class="stage-tag">READY</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon"><i class="fa-solid fa-binoculars"></i></div>
+                    <div class="card-content">
+                        <h3>HD OPTICS</h3>
+                        <p>Premium 10x42 binoculars for every explorer.</p>
+                        <span class="stage-tag">EQUIPPED</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-3 featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="ripple-container">
+                        <img src="assets/safari_journey.png" alt="Safari Journey" class="ripple-img">
+                    </div>
+                    <div class="card-content">
+                        <h3>THE TRACKERS</h3>
+                        <p>Into the heart of the mist-covered bamboo forest.</p>
+                        <span class="stage-tag">CENTER STAGE</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon"><i class="fa-solid fa-paw"></i></div>
+                    <div class="card-content">
+                        <h3>PANTHER TRAIL</h3>
+                        <p>Patiently waiting at the Black Panther's favorite branch.</p>
+                        <span class="stage-tag">ELUSIVE SPOTTING</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-5" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-icon"><i class="fa-solid fa-camera-retro"></i></div>
+                    <div class="card-content">
+                        <h3>MOMENTS CAPTURED</h3>
+                        <p>Pro-tips for low-light wildlife photography.</p>
+                        <span class="stage-tag">MEMORIES</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card-icon"><i class="fa-solid fa-feather"></i></div>
+                    <div class="card-content">
+                        <h3>EYES OF THE NIGHT</h3>
+                        <p>Watching the forest awaken under the moonlight.</p>
+                        <span class="stage-tag">NIGHT WATCH</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Immersive Kayaking Section -->
+    <section id="kayaking" class="activity-section kayaking-section">
+        <canvas class="activity-lens-canvas" id="kayak-wet-lens-canvas"></canvas>
+
+        <div class="activity-content-container">
+            <div class="activity-header" data-aos="fade-up">
+                <span class="section-badge">SERENE PADDLING</span>
+                <h2>KAYAKING</h2>
+                <p>Navigate the tranquil backwaters and hidden inlets of the Kali River at your own pace.</p>
+            </div>
+
+            <div class="activity-journey-grid">
+                <a href="#" class="journey-card stage-1" data-aos="fade-up">
+                    <div class="card-icon"><i class="fa-solid fa-hands-holding"></i></div>
+                    <div class="card-content">
+                        <h3>PADDLE GRIP</h3>
+                        <p>Mastering basic strokes and balance control.</p>
+                        <span class="stage-tag">BASICS</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon"><i class="fa-solid fa-life-ring"></i></div>
+                    <div class="card-content">
+                        <h3>SMART FLOTATION</h3>
+                        <p>Low-profile, high-movement kayaks and vests.</p>
+                        <span class="stage-tag">PRO GEAR</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-3 featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="ripple-container">
+                        <img src="assets/kayaking_journey.png" alt="Kayaking Journey" class="ripple-img">
+                    </div>
+                    <div class="card-content">
+                        <h3>SILENT GLIDE</h3>
+                        <p>Cutting through the turquoise water like glass.</p>
+                        <span class="stage-tag">ON THE WATER</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <div class="card-content">
+                        <h3>HIDDEN INLETS</h3>
+                        <p>Exploring narrow channels where larger boats can't go.</p>
+                        <span class="stage-tag">EXPLORATION</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-5" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+                    <div class="card-content">
+                        <h3>SUNSET REFLECTION</h3>
+                        <p>The perfect golden hour on the calm backwaters.</p>
+                        <span class="stage-tag">GOLDEN HOUR</span>
+                    </div>
+                </a>
+
+                <a href="#" class="journey-card stage-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card-icon"><i class="fa-solid fa-anchor"></i></div>
+                    <div class="card-content">
+                        <h3>DOCKING & DRIFT</h3>
+                        <p>Relaxation and grounding after a rhythmic paddle.</p>
+                        <span class="stage-tag">REFLECT</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SVG Filter for Liquid Ripple Effect -->
+    <svg style="display: none;">
+        <defs>
+            <filter id="liquid-ripple">
+                <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="3" result="waves" seed="1">
+                    <animate attributeName="baseFrequency" dur="10s" values="0.01; 0.02; 0.01"
+                        repeatCount="indefinite" />
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="waves" scale="30" xChannelSelector="R"
+                    yChannelSelector="G" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- Immersive Audio -->
+    <audio id="rafting-audio" loop preload="auto">
+        <source src="assets/sounds/river-rush.mp3" type="audio/mp4">
+    </audio>
+
+    <!-- ── FOOTER ── -->
+    <footer id="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo-link">
+                    <span class="logo-text footer-size">
+                        <span class="logo-main">ADVENTURE</span>
+                        <span class="logo-accent">IN <span class="logo-highlight">DANDELI</span></span>
+                    </span>
+                </a>
+                <p>Curating life-changing outdoor experiences in the wild heart of Dandeli, India.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="activities.html">Activities</a></li>
+                    <li><a href="lodge.html">Lodges</a></li>
+                    <li><a href="resort.html">Resorts</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i> J.N Rd, near Bus Stand, opposite VRL Office, Dandeli, Karnataka</li>
+                    <li><i class="fa-solid fa-phone"></i> +91 90357 10186</li>
+                    <li><i class="fa-solid fa-envelope"></i> booking@adventureindandeli.in</li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4>Follow the Adventure</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Adventure in Dandeli. All Rights Reserved.</p>
+            <button id="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+                <i class="fa-solid fa-arrow-up"></i>
+            </button>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Navbar hamburger
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.getElementById('nav-links');
+        navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+        // Sticky header
+        window.addEventListener('scroll', () => {
+            document.getElementById('main-header').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Parallax hero background on scroll (resort-style)
+        const heroBg = document.getElementById('act-hero-bg');
+        window.addEventListener('load', () => heroBg.classList.add('loaded'));
+        window.addEventListener('scroll', () => {
+            heroBg.style.transform = `translateY(${window.scrollY * 0.35}px)`;
+        });
+
+        // GSAP entrance animations
+        gsap.from('.act-hero-eyebrow', { opacity: 0, y: 30, delay: 0.3, duration: 0.8 });
+        gsap.from('.act-hero-title',   { opacity: 0, y: 50, delay: 0.5, duration: 1.0 });
+        gsap.from('.act-hero-sub',     { opacity: 0, y: 30, delay: 0.7, duration: 0.8 });
+        gsap.from('.cta-button',       { opacity: 0, y: 20, delay: 0.9, duration: 0.7 });
+        gsap.from('.act-hero-stats',   { opacity: 0, y: 20, delay: 1.1, duration: 0.8 });
+        gsap.from('.act-why-item',     { opacity: 0, y: 20, stagger: 0.12, delay: 1.3, duration: 0.7 });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+
+    <!-- WhatsApp Widget -->
+    <div class="wa-widget-container" id="wa-widget">
+        <div class="wa-chat-bubble" id="wa-chat-bubble">
+            <div class="wa-chat-header">
+                <div class="wa-agent-avatar">
+                    <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="22" cy="22" r="22" fill="rgba(255,255,255,0.2)"/>
+                        <circle cx="22" cy="17" r="8" fill="rgba(255,255,255,0.7)"/>
+                        <ellipse cx="22" cy="36" rx="13" ry="10" fill="rgba(255,255,255,0.7)"/>
+                    </svg>
+                    <span class="wa-status-dot" id="wa-status-dot"></span>
+                </div>
+                <div class="wa-agent-info">
+                    <strong>Adventure Support 🌿</strong>
+                    <span class="wa-agent-status-text" id="wa-status-label">Checking availability...</span>
+                    <span class="wa-reply-time">⚡ Typically replies in &lt; 5 min</span>
+                </div>
+                <button class="wa-close-bubble" onclick="waCloseBubble()">✕</button>
+            </div>
+            <div class="wa-chat-body">
+                <div class="wa-message-in" id="wa-msg-1">
+                    <p>Hi there! 👋 Looking to book an adventure?</p>
+                    <span>Just now</span>
+                </div>
+                <div class="wa-message-in" id="wa-msg-2">
+                    <p>We'll help you plan the perfect experience! 🌿🏕️</p>
+                    <span>Just now</span>
+                </div>
+            </div>
+            <div class="wa-chat-footer">
+                <a href="https://wa.me/919035710186?text=Hi!%20I%27m%20interested%20in%20booking%20an%20activity%20at%20Adventure%20in%20Dandeli.%20Can%20you%20help%20me%3F%20%F0%9F%8C%BF" target="_blank" class="wa-start-chat-btn">
+                    💬 Start Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="wa-bottom-row">
+            <div class="wa-widget-tooltip">Chat with us on WhatsApp 👋</div>
+            <a href="#" class="wa-button" id="wa-main-btn" onclick="waToggleBubble(event)">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span class="wa-notification" id="wa-badge">1</span>
+            </a>
+        </div>
+    </div>
+    <script>
+        function waToggleBubble(e) {
+            e.preventDefault();
+            const bubble = document.getElementById('wa-chat-bubble');
+            const badge = document.getElementById('wa-badge');
+            if (bubble.classList.contains('open')) { bubble.classList.remove('open'); }
+            else {
+                bubble.classList.add('open');
+                badge.style.display = 'none';
+                setTimeout(() => document.getElementById('wa-msg-1').classList.add('visible'), 200);
+                setTimeout(() => document.getElementById('wa-msg-2').classList.add('visible'), 700);
+            }
+        }
+        function waCloseBubble() { document.getElementById('wa-chat-bubble').classList.remove('open'); }
+        (function() {
+            const now = new Date(), utc = now.getTime() + now.getTimezoneOffset() * 60000;
+            const ist = new Date(utc + 5.5 * 60 * 60000), hour = ist.getHours();
+            const isOnline = hour >= 9 && hour < 21;
+            document.getElementById('wa-status-dot').classList.add(isOnline ? 'online' : 'offline');
+            document.getElementById('wa-status-label').textContent = isOnline ? '🟢 Online now' : '';
+        })();
+        (function() {
+            if (!sessionStorage.getItem('wa_opened')) {
+                sessionStorage.setItem('wa_opened', '1');
+                const btn = document.getElementById('wa-main-btn');
+                btn.classList.add('first-visit-wave');
+                btn.addEventListener('animationend', () => btn.classList.remove('first-visit-wave'));
+                setTimeout(() => {
+                    document.getElementById('wa-chat-bubble').classList.add('open');
+                    setTimeout(() => document.getElementById('wa-msg-1').classList.add('visible'), 300);
+                    setTimeout(() => document.getElementById('wa-msg-2').classList.add('visible'), 900);
+                }, 3000);
+            }
+        })();
+    </script>
+
+</body>
+</html>

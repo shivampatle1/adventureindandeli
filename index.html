@@ -36,7 +36,7 @@
         <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
         <nav class="nav-links" id="nav-links">
             <a href="#home"><i class="fa-solid fa-house"></i> Home</a>
-            <a href="#activities"><i class="fa-solid fa-map-location-dot"></i> Activities</a>
+            <a href="activities.html"><i class="fa-solid fa-map-location-dot"></i> Activities</a>
             <a href="lodge.html"><i class="fa-solid fa-campground"></i> Lodges</a>
             <a href="resort.html"><i class="fa-solid fa-hotel"></i> Resorts</a>
             <a href="#safety"><i class="fa-solid fa-shield-halved"></i> Safety</a>
@@ -924,65 +924,196 @@
         </div>
     </section>
 
-    <!-- Dedicated Lodge Section -->
-    <section id="dedicated-lodges" class="trust-accommodation-section"
-        style="background: linear-gradient(135deg, rgba(10,17,21,1) 0%, rgba(15,28,36,1) 100%); scroll-margin-top: 100px;">
-        <div class="trust-container"
-            style="border-top: 1px solid var(--glass-border); padding-top: 6rem; padding-bottom: 2rem;">
-            <div class="lodge-explorer-container" style="margin-top: 0;">
-                <div class="stays-header" data-aos="fade-up">
-                    <span class="section-badge">WILDERNESS CAMPING</span>
-                    <h2>LODGES</h2>
-                    <p>Authentic eco-camps, treehouses, and riverside tents.</p>
-                    <a href="lodge.html" class="resort-cta-btn"
-                        style="background: transparent; color: var(--clr-text-main); border-color: var(--clr-green-accent);">
-                        <i class="fa-solid fa-campground"></i> EXPLORE ALL LODGES <i
-                            class="fa-solid fa-arrow-right"></i>
-                    </a>
+
+    <!-- ── GALLERY SLIDER ── -->
+    <section class="gallery-marquee-section">
+        <div class="safety-header" data-aos="fade-up">
+            <span class="section-badge">OUR MOMENTS</span>
+            <h2>CAPTURED IN THE WILD</h2>
+            <p>Real experiences. Real memories. Real Dandeli.</p>
+        </div>
+        <div class="gallery-marquee-track-wrapper">
+            <div class="gallery-marquee-fade-left"></div>
+            <div class="gallery-marquee-fade-right"></div>
+            <!-- Row 1 — scrolls left -->
+            <div class="gallery-marquee-row row-left">
+                <div class="gallery-marquee-inner">
+                    <img src="assets/crowsal/2.jpeg" alt="">
+                    <img src="assets/crowsal/3.jpeg" alt="">
+                    <img src="assets/crowsal/4.jpeg" alt="">
+                    <img src="assets/crowsal/5.jpeg" alt="">
+                    <img src="assets/crowsal/6.jpeg" alt="">
+                    <img src="assets/crowsal/7.jpeg" alt="">
+                    <img src="assets/crowsal/8.jpeg" alt="">
+                    <img src="assets/crowsal/9.jpeg" alt="">
+                    <img src="assets/crowsal/10.jpeg" alt="">
+                    <img src="assets/crowsal/11.jpeg" alt="">
+                    <img src="assets/crowsal/12.jpeg" alt="">
+                    <img src="assets/crowsal/13.jpeg" alt="">
+                    <img src="assets/crowsal/14.jpeg" alt="">
+                    <img src="assets/crowsal/15.jpeg" alt="">
+                    <img src="assets/crowsal/16.jpeg" alt="">
+                    <img src="assets/crowsal/17.jpeg" alt="">
+                    <img src="assets/crowsal/18.jpeg" alt="">
+                    <img src="assets/crowsal/19.jpeg" alt="">
+                    <!-- duplicate for seamless loop -->
+                    <img src="assets/crowsal/2.jpeg" alt="">
+                    <img src="assets/crowsal/3.jpeg" alt="">
+                    <img src="assets/crowsal/4.jpeg" alt="">
+                    <img src="assets/crowsal/5.jpeg" alt="">
+                    <img src="assets/crowsal/6.jpeg" alt="">
+                    <img src="assets/crowsal/7.jpeg" alt="">
+                    <img src="assets/crowsal/8.jpeg" alt="">
+                    <img src="assets/crowsal/9.jpeg" alt="">
+                    <img src="assets/crowsal/10.jpeg" alt="">
+                    <img src="assets/crowsal/11.jpeg" alt="">
+                    <img src="assets/crowsal/12.jpeg" alt="">
+                    <img src="assets/crowsal/13.jpeg" alt="">
+                    <img src="assets/crowsal/14.jpeg" alt="">
+                    <img src="assets/crowsal/15.jpeg" alt="">
+                    <img src="assets/crowsal/16.jpeg" alt="">
+                    <img src="assets/crowsal/17.jpeg" alt="">
+                    <img src="assets/crowsal/18.jpeg" alt="">
+                    <img src="assets/crowsal/19.jpeg" alt="">
                 </div>
-
-                <div class="lodge-grid-display">
-                    <!-- Lodge Card 1 -->
-                    <div class="lodge-showcase-card resort-card" data-aos="fade-up" onclick="window.location.href='lodge.html'" style="cursor: pointer;">
-                        <div class="resort-img-wrapper" style="height: 280px; border-radius: 20px; overflow: hidden;">
-                            <img src="assets/resort/lodge.jpeg" alt="Lodge 1" id="homepage-lodge-1-img">
-                            <div class="photo-toggle-overlay">
-                                <div class="toggle-dot active" data-src="assets/resort/lodge.jpeg" style="background-image: url('assets/resort/lodge.jpeg');"></div>
-                                <div class="toggle-dot" data-src="assets/resort/lodge4.jpeg" style="background-image: url('assets/resort/lodge4.jpeg');"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Lodge Card 2 -->
-                    <div class="lodge-showcase-card resort-card" data-aos="fade-up" data-aos-delay="100" onclick="window.location.href='lodge.html'" style="cursor: pointer;">
-                        <div class="resort-img-wrapper" style="height: 280px; border-radius: 20px; overflow: hidden;">
-                            <img src="assets/resort/lodge3.jpeg" alt="Lodge 2" id="homepage-lodge-2-img">
-                            <div class="photo-toggle-overlay">
-                                <div class="toggle-dot active" data-src="assets/resort/lodge3.jpeg" style="background-image: url('assets/resort/lodge3.jpeg');"></div>
-                                <div class="toggle-dot" data-src="assets/resort/resort2.jpeg" style="background-image: url('assets/resort/resort2.jpeg');"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Lodge Card 3 -->
-                    <div class="lodge-showcase-card resort-card" data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='lodge.html'" style="cursor: pointer;">
-                        <div class="resort-img-wrapper" style="height: 280px; border-radius: 20px; overflow: hidden;">
-                            <img src="assets/resort/lodge5.jpeg" alt="Lodge 3" id="homepage-lodge-3-img">
-                            <div class="photo-toggle-overlay">
-                                <div class="toggle-dot active" data-src="assets/resort/lodge5.jpeg" style="background-image: url('assets/resort/lodge5.jpeg');"></div>
-                                <div class="toggle-dot" data-src="assets/resort/lodge6.jpeg" style="background-image: url('assets/resort/lodge6.jpeg');"></div>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+            <!-- Row 2 — scrolls right -->
+            <div class="gallery-marquee-row row-right">
+                <div class="gallery-marquee-inner">
+                    <img src="assets/crowsal/20.jpeg" alt="">
+                    <img src="assets/crowsal/21.jpeg" alt="">
+                    <img src="assets/crowsal/22.jpeg" alt="">
+                    <img src="assets/crowsal/23.jpeg" alt="">
+                    <img src="assets/crowsal/24.jpeg" alt="">
+                    <img src="assets/crowsal/25.jpeg" alt="">
+                    <img src="assets/crowsal/26.jpeg" alt="">
+                    <img src="assets/crowsal/27.jpeg" alt="">
+                    <img src="assets/crowsal/28.jpeg" alt="">
+                    <img src="assets/crowsal/29.jpeg" alt="">
+                    <img src="assets/crowsal/30.jpeg" alt="">
+                    <img src="assets/crowsal/31.jpeg" alt="">
+                    <img src="assets/crowsal/32.jpeg" alt="">
+                    <img src="assets/crowsal/33.jpeg" alt="">
+                    <img src="assets/crowsal/34.jpeg" alt="">
+                    <img src="assets/crowsal/35.jpeg" alt="">
+                    <img src="assets/crowsal/36.jpeg" alt="">
+                    <img src="assets/crowsal/37.jpeg" alt="">
+                    <img src="assets/crowsal/38.jpeg" alt="">
+                    <img src="assets/crowsal/39.jpeg" alt="">
+                    <img src="assets/crowsal/WhatsApp Image 2026-04-09 at 11.11.41.jpeg" alt="">
+                    <!-- duplicate for seamless loop -->
+                    <img src="assets/crowsal/20.jpeg" alt="">
+                    <img src="assets/crowsal/21.jpeg" alt="">
+                    <img src="assets/crowsal/22.jpeg" alt="">
+                    <img src="assets/crowsal/23.jpeg" alt="">
+                    <img src="assets/crowsal/24.jpeg" alt="">
+                    <img src="assets/crowsal/25.jpeg" alt="">
+                    <img src="assets/crowsal/26.jpeg" alt="">
+                    <img src="assets/crowsal/27.jpeg" alt="">
+                    <img src="assets/crowsal/28.jpeg" alt="">
+                    <img src="assets/crowsal/29.jpeg" alt="">
+                    <img src="assets/crowsal/30.jpeg" alt="">
+                    <img src="assets/crowsal/31.jpeg" alt="">
+                    <img src="assets/crowsal/32.jpeg" alt="">
+                    <img src="assets/crowsal/33.jpeg" alt="">
+                    <img src="assets/crowsal/34.jpeg" alt="">
+                    <img src="assets/crowsal/35.jpeg" alt="">
+                    <img src="assets/crowsal/36.jpeg" alt="">
+                    <img src="assets/crowsal/37.jpeg" alt="">
+                    <img src="assets/crowsal/38.jpeg" alt="">
+                    <img src="assets/crowsal/39.jpeg" alt="">
+                    <img src="assets/crowsal/WhatsApp Image 2026-04-09 at 11.11.41.jpeg" alt="">
                 </div>
             </div>
         </div>
     </section>
 
-
+    <style>
+        .gallery-marquee-section {
+            background: #080e11;
+            padding: 5rem 0 4rem;
+            overflow: hidden;
+        }
+        .gallery-marquee-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+        .gallery-marquee-track-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+        /* Edge fade overlays */
+        .gallery-marquee-fade-left,
+        .gallery-marquee-fade-right {
+            position: absolute;
+            top: 0; bottom: 0;
+            width: 120px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .gallery-marquee-fade-left {
+            left: 0;
+            background: linear-gradient(to right, #080e11 0%, transparent 100%);
+        }
+        .gallery-marquee-fade-right {
+            right: 0;
+            background: linear-gradient(to left, #080e11 0%, transparent 100%);
+        }
+        .gallery-marquee-row {
+            overflow: hidden;
+            margin-bottom: 14px;
+        }
+        .gallery-marquee-row:last-child { margin-bottom: 0; }
+        .gallery-marquee-inner {
+            display: flex;
+            gap: 14px;
+            width: max-content;
+        }
+        .gallery-marquee-inner img {
+            height: 200px;
+            width: auto;
+            border-radius: 14px;
+            object-fit: cover;
+            flex-shrink: 0;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            filter: brightness(0.88) saturate(1.1);
+        }
+        .gallery-marquee-inner img:hover {
+            transform: scale(1.06);
+            filter: brightness(1) saturate(1.3);
+            box-shadow: 0 12px 40px rgba(110,175,110,0.3);
+            z-index: 1;
+        }
+        /* Left-scroll animation */
+        .row-left .gallery-marquee-inner {
+            animation: marquee-left 55s linear infinite;
+        }
+        /* Right-scroll animation */
+        .row-right .gallery-marquee-inner {
+            animation: marquee-right 60s linear infinite;
+        }
+        /* Pause on hover */
+        .gallery-marquee-row:hover .gallery-marquee-inner {
+            animation-play-state: paused;
+        }
+        @keyframes marquee-left {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-right {
+            0%   { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+        @media (max-width: 768px) {
+            .gallery-marquee-inner img { height: 150px; }
+            .gallery-marquee-fade-left,
+            .gallery-marquee-fade-right { width: 60px; }
+        }
+    </style>
 
     <!-- Premium Service Squad Section -->
-    <div class="premium-services-container">
+    <div class="premium-services-container" style="margin-top: 5rem;">
         <div class="safety-header" data-aos="fade-up">
             <span class="section-badge">SERVICE EXCELLENCE</span>
             <h2>WE TAKE CARE OF EVERYTHING</h2>
