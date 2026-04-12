@@ -3828,9 +3828,16 @@ ul {
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 450px;
+    justify-content: flex-start;
+    min-height: 480px;
+    position: relative;
     overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lodge-card.no-img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
 }
 
 .lodge-card.no-img::before {
@@ -3855,15 +3862,15 @@ ul {
 
 .lodge-card.no-img h3 {
     font-size: 2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     line-height: 1.2;
 }
 
 .package-price-tag {
     background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
-    border-radius: 15px;
-    margin-bottom: 2rem;
+    padding: 1.2rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
     border-left: 4px solid var(--cat-color, var(--clr-orange-safety));
 }
 
@@ -3882,13 +3889,12 @@ ul {
 }
 
 .package-includes-list {
-    margin-bottom: 2.5rem;
-    flex-grow: 1;
+    margin-bottom: 2rem;
 }
 
 .package-includes-list h4 {
-    font-size: 0.9rem;
-    color: #fff;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -3910,25 +3916,89 @@ ul {
 
 .package-includes-list li i {
     color: var(--cat-color, var(--clr-orange-safety));
-    width: 20px;
-    text-align: center;
+    font-size: 0.85rem;
+    min-width: 18px;
 }
 
 .best-for-badge {
     display: inline-block;
-    padding: 0.5rem 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--clr-text-muted);
+    padding: 0.6rem 1.2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--cat-color, var(--clr-orange-safety));
     margin-top: auto;
+}
+
+/* --- HORIZONTAL SCROLL NAV --- */
+.package-nav-container {
+    width: 100%;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.package-nav-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    justify-content: center;
+}
+
+.package-nav-scroll::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.package-nav-tab {
+    white-space: nowrap;
+    padding: 1rem 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.package-nav-tab.active {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+}
+
+/* Category Specific active states for borders if needed */
+.package-nav-tab[data-cat="budget"].active { border-bottom: 3px solid #6EAF6E; }
+
+/* Grid Transition */
+.lodge-card {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.lodge-card.show {
+    display: flex;
+    animation: packageReveal 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes packageReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Category Colors */
 .cat-budget { --cat-color: #6EAF6E; }
-.cat-midrange { --cat-color: #2C5364; }
+.cat-midrange { --cat-color: #34ace0; }
 .cat-group { --cat-color: #f39c12; }
 .cat-premium { --cat-color: #c3a473; }
 .cat-activity { --cat-color: #00cec9; }
@@ -3937,17 +4007,21 @@ ul {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.package-rating .stars {
-    color: #f1c40f;
-    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
 }
 
 .package-rating .score {
-    font-weight: 800;
+    font-weight: 700;
     color: #fff;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 992px) {
+    .package-nav-scroll {
+        justify-content: flex-start;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -3956,6 +4030,10 @@ ul {
         min-height: auto;
     }
     .lodge-card.no-img h3 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
+    }
+    .package-nav-tab {
+        padding: 0.8rem 1.8rem;
+        font-size: 0.8rem;
     }
 }

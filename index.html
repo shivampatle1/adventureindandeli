@@ -691,188 +691,175 @@
     <!-- Dandeli Lodges & Resorts Section -->
     <section id="trust-accommodation" class="trust-accommodation-section">
         <div class="trust-container">
-            <!-- Part 1: Lodge Explorer -->
+            <!-- Part 1: Lodge Explorer             <!-- Part 1: Package Explorer -->
             <div class="lodge-explorer-container">
-                <div class="stays-header" data-aos="fade-up" style="margin-bottom: 3rem;">
-                    <span class="section-badge">COLLECTION</span>
-                    <h2 style="font-size: 3.5rem;">PICK YOUR PACKAGE</h2>
-                    <p>Your gateway to immersive property tours and detailed room views.</p>
-                    <a href="resort.html" class="resort-cta-btn">
-                        <span class="snapshot-stack">
-                            <svg class="photo-stack-svg" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <rect class="photo-bg" x="2" y="6" width="14" height="11" rx="1.5" stroke="currentColor"
-                                    stroke-width="1.5" />
-                                <rect class="photo-mid" x="5" y="4" width="14" height="11" rx="1.5"
-                                    stroke="currentColor" stroke-width="1.5" />
-                                <rect class="photo-front" x="8" y="7" width="14" height="11" rx="1.5"
-                                    fill="currentColor" stroke="currentColor" stroke-width="1.5" />
-                            </svg>
-                        </span>
-                        EXPLORE ALL RESORTS <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                <div class="stays-header" data-aos="fade-up" style="margin-bottom: 3rem; text-align: center;">
+                    <span class="section-badge">PRICING</span>
+                    <h2 style="font-size: clamp(2.5rem, 5vw, 3.5rem);">PICK YOUR PACKAGE</h2>
+                    <p>Experience the best of Dandeli with our curated stay and adventure plans.</p>
                 </div>
 
-                <div class="lodge-filter-bar" data-aos="fade-up">
-                    <button class="lodge-filter-tab active" onclick="filterLodges(this, 'budget')">BUDGET</button>
-                    <button class="lodge-filter-tab" onclick="filterLodges(this, 'midrange')">MID-RANGE</button>
-                    <button class="lodge-filter-tab" onclick="filterLodges(this, 'group')">GROUP/CORP</button>
-                    <button class="lodge-filter-tab" onclick="filterLodges(this, 'premium')">PREMIUM</button>
-                    <button class="lodge-filter-tab" onclick="filterLodges(this, 'activity')">ACTIVITIES</button>
+                <!-- Horizontal Scrollable Tabs -->
+                <div class="package-nav-container" data-aos="fade-up">
+                    <div class="package-nav-scroll">
+                        <button class="package-nav-tab active" data-cat="budget" onclick="switchThemeTab(this, 'budget')">Budget</button>
+                        <button class="package-nav-tab" data-cat="midrange" onclick="switchThemeTab(this, 'midrange')">Mid-Range</button>
+                        <button class="package-nav-tab" data-cat="group" onclick="switchThemeTab(this, 'group')">Group/Corporate</button>
+                        <button class="package-nav-tab" data-cat="premium" onclick="switchThemeTab(this, 'premium')">Premium</button>
+                        <button class="package-nav-tab" data-cat="activity" onclick="switchThemeTab(this, 'activity')">Activity Centers</button>
+                    </div>
                 </div>
 
                 <div class="lodge-grid-display" id="lodge-grid">
                     <!-- BUDGET CATEGORY -->
-                    <div class="lodge-card budget show no-img cat-budget" data-aos="fade-up" onclick="window.location.href='resort.html'" style="cursor: pointer;">
+                    <div class="lodge-card budget show no-img cat-budget" onclick="window.location.href='resort.html'" style="cursor: pointer;">
                         <span class="card-category">Budget Packages (₹1000–₹1500 per person)</span>
                         <div class="package-rating">
-                            <span class="score">👉 Dandeli Rafting Resorts 4.8 ⭐</span>
-                            <br><small style="color: var(--clr-text-muted);">• Resort hotel/ Lodge</small>
+                            <span class="score">👉 Dandeli Rafting Resorts | Rating: 4.8</span>
+                            <br><small style="color: rgba(255,255,255,0.5);">Resort hotel/Lodge</small>
                         </div>
                         <div class="package-price-tag">
-                            <span class="price-label">Starting price</span>
+                            <span class="price-label">Starting Price</span>
                             <span class="price-value">~₹1,199 <small style="font-size: 0.8rem; opacity: 0.6;">per person</small></span>
                         </div>
                         <div class="package-includes-list">
                             <h4>Includes:</h4>
                             <ul>
-                                <li><i class="fa-solid fa-campground"></i> Stay (camp / basic rooms)</li>
-                                <li><i class="fa-solid fa-utensils"></i> Breakfast / lunch / dinner</li>
-                                <li><i class="fa-solid fa-person-swimming"></i> Activities: kayaking, zorbing, boating (included)</li>
-                                <li><i class="fa-solid fa-water"></i> Rafting: ₹650–₹1100 extra (sometimes combo free)</li>
+                                <li><i class="fa-solid fa-check"></i> Stay (camp / basic rooms)</li>
+                                <li><i class="fa-solid fa-check"></i> Breakfast / lunch / dinner</li>
+                                <li><i class="fa-solid fa-check"></i> Activities (kayaking, zorbing, boating)</li>
                             </ul>
+                            <p style="font-size: 0.85rem; color: #fff; margin-top: 1rem;"><strong>Extras:</strong> Rafting (₹650–₹1100 extra)</p>
                         </div>
-                        <span class="best-for-badge">👉 Best for: Friends / budget groups</span>
+                        <span class="best-for-badge">Best for: Friends / budget groups</span>
                     </div>
 
                     <!-- MID-RANGE CATEGORY -->
-                    <div class="lodge-card midrange no-img cat-midrange" data-aos="fade-up" onclick="window.location.href='resort.html'" style="cursor: pointer;">
+                    <div class="lodge-card midrange no-img cat-midrange" onclick="window.location.href='resort.html'" style="cursor: pointer;">
                         <span class="card-category">Mid-Range Adventure Resorts (₹1500–₹2500)</span>
-                        
-                        <div style="margin-bottom: 2rem;">
-                            <div class="package-rating">
-                                <span class="score">👉 Resort - Dandeli 4.3 ⭐</span>
-                                <br><small style="color: var(--clr-text-muted);">• Adventure sports center • Open</small>
-                            </div>
-                            <p style="margin: 0.5rem 0; font-size: 0.85rem; color: var(--clr-text-muted);">Water activities within walking distance</p>
-                            <div class="package-includes-list" style="margin-top: 1rem;">
-                                <h4>Includes:</h4>
-                                <ul style="margin-bottom: 1rem;">
-                                    <li><i class="fa-solid fa-water"></i> River rafting, kayaking, swimming, boating</li>
-                                    <li><i class="fa-solid fa-bowl-food"></i> Food + accommodation</li>
-                                </ul>
-                                <span class="best-for-badge">Great for families & couples</span>
-                            </div>
+                        <div class="package-rating">
+                            <span class="score">👉 Resort - Dandeli | Rating: 4.3</span>
+                            <br><small style="color: rgba(255,255,255,0.5);">Adventure sports center</small>
                         </div>
+                        <div class="package-includes-list">
+                            <h4>Includes:</h4>
+                            <ul>
+                                <li><i class="fa-solid fa-water"></i> River rafting, kayaking, swimming, boating</li>
+                                <li><i class="fa-solid fa-utensils"></i> Food + accommodation</li>
+                                <li><i class="fa-solid fa-location-dot"></i> Water activities within walking distance</li>
+                            </ul>
+                        </div>
+                        <span class="best-for-badge" style="margin-bottom: 2rem;">Best for: Families & couples</span>
 
                         <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem;">
                             <div class="package-rating">
-                                <span class="score">👉 Adventure in Resort 4.5 ⭐</span>
-                                <br><small style="color: var(--clr-text-muted);">• Resort hotel</small>
+                                <span class="score">👉 Adventure in Resort | Rating: 4.5</span>
+                                <br><small style="color: rgba(255,255,255,0.5);">Resort hotel</small>
                             </div>
-                            <p style="margin: 0.5rem 0; font-size: 0.85rem; color: var(--clr-text-muted);">Riverside resort with: Swimming pool + river activities, Zorbing, kayaking, trekking</p>
-                            <span class="best-for-badge">Good mix of comfort + adventure</span>
+                            <p style="font-size: 0.85rem; color: var(--clr-text-muted);">Riverside resort with swimming pool + river activities, Zorbing, kayaking, trekking. Good mix of comfort + adventure.</p>
                         </div>
                     </div>
 
                     <!-- GROUP CATEGORY -->
-                    <div class="lodge-card group no-img cat-group" data-aos="fade-up" onclick="window.location.href='resort.html'" style="cursor: pointer;">
+                    <div class="lodge-card group no-img cat-group" onclick="window.location.href='resort.html'" style="cursor: pointer;">
                         <span class="card-category">Group / Corporate Packages (₹1800–₹3000)</span>
                         <div class="package-rating">
-                            <span class="score">👉 Dandeli Resort 4.4 ⭐</span>
-                            <br><small style="color: var(--clr-text-muted);">• Resort hotel</small>
+                            <span class="score">👉 Dandeli Resort | Rating: 4.4</span>
+                            <br><small style="color: rgba(255,255,255,0.5);">Resort hotel</small>
                         </div>
                         <div class="package-price-tag">
-                            <span class="price-label">Example package</span>
+                            <span class="price-label">Price</span>
                             <span class="price-value">~₹1,999 <small style="font-size: 0.8rem; opacity: 0.6;">per person</small></span>
                         </div>
                         <div class="package-includes-list">
                             <h4>Includes:</h4>
                             <ul>
-                                <li><i class="fa-solid fa-utensils"></i> 3 meals (buffet veg + non-veg)</li>
+                                <li><i class="fa-solid fa-bowl-food"></i> 3 meals (buffet veg + non-veg)</li>
                                 <li><i class="fa-solid fa-bolt"></i> 10+ activities (pool, rain dance, trekking, indoor games)</li>
                                 <li><i class="fa-solid fa-person-swimming"></i> Kayaking, zorbing, swimming</li>
-                                <li><i class="fa-solid fa-water"></i> Rafting optional (₹600–₹1700)</li>
                             </ul>
+                            <p style="font-size: 0.85rem; color: #fff; margin-top: 1rem;"><strong>Extras:</strong> Rafting optional (₹600–₹1700)</p>
                         </div>
-                        <div class="best-for-badge" style="margin-top: 1rem;">
-                            <strong>👉 Best for:</strong><br>
-                            Corporate outings • College trips • Big groups (20–100 people)
+                        <div class="best-for-badge">
+                            <strong>Best for:</strong> Corporate outings, College trips, Big groups (20–100 people)
                         </div>
                     </div>
 
                     <!-- PREMIUM CATEGORY -->
-                    <div class="lodge-card premium no-img cat-premium" data-aos="fade-up" onclick="window.location.href='resort.html'" style="cursor: pointer;">
+                    <div class="lodge-card premium no-img cat-premium" onclick="window.location.href='resort.html'" style="cursor: pointer;">
                         <span class="card-category">Premium Resorts (₹3000–₹5000)</span>
-                        
-                        <div style="margin-bottom: 2rem;">
-                            <div class="package-rating">
-                                <span class="score">👉 Camp 4.4 ⭐</span>
-                                <br><small style="color: var(--clr-text-muted);">• Resort hotel • Lodges property</small>
-                            </div>
-                            <div class="package-includes-list" style="margin-top: 1rem;">
-                                <h4>Includes:</h4>
-                                <ul style="margin-bottom: 1rem;">
-                                    <li><i class="fa-solid fa-house-chimney-window"></i> Luxury cottages</li>
-                                    <li><i class="fa-solid fa-compass"></i> Guided rafting + kayaking</li>
-                                    <li><i class="fa-solid fa-leaf"></i> Nature activities</li>
-                                </ul>
-                                <span class="best-for-badge">Best for couples / family luxury trips</span>
-                            </div>
+                        <div class="package-rating">
+                            <span class="score">👉 Camp | Rating: 4.4</span>
+                            <br><small style="color: rgba(255,255,255,0.5);">Resort hotel (Lodges property)</small>
                         </div>
+                        <div class="package-includes-list">
+                            <h4>Includes:</h4>
+                            <ul>
+                                <li><i class="fa-solid fa-house-chimney-window"></i> Luxury cottages</li>
+                                <li><i class="fa-solid fa-water"></i> Guided rafting + kayaking</li>
+                                <li><i class="fa-solid fa-leaf"></i> Nature activities</li>
+                            </ul>
+                        </div>
+                        <span class="best-for-badge" style="margin-bottom: 2rem;">Best for: Couples / family luxury trips</span>
 
                         <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem;">
                             <div class="package-rating">
-                                <span class="score">👉 Resort 4.1 ⭐</span>
-                                <br><small style="color: var(--clr-text-muted);">• Resort hotel</small>
+                                <span class="score">👉 Resort | Rating: 4.1</span>
+                                <br><small style="color: rgba(255,255,255,0.5);">Resort hotel</small>
                             </div>
-                            <p style="margin: 0.5rem 0; font-size: 0.85rem; color: var(--clr-text-muted);">Premium stay with: Pool + riverside access, Adventure + relaxation combo</p>
-                            <span class="best-for-badge">Ideal for corporate retreats & couples</span>
+                            <p style="font-size: 0.85rem; color: var(--clr-text-muted);">Premium stay with Pool + riverside access, Adventure + relaxation combo.</p>
+                            <span class="best-for-badge" style="margin-top: 1rem;">Best for: Corporate retreats & couples</span>
                         </div>
                     </div>
 
                     <!-- ACTIVITY CATEGORY -->
-                    <div class="lodge-card activity no-img cat-activity" data-aos="fade-up" onclick="window.location.href='activities.html'" style="cursor: pointer;">
+                    <div class="lodge-card activity no-img cat-activity" onclick="window.location.href='activities.html'" style="cursor: pointer;">
                         <span class="card-category">Pure Activity Centers (Add to any stay)</span>
                         <div class="package-rating">
-                            <span class="score">👉 Dandeli Rafting 4.9 ⭐</span>
-                            <br><small style="color: var(--clr-text-muted);">• Rafting</small>
+                            <span class="score">👉 Dandeli Rafting (4.9) & Dandeli Water Sports (4.4)</span>
                         </div>
-                        <div class="package-rating" style="margin-top: 1.5rem;">
-                            <span class="score">👉 Dandeli Water Sports 4.4 ⭐</span>
-                            <br><small style="color: var(--clr-text-muted);">• Adventure sports center</small>
+                        <div class="package-includes-list" style="margin-top: 2rem;">
+                            <h4>Details:</h4>
+                            <ul>
+                                <li><i class="fa-solid fa-water"></i> Rafting + kayaking + zorbing combos</li>
+                                <li><i class="fa-solid fa-circle-question"></i> Can be booked separately if the resort doesn’t include it</li>
+                            </ul>
                         </div>
-                        <div class="package-price-tag" style="margin-top: 1.5rem;">
-                            <span class="price-value">Rafting + kayaking + zorbing combos</span>
-                        </div>
-                        <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--clr-text-muted);">Can book separately if your resort doesn’t include it</p>
+                        <span class="best-for-badge">Fully safety certified activity centers</span>
                     </div>
                 </div>
             </div>
 
             <script>
-                function filterLodges(tabElement, category) {
-                    // Update Tabs by direct reference
-                    document.querySelectorAll('.lodge-filter-tab').forEach(tab => {
-                        tab.classList.remove('active');
-                    });
-                    if (tabElement) tabElement.classList.add('active');
+                function switchThemeTab(btn, category) {
+                    // Update Active Tab State
+                    document.querySelectorAll('.package-nav-tab').forEach(t => t.classList.remove('active'));
+                    btn.classList.add('active');
 
-                    // Update Cards
-                    document.querySelectorAll('.lodge-card').forEach(card => {
+                    // Filter Cards with rendering logic
+                    const grid = document.getElementById('lodge-grid');
+                    const cards = document.querySelectorAll('.lodge-card');
+                    
+                    cards.forEach(card => {
                         card.classList.remove('show');
-                        if (card.classList.contains(category)) {
-                            setTimeout(() => {
-                                card.classList.add('show');
-                            }, 50);
-                        }
+                        // Wait for exit animation before hiding
+                        setTimeout(() => {
+                            if (card.classList.contains(category)) {
+                                card.style.display = 'flex';
+                                // Trigger enter animation
+                                setTimeout(() => card.classList.add('show'), 50);
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }, 300);
                     });
                 }
-                // Initialize first category correctly
-                window.onload = () => {
-                    const firstTab = document.querySelector('.lodge-filter-tab');
-                    if (firstTab) filterLodges(firstTab, 'budget');
-                };
+                
+                // Initialize on load
+                window.addEventListener('load', () => {
+                    const defaultTab = document.querySelector('.package-nav-tab[data-cat="budget"]');
+                    if(defaultTab) switchThemeTab(defaultTab, 'budget');
+                });
             </script>
         </div>
     </section>
