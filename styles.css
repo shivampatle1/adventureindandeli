@@ -3821,64 +3821,122 @@ ul {
     .wa-widget-tooltip { display: none; }
 }
 
-/* --- NEW PACKAGE CARD STYLES (IMAGE-LESS) --- */
+/* --- MODERN WOW PACKAGE EXPERIENCE --- */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glow-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+}
+
 .lodge-card.no-img {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 2.5rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    padding: 2.2rem 1.8rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    min-height: 480px;
+    min-height: 440px;
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 20px;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: var(--glow-shadow);
 }
 
-.lodge-card.no-img:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-}
-
+/* Glowing Corner Accent */
 .lodge-card.no-img::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: var(--cat-color, var(--clr-orange-safety));
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at top right, var(--cat-color), transparent 70%);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.lodge-card.no-img:hover {
+    transform: translateY(-8px) scale(1.01);
+    border-color: var(--cat-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px var(--cat-color-soft);
 }
 
 .lodge-card.no-img .card-category {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--cat-color, var(--clr-orange-safety));
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    display: block;
+    letter-spacing: 2.5px;
+    color: var(--cat-color);
+    font-weight: 800;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.lodge-card.no-img .card-category::after {
+    content: '';
+    height: 1px;
+    width: 25px;
+    background: var(--cat-color);
+    opacity: 0.4;
 }
 
 .lodge-card.no-img h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    line-height: 1.2;
+    font-size: 1.8rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.1;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    background: linear-gradient(to bottom, #fff, rgba(255,255,255,0.7));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.package-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.package-rating .score {
+    background: var(--cat-color-soft);
+    color: var(--cat-color);
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    font-weight: 900;
+    font-size: 0.9rem;
+    border: 1px solid var(--cat-color);
+}
+
+.status-badge {
+    font-size: 0.7rem;
+    color: #4cd137;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
 }
 
 .package-price-tag {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.2);
     padding: 1.2rem;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
-    border-left: 4px solid var(--cat-color, var(--clr-orange-safety));
+    border-radius: 15px;
+    margin-bottom: 1.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .package-price-tag .price-label {
     display: block;
-    font-size: 0.8rem;
-    color: var(--clr-text-muted);
-    margin-bottom: 0.2rem;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 0.3rem;
 }
 
 .package-price-tag .price-value {
@@ -3889,18 +3947,20 @@ ul {
 }
 
 .package-includes-list {
-    margin-bottom: 2rem;
+    margin-bottom: 1.8rem;
 }
 
 .package-includes-list h4 {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.7);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
     margin-bottom: 1rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 }
 
 .package-includes-list ul {
+    list-style: none;
+    padding: 0;
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
@@ -3908,132 +3968,87 @@ ul {
 
 .package-includes-list li {
     display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-size: 0.95rem;
-    color: var(--clr-text-muted);
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.3;
 }
 
-.package-includes-list li i {
-    color: var(--cat-color, var(--clr-orange-safety));
-    font-size: 0.85rem;
-    min-width: 18px;
+.icon-box {
+    min-width: 20px;
+    height: 20px;
+    background: var(--cat-color-soft);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cat-color);
+    font-size: 0.7rem;
 }
 
 .best-for-badge {
-    display: inline-block;
-    padding: 0.6rem 1.2rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px dashed rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    font-size: 0.85rem;
-    color: var(--cat-color, var(--clr-orange-safety));
-    margin-top: auto;
-}
-
-/* --- HORIZONTAL SCROLL NAV --- */
-.package-nav-container {
-    width: 100%;
-    margin-bottom: 4rem;
-    position: relative;
-}
-
-.package-nav-scroll {
     display: flex;
-    overflow-x: auto;
-    gap: 1.5rem;
-    padding: 1rem 0;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
-    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.2rem;
+    background: var(--cat-color-soft);
+    border: 1px solid var(--cat-color);
+    border-radius: 10px;
+    font-size: 0.8rem;
+    color: #fff;
+    margin-top: auto;
+    font-weight: 600;
 }
 
-.package-nav-scroll::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+/* --- PREMIUM TABS --- */
+.package-nav-container {
+    padding: 0.4rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 100px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: inline-flex;
+    margin: 0 auto 3.5rem;
+    position: relative;
+    max-width: 100%;
 }
 
 .package-nav-tab {
-    white-space: nowrap;
-    padding: 1rem 2.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.03);
-    color: rgba(255, 255, 255, 0.5);
-    border-radius: 50px;
-    cursor: pointer;
+    padding: 1rem 2.2rem;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.4);
+    border-radius: 100px;
     font-family: var(--font-heading);
+    font-size: 0.8rem;
     font-weight: 700;
+    text-transform: uppercase;
     letter-spacing: 1.5px;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    white-space: nowrap;
 }
 
 .package-nav-tab.active {
     background: #fff;
     color: #000;
-    border-color: #fff;
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(255,255,255,0.1);
-}
-
-/* Category Specific active states for borders if needed */
-.package-nav-tab[data-cat="budget"].active { border-bottom: 3px solid #6EAF6E; }
-
-/* Grid Transition */
-.lodge-card {
-    display: none;
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.lodge-card.show {
-    display: flex;
-    animation: packageReveal 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
-
-@keyframes packageReveal {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Category Colors */
-.cat-budget { --cat-color: #6EAF6E; }
-.cat-midrange { --cat-color: #34ace0; }
-.cat-group { --cat-color: #f39c12; }
-.cat-premium { --cat-color: #c3a473; }
-.cat-activity { --cat-color: #00cec9; }
-
-.package-rating {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.package-rating .score {
-    font-weight: 700;
-    color: #fff;
-    font-size: 0.95rem;
-}
-
-@media (max-width: 992px) {
-    .package-nav-scroll {
-        justify-content: flex-start;
-        padding-left: 5%;
-        padding-right: 5%;
-    }
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
 }
 
 @media (max-width: 768px) {
     .lodge-card.no-img {
-        padding: 2rem 1.5rem;
-        min-height: auto;
+        padding: 1.5rem 1.2rem;
+        min-height: 400px;
     }
     .lodge-card.no-img h3 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+    }
+    .package-price-tag .price-value {
+        font-size: 1.6rem;
     }
     .package-nav-tab {
-        padding: 0.8rem 1.8rem;
-        font-size: 0.8rem;
+        padding: 0.8rem 1.5rem;
     }
 }
