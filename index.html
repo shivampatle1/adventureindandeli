@@ -722,252 +722,164 @@
         </div>
     </section>
 
-    <!-- Dandeli Lodges & Resorts Section -->
-    <section id="trust-accommodation" class="trust-accommodation-section">
-        <div class="trust-container">
-            <!-- Part 1: Lodge Explorer -->
-            <div class="lodge-explorer-container">
-                <div class="stays-header" data-aos="fade-up" style="margin-bottom: 3rem;">
-                    <span class="section-badge">COLLECTION</span>
-                    <h2 style="font-size: 3.5rem;">PICK YOUR PACKAGE</h2>
-                    <p>Your gateway to immersive property tours and detailed room views.</p>
-                    <a href="resort.html" class="resort-cta-btn">
-                        <span class="snapshot-stack">
-                            <svg class="photo-stack-svg" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <rect class="photo-bg" x="2" y="6" width="14" height="11" rx="1.5" stroke="currentColor"
-                                    stroke-width="1.5" />
-                                <rect class="photo-mid" x="5" y="4" width="14" height="11" rx="1.5"
-                                    stroke="currentColor" stroke-width="1.5" />
-                                <rect class="photo-front" x="8" y="7" width="14" height="11" rx="1.5"
-                                    fill="currentColor" stroke="currentColor" stroke-width="1.5" />
-                            </svg>
-                        </span>
-                        EXPLORE ALL RESORTS <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
+    <!-- Pick Your Package Section -->
+    <section id="trust-accommodation" class="packages-section" style="padding: 5rem 0; position: relative;">
+        <div class="trust-container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div class="stays-header" data-aos="fade-up" style="margin-bottom: 3rem; text-align: center;">
+                <span class="section-badge">COLLECTION</span>
+                <h2 style="font-size: 3.5rem;">PICK YOUR PACKAGE</h2>
+                <p style="color: var(--clr-text-muted); max-width: 600px; margin: 1rem auto 0;">Discover the perfect adventure tailored to your budget, style, and group size.</p>
+            </div>
 
-                <div class="lodge-filter-bar" data-aos="fade-up">
-                    <button class="lodge-filter-tab active" onclick="filterLodges(this, 'luxe')">GROUP PACKAGES</button>
-                    <button class="lodge-filter-tab" onclick="filterLodges(this, 'jungle')">FAMILY PACKAGES</button>
-                    <button class="lodge-filter-tab" onclick="filterLodges(this, 'glamping')">COLLEGE PACKAGES</button>
-                    <button class="lodge-filter-tab" onclick="filterLodges(this, 'value')">IT/CORPORATE
-                        PACKAGES</button>
-                </div>
-
-                <div class="lodge-grid-display" id="lodge-grid">
-                    <!-- LUXE CATEGORY -->
-                    <div class="lodge-card luxe show" data-aos="fade-up" onclick="window.location.href='resort.html'"
-                        style="cursor: pointer;">
-                        <div class="lodge-img-wrapper">
-                            <img src="assets/resort/lodge3.jpeg" alt="Resort 1">
-                        </div>
-                        <div class="lodge-content">
-                            <h3>PACKAGE 1</h3>
-                            <p>Premium riverfront infinity pool and world-class hospitality.</p>
-                            <div class="lodge-amenities">
-                                <span class="lodge-amenity"><i class="fa-solid fa-swimming-pool"></i> Infinity
-                                    Pool</span>
-                                <span class="lodge-amenity"><i class="fa-solid fa-snowflake"></i> Fully AC</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="lodge-card luxe show" data-aos="fade-up" data-aos-delay="100"
-                        onclick="window.location.href='resort.html'" style="cursor: pointer;">
-                        <div class="lodge-img-wrapper">
-                            <img src="assets/resort/resort2.jpeg" alt="Resort 2">
-                        </div>
-                        <div class="lodge-content">
-                            <h3>PACKAGE 2</h3>
-                            <p>Historic architecture meets modern luxury on the Kali riverbanks.</p>
-                            <div class="lodge-amenities">
-                                <span class="lodge-amenity"><i class="fa-solid fa-spa"></i> Wellness Spa</span>
-                                <span class="lodge-amenity"><i class="fa-solid fa-utensils"></i> Fine Dining</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="lodge-card luxe show" data-aos="fade-up" data-aos-delay="200"
-                        onclick="window.location.href='resort.html'" style="cursor: pointer;">
-                        <div class="lodge-img-wrapper">
-                            <img src="assets/resort/lodge.jpeg" alt="Resort 3">
-                        </div>
-                        <div class="lodge-content">
-                            <h3>PACKAGE 3</h3>
-                            <p>Wake up above the clouds in our exclusive hilltop AC suites.</p>
-                            <div class="lodge-amenities">
-                                <span class="lodge-amenity"><i class="fa-solid fa-cloud"></i> Hilltop View</span>
-                                <span class="lodge-amenity"><i class="fa-solid fa-wine-glass"></i> Sky Bar</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- JUNGLE CATEGORY -->
-                    <div class="lodge-card jungle" data-aos="fade-up" onclick="window.location.href='resort.html'"
-                        style="cursor: pointer;">
-                        <div class="lodge-img-wrapper">
-                            <img src="assets/resort/lodge3.jpeg" alt="Lodge 1">
-                        </div>
-                        <div class="lodge-content">
-                            <h3>Lodge 1</h3>
-                            <p>Authentic wooden cabins deep in the forest for nature photographers.</p>
-                            <div class="lodge-amenities">
-                                <span class="lodge-amenity"><i class="fa-solid fa-binoculars"></i> Bird Watching</span>
-                                <span class="lodge-amenity"><i class="fa-solid fa-leaf"></i> Eco-Friendly</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="lodge-card jungle" data-aos="fade-up" data-aos-delay="100"
-                        onclick="window.location.href='resort.html'" style="cursor: pointer;">
-                        <div class="lodge-img-wrapper">
-                            <img src="assets/resort/lodge4.jpeg" alt="Lodge 2">
-                        </div>
-                        <div class="lodge-content">
-                            <h3>Lodge 2</h3>
-                            <p>Positioned perfectly for early morning jungle safaris and tracking.</p>
-                            <div class="lodge-amenities">
-                                <span class="lodge-amenity"><i class="fa-solid fa-car"></i> Safari Ready</span>
-                                <span class="lodge-amenity"><i class="fa-solid fa-tree"></i> Jungle Trek</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="lodge-card jungle" data-aos="fade-up" data-aos-delay="200"
-                        onclick="window.location.href='resort.html'" style="cursor: pointer;">
-                        <div class="lodge-img-wrapper">
-                            <img src="assets/resort/lodge5.jpeg" alt="Lodge 3">
-                        </div>
-                        <div class="lodge-content">
-                            <h3>Lodge 3</h3>
-                            <p>Cozy attic-style rooms with direct views of rare forest nesting sites.</p>
-                            <div class="lodge-amenities">
-                                <span class="lodge-amenity"><i class="fa-solid fa-feather"></i> Rare Birds</span>
-                                <span class="lodge-amenity"><i class="fa-solid fa-mug-hot"></i> Organic Coffee</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- GLAMPING CATEGORY -->
-                    <div class="lodge-card glamping" data-aos="fade-up" onclick="window.location.href='resort.html'"
-                        style="cursor: pointer;">
-                        <div class="lodge-img-wrapper">
-                            <img src="assets/resort/lodge6.jpeg" alt="Camp 1">
-                        </div>
-                        <div class="lodge-content">
-                            <h3>Camp 1</h3>
-                            <p>Luxury units suspended in giant teak trees. A truly unique escape.</p>
-                            <div class="lodge-amenities">
-                                <span class="lodge-amenity"><i class="fa-solid fa-arrow-up"></i> Treetop Stay</span>
-                                <span class="lodge-amenity"><i class="fa-solid fa-bridge"></i> Rope Bridge</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="lodge-card glamping" data-aos="fade-up" data-aos-delay="100"
-                        onclick="window.location.href='resort.html'" style="cursor: pointer;">
-                        <div class="lodge-img-wrapper">
-                            <img src="assets/resort/lodge8.jpeg" alt="Camp 2">
-                        </div>
-                        <div class="lodge-content">
-                            <h3>Camp 2</h3>
-                            <p>Premium canvas safari tents with private wooden riverside decks.</p>
-                            <div class="lodge-amenities">
-                                <span class="lodge-amenity"><i class="fa-solid fa-moon"></i> Stargazing</span>
-                                <span class="lodge-amenity"><i class="fa-solid fa-fire"></i> Riverside Fire</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="lodge-card glamping" data-aos="fade-up" data-aos-delay="200"
-                        onclick="window.location.href='resort.html'" style="cursor: pointer;">
-                        <div class="lodge-img-wrapper">
-                            <img src="assets/resort/WhatsApp Image 2026-04-01 at 10.37.28.jpeg" alt="Camp 3">
-                        </div>
-                        <div class="lodge-content">
-                            <h3>Camp 3</h3>
-                            <p>Unobstructed sky views with premium ventilation and king-sized beds.</p>
-                            <div class="lodge-amenities">
-                                <span class="lodge-amenity"><i class="fa-solid fa-star"></i> Sky View</span>
-                                <span class="lodge-amenity"><i class="fa-solid fa-shower"></i> Ensuite Bath</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- VALUE CATEGORY -->
-                    <div class="lodge-card value" data-aos="fade-up" onclick="window.location.href='resort.html'"
-                        style="cursor: pointer;">
-                        <div class="lodge-img-wrapper">
-                            <img src="assets/resort/resort.jpeg" alt="Stay 1">
-                        </div>
-                        <div class="lodge-content">
-                            <h3>Stay 1</h3>
-                            <p>Group-friendly cottages with home-cooked Malnad meals included.</p>
-                            <div class="lodge-amenities">
-                                <span class="lodge-amenity"><i class="fa-solid fa-users"></i> Big Groups</span>
-                                <span class="lodge-amenity"><i class="fa-solid fa-bowl-food"></i> Local Meals</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="lodge-card value" data-aos="fade-up" data-aos-delay="100"
-                        onclick="window.location.href='resort.html'" style="cursor: pointer;">
-                        <div class="lodge-img-wrapper">
-                            <img src="assets/resort/lodge3.jpeg" alt="Stay 2">
-                        </div>
-                        <div class="lodge-content">
-                            <h3>Stay 2</h3>
-                            <p>Simple stone and wood huts for genuine nature lovers and backpackers.</p>
-                            <div class="lodge-amenities">
-                                <span class="lodge-amenity"><i class="fa-solid fa-hiking"></i> Trailhead Access</span>
-                                <span class="lodge-amenity"><i class="fa-solid fa-mug-saucer"></i> Free Chai</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="lodge-card value" data-aos="fade-up" data-aos-delay="200"
-                        onclick="window.location.href='resort.html'" style="cursor: pointer;">
-                        <div class="lodge-img-wrapper">
-                            <img src="assets/resort/lodge6.jpeg" alt="Stay 3">
-                        </div>
-                        <div class="lodge-content">
-                            <h3>Stay 3</h3>
-                            <p>Authentic forest cabin located directly at the Kali Valley trailhead.</p>
-                            <div class="lodge-amenities">
-                                <span class="lodge-amenity"><i class="fa-solid fa-mountain"></i> Trailhead</span>
-                                <span class="lodge-amenity"><i class="fa-solid fa-bed"></i> Simple Stays</span>
-                            </div>
-                        </div>
-                    </div>
+            <div class="package-filter-wrapper" data-aos="fade-up">
+                <div class="package-filter-bar">
+                    <button class="package-filter-tab active" onclick="filterPackages(this, 'budget')">Budget</button>
+                    <button class="package-filter-tab" onclick="filterPackages(this, 'mid-range')">Mid-Range</button>
+                    <button class="package-filter-tab" onclick="filterPackages(this, 'group')">Group/Corporate</button>
+                    <button class="package-filter-tab" onclick="filterPackages(this, 'premium')">Premium</button>
+                    <button class="package-filter-tab" onclick="filterPackages(this, 'activity')">Activity Centers</button>
                 </div>
             </div>
 
-            <script>
-                function filterLodges(tabElement, category) {
-                    // Update Tabs by direct reference
-                    document.querySelectorAll('.lodge-filter-tab').forEach(tab => {
-                        tab.classList.remove('active');
-                    });
-                    if (tabElement) tabElement.classList.add('active');
+            <div class="package-grid-display" id="package-grid">
+                
+                <!-- [Tab 1] Budget Packages (₹1000–₹1500 per person) -->
+                <div class="package-card budget show" data-aos="fade-up">
+                    <div class="package-header">
+                        <h3>Dandeli Rafting Resorts</h3>
+                        <span class="package-rating"><i class="fa-solid fa-star"></i> 4.8</span>
+                    </div>
+                    <p class="package-type">Resort hotel / Lodge</p>
+                    <div class="package-price">~₹1,199 <span>per person</span></div>
+                    <ul class="package-details">
+                        <li><i class="fa-solid fa-check"></i> <div><strong>Includes:</strong> Stay (camp / basic rooms), Breakfast / lunch / dinner, Activities (kayaking, zorbing, boating).</div></li>
+                        <li><i class="fa-solid fa-plus"></i> <div><strong>Extras:</strong> Rafting (₹650–₹1100 extra).</div></li>
+                        <li><i class="fa-solid fa-heart"></i> <div><strong>Best for:</strong> Friends / budget groups.</div></li>
+                    </ul>
+                </div>
 
-                    // Update Cards
-                    document.querySelectorAll('.lodge-card').forEach(card => {
-                        card.classList.remove('show');
-                        if (card.classList.contains(category)) {
-                            setTimeout(() => {
-                                card.classList.add('show');
-                            }, 50);
-                        }
-                    });
-                }
-                // Initialize first category correctly
-                window.onload = () => {
-                    const firstTab = document.querySelector('.lodge-filter-tab');
-                    if (firstTab) filterLodges(firstTab, 'luxe');
-                };
-            </script>
+                <!-- [Tab 2] Mid-Range Adventure Resorts (₹1500–₹2500) -->
+                <div class="package-card mid-range" data-aos="fade-up">
+                    <div class="package-header">
+                        <h3>Resort - Dandeli</h3>
+                        <span class="package-rating"><i class="fa-solid fa-star"></i> 4.3</span>
+                    </div>
+                    <p class="package-type">Adventure sports center</p>
+                    <ul class="package-details">
+                        <li><i class="fa-solid fa-check"></i> <div><strong>Includes:</strong> River rafting, kayaking, swimming, boating, Food + accommodation. Water activities within walking distance.</div></li>
+                        <li><i class="fa-solid fa-heart"></i> <div><strong>Best for:</strong> Families & couples.</div></li>
+                    </ul>
+                </div>
+                
+                <div class="package-card mid-range" data-aos="fade-up" data-aos-delay="100">
+                    <div class="package-header">
+                        <h3>Adventure in Resort</h3>
+                        <span class="package-rating"><i class="fa-solid fa-star"></i> 4.5</span>
+                    </div>
+                    <p class="package-type">Resort hotel</p>
+                    <ul class="package-details">
+                        <li><i class="fa-solid fa-check"></i> <div><strong>Includes:</strong> Riverside resort with swimming pool + river activities, Zorbing, kayaking, trekking. Good mix of comfort + adventure.</div></li>
+                    </ul>
+                </div>
+
+                <!-- [Tab 3] Group / Corporate Packages (₹1800–₹3000) -->
+                <div class="package-card group" data-aos="fade-up">
+                    <div class="package-header">
+                        <h3>Dandeli Resort</h3>
+                        <span class="package-rating"><i class="fa-solid fa-star"></i> 4.4</span>
+                    </div>
+                    <p class="package-type">Resort hotel</p>
+                    <div class="package-price">~₹1,999 <span>per person</span></div>
+                    <ul class="package-details">
+                        <li><i class="fa-solid fa-check"></i> <div><strong>Includes:</strong> 3 meals (buffet veg + non-veg), 10+ activities (pool, rain dance, trekking, indoor games), Kayaking, zorbing, swimming.</div></li>
+                        <li><i class="fa-solid fa-plus"></i> <div><strong>Extras:</strong> Rafting optional (₹600–₹1700).</div></li>
+                        <li><i class="fa-solid fa-heart"></i> <div><strong>Best for:</strong> Corporate outings, College trips, Big groups (20–100 people).</div></li>
+                    </ul>
+                </div>
+
+                <!-- [Tab 4] Premium Resorts (₹3000–₹5000) -->
+                <div class="package-card premium" data-aos="fade-up">
+                    <div class="package-header">
+                        <h3>Camp</h3>
+                        <span class="package-rating"><i class="fa-solid fa-star"></i> 4.4</span>
+                    </div>
+                    <p class="package-type">Resort hotel (Lodges property)</p>
+                    <ul class="package-details">
+                        <li><i class="fa-solid fa-check"></i> <div><strong>Includes:</strong> Luxury cottages, Guided rafting + kayaking, Nature activities.</div></li>
+                        <li><i class="fa-solid fa-heart"></i> <div><strong>Best for:</strong> Couples / family luxury trips.</div></li>
+                    </ul>
+                </div>
+
+                <div class="package-card premium" data-aos="fade-up" data-aos-delay="100">
+                    <div class="package-header">
+                        <h3>Resort</h3>
+                        <span class="package-rating"><i class="fa-solid fa-star"></i> 4.1</span>
+                    </div>
+                    <p class="package-type">Resort hotel</p>
+                    <ul class="package-details">
+                        <li><i class="fa-solid fa-check"></i> <div><strong>Includes:</strong> Premium stay with Pool + riverside access, Adventure + relaxation combo.</div></li>
+                        <li><i class="fa-solid fa-heart"></i> <div><strong>Best for:</strong> Corporate retreats & couples.</div></li>
+                    </ul>
+                </div>
+
+                <!-- [Tab 5] Pure Activity Centers (Add to any stay) -->
+                <div class="package-card activity" data-aos="fade-up">
+                    <div class="package-header">
+                        <h3 style="flex: 1;">Dandeli Rafting & Water Sports</h3>
+                        <span class="package-rating" style="margin-left: auto;"><i class="fa-solid fa-star"></i> 4.4 - 4.9</span>
+                    </div>
+                    <p class="package-type">Pure Activity Centers</p>
+                    <ul class="package-details">
+                        <li><i class="fa-solid fa-check"></i> <div><strong>Includes:</strong> Rafting + kayaking + zorbing combos. Can be booked separately if the resort doesn't include it.</div></li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
+
+        <script>
+            function filterPackages(tabElement, category) {
+                // Update active tab styling
+                const tabs = document.querySelectorAll('.package-filter-tab');
+                tabs.forEach(tab => tab.classList.remove('active'));
+                if (tabElement) tabElement.classList.add('active');
+
+                // Cross-fade the cards
+                const allCards = document.querySelectorAll('.package-card');
+                allCards.forEach(card => {
+                    card.classList.remove('show');
+                    // wait for transition to fade out visually before display space removal
+                    setTimeout(() => {
+                        if (!card.classList.contains('show')) {
+                            card.style.display = 'none';
+                        }
+                    }, 400); 
+                });
+                
+                // Show matching cards
+                const targetCards = document.querySelectorAll('.package-card.' + category);
+                // We show them immediately to take up space, then add class to trigger transform/opacity
+                setTimeout(() => {
+                    targetCards.forEach((card, index) => {
+                        card.style.display = 'flex';
+                        // small delay for css transition to trigger
+                        setTimeout(() => {
+                            card.classList.add('show');
+                        }, 50 + (index * 50));
+                    });
+                }, 400); // Wait for hiding cards to clear out
+            }
+            // Initialize
+            document.addEventListener('DOMContentLoaded', () => {
+                const targetCards = document.querySelectorAll('.package-card.budget');
+                targetCards.forEach((card, index) => {
+                    card.style.display = 'flex';
+                    setTimeout(() => {
+                        card.classList.add('show');
+                    }, 50 + (index * 50));
+                });
+            });
+        </script>
     </section>
 
 
