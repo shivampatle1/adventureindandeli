@@ -1663,44 +1663,4 @@
 
 </body>
 
-</html> } else {
-bubble.classList.add('open');
-badge.style.display = 'none'; // hide the red notification dot
-// Stagger messages appearing
-setTimeout(() => document.getElementById('wa-msg-1').classList.add('visible'), 200);
-setTimeout(() => document.getElementById('wa-msg-2').classList.add('visible'), 700);
-}
-}
-
-function waCloseBubble() {
-document.getElementById('wa-chat-bubble').classList.remove('open');
-}
-
-// Working hours detection (IST = UTC+5:30, 9AM-9PM)
-(function waCheckHours() {
-const now = new Date();
-const istOffset = 5.5 * 60; // minutes
-const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-const ist = new Date(utc + istOffset * 60000);
-const hour = ist.getHours();
-const dot = document.getElementById('wa-status-dot');
-const label = document.getElementById('wa-status-label');
-const isOnline = hour >= 9 && hour < 21; dot.classList.add(isOnline ? 'online' : 'offline' ); label.textContent=isOnline
-    ? '🟢 Online now' : '' ; })(); // Auto-open bubble after 3s on first visit (function waAutoOpen() { if
-    (!sessionStorage.getItem('wa_opened')) { sessionStorage.setItem('wa_opened', '1' ); // First-visit wave on button
-    const btn=document.getElementById('wa-main-btn'); btn.classList.add('first-visit-wave');
-    btn.addEventListener('animationend', ()=> btn.classList.remove('first-visit-wave'));
-    // Auto-open popup after 3s
-    setTimeout(() => {
-    const bubble = document.getElementById('wa-chat-bubble');
-    bubble.classList.add('open');
-    setTimeout(() => document.getElementById('wa-msg-1').classList.add('visible'), 300);
-    setTimeout(() => document.getElementById('wa-msg-2').classList.add('visible'), 900);
-    }, 3000);
-    }
-    })();
-    </script>
-
-    </body>
-
-    </html>
+</html>
