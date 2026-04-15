@@ -2028,12 +2028,23 @@
                 </a>
             </div>
         </div>
-        <div class="wa-bottom-row">
-            <div class="wa-widget-tooltip">Chat with us on WhatsApp 👋</div>
-            <a href="#" class="wa-button" id="wa-main-btn" onclick="waToggleBubble(event)">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span class="wa-notification" id="wa-badge">1</span>
-            </a>
+        <div class="wa-bottom-row help-fab-mode">
+            <div class="wa-widget-tooltip">Need Help? 👋</div>
+            <div class="help-fab-container" tabindex="0">
+                <div class="help-fab-menu">
+                    <a href="tel:+919916455551" class="call-float-btn" aria-label="Call Us Now">
+                        <i class="fa-solid fa-phone"></i> <span>Call Now</span>
+                    </a>
+                    <a href="#" class="wa-button" id="wa-main-btn" onclick="waToggleBubble(event)">
+                        <i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span>
+                        <span class="wa-notification" id="wa-badge">1</span>
+                    </a>
+                </div>
+                <!-- Main Help Button -->
+                <div class="help-fab-main" id="help-fab-main">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+            </div>
         </div>
     </div>
     <script>

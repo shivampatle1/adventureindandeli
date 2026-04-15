@@ -590,8 +590,28 @@ document.addEventListener('DOMContentLoaded', () => {
             autoScrollInterval = setInterval(scrollNext, 6000); // Resume with delay
         }
 
-        // Pause on touch/interaction
         testimonialTrack.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
         testimonialTrack.addEventListener('mouseleave', () => resetAutoScroll());
     }
+
+    // 9. Mobile Floating Help FAB Toggle Logic
+    const helpFabContainers = document.querySelectorAll('.help-fab-container');
+    helpFabContainers.forEach(container => {
+        const mainBtn = container.querySelector('.help-fab-main');
+        if (mainBtn) {
+            mainBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent immediate closing
+                container.classList.toggle('fab-open');
+            });
+        }
+    });
+
+    // Close FAB when clicking anywhere else on the screen
+    document.addEventListener('click', (e) => {
+        helpFabContainers.forEach(container => {
+            if (!container.contains(e.target)) {
+                container.classList.remove('fab-open');
+            }
+        });
+    });
 });

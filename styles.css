@@ -3847,10 +3847,170 @@ ul {
 /* ── BOTTOM ROW: TOOLTIP + BUTTON ── */
 .wa-bottom-row {
     display: flex;
-    align-items: center;
+    align-items: center; /* keep tooltip inline */
     gap: 12px;
     pointer-events: none;
+    position: relative;
+    z-index: 1000;
 }
+
+.help-fab-container {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    pointer-events: auto;
+}
+
+.help-fab-main {
+    background: linear-gradient(135deg, #1f2933, #0a1115);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.8rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s;
+    position: relative;
+}
+.help-fab-main::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    border: 2px solid #6EAF6E;
+    opacity: 0.6;
+    animation: help-ping 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+    z-index: -1;
+}
+@keyframes help-ping {
+    75%, 100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+.help-fab-container.fab-open .help-fab-main {
+    transform: rotate(15deg) scale(1.05);
+    background: #6EAF6E;
+    box-shadow: 0 10px 30px rgba(110, 175, 110, 0.4);
+}
+.help-fab-container.fab-open .help-fab-main::before {
+    animation: none;
+    opacity: 0;
+}
+
+@media (hover: hover) {
+    .help-fab-container:hover .help-fab-main {
+        transform: rotate(15deg) scale(1.05);
+        background: #6EAF6E;
+        box-shadow: 0 10px 30px rgba(110, 175, 110, 0.4);
+    }
+    .help-fab-container:hover .help-fab-main::before {
+        animation: none;
+        opacity: 0;
+    }
+}
+
+.help-fab-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    margin-bottom: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+    transform-origin: bottom right;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+    align-items: stretch;
+    background: rgba(15, 28, 36, 0.75);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 12px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+    min-width: 190px;
+}
+
+.help-fab-container.fab-open .help-fab-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+@media (hover: hover) {
+    .help-fab-container:hover .help-fab-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+    }
+}
+
+.help-fab-menu a {
+    width: 100% !important;
+    height: auto !important;
+    padding: 14px 20px !important;
+    border-radius: 16px !important;
+    font-size: 0.95rem !important;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    gap: 12px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: all 0.3s ease;
+    box-shadow: none !important;
+    position: relative;
+    text-decoration: none;
+}
+.help-fab-menu a i {
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
+
+.help-fab-menu .call-float-btn {
+    background: rgba(255, 107, 53, 0.1) !important;
+    color: var(--clr-text-main) !important;
+}
+.help-fab-menu .call-float-btn i {
+    color: var(--clr-orange-safety);
+}
+.help-fab-menu .call-float-btn:hover {
+    background: var(--clr-orange-safety) !important;
+    color: #fff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4) !important;
+}
+.help-fab-menu .call-float-btn:hover i { color: #fff; }
+
+.help-fab-menu .wa-button {
+    background: rgba(37, 211, 102, 0.1) !important;
+    color: var(--clr-text-main) !important;
+    animation: none !important;
+}
+.help-fab-menu .wa-button i {
+    color: #25D366;
+}
+.help-fab-menu .wa-button:hover {
+    background: #25D366 !important;
+    color: #fff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4) !important;
+}
+.help-fab-menu .wa-button:hover i { color: #fff; }
 
 .wa-widget-tooltip {
     background: #fff;
@@ -3895,6 +4055,31 @@ ul {
 .wa-button:hover {
     transform: scale(1.1);
     animation: none;
+    color: white;
+}
+
+.call-float-btn {
+    pointer-events: auto;
+    background: var(--clr-orange-safety);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.6rem;
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    border: none;
+    animation: none;
+}
+
+.call-float-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 35px rgba(255, 107, 53, 0.6);
     color: white;
 }
 
